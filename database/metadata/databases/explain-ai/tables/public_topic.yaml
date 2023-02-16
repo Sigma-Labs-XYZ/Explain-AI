@@ -1,0 +1,28 @@
+table:
+  name: topic
+  schema: public
+array_relationships:
+  - name: descriptions
+    using:
+      manual_configuration:
+        column_mapping:
+          id: topic_id
+        insertion_order: null
+        remote_table:
+          name: description
+          schema: public
+  - name: relationships
+    using:
+      foreign_key_constraint_on:
+        column: to_id
+        table:
+          name: relationship
+          schema: public
+select_permissions:
+  - role: user
+    permission:
+      columns:
+        - id
+        - image
+        - name
+      filter: {}

@@ -1,0 +1,26 @@
+version: "3.6"
+services:
+  database-engine:
+    image: postgres:12
+    restart: always
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_PASSWORD: postgrespassword
+  database-api:
+    image: hasura/graphql-engine:v2.19.0-ce.cli-migrations-v3
+    ports:
+      - "8080:8080"
+    depends_on:
+      - "database-engine"
+    restart: always
+    environment:
+      HASURA_GRAPHQL_DATABASE_URL: postgres://postgres:postgrespassword@database-engine:5432/postgres
+      HASURA_GRAPHQL_ENABLE_CONSOLE: "true"
+      HASURA_GRAPHQL_DEV_MODE: "true"
+      HASURA_GRAPHQL_ENABLED_LOG_TYPES: startup, http-log, webhook-log, websocket-log, query-log
+      HASURA_GRAPHQL_ADMIN_SECRET: admin_secret
+      # HASURA_GRAPHQL_MIGRATIONS_DIR: /migrations
+      # HASURA_GRAPHQL_METADATA_DIR: /metadata
+volumes:
+  db_data:

@@ -1,0 +1,17 @@
+- name: allowed-queries
+  definition:
+    queries:
+      - name: topics
+        query: |
+          query topics {
+            topic {
+              name
+              relationships {
+                priority
+                description
+                to {
+                  name
+                }
+              }
+            }
+          }
