@@ -4,17 +4,17 @@ table:
 object_relationships:
   - name: from
     using:
-      foreign_key_constraint_on: from_id
+      foreign_key_constraint_on: from_slug
   - name: to
     using:
-      foreign_key_constraint_on: to_id
+      foreign_key_constraint_on: to_slug
 select_permissions:
   - role: user
     permission:
       columns:
         - priority
         - description
-        - from_id
-        - to_id
+        - from_slug
+        - to_slug
         - id
       filter: {}

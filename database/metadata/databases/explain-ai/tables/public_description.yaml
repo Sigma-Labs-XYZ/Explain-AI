@@ -4,7 +4,7 @@ table:
 object_relationships:
   - name: topic
     using:
-      foreign_key_constraint_on: topic_id
+      foreign_key_constraint_on: topic_slug
 select_permissions:
   - role: user
     permission:
@@ -12,6 +12,6 @@ select_permissions:
         - audience
         - long
         - short
-        - topic_id
+        - topic_slug
         - id
       filter: {}

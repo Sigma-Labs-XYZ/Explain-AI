@@ -6,7 +6,7 @@ array_relationships:
     using:
       manual_configuration:
         column_mapping:
-          id: topic_id
+          slug: topic_slug
         insertion_order: null
         remote_table:
           name: description
@@ -14,7 +14,7 @@ array_relationships:
   - name: relationships
     using:
       foreign_key_constraint_on:
-        column: to_id
+        column: to_slug
         table:
           name: relationship
           schema: public
@@ -22,7 +22,7 @@ select_permissions:
   - role: user
     permission:
       columns:
-        - id
+        - slug
         - image
         - name
       filter: {}

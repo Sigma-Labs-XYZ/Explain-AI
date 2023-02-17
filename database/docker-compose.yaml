@@ -1,21 +1,29 @@
 version: "3.6"
 services:
-  database-engine:
-    image: postgres:12
+  explainai-database-engine:
+    container_name: explainai-database-engine
+    image: postgres:13.0-alpine
     restart: always
     volumes:
       - db_data:/var/lib/postgresql/data
     environment:
       POSTGRES_PASSWORD: postgrespassword
-  database-api:
+      POSTGRES_DB: explainai
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready --dbname=explainai --username=postgres"]
+  explainai-database-api:
+    container_name: explainai-database-api
     image: hasura/graphql-engine:v2.19.0-ce.cli-migrations-v3
     ports:
       - "8080:8080"
     depends_on:
-      - "database-engine"
+      - "explainai-database-engine"
     restart: always
+    volumes:
+      - ./migrations:/hasura-migrations
+      - ./metadata:/hasura-metadata
     environment:
-      HASURA_GRAPHQL_DATABASE_URL: postgres://postgres:postgrespassword@database-engine:5432/postgres
+      HASURA_GRAPHQL_DATABASE_URL: postgres://postgres:postgrespassword@explainai-database-engine:5432/explainai
       HASURA_GRAPHQL_ENABLE_CONSOLE: "true"
       HASURA_GRAPHQL_DEV_MODE: "true"
       HASURA_GRAPHQL_ENABLED_LOG_TYPES: startup, http-log, webhook-log, websocket-log, query-log
