@@ -19,7 +19,7 @@ app.get("/topics", async (_, res) => {
   const endpoint = `${DB_ENDPOINT}/api/rest/topics`;
   const response = await fetch(endpoint, { method: "GET", headers });
   const topics = await response.json();
-  res.send(topics).status(200);
+  res.send(topics);
 });
 
 app.get("/:id", async (req, res) => {

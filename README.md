@@ -21,16 +21,20 @@ npm run start
 
 2. Launch the API
 
+Inside the /api directory, duplicate the `.env.example` file and rename the copy to `.env`.
+
 ```bash
 cd api
 npm install
 npm run start
 ```
 
-3. Launch the React Web App
+3. Launch the Web App
 
 ```bash
 cd web
 npm install
 npm run start
 ```
+
+If you visit `http://localhost:3000` in your browser, you should see a blob of JSON that is being fetched from the database, via the api, and rendered on the front end. 👍
