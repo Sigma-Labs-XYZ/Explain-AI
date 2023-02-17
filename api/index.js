@@ -8,7 +8,8 @@ const app = express();
 app.use(cors());
 
 const port = 4000;
-const { DB_ENDPOINT, DB_SECRET } = process.env;
+const DB_ENDPOINT = process.env.DB_ENDPOINT || "http://localhost:8080";
+const DB_SECRET = process.env.DB_SECRET || "admin_secret";
 
 const headers = {
   "Content-Type": "application/json",
@@ -28,4 +29,4 @@ app.get("/:id", async (req, res) => {
   // If the topic does not exist, generate it
 });
 
-app.listen(port, () => console.log(`Back End listening on port ${port}`));
+app.listen(port, () => console.log(`API listening on port ${port}`));
