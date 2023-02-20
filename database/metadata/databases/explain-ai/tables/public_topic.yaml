@@ -14,7 +14,7 @@ array_relationships:
   - name: relationships
     using:
       foreign_key_constraint_on:
-        column: to_slug
+        column: from_slug
         table:
           name: relationship
           schema: public

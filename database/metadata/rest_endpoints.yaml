@@ -2,8 +2,17 @@
   definition:
     query:
       collection_name: allowed-queries
-      query_name: topics
+      query_name: Topic
   methods:
     - GET
-  name: topics
+  name: Topic
+  url: topic/:slug/:audience
+- comment: ""
+  definition:
+    query:
+      collection_name: allowed-queries
+      query_name: Topics
+  methods:
+    - GET
+  name: Topics
   url: topics

@@ -1,9 +1,28 @@
 - name: allowed-queries
   definition:
     queries:
-      - name: topics
+      - name: Topic
         query: |
-          query topics {
+          query GET_TOPIC ($slug: String, $audience: numeric) {
+            topic(where: {slug:{_eq:$slug}}) {
+              name
+              image
+              created_at
+              descriptions(where: {audience:{_eq:$audience}}) {
+                short
+              }
+              relationships(where: {audience:{_eq:$audience}}) {
+                to {
+                  name
+                  image
+                }
+                description
+              }
+            }
+          }
+      - name: Topics
+        query: |
+          query TOPICS {
             topic {
               name
               relationships {
