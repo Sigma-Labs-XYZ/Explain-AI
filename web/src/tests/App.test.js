@@ -1,4 +1,4 @@
-import { render, screen, waitFor, rerender } from "@testing-library/react";
+import { render, screen, waitFor } from "@testing-library/react";
 import { fetchTopics } from "../Networking";
 import App from "../App";
 import React from "react";
@@ -6,9 +6,10 @@ import React from "react";
 jest.mock("../Networking", () => ({ fetchTopics: jest.fn() }));
 
 test("fetch topics", async () => {
-  fetchTopics.mockResolvedValue({ topic: "Javascript" });
+  const mockedResult = { topic: "Javascript" };
+  fetchTopics.mockResolvedValue(mockedResult);
   render(<App />);
   await waitFor(() => {
-    screen.getByText('{"topic":"Javascript"}');
+    screen.getByText(JSON.stringify(mockedResult));
   });
 });
