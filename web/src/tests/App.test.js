@@ -10,6 +10,6 @@ test("fetch topics", async () => {
   fetchTopics.mockResolvedValue(mockedResult);
   render(<App />);
   await waitFor(() => {
-    screen.getByText(JSON.stringify(mockedResult));
+    expect(screen.getByText(JSON.stringify(mockedResult))).toBeInTheDocument();
   });
 });
