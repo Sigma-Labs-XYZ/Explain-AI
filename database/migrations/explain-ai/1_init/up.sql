@@ -17,7 +17,8 @@ CREATE TABLE public.relationship (
 CREATE TABLE public.topic (
     slug text NOT NULL,
     image text,
-    name text NOT NULL
+    name text NOT NULL,
+    created_at date NOT NULL DEFAULT now()
 );
 
 ALTER TABLE ONLY public.description
