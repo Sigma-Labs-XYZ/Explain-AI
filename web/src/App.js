@@ -6,7 +6,10 @@ import { useState, useEffect } from "react";
 function App() {
   const [topics, setTopics] = useState("second");
   useEffect(() => {
-    fetchTopics(setTopics);
+    (async () => {
+      const fetchedTopics = await fetchTopics();
+      setTopics(JSON.stringify(fetchedTopics));
+    })();
   }, []);
 
   return (
