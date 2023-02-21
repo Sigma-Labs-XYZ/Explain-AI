@@ -7,13 +7,13 @@ function App() {
   useEffect(() => {
     (async () => {
       const fetchedTopics = await fetchTopics();
-      setTopics(JSON.stringify(fetchedTopics));
+      setTopics(fetchedTopics);
     })();
   }, []);
 
   return (
     <div className="App">
-      <p>{topics}</p>
+      <p>{JSON.stringify(topics)}</p>
     </div>
   );
 }
