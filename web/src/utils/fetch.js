@@ -1,10 +1,8 @@
-export const fetchData = async () => {
+export const fetchData = async (endpoint) => {
     try {
-      const res = await fetch('http://localhost:4000/topics')
-      console.log({res})
+      const res = await fetch(endpoint)
       const json = await res.json()
-      console.log(json)
-      return JSON.stringify(json.topic)
+      return json
     }
     catch(err) {
       console.log(err)

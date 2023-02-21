@@ -2,7 +2,7 @@ import { render, screen} from '@testing-library/react';
 import App from '../App';
 import { fetchData } from '../utils/fetch';
 
-const object = [{'name':'test','relationships':['test1','test2','test3']}]
+const object = {topic: [{'name':'test','relationships':['test1','test2','test3']}]}
 
 test('Renders the title', () => {
   render(<App />);
@@ -12,28 +12,24 @@ test('Renders the title', () => {
 });
 
 describe("Mock data", () => {
-  //this is in test suite so it doesn't interact with other tests.
-
+  //this is in a describe so the beforeEach doesn't interact with other tests.
   let fetchingData;
-
   beforeEach(() => {
     global.fetch = jest.fn(() => Promise.resolve({
-      json: () => Promise.resolve({topic: object})
+      json: () => Promise.resolve(object)
     }));
   });
 
   test("correct fetch should be returned", async () => {
     fetchingData = await fetchData();
-    console.log({fetchingData})
-    expect(fetchingData).toEqual(JSON.stringify(object));
+    expect(fetchingData).toEqual(object);
   })
 
   test('correct json is presented', async () => {
-    console.log('new test') 
     render(<App/>)
-    const topic = await screen.findByText(JSON.stringify(object))
+    const topic = await screen.findByText(JSON.stringify(object.topic))
     expect(topic).toBeDefined()
-    expect(topic.textContent).toBe(JSON.stringify(object))
+    expect(topic.textContent).toBe(JSON.stringify(object.topic))
 
   })
 })

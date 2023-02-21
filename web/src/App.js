@@ -7,15 +7,14 @@ function App()  {
   useEffect(() => {
     const fetch = async () => {
       const data = await fetchData();
-      console.log({data})
-      setTopics(data)
+      setTopics(data.topic)
     }
     fetch()
   }, [])
   const generateTopicPage = topics=> {
     if (topics) {
       return <p>
-        {topics}
+        {JSON.stringify(topics)}
       </p>
     } else {
       return <p>Cannot be found</p>
