@@ -13,9 +13,9 @@ function App()  {
   }, [])
   const generateTopicPage = topics=> {
     if (topics) {
-      return <div>
+      return <p>
         {topics}
-      </div>
+      </p>
     } else {
       return <p>Cannot be found</p>
     }
