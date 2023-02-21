@@ -3,7 +3,7 @@ import { fetchTopics } from "./Networking";
 import { useState, useEffect } from "react";
 
 function App() {
-  const [topics, setTopics] = useState("");
+  const [topics, setTopics] = useState();
   useEffect(() => {
     (async () => {
       const fetchedTopics = await fetchTopics();
