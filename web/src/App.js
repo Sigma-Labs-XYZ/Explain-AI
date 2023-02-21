@@ -7,6 +7,7 @@ function App()  {
   useEffect(() => {
     const fetch = async () => {
       const data = await fetchData();
+      console.log({data})
       setTopics(data)
     }
     fetch()
