@@ -2,7 +2,7 @@ import { render, screen} from '@testing-library/react';
 import App from '../App';
 import { fetchData } from '../utils/fetch';
 
-const object = {topic: [{'name':'test','relationships':['test1','test2','test3']}]}
+const testObject = {topic: [{'name':'test','relationships':['test1','test2','test3']}]}
 
 test('Renders the title', () => {
   render(<App />);
@@ -16,20 +16,20 @@ describe("Mock data", () => {
   let fetchingData;
   beforeEach(() => {
     global.fetch = jest.fn(() => Promise.resolve({
-      json: () => Promise.resolve(object)
+      json: () => Promise.resolve(testObject)
     }));
   });
 
   test("correct fetch should be returned", async () => {
     fetchingData = await fetchData();
-    expect(fetchingData).toEqual(object);
+    expect(fetchingData).toEqual(testObject);
   })
 
   test('correct json is presented', async () => {
     render(<App/>)
-    const topic = await screen.findByText(JSON.stringify(object.topic))
+    const topic = await screen.findByText(JSON.stringify(testObject.topic))
     expect(topic).toBeDefined()
-    expect(topic.textContent).toBe(JSON.stringify(object.topic))
+    expect(topic.textContent).toBe(JSON.stringify(testObject.topic))
 
   })
 })
