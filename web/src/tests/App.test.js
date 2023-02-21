@@ -5,7 +5,7 @@ import React from "react";
 
 jest.mock("../Networking", () => ({ fetchTopics: jest.fn() }));
 
-test("fetch topics", async () => {
+test("display fetched topics as a string", async () => {
   const mockedResult = { topic: "Javascript" };
   fetchTopics.mockResolvedValue(mockedResult);
   render(<App />);
