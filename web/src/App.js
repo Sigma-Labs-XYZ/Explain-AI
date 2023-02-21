@@ -1,4 +1,3 @@
-import logo from "./logo.svg";
 import "./App.css";
 import { fetchTopics } from "./Networking";
 import { useState, useEffect } from "react";
