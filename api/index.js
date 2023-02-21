@@ -23,10 +23,12 @@ app.get("/topics", async (_, res) => {
   res.send(topics);
 });
 
-app.get("/:id", async (req, res) => {
-  // TODO: Implement this endpoint
-  // If the topic exists, return the topic
-  // If the topic does not exist, generate it
+app.get("/topic/:slug", async (req, res) => {
+  const audience = req.query.audience ? `/${req.query.audience}` : "";
+  const endpoint = `${DB_ENDPOINT}/api/rest/topic/${req.params.slug}${audience}`;
+  const response = await fetch(endpoint, { method: "GET", headers });
+  const topic = await response.json();
+  res.send(topic);
 });
 
 app.listen(port, () => console.log(`API listening on port ${port}`));
