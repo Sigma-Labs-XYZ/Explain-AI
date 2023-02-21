@@ -6,7 +6,7 @@ function App()  {
   const [topics, setTopics] = useState(undefined)
   useEffect(() => {
     const fetch = async () => {
-      const data = await fetchData();
+      const data = await fetchData('http://localhost:4000/topics');
       setTopics(data.topic)
     }
     fetch()
