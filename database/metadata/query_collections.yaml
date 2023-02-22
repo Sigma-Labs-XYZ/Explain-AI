@@ -20,6 +20,27 @@
               }
             }
           }
+      - name: Topic_All_Audiences
+        query: |
+          query GET_TOPIC_ALL_AUDIENCES($slug: String) {
+            topic(where:{slug:{_eq: $slug}}) {
+              name
+              image
+              created_at
+              descriptions {
+                short
+                audience
+              }
+              relationships {
+                audience
+                to {
+                  name
+                  image
+                }
+                description
+              }
+            }
+          }
       - name: Topics
         query: |
           query TOPICS {
