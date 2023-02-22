@@ -9,7 +9,7 @@ beforeEach(() => {
   fetch.resetMocks();
 });
 
-describe("Test for API render on sucees", () => {
+describe("Test for API render on suceess", () => {
   test("a p tag is created with json file upon a successful fetch", async () => {
     fetch.mockResponseOnce(JSON.stringify({ test: "test" }));
     
@@ -40,6 +40,7 @@ describe('React Router testing',()=> {
     render(<App/>)
     const title = screen.getByText('HomePage')
     const topicsLink = screen.getByText('Topics')
+    
   })
   test('Link to topics renders the topics page, and can go back',async ()=> {
     render(<App/>)
