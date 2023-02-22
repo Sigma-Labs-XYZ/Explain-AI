@@ -1,0 +1,8 @@
+export default function HomePage() {
+  return (
+    <div>
+      <h1>Homepage</h1>
+      <a href="/javascript">Javascript</a>
+    </div>
+  );
+}
