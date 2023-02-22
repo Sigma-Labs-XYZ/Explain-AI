@@ -1,0 +1,56 @@
+@import "./variables";
+
+.selected {
+  background-color: white;
+  cursor: pointer;
+}
+
+.unselected {
+  cursor: pointer;
+  background-color: grey;
+}
+
+.header {
+  @include flexing("row");
+  background-color: $base-color;
+  justify-content: space-around;
+}
+
+.imgContainer {
+  flex: 2;
+}
+
+.selector {
+  @include flexing("row");
+  align-items: center;
+
+  button {
+    border: none;
+    width: 45px;
+  }
+  #five {
+    border-top-left-radius: 2px;
+    border-bottom-left-radius: 2px;
+  }
+  #adult {
+    border-top-right-radius: 2px;
+    border-bottom-right-radius: 2px;
+  }
+}
+
+.logo {
+  width: auto;
+  height: 30px;
+  margin-top: 13px;
+}
+
+.textStyle {
+  color: white;
+  margin-right: 20px;
+}
+
+@media only screen and (max-width: 600px) {
+  body {
+    background-color: lightblue;
+  }
+}

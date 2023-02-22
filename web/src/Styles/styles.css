@@ -1,0 +1,55 @@
+.selected {
+  background-color: white;
+  cursor: pointer;
+}
+
+.unselected {
+  cursor: pointer;
+  background-color: grey;
+}
+
+.header {
+  display: flex;
+  flex-direction: "row";
+  background-color: #000000;
+  justify-content: space-around;
+}
+
+.imgContainer {
+  flex: 2;
+}
+
+.selector {
+  display: flex;
+  flex-direction: "row";
+  align-items: center;
+}
+.selector button {
+  border: none;
+  width: 45px;
+}
+.selector #five {
+  border-top-left-radius: 2px;
+  border-bottom-left-radius: 2px;
+}
+.selector #adult {
+  border-top-right-radius: 2px;
+  border-bottom-right-radius: 2px;
+}
+
+.logo {
+  width: auto;
+  height: 30px;
+  margin-top: 13px;
+}
+
+.textStyle {
+  color: white;
+  margin-right: 20px;
+}
+
+@media only screen and (max-width: 600px) {
+  body {
+    background-color: lightblue;
+  }
+}/*# sourceMappingURL=styles.css.map */

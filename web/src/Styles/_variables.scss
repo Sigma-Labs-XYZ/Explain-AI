@@ -1,0 +1,6 @@
+$base-color: #000000;
+
+@mixin flexing($direction) {
+  display: flex;
+  flex-direction: $direction;
+}
