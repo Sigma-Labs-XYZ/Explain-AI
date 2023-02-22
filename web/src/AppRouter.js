@@ -5,7 +5,7 @@ export default function AppRouter() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/topic" element={<TopicPage />} />
+        <Route path="/:topic" element={<TopicPage />} />
         <Route path="/" element={<HomePage />} />
       </Routes>
     </BrowserRouter>
