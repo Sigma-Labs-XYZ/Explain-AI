@@ -4,7 +4,7 @@ export default function HomePage() {
   return (
     <div>
       <nav>
-        <Link to ='/topic'>Topics</Link>
+        <Link to ='/topics'>Topics</Link>
       </nav>
 
       <h1>HomePage</h1>

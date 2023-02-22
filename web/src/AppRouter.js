@@ -3,7 +3,8 @@ import { Routes, Route } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { fetchData } from "./utils/networking";
 import HomePage from "./Pages/HomePage";
-import TopicsPage from "./Pages/TopicsPage";
+import TopicPage from "./Pages/Topic";
+import TopicsList from "./Pages/TopicsList";
 
 const MAIN_URL = "http://localhost:4000";
 
@@ -21,12 +22,11 @@ function AppRouter() {
     <div className="App">
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/topic">
-          <Route
-            path={`:${toi}`}
-            element={<TopicsPage retrievedTopics={retrievedTopics} />}
+        <Route path="/topics" element={<TopicsList toi={toi} />}/>
+        <Route
+            path={`topic/:${toi}`}
+            element={<TopicPage retrievedTopics={retrievedTopics} />}
           />
-        </Route>
       </Routes>
     </div>
   );
