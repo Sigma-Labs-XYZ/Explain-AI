@@ -14,12 +14,13 @@ describe("Testing Routes from Homepage to Topic", () => {
     fetch.mockResponseOnce(JSON.stringify({ test: "test" }));
     render(<AppRouter />);
 
-    global.window = { location: { pathname: "/" } };
-    const button = screen.getByTestId("topicLink");
-    userEvent.click(button);
+    expect(global.window.location.pathname).toBe("/");
+
+    const topicLink = screen.getByText("Topic Page");
+    userEvent.click(topicLink);
 
     await waitFor(() => {
-      expect(global.window.location.pathname).toBe("/topic");
+      expect(global.window.location.pathname).toBe("/javascript");
     });
   });
 });
