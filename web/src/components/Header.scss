@@ -3,11 +3,36 @@ $black: #000;
 $bg-button-inactive: #323232;
 $btn-text-inactive: #6e6e6e;
 
-header {
-  background-color: black;
+@mixin flex-row {
   display: flex;
   align-items: center;
   flex-direction: row;
+}
+
+@mixin select-style {
+  width: 40px;
+  height: 15px;
+  border: none;
+  text-align: center;
+  font-weight: bolder;
+  position: relative;
+  padding-right: 5px;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  background-image: url("data:image/svg+xml;utf8,<svg fill='black' height='24' viewBox='0 0 18 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
+  background-repeat: no-repeat, repeat;
+  background-position: right 1px top 50%, 0 0;
+  background-size: 15px auto, 50%;
+
+  @media (min-width: 400px) {
+    display: none;
+  }
+}
+
+header {
+  @include flex-row;
+  background-color: $black;
   justify-content: space-between;
 
   img {
@@ -22,16 +47,11 @@ header {
     }
   }
   div {
-    display: flex;
-    align-items: center;
-    flex-direction: row;
+    @include flex-row;
     margin-right: 30px;
 
     @media (min-width: 1000px) {
       margin-right: 15%;
-    }
-    @media (max-width: 400px) {
-      display: none;
     }
     .btn {
       width: 50px;
@@ -45,11 +65,22 @@ header {
         background-color: $white;
         color: $black;
       }
+      @media (max-width: 400px) {
+        display: none;
+      }
     }
     p {
-      color: white;
+      color: $white;
       margin-right: 10px;
       font-size: smaller;
+    }
+    .select-pg {
+      @include select-style;
+    }
+
+    .select-adult {
+      @include select-style;
+      font-size: 10px;
     }
   }
 }

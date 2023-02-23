@@ -11,6 +11,11 @@ export default function Header() {
           <button className="btn">5</button>
           <button className="btn">10</button>
           <button className="btn">Adult</button>
+          <select className="select-pg">
+            <option value="5">5</option>
+            <option value="10">10</option>
+            <option value="adult">Adult</option>
+          </select>
         </div>
       </header>
     </div>
