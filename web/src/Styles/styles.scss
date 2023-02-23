@@ -1,13 +1,15 @@
 @import "./variables";
 
 .selected {
-  background-color: white;
+  background-color: $selected-background;
   cursor: pointer;
+  color: $selected-color;
 }
 
 .unselected {
   cursor: pointer;
-  background-color: grey;
+  background-color: $unselected-background;
+  color: $unselected-color;
 }
 
 .header {
@@ -23,10 +25,11 @@
 .selector {
   @include flexing("row");
   align-items: center;
-
+  justify-content: flex-end;
   button {
     border: none;
     width: 45px;
+    font-weight: bold;
   }
   #five {
     border-top-left-radius: 2px;
@@ -36,6 +39,9 @@
     border-top-right-radius: 2px;
     border-bottom-right-radius: 2px;
   }
+  // .dropdown {
+  //   display: none;
+  // }
 }
 
 .logo {
@@ -46,11 +52,21 @@
 
 .textStyle {
   color: white;
-  margin-right: 20px;
+  margin-right: 10px;
+  text-align: right;
 }
 
 @media only screen and (max-width: 600px) {
-  body {
-    background-color: lightblue;
+  .selector button {
+    display: none;
+  }
+  .dropdown {
+    display: block;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  .dropdown {
+    display: none;
   }
 }

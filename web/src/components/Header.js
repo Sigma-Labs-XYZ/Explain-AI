@@ -18,13 +18,11 @@ export default function Header() {
   return (
     <>
       <div className="header">
-        <img className="logo" src={logo} alt="Logo not available"></img>
-
+        <img className="logo" src={logo} alt="Explain AI"></img>
         <div className="selector">
           <p className="textStyle"> Like I'm </p>
-
           <button
-            id="five"
+            data-testid="five"
             className={
               selectedExplanation === "fiveStyle" ? "selected" : "unselected"
             }
@@ -37,7 +35,7 @@ export default function Header() {
             5
           </button>
           <button
-            id="ten"
+            data-testid="ten"
             className={
               selectedExplanation === "tenStyle" ? "selected" : "unselected"
             }
@@ -50,7 +48,7 @@ export default function Header() {
             10
           </button>
           <button
-            id="adult"
+            data-testid="adult"
             className={
               selectedExplanation === "adultStyle" ? "selected" : "unselected"
             }
@@ -62,6 +60,15 @@ export default function Header() {
           >
             Adult
           </button>
+          <div className="dropdown">
+            <form action="/action_page.php">
+              <select name="explainLevels" id="explainLevels">
+                <option value="5">5</option>
+                <option value="10">10</option>
+                <option value="Adult">Adult</option>
+              </select>
+            </form>
+          </div>
         </div>
       </div>
     </>

@@ -1,4 +1,8 @@
 $base-color: #000000;
+$unselected-color: #9b9b9b;
+$unselected-background: #323232;
+$selected-background: white;
+$selected-color: black;
 
 @mixin flexing($direction) {
   display: flex;

@@ -1,11 +1,13 @@
 .selected {
   background-color: white;
   cursor: pointer;
+  color: black;
 }
 
 .unselected {
   cursor: pointer;
-  background-color: grey;
+  background-color: #323232;
+  color: #9b9b9b;
 }
 
 .header {
@@ -23,10 +25,12 @@
   display: flex;
   flex-direction: "row";
   align-items: center;
+  justify-content: flex-end;
 }
 .selector button {
   border: none;
   width: 45px;
+  font-weight: bold;
 }
 .selector #five {
   border-top-left-radius: 2px;
@@ -45,11 +49,20 @@
 
 .textStyle {
   color: white;
-  margin-right: 20px;
+  margin-right: 10px;
+  text-align: right;
 }
 
 @media only screen and (max-width: 600px) {
-  body {
-    background-color: lightblue;
+  .selector button {
+    display: none;
+  }
+  .dropdown {
+    display: block;
+  }
+}
+@media only screen and (min-width: 600px) {
+  .dropdown {
+    display: none;
   }
 }/*# sourceMappingURL=styles.css.map */
