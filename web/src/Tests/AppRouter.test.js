@@ -9,50 +9,35 @@ beforeEach(() => {
   fetch.resetMocks();
 });
 
-describe("Test for API render on suceess", () => {
-  test("a p tag is created with json file upon a successful fetch", async () => {
-    fetch.mockResponseOnce(JSON.stringify({ test: "test" }));
-    
-    render(<App />);
-    expect(fetch).toHaveBeenCalledTimes(1);
-    expect(fetch).toHaveBeenCalledWith("http://localhost:4000/topic/javascript");
-    // await waitFor(() => {
-    //   expect(screen.getByText('{"test":"test"}')).toBeInTheDocument();
-    // });
-  });
-
-  //created for testing unsuccessfull requests in the future
-  test("a p tag is not created with json file upon an unsuccessful fetch", async () => {
-    fetch.mockResponseOnce(JSON.stringify());
-
-    render(<App />);
-    expect(fetch).toHaveBeenCalledTimes(1);
-    expect(fetch).toHaveBeenCalledWith("http://localhost:4000/topic/javascript");
-    await waitFor(() => {
-      expect(screen.queryByTestId("jsondat")).not.toBeInTheDocument();
-    });
-  });
-});
-
 describe('React Router testing',()=> {
 
   test('Homepage is rendered ',()=> {
     render(<App/>)
-    const title = screen.getByText('HomePage')
+    const title = screen.getByText(/HomePage/i)
     const topicsLink = screen.getByText('Topics')
     
   })
-  test('Link to topics renders the topics page, and can go back',async ()=> {
+  test('Links are on the HomePage and arent empty string',async ()=> {
     render(<App/>)
-    const topicsLink = screen.getByText('Topics')
-    await userEvent.click(topicsLink) //go to topics page
     const links = screen.getAllByRole('link')
     expect(links).toBeDefined()
-    expect(typeof links).toBe('object') 
-    expect(links[1]).toBeDefined() //expect there to be at least 1 element in the list
-    expect(links[1].textContent).not.toBe('')
-    await userEvent.click(links[0])
-    const title = screen.getByText('HomePage')
+    expect(links[0]).toBeDefined() //expect there to be at least 1 element in the list
+    for (let link of links) {
+      expect(link.textcontent).not.toBe('')
+    }
+  })
+  test('Link renders a title with a description',async ()=> {
+    render(<App/>)
+    const jsLink = screen.getAllByRole('link')[0]
+
+    const linkName = jsLink.textContent
+    await userEvent.click(jsLink)
+    expect(screen.getByRole('link').textContent).toMatch(/HomePage/i) //expect there to be a link back to homepage
+    const title = screen.getByRole('heading')
+    const regexMatch = new RegExp(linkName,'i')
+    expect(title.textContent).toMatch(regexMatch)
+    
+    
   })
 })
 

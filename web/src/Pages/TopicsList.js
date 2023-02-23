@@ -1,22 +1,19 @@
 import React from "react"
 import {Link} from 'react-router-dom'
 
-export default function TopicsList({toi}) {
+export function TopicsList() {
     return (
         <div>
-        <nav>
-            <Link to="/">Homepage</Link>
-      </nav>
-        <h1>Topics</h1>
-        <Link to={`/topic/${toi}`} >Javascript
+        <h2>Topics</h2>
+        <Link to={`/javascript`} >Javascript
         
         </Link>
         <br/>
-          <Link to={`/topic/${toi}`} >HTML
+          <Link to={`/html`} >HTML
         
         </Link>
         <br/>
-          <Link to={`/topic/${toi}`} >CSS
+          <Link to={`/css`} >CSS
         
         </Link>
         </div>
