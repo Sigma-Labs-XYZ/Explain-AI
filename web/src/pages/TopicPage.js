@@ -16,7 +16,6 @@ export default function TopicPage() {
 
   return (
     <div className="App">
-      {console.log(topic)}
       {retrievedTopics && (
         <p data-testid="jsondat">{JSON.stringify(retrievedTopics)}</p>
       )}

@@ -1,11 +1,11 @@
-import { Outlet, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useState } from "react";
 export default function HomePage() {
-  const [link, setLink] = useState("javascript");
+  const [endpoint, setEndpoint] = useState("javascript");
   return (
     <div>
       <h1>Homepage</h1>
-      <Link to={`/${link}`}>Topic Page</Link>
+      <Link to={`/${endpoint}`}>Topic Page</Link>
     </div>
   );
 }
