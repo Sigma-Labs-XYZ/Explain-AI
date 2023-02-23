@@ -6,6 +6,12 @@ export default function Header() {
     <div>
       <header>
         <img src={explainailogo} alt="logo" />
+        <div>
+          <p>Like I'm</p>
+          <button className="btn">5</button>
+          <button className="btn">10</button>
+          <button className="btn">Adult</button>
+        </div>
       </header>
     </div>
   );
