@@ -27,7 +27,7 @@
   align-items: center;
   justify-content: flex-end;
 }
-.selector button {
+.selector .selectorButtons button {
   border: none;
   width: 45px;
   font-weight: bold;
@@ -53,15 +53,15 @@
   text-align: right;
 }
 
-@media only screen and (max-width: 600px) {
-  .selector button {
+@media only screen and (max-width: 559.5px) {
+  .selectorButtons {
     display: none;
   }
   .dropdown {
     display: block;
   }
 }
-@media only screen and (min-width: 600px) {
+@media only screen and (min-width: 559.5px) {
   .dropdown {
     display: none;
   }
