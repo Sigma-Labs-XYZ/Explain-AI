@@ -1,0 +1,15 @@
+header {
+  background-color: black;
+  display: flex;
+  img {
+    width: 150px;
+    margin: 10px;
+    margin-left: 30px;
+    @media (min-width: 1000px) {
+      margin-left: 15%;
+    }
+    @media (max-width: 400px) {
+      width: 100px;
+    }
+  }
+}

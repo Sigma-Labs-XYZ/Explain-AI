@@ -1,24 +1,13 @@
 import logo from "./logo.svg";
 import "./App.css";
 import { useState, useEffect } from "react";
-import { fetchData } from "./utils/networking";
 import { AppRouter } from "./components/AppRouter";
+import Header from "./components/Header";
 
-const MAIN_URL = "http://localhost:4000/topics";
 function App() {
-  const [retrievedTopics, setRetrievedTopics] = useState();
-
-  useEffect(() => {
-    (async function () {
-      setRetrievedTopics(await fetchData(MAIN_URL));
-    })();
-  }, []);
-
   return (
     <div className="App">
-      {retrievedTopics && (
-        <p data-testid="jsondat">{JSON.stringify(retrievedTopics)}</p>
-      )}
+      <Header />
       <AppRouter />
     </div>
   );
