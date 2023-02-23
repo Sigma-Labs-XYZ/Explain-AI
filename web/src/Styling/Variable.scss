@@ -1,0 +1,17 @@
+//colours
+$black: black;
+$background: #4e4d4d;
+$buttonColour: #323232;
+$white: white;
+
+// header height
+$headerHeight: 100px;
+
+@mixin breakpoint($point) {
+  @if $point == md {
+    //768px
+    @media (min-width: 48em) {
+      @content;
+    }
+  }
+}

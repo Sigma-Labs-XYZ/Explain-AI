@@ -1,0 +1,63 @@
+@import "./Variable.scss";
+
+.header {
+  background-color: $black;
+  height: $headerHeight;
+  width: 100%;
+  padding: 0 1.5rem;
+  @include breakpoint(md) {
+    padding: 0.3rem;
+  }
+  transition: 0.3s ease all;
+
+  &__content {
+    overflow: hidden;
+    color: $white;
+    margin: 0 auto;
+    max-width: 1920px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    position: relative;
+    z-index: 100;
+
+    &__logo {
+      height: 60%;
+    }
+
+    &__buttons {
+      display: flex;
+      flex-direction: "row";
+      align-items: center;
+
+      & p {
+        display: flex;
+        flex-direction: "row";
+        align-items: center;
+        color: white;
+        margin-right: 10px;
+      }
+
+      & button {
+        border: none;
+        margin-left: 1%;
+        width: 60px;
+        height: 45px;
+      }
+
+      &__selected {
+        background-color: $white;
+        cursor: pointer;
+      }
+
+      &__unselected {
+        cursor: pointer;
+        background-color: $buttonColour;
+      }
+    }
+  }
+}
+
+// height: 0.75in;
+// width: 3.54in;
