@@ -8,20 +8,20 @@ const MAIN_URL = "http://localhost:4000";
 
 export default function Topic() {
   const [retrievedTopics, setRetrievedTopics] = useState();
-  const {toi} = useParams()
+  const {topicOfInterest} = useParams()
 
   useEffect(() => {
     (async function () {
-      setRetrievedTopics(await fetchData(MAIN_URL + "/topic/" + toi)); //fetches when topic of interest changes
+      setRetrievedTopics(await fetchData(MAIN_URL + "/topic/" + topicOfInterest)); //fetches when topic of interest changes
     })();
-  }, [toi]);
+  }, [topicOfInterest]);
 
   return (
     <div>
       <nav>
         <Link to="/">Homepage</Link>
       </nav>
-      <h2>{toi}</h2>
+      <h2>{topicOfInterest}</h2>
       <div >
       {retrievedTopics && (
         <p data-testid="jsondat">{JSON.stringify(retrievedTopics)}</p>

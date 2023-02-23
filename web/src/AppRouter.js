@@ -14,7 +14,7 @@ function AppRouter() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route
-            path={`:toi`}
+            path={`:topicOfInterest`}
             element={<Topic/>}
           />
       </Routes>
