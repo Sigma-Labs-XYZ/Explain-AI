@@ -19,9 +19,6 @@ export default function TopicPage() {
       {retrievedTopics && (
         <p data-testid="jsondat">{JSON.stringify(retrievedTopics)}</p>
       )}
-
-      {/* Test has specifically been created for testing purposes */}
-      <p style={{ visibility: "hidden" }}>Test: {topic}</p>
     </div>
   );
 }
