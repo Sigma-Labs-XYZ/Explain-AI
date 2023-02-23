@@ -1,4 +1,4 @@
-import { fireEvent, render, screen, waitFor } from "@testing-library/react";
+import { fireEvent, render, screen} from "@testing-library/react";
 import "@testing-library/jest-dom";
 import App from "../App";
 import { BrowserRouter, MemoryRouter } from "react-router-dom";
@@ -15,20 +15,6 @@ test("navigating from Home page to Topic Page", async () => {
   const topic = "javascript";
   fireEvent.click(screen.getByText(topic));
   expect(screen.getByText(topic)).toBeInTheDocument();
-});
-
-test("If the path slug is topic", async () => {
-  global.window = { location: { pathname: "/test" } };
-  const pathParameter = "test";
-  const route = `/${pathParameter}`;
-  render(
-    <MemoryRouter initialEntries={[route]}>
-      <App />
-    </MemoryRouter>
-  );
-  await waitFor(() => {
-    expect(global.window.location.pathname).toBe(route);
-  });
 });
 
 //Test path parameter for topic is correct
