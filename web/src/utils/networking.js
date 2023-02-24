@@ -1,4 +1,4 @@
-const fetchData = async (url) => {
+export const fetchData = async (url) => {
   try {
     const apiResponse = await fetch(url);
     const apiResponseJSON = await apiResponse.json();
@@ -7,8 +7,4 @@ const fetchData = async (url) => {
     console.log("unable to fetch data", e);
     return "unable to fetch data";
   }
-};
-
-module.exports = {
-  fetchData,
 };
