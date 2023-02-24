@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { fetchData } from "../utils/networking";
-
+import { TopicCard } from "./TopicCard";
 export default function TopicPage() {
   const { topic } = useParams();
   const [retrievedTopics, setRetrievedTopics] = useState();
@@ -15,9 +15,8 @@ export default function TopicPage() {
 
   return (
     <div>
-      <h1>{topic}</h1>
       {retrievedTopics && (
-        <p data-testid="jsondat">{JSON.stringify(retrievedTopics)}</p>
+        <TopicCard topic={retrievedTopics.topic[0]}/>
       )}
     </div>
   );
