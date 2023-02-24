@@ -1,5 +1,4 @@
-- name:
-    from_env: DATABASE_NAME
+- name: default
   kind: postgres
   configuration:
     connection_info:
