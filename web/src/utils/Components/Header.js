@@ -28,10 +28,9 @@ export default function Header() {
     },
     adult: {
       text: "adult",
-      number: "adult",
+      number: "Adult",
     },
   };
-  console.log(Object.values(ages));
 
   return (
     <header className={classes.header}>
@@ -41,7 +40,7 @@ export default function Header() {
           alt="ExplaiAI logo"
           className={classes.header__content__logo}
         />
-        <div className={classes.header__content__buttons}>
+        <div className={classes.header__content__ages}>
           <p>
             <nobr>Like I'm</nobr>
           </p>
@@ -49,21 +48,37 @@ export default function Header() {
             return (
               <button
                 key={i}
-                id={age.text}
+                data-testid={age.text}
                 className={
                   buttonAge === age.number
-                    ? "classes.header__content__buttons__selected"
-                    : "classes.header__content__buttons__unselected"
+                    ? classes.header__content__ages__selected
+                    : classes.header__content__ages__unselected
                 }
                 name={age.number}
-                onClick={(event) => {
-                  selectAge(event.target.name);
+                onClick={(e) => {
+                  selectAge(e.target.name);
                 }}
               >
                 {age.number}
               </button>
             );
           })}
+          <select
+            name="age"
+            value={buttonAge}
+            className={classes.header__content__ages__option}
+            onChange={(e) => {
+              selectAge(e.target.value);
+            }}
+          >
+            {Object.values(ages).map((age, i) => {
+              return (
+                <option value={age.text} key={i}>
+                  {age.number}
+                </option>
+              );
+            })}
+          </select>
         </div>
       </div>
     </header>
