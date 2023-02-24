@@ -1,6 +1,7 @@
 import { render, screen, fireEvent } from "@testing-library/react";
 import React from "react";
 import renderer from "react-test-renderer";
+import userEvent from "@testing-library/user-event";
 import Header from "../components/Header";
 import App from "../App";
 
@@ -25,33 +26,32 @@ test("Header displays Age Toggle if screen size above 400px", () => {
 //testing screen widths
 
 //test localstorage
-// const setLocalStorageMock = (key, value) =>{
-//     window.localStorage.setItem(key, value)
-// }
 describe("localStorage tests", () => {
   beforeEach(() => {
-    window.localStorage.clear();
+    localStorage.clear();
+    jest.clearAllMocks();
   });
   const key = "age";
-  test("should save value to localStorage", () => {
-    const value = "10";
-    window.localStorage.setItem(key, value);
-    expect(localStorage.getItem(key)).toEqual(value);
-  });
+
   test("when age button is clicked it should update localStorage with the correct value", () => {
     render(<Header />);
     const value = "Adult";
     const button = screen.getByRole("button", {
       name: value,
     });
-    console.log(button);
     fireEvent.click(button);
-    expect(localStorage.getItem(key)).toEqual(value);
+    expect(localStorage.setItem).toHaveBeenLastCalledWith(key, "Adult");
+    expect(localStorage.__STORE__[key]).toBe(value);
   });
-  test("data in local storage overwritten when age is changed", () => {
-    const newValue = "5";
-    window.localStorage.setItem(key, newValue);
-    expect(localStorage.getItem(key)).toEqual(newValue);
+
+  test("when dropdown is changed it should update localStorage with the correct value", () => {
+    render(<Header />);
+    const value = "10";
+    const select = screen.getByRole("combobox");
+    const option = screen.getByRole("option", { name: value });
+    userEvent.selectOptions(select, option);
+    expect(localStorage.setItem).toHaveBeenLastCalledWith(key, value);
+    expect(localStorage.__STORE__[key]).toBe(value);
   });
 });
 
