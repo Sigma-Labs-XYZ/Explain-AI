@@ -1,10 +1,7 @@
 import { render, screen } from "@testing-library/react";
-import App from "../App";
 import { waitFor } from "@testing-library/react";
 import TopicPage from "../components/TopicPage";
 import fetchMock from "jest-fetch-mock";
-import {BrowserRouter} from 'react-router-dom'
-import userEvent from '@testing-library/user-event'
 beforeEach(() => {
   fetchMock.enableMocks();
   fetch.resetMocks();
