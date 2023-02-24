@@ -2,6 +2,9 @@ table:
   name: hierarchy
   schema: public
 object_relationships:
-  - name: topicByTopic
+  - name: child
     using:
-      foreign_key_constraint_on: topic
+      foreign_key_constraint_on: child_slug
+  - name: parent
+    using:
+      foreign_key_constraint_on: parent_slug

@@ -2,14 +2,25 @@ table:
   name: topic
   schema: public
 object_relationships:
-  - name: hierarchy
+  - name: parent
     using:
-      foreign_key_constraint_on:
-        column: topic
-        table:
+      manual_configuration:
+        column_mapping:
+          slug: child_slug
+        insertion_order: null
+        remote_table:
           name: hierarchy
           schema: public
 array_relationships:
+  - name: children
+    using:
+      manual_configuration:
+        column_mapping:
+          slug: parent_slug
+        insertion_order: null
+        remote_table:
+          name: hierarchy
+          schema: public
   - name: descriptions
     using:
       manual_configuration:
@@ -21,16 +32,11 @@ array_relationships:
           schema: public
   - name: relationships
     using:
-      foreign_key_constraint_on:
-        column: from_slug
-        table:
-          name: relationship
-          schema: public
-  - name: relationshipsFrom
-    using:
-      foreign_key_constraint_on:
-        column: to_slug
-        table:
+      manual_configuration:
+        column_mapping:
+          slug: from_slug
+        insertion_order: null
+        remote_table:
           name: relationship
           schema: public
 select_permissions:

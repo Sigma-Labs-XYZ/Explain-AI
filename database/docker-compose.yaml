@@ -8,9 +8,6 @@ services:
       - db_data:/var/lib/postgresql/data
     environment:
       POSTGRES_PASSWORD: postgrespassword
-      POSTGRES_DB: explainai
-    healthcheck:
-      test: ["CMD-SHELL", "pg_isready --dbname=explainai --username=postgres"]
   explainai-database-api:
     container_name: explainai-database-api
     image: hasura/graphql-engine:v2.19.0-ce.cli-migrations-v3
@@ -27,7 +24,7 @@ services:
       HASURA_GRAPHQL_DEV_MODE: "true"
       HASURA_GRAPHQL_ENABLED_LOG_TYPES: startup, http-log, webhook-log, websocket-log, query-log
       HASURA_GRAPHQL_ADMIN_SECRET: admin_secret
-      DATABASE_URL: postgres://postgres:postgrespassword@explainai-database-engine:5432/explainai
-      DATABASE_NAME: default
+      DATABASE_URL: postgres://postgres:postgrespassword@explainai-database-engine:5432/postgres
+      HASURA_GRAPHQL_DATABASE_URL: postgres://postgres:postgrespassword@explainai-database-engine:5432/postgres
 volumes:
   db_data:

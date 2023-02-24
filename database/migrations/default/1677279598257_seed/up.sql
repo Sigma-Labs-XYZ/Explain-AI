@@ -1,4 +1,5 @@
 
+
 INSERT INTO "public"."topic"("slug", "image", "name", "created_at") VALUES (E'javascript', 'https://miro.medium.com/max/750/1*ZQAVhhVVOJ24GWtN6skKxg.jpeg', E'Javascript', E'2023-02-23');
 INSERT INTO "public"."topic"("slug", "image", "name", "created_at") VALUES (E'html', 'https://play-lh.googleusercontent.com/RslBy1o2NEBYUdRjQtUqLbN-ZM2hpks1mHPMiHMrpAuLqxeBPcFSAjo65nQHbTA53YYn', E'HTML', E'2023-02-23');
 INSERT INTO "public"."topic"("slug", "image", "name", "created_at") VALUES (E'css', 'https://www.oxfordwebstudio.com/user/pages/06.da-li-znate/sta-je-css/sta-je-css.png', E'CSS', E'2023-02-23');
@@ -48,8 +49,11 @@ INSERT INTO "public"."relationship"("id", "from_slug", "to_slug", "description",
 INSERT INTO "public"."relationship"("id", "from_slug", "to_slug", "description", "audience", "priority") VALUES (E'3271e7c6-b57d-41c5-be97-bb8d7922c882', E'react', E'javascript', E'React is a library of JavaScript code you can use in your projects.', 10, 0);
 INSERT INTO "public"."relationship"("id", "from_slug", "to_slug", "description", "audience", "priority") VALUES (E'c1c00b1d-f520-4ace-878e-118a7ff85681', E'react', E'javascript', E'React is a way to use Javascript to make websites.', 5, 0);
 
-CREATE TABLE "public"."hierarchy" ("topic" text NOT NULL, "parent_slug" text, "parent_label" text, "grandparent_slug" text, "grandparent_label" text, PRIMARY KEY ("topic") , FOREIGN KEY ("topic") REFERENCES "public"."topic"("slug") ON UPDATE restrict ON DELETE restrict);
-INSERT INTO "public"."hierarchy"("grandparent_label", "grandparent_slug", "parent_label", "parent_slug", "topic") VALUES (E'Computing', E'computing', E'Web Development', E'web_development', E'javascript');
-INSERT INTO "public"."hierarchy"("grandparent_label", "grandparent_slug", "parent_label", "parent_slug", "topic") VALUES (E'Computing', E'computing', E'Web Development', E'web_development', E'html');
-INSERT INTO "public"."hierarchy"("grandparent_label", "grandparent_slug", "parent_label", "parent_slug", "topic") VALUES (E'Computing', E'computing', E'Web Development', E'web_development', E'css');
-INSERT INTO "public"."hierarchy"("grandparent_label", "grandparent_slug", "parent_label", "parent_slug", "topic") VALUES (E'Computing', E'computing', E'Web Development', E'web_development', E'react');
+CREATE TABLE "public"."hierarchy" ("child_slug" text NOT NULL, "parent_slug" text NOT NULL, PRIMARY KEY ("child_slug","parent_slug") , FOREIGN KEY ("child_slug") REFERENCES "public"."topic"("slug") ON UPDATE cascade ON DELETE cascade, FOREIGN KEY ("parent_slug") REFERENCES "public"."topic"("slug") ON UPDATE cascade ON DELETE cascade, UNIQUE ("child_slug", "parent_slug"));
+INSERT INTO "public"."topic"("slug", "image", "name", "created_at") VALUES (E'web_development', null, E'Web Development', E'2023-02-24');
+INSERT INTO "public"."topic"("slug", "image", "name", "created_at") VALUES (E'computing', null, E'Computing', E'2023-02-24');
+INSERT INTO "public"."hierarchy"("child_slug", "parent_slug") VALUES (E'javascript', E'web_development');
+INSERT INTO "public"."hierarchy"("child_slug", "parent_slug") VALUES (E'html', E'web_development');
+INSERT INTO "public"."hierarchy"("child_slug", "parent_slug") VALUES (E'css', E'web_development');
+INSERT INTO "public"."hierarchy"("child_slug", "parent_slug") VALUES (E'react', E'web_development');
+INSERT INTO "public"."hierarchy"("child_slug", "parent_slug") VALUES (E'web_development', E'computing');
