@@ -28,19 +28,19 @@ export default function Header() {
             10
           </button>
           <button
-            onClick={() => setAge("adult")}
+            onClick={() => setAge("Adult")}
             className={age === "adult" ? "btn selected" : "btn"}
           >
             Adult
           </button>
           <select
             onChange={(e) => setAge(e.target.value)}
-            className={age === "adult" ? "select-adult" : "select-pg"}
+            className={age === "Adult" ? "select-adult" : "select-pg"}
             value={age}
           >
             <option value="5">5</option>
             <option value="10">10</option>
-            <option value="adult">Adult</option>
+            <option value="Adult">Adult</option>
           </select>
         </div>
       </header>

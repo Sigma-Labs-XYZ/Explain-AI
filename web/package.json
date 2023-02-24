@@ -1,7 +1,10 @@
 {
   "name": "web",
   "jest": {
-    "resetMocks": false
+    "resetMocks": false,
+    "setupFiles": [
+      "./web/mocks/localStorage.js"
+    ]
   },
   "version": "0.1.0",
   "private": true,
@@ -15,6 +18,7 @@
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.8.1",
     "react-scripts": "5.0.1",
+    "react-test-renderer": "^18.2.0",
     "sass": "^1.58.3",
     "web-vitals": "^2.1.4"
   },
@@ -41,5 +45,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "jest-localstorage-mock": "^2.4.26"
   }
 }
