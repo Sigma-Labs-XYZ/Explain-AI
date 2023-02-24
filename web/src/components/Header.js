@@ -1,9 +1,13 @@
 import explainailogo from "../images/explainai-logo.png";
 import "./Header.scss";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function Header() {
-  const [age, setAge] = useState("");
+  const [age, setAge] = useState(localStorage.getItem("age"));
+
+  useEffect(() => {
+    localStorage.setItem("age", age);
+  }, [age]);
 
   return (
     <div>
@@ -32,6 +36,7 @@ export default function Header() {
           <select
             onChange={(e) => setAge(e.target.value)}
             className={age === "adult" ? "select-adult" : "select-pg"}
+            value={age}
           >
             <option value="5">5</option>
             <option value="10">10</option>
