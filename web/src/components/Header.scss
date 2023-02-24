@@ -2,6 +2,8 @@ $white: #fff;
 $black: #000;
 $bg-button-inactive: #323232;
 $btn-text-inactive: #6e6e6e;
+$phone-width: 400.5px;
+$desktop-width: 1000.5px;
 
 @mixin flex-row {
   display: flex;
@@ -25,7 +27,7 @@ $btn-text-inactive: #6e6e6e;
   background-position: right 1px top 50%, 0 0;
   background-size: 15px auto, 50%;
 
-  @media (min-width: 400px) {
+  @media (min-width: $phone-width) {
     display: none;
   }
 }
@@ -39,10 +41,10 @@ header {
     width: 150px;
     margin: 10px;
     margin-left: 30px;
-    @media (min-width: 1000px) {
+    @media (min-width: $desktop-width) {
       margin-left: 15%;
     }
-    @media (max-width: 400px) {
+    @media (max-width: $phone-width) {
       width: 100px;
     }
   }
@@ -50,7 +52,7 @@ header {
     @include flex-row;
     margin-right: 30px;
 
-    @media (min-width: 1000px) {
+    @media (min-width: $desktop-width) {
       margin-right: 15%;
     }
     .btn {
@@ -61,11 +63,11 @@ header {
       border: none;
       color: $btn-text-inactive;
       font-weight: bolder;
-      &:active {
+      &.selected {
         background-color: $white;
         color: $black;
       }
-      @media (max-width: 400px) {
+      @media (max-width: $phone-width) {
         display: none;
       }
     }
