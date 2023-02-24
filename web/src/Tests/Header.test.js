@@ -19,9 +19,6 @@ test("Header displays Age Toggle if screen size above 400px", () => {
   window.resizeTo(300, 300);
   expect(button[0]).not.toBeVisible();
 });
-//test the buttons
-
-//test the dropdown
 
 //testing screen widths
 
@@ -55,11 +52,34 @@ describe("localStorage tests", () => {
   });
 });
 
-//Check if the logo loads correctly
-test("logo is in the header", () => {
-  render(<Header />);
-  const logo = screen.getByAltText("logo");
-  expect(logo.src).toContain("explainai-logo.png");
-});
+describe("test if all elements of header are rendered", () => {
+  const tags = ["5", "10", "Adult"];
+  let tagidx = 0;
+  test("logo rendered", () => {
+    render(<Header />);
+    const logo = screen.getByAltText("logo");
+    expect(logo.src).toContain("explainai-logo.png");
+  });
 
-//Check if the 'Like I'm' <p> appears'
+  test("'Like I'm' <p> appears", () => {
+    render(<Header />);
+    expect(screen.getByText("Like I'm")).toBeInTheDocument();
+  });
+
+  test("buttons rendered", () => {
+    render(<Header />);
+    const buttons = screen.getAllByRole("button");
+    expect(buttons).toHaveLength(3);
+    //expect each button to have correct text content
+    buttons.map((button) => {
+      expect(button).toHaveTextContent(tags[tagidx]);
+      tagidx += 1;
+    });
+  });
+
+  test("dropdown rendered", () => {
+    render(<Header />);
+    const select = screen.getByRole("combobox");
+    console.log(select);
+  });
+});
