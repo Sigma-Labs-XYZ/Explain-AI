@@ -11,7 +11,7 @@ export default function TopicPage() {
     (async function () {
       setRetrievedTopics(await fetchData(MAIN_URL));
     })();
-  }, []);
+  }, [MAIN_URL]);
 
   return (
     <div>
