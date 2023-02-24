@@ -56,5 +56,10 @@ describe("localStorage tests", () => {
 });
 
 //Check if the logo loads correctly
+test("logo is in the header", () => {
+  render(<Header />);
+  const logo = screen.getByAltText("logo");
+  expect(logo.src).toContain("explainai-logo.png");
+});
 
 //Check if the 'Like I'm' <p> appears'

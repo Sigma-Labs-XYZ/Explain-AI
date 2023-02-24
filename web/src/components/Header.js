@@ -29,7 +29,7 @@ export default function Header() {
           </button>
           <button
             onClick={() => setAge("Adult")}
-            className={age === "adult" ? "btn selected" : "btn"}
+            className={age === "Adult" ? "btn selected" : "btn"}
           >
             Adult
           </button>
