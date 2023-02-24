@@ -13,6 +13,7 @@
               }
               relationships(where: {audience:{_eq:$audience}}) {
                 to {
+                  slug
                   name
                   image
                 }
@@ -22,8 +23,8 @@
           }
       - name: Topic_All_Audiences
         query: |
-          query GET_TOPIC_ALL_AUDIENCES($slug: String) {
-            topic(where:{slug:{_eq: $slug}}) {
+          query GET_TOPIC_ALL_AUDIENCES ($slug: String) {
+            topic(where: {slug:{_eq:$slug}}) {
               name
               image
               created_at
@@ -34,6 +35,7 @@
               relationships {
                 audience
                 to {
+                  slug
                   name
                   image
                 }
@@ -50,6 +52,7 @@
                 priority
                 description
                 to {
+                  slug
                   name
                 }
               }

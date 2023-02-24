@@ -1,6 +1,14 @@
 table:
   name: topic
   schema: public
+object_relationships:
+  - name: hierarchy
+    using:
+      foreign_key_constraint_on:
+        column: topic
+        table:
+          name: hierarchy
+          schema: public
 array_relationships:
   - name: descriptions
     using:
@@ -15,6 +23,13 @@ array_relationships:
     using:
       foreign_key_constraint_on:
         column: from_slug
+        table:
+          name: relationship
+          schema: public
+  - name: relationshipsFrom
+    using:
+      foreign_key_constraint_on:
+        column: to_slug
         table:
           name: relationship
           schema: public
