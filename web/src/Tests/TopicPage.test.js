@@ -1,4 +1,4 @@
-import { render, screen, cleanup, getByText } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import App from "../App";
 import { waitFor } from "@testing-library/react";
 import fetchMock from "jest-fetch-mock";
@@ -8,7 +8,7 @@ beforeEach(() => {
   fetch.resetMocks();
 });
 
-describe("Test for API render on sucees", () => {
+describe("Test for API render on sucess", () => {
   test("a p tag is created with json file upon a successful fetch", async () => {
     fetch.mockResponseOnce(JSON.stringify({ test: "test" }));
 
