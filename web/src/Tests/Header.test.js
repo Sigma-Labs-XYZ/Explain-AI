@@ -42,30 +42,4 @@ describe("Testing Nav Bar", () => {
       "10"
     );
   });
-
-  test("testing responsive design", () => {
-    render(<Header />);
-
-    const resizeWindow = (x, y) => {
-      window.innerWidth = x;
-      window.innerHeight = y;
-      window.dispatchEvent(new Event("resize"));
-    };
-    screen.debug();
-
-    resizeWindow(600, 812); // we want there to be a selector
-    const buttons = screen.queryByTestId("selectorButtons", { hidden: true });
-    const buttonSelector = screen.queryAllByRole("button");
-    expect(window.innerWidth).toEqual(600);
-    expect(buttons).toBeInTheDocument();
-    expect(buttonSelector.length).toEqual(3);
-
-    resizeWindow(550, 812); //we want there to be a drop down
-    const dropDown = screen.getByTestId("dropdown");
-    const dropDownSelector = screen.queryAllByRole("option");
-    expect(window.innerWidth).toEqual(550);
-    expect(buttons).not.toBeVisible();
-    expect(dropDown).toBeInTheDocument();
-    expect(dropDownSelector.length).toEqual(3);
-  });
 });

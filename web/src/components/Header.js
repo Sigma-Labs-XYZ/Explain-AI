@@ -24,7 +24,7 @@ export default function Header() {
         <img className="logo" src={logo} alt="Explain AI"></img>
         <div className="selector">
           <p className="textStyle"> Like I'm </p>
-          <div data-testid="selectorButtons" className="selectorButtons">
+          <div data-test-id="selectorButtons" className="selectorButtons">
             <button
               data-testid="five"
               className={audience === "5" ? "selected" : "unselected"}
@@ -56,7 +56,7 @@ export default function Header() {
               Adult
             </button>
           </div>
-          <div data-testid="dropdown" className="dropdown">
+          <div data-test-id="dropdown" className="dropdown">
             <form action="/action_page.php">
               <select
                 value={audience}
