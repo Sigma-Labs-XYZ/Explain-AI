@@ -1,9 +1,10 @@
-- name: explain-ai
+- name:
+    from_env: DATABASE_NAME
   kind: postgres
   configuration:
     connection_info:
       database_url:
-        from_env: HASURA_GRAPHQL_DATABASE_URL
+        from_env: DATABASE_URL
       isolation_level: read-committed
       use_prepared_statements: false
-  tables: "!include explain-ai/tables/tables.yaml"
+  tables: "!include default/tables/tables.yaml"
