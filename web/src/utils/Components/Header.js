@@ -41,20 +41,20 @@ export default function Header() {
           className={classes.header__content__logo}
         />
         <div className={classes.header__content__ages}>
-          <p>
+          <p data-testid="ageTitle">
             <nobr>Like I'm</nobr>
           </p>
           {Object.values(ages).map((age, i) => {
             return (
               <button
                 key={i}
+                name={age.number}
                 data-testid={age.text}
                 className={
                   buttonAge === age.number
                     ? classes.header__content__ages__selected
                     : classes.header__content__ages__unselected
                 }
-                name={age.number}
                 onClick={(e) => {
                   selectAge(e.target.name);
                 }}
@@ -64,7 +64,6 @@ export default function Header() {
             );
           })}
           <select
-            name="age"
             value={buttonAge}
             className={classes.header__content__ages__option}
             onChange={(e) => {
@@ -73,7 +72,7 @@ export default function Header() {
           >
             {Object.values(ages).map((age, i) => {
               return (
-                <option value={age.text} key={i}>
+                <option value={age.text} key={i} name={age.number}>
                   {age.number}
                 </option>
               );

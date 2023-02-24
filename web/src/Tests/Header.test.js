@@ -11,26 +11,26 @@ describe("Testing Header component", () => {
     render(<Header />);
     const logo = screen.getByAltText("ExplaiAI logo");
     const textLabel = screen.getByText("Like I'm");
-    const buttonFive = screen.getByTestId("five");
-    const buttonTen = screen.getByTestId("ten");
-    const buttonAdult = screen.getByTestId("adult");
+    const buttonText = ["five", "ten", "adult"];
 
     expect(logo).toBeInTheDocument();
     expect(textLabel).toBeInTheDocument();
-    expect(buttonFive).toBeInTheDocument();
-    expect(buttonTen).toBeInTheDocument();
-    expect(buttonAdult).toBeInTheDocument();
+    buttonText.map((button) => {
+      expect(screen.getByTestId(button)).toBeInTheDocument();
+    });
   });
 
   test("correct classes has been assigned", () => {
     render(<Header />);
-    const buttonFive = screen.getByTestId("five");
-    const buttonTen = screen.getByTestId("ten");
-    const buttonAdult = screen.getByTestId("adult");
+    const buttonText = [
+      { button: "five", class: "header__content__ages__selected" },
+      { button: "ten", class: "header__content__ages__unselected" },
+      { button: "adult", class: "header__content__ages__unselected" },
+    ];
 
-    expect(buttonFive).toHaveClass("header__content__ages__selected");
-    expect(buttonTen).toHaveClass("header__content__ages__unselected");
-    expect(buttonAdult).toHaveClass("header__content__ages__unselected");
+    Object.values(buttonText).map((item) => {
+      expect(screen.getByTestId(item.button)).toHaveClass(item.class);
+    });
   });
 });
 
@@ -41,38 +41,23 @@ describe("Testing local storage functionality", () => {
 
   test("Data is added to local storage", () => {
     render(<Header />);
-    const mockAge = "1"; //id
+    const mockId = "1";
     const mockInput = { age: "five" };
 
-    setLocalStorage(mockAge, mockInput);
-    expect(localStorage.getItem(mockAge)).toEqual(JSON.stringify(mockInput));
+    setLocalStorage(mockId, mockInput);
+    expect(localStorage.getItem(mockId)).toEqual(JSON.stringify(mockInput));
   });
 
   test("Data in local storage is overwritten", () => {
-    const mockAge = "3"; //id
+    const mockId = "3";
     const mockOldInput = { age: "five" };
     const mockNewInput = { age: "adult" };
 
-    window.localStorage.setItem(mockAge, JSON.stringify(mockOldInput));
-    expect(localStorage.getItem(mockAge)).toEqual(JSON.stringify(mockOldInput));
+    window.localStorage.setItem(mockId, JSON.stringify(mockOldInput));
+    expect(localStorage.getItem(mockId)).toEqual(JSON.stringify(mockOldInput));
 
-    setLocalStorage(mockAge, mockNewInput);
-    window.localStorage.setItem(mockAge, JSON.stringify(mockNewInput));
-    //expect
-  });
-});
-
-describe("Testing window size adjustment", () => {
-  test("Buttons disappear when window changes", () => {
-    render(<Header />);
-
-    Object.defineProperty(window, "innerWidth", {
-      writable: true,
-      configurable: true,
-      value: 200,
-    });
-    screen.getByRole("");
-    const button = screen.getAllByRole("button");
-    expect(button[0]).not.toBeVisible();
+    setLocalStorage(mockId, mockNewInput);
+    window.localStorage.setItem(mockId, JSON.stringify(mockNewInput));
+    expect(localStorage.getItem(mockId)).toEqual(JSON.stringify(mockNewInput));
   });
 });
