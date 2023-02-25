@@ -1,0 +1,45 @@
+.topic-card-parent {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+@media screen and (max-width: 600px) {
+  .topic-card-parent img {
+    translate: 0% 30%;
+    width: 150px;
+  }
+  .topic-card-parent .topic-card {
+    width: 400px;
+  }
+}
+@media screen and (min-width: 600px) {
+  .topic-card-parent img {
+    translate: 75% 30%;
+    width: 200px;
+  }
+  .topic-card-parent .topic-card {
+    width: 600px;
+  }
+}
+.topic-card-parent .topic-card {
+  border: 2px solid black;
+}
+.topic-card-parent .topic-card .topic-card-description {
+  padding-left: 1em;
+  padding-right: 1em;
+  text-align: justify;
+}
+.topic-card-parent .topic-card .topic-card-title {
+  margin: 0px;
+  padding-left: 75px;
+  display: flex;
+  border-bottom: 2px solid grey;
+  align-self: center;
+}
+.topic-card-parent .topic-card .topic-card-title h1 {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.topic-card-parent .topic-card img {
+  border-radius: 50%;
+}/*# sourceMappingURL=TopicCard.css.map */
