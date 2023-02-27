@@ -1,8 +1,9 @@
 import { Route, Routes } from "react-router-dom";
+import React from "react";
 import HomePage from "./HomePage";
 import TopicPage from "./TopicPage";
 
-export function AppRouter() {
+export default function AppRouter() {
   return (
     <Routes>
       <Route path="/" element={<HomePage />} />

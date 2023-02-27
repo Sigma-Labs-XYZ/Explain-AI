@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState, useEffect, React } from "react";
 import { fetchData } from "../utils/networking";
 
 export default function TopicPage() {
@@ -8,9 +8,10 @@ export default function TopicPage() {
   const MAIN_URL = `${process.env.REACT_APP_API_ENDPOINT}/topic/${topic}`;
 
   useEffect(() => {
-    (async function () {
+    async function getTopics() {
       setRetrievedTopics(await fetchData(MAIN_URL));
-    })();
+    }
+    getTopics();
   }, [MAIN_URL]);
 
   return (

@@ -1,7 +1,7 @@
-import { render, screen } from "@testing-library/react";
-import App from "../App";
-import { waitFor } from "@testing-library/react";
+import { render, screen, waitFor } from "@testing-library/react";
 import fetchMock from "jest-fetch-mock";
+import React from "react";
+import App from "../App";
 
 beforeEach(() => {
   fetchMock.enableMocks();
@@ -20,7 +20,7 @@ describe("Test for API render on sucess", () => {
     });
   });
 
-  //created for testing unsuccessfull requests in the future
+  // created for testing unsuccessfull requests in the future
   test("a p tag is not created with json file upon an unsuccessful fetch", async () => {
     fetch.mockResponseOnce(JSON.stringify());
 

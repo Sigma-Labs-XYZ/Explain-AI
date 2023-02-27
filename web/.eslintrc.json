@@ -1,0 +1,33 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true,
+    "jest/globals": true
+  },
+  "extends": ["plugin:react/recommended", "airbnb"],
+  "overrides": [
+    {
+      "files": ["test/**"],
+      "plugins": ["jest"],
+      "extends": ["plugin:jest/recommended"],
+      "rules": { "jest/prefer-expect-assertions": "off" }
+    }
+  ],
+  "parserOptions": {
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+  },
+  "plugins": ["react", "testing-library", "jest"],
+  "rules": {
+    "quotes": [2, "double", "avoid-escape"],
+    "testing-library/await-async-query": "error",
+    "testing-library/no-await-sync-query": "error",
+    "testing-library/no-debugging-utils": "warn",
+    "testing-library/no-dom-import": "off",
+    "jest/no-disabled-tests": "warn",
+    "jest/no-focused-tests": "error",
+    "jest/no-identical-title": "error",
+    "jest/prefer-to-have-length": "warn",
+    "jest/valid-expect": "error"
+  }
+}
