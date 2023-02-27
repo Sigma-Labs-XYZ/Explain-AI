@@ -39,6 +39,9 @@
   padding-right: 1em;
   text-align: justify;
 }
+.topic-card-parent .topic-card .topic-card-description .error {
+  border: 2px solid red;
+}
 .topic-card-parent .topic-card .topic-card-title {
   margin: 0px;
   padding-left: 75px;

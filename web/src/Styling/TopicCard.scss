@@ -54,6 +54,9 @@ $image-displacement-phone: 0%,30%;
             padding-left:1em;
             padding-right:1em;
             text-align:justify;
+            & .error {
+                border:2px solid red;
+            }
         }
         & .topic-card-title {
             margin:0px;
