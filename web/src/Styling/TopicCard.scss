@@ -28,7 +28,6 @@ $image-displacement-phone: 0%,30%;
             .topic-card-img-btn {
                 flex-direction:row;
                 justify-content: space-evenly;
-                
                 & .topic-card-img {
                     // transform:translate($image-displacement-screen);
                     transform:scale(1);
@@ -84,6 +83,7 @@ $image-displacement-phone: 0%,30%;
                 font-weight:bold;
                 &:hover {
                     background-color: lightgrey;
+                    transition: all 200ms ease-in-out;
                 }
             }
             & .topic-card-img {

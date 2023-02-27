@@ -70,6 +70,7 @@
 }
 .topic-card-parent .topic-card .topic-card-img-btn button:hover {
   background-color: lightgrey;
+  transition: all 200ms ease-in-out;
 }
 .topic-card-parent .topic-card .topic-card-img-btn .topic-card-img {
   display: flex;
