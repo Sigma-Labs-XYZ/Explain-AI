@@ -8,3 +8,36 @@ $selected-color: black;
   display: flex;
   flex-direction: $direction;
 }
+
+@mixin borderChange($tr, $tl, $br, $bl) {
+  border-top-right-radius: $tr;
+  border-bottom-right-radius: $br;
+  border-top-left-radius: $tl;
+  border-bottom-left-radius: $bl;
+}
+
+@mixin clickable($color, $backgroundColor) {
+  cursor: pointer;
+  background-color: $backgroundColor;
+  color: $color;
+}
+
+$breakpoints: (
+  "small": (
+    max-width: 600px,
+  ),
+  "large": (
+    min-width: 600px,
+  ),
+);
+
+@mixin respond-to($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    @media #{inspect(map-get($breakpoints, $breakpoint))} {
+      @content;
+    }
+  } @else {
+    @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
+        + "Available breakpoints are: #{map-keys($breakpoints)}.";
+  }
+}

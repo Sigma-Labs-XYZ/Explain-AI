@@ -1,15 +1,11 @@
 @import "./variables";
 
 .selected {
-  background-color: $selected-background;
-  cursor: pointer;
-  color: $selected-color;
+  @include clickable($selected-color, $selected-background);
 }
 
 .unselected {
-  cursor: pointer;
-  background-color: $unselected-background;
-  color: $unselected-color;
+  @include clickable($unselected-color, $unselected-background);
 }
 
 .header {
@@ -32,16 +28,11 @@
     font-weight: bold;
   }
   #five {
-    border-top-left-radius: 2px;
-    border-bottom-left-radius: 2px;
+    @include borderChange(0px, 2px, 0px, 2px);
   }
   #adult {
-    border-top-right-radius: 2px;
-    border-bottom-right-radius: 2px;
+    @include borderChange(2px, 0px, 2px, 0px);
   }
-  // .dropdown {
-  //   display: none;
-  // }
 }
 
 .logo {
@@ -56,17 +47,20 @@
   text-align: right;
 }
 
-@media only screen and (max-width: 559.5px) {
-  .selectorButtons {
+.selectorButtons {
+  @include respond-to("small") {
     display: none;
   }
-  .dropdown {
+  @include respond-to("large") {
     display: block;
   }
 }
 
-@media only screen and (min-width: 559.5px) {
-  .dropdown {
+.dropdown {
+  @include respond-to("small") {
+    display: block;
+  }
+  @include respond-to("large") {
     display: none;
   }
 }

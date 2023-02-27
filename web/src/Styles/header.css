@@ -1,6 +1,6 @@
 .selected {
-  background-color: white;
   cursor: pointer;
+  background-color: white;
   color: black;
 }
 
@@ -33,12 +33,16 @@
   font-weight: bold;
 }
 .selector #five {
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
   border-top-left-radius: 2px;
   border-bottom-left-radius: 2px;
 }
 .selector #adult {
   border-top-right-radius: 2px;
   border-bottom-right-radius: 2px;
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
 }
 
 .logo {
@@ -53,16 +57,24 @@
   text-align: right;
 }
 
-@media only screen and (max-width: 559.5px) {
+@media (max-width: 600px) {
   .selectorButtons {
     display: none;
   }
+}
+@media (min-width: 600px) {
+  .selectorButtons {
+    display: block;
+  }
+}
+
+@media (max-width: 600px) {
   .dropdown {
     display: block;
   }
 }
-@media only screen and (min-width: 559.5px) {
+@media (min-width: 600px) {
   .dropdown {
     display: none;
   }
-}/*# sourceMappingURL=styles.css.map */
+}/*# sourceMappingURL=header.css.map */
