@@ -20,7 +20,10 @@ export default function TopicPage() {
 
   return (
     <div>
-      {retrievedTopics && <TopicCard topic={retrievedTopics.topic[0]} />}
+
+      {retrievedTopics && (
+        <TopicCard topic={retrievedTopics.topic[0]} audience={20}/>
+      )}
     </div>
   );
 }

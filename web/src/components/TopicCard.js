@@ -1,5 +1,6 @@
 import '../Styling/TopicCard.css'
 import {useState} from 'react'
+
 function findShortDescription(descriptions,audience) {
     return descriptions.filter(description=> {
         return description.audience===audience
@@ -7,8 +8,7 @@ function findShortDescription(descriptions,audience) {
 }
 
 
-export function TopicCard({topic}) {
-    const audience = 20//this will be passed through as a prop later on from the Header
+export function TopicCard({topic,audience}) {
     const [error,setError] = useState(false)
     let description;
     try {
@@ -16,10 +16,13 @@ export function TopicCard({topic}) {
     } catch(err) {
         setError(true)
     }
-    const imgErrorHandler = ({currentTarget})=> {
-        currentTarget.onerror = null; // prevents looping
-        currentTarget.src="./no-image.jpeg";
-
+    const imageHandler = ()=> {
+        if (typeof topic.image!=='string' || topic.image==="") {
+            return '/no-image.jpeg'
+        }
+        else {
+            return topic.image
+        }
     }
     const descriptionHandler = (description)=> {
         if (error) {
@@ -53,7 +56,7 @@ export function TopicCard({topic}) {
                         Tell me more
                     </button>
                     <div className = 'topic-card-img'>
-                    <img src={topic.image} onError={imgErrorHandler} alt={`A representation of ${topic.name}`}/>
+                    <img src={imageHandler()} alt={`A representation of ${topic.name}`}/>
                     </div>
             </div>
             </div>
