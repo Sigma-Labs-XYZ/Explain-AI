@@ -24,12 +24,12 @@ export function TopicCard({topic}) {
                         {description}
                     </p>
                 </div>
-                <div className='tell-more-button'>
+                <div className='topic-card-img-btn'>
                     <button>
                         Tell me more
                     </button>
-                </div>
-                <img src={topic.image} alt={`A representation of ${topic.name}`}/>
+                    <img src={topic.image} alt={`A representation of ${topic.name}`}/>
+            </div>
             </div>
 
         </div>

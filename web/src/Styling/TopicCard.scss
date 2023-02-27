@@ -5,33 +5,41 @@ $phone-screen-width:400px;
 $type:$phone-screen-width;
 $image-displacement:60%;
 
+$screen-size-counter: 'unknown';
 
 @mixin screen-size {
-    @media screen and (max-width: 600px) {
+    @media screen and (max-width: 601px){
         img {
-            translate:0% 30%;
-            width:150px;
-
-        }
-        .topic-card {
-            width:$phone-screen-width;
+        width:200px;
+        animation-name: move-image-center;
+        animation-fill-mode:forwards;
+        animation-duration:1s
+        
         }
     }
-    @media screen and (min-width: 600px) {
+    @media screen and (min-width: 602px) {
         img {
-            translate:75% 30%;
             width:200px;
+            translate: $image-displacement 30%;
         }
         .topic-card {
             width:$wide-screen-width;
         }
     }
 }
-
-
+@keyframes move-image-center {
+    from {
+        transform:translate($image-displacement, 30%);
+    }
+    to {
+        transform:scale(0.75) translate(0% ,30%);
+        width:150px;
+    }
+}
 
 .topic-card-parent {
     @include screen-size;
+    margin:0px;
     margin-top:20px;
     display:flex;
     justify-content:center;
@@ -57,7 +65,13 @@ $image-displacement:60%;
         }
         & img {
             border-radius:50%;
-            // translate:Max(0%,calc((20w - 200px))) 100px;
-        }   
+        }
+        & button {
+            border:none;
+            padding:10px;
+            font-size:15px;
+            padding-left:50px;
+            padding-right:50px;
+        }
     }
 }
