@@ -21,9 +21,13 @@ export default function TopicPage() {
     <div>
       <h1>{topic}</h1>
       {relationships &&
-        relationships.map((rel) => {
+        relationships.map((rel, i) => {
           return (
-            <RelationCard name={rel.to.name} description={rel.description} />
+            <RelationCard
+              key={i}
+              name={rel.to.name}
+              description={rel.description}
+            />
           );
         })}
     </div>
