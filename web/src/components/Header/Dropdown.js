@@ -4,7 +4,6 @@ export default function DropDownSelector(props) {
   const { audience, select } = props;
   return (
     <>
-      {" "}
       <div data-test-id="dropdown" className="dropdown">
         <form action="/action_page.php">
           <select
