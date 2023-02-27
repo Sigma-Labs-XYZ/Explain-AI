@@ -33,3 +33,13 @@ it("Selecting Adult in dropdown reduces font size to 10px", () => {
   cy.get("select").invoke("val", "Adult").trigger("change");
   cy.get("select").should("have.css", "font-size", "10px");
 });
+
+it("Background color changes when a button is clicked", () => {
+  cy.viewport(405, 1000);
+  cy.mount(<Header />);
+  cy.get("button")
+    .contains("5")
+    .should("have.css", "background-color", "rgb(50, 50, 50)")
+    .trigger("click")
+    .should("have.css", "background-color", "rgb(255, 255, 255)");
+});
