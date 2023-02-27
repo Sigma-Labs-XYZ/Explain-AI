@@ -7,14 +7,13 @@ let topic= {...test_data.topic[0]}
 
 describe('General Tests',()=> {
   Object.values(dimensions).map((device)=> {
-  it('',()=> {
+  it('Text aligned for all types',()=> {
     cy.mount(<TopicCard topic={topic} audience={10} />);
     cy.viewport(device.viewportWidth,device.viewportLength);
     cy.get('.topic-card-description').should('have.css','text-align','justify')
   })
   }
   )
-
 })
 
 describe('<TopicCard /> on Desktop', () => {
