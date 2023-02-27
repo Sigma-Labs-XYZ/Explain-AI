@@ -25,6 +25,15 @@ describe("Media queries and their effects on Age Toggle and Dropdown", () => {
     cy.mount(<Header />);
     cy.get("select").should("have.css", "display", "none");
   });
+
+  it("15% Margin appears on both sides of Elements when screen width above 1000px", () => {
+    const viewportWidth = 1200;
+    const marginPixelValue = ((viewportWidth / 100) * 15).toFixed(3);
+    cy.log(marginPixelValue);
+    cy.viewport(1200, 1000);
+    cy.mount(<Header />);
+    cy.get("img").should("have.css", "margin-left", "177.594px");
+  });
 });
 
 it("Selecting Adult in dropdown reduces font size to 10px", () => {
