@@ -6,23 +6,26 @@ import RelationCard from "./RelationCard";
 export default function TopicPage() {
   const { topic } = useParams();
   const [retrievedTopics, setRetrievedTopics] = useState();
+  const [relationships, setRelationships] = useState();
   const MAIN_URL = `http://localhost:4000/topic/${topic}`;
 
   useEffect(() => {
     (async function () {
-      setRetrievedTopics(await fetchData(MAIN_URL));
+      const data = await fetchData(MAIN_URL);
+      setRetrievedTopics(data);
+      setRelationships(data.topic[0].relationships);
     })();
   }, []);
 
   return (
     <div>
       <h1>{topic}</h1>
-      {retrievedTopics && (
-        <p data-testid="jsondat">{JSON.stringify(retrievedTopics.topic)}</p>
-      )}
-      {/* {retrievedTopics.topic[0].relationships((rel) => {
-        <RelationCard name={rel.name} />;
-      })} */}
+      {relationships &&
+        relationships.map((rel) => {
+          return (
+            <RelationCard name={rel.to.name} description={rel.description} />
+          );
+        })}
     </div>
   );
 }
