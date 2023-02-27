@@ -26,3 +26,10 @@ describe("Media queries and their effects on Age Toggle and Dropdown", () => {
     cy.get("select").should("have.css", "display", "none");
   });
 });
+
+it("Selecting Adult in dropdown reduces font size to 10px", () => {
+  cy.viewport(395, 1000);
+  cy.mount(<Header />);
+  cy.get("select").invoke("val", "Adult").trigger("change");
+  cy.get("select").should("have.css", "font-size", "10px");
+});
