@@ -1,29 +1,43 @@
 
 
 $wide-screen-width:600px;
-$phone-screen-width:400px;
-$type:$phone-screen-width;
-$image-displacement:60%;
+$phone-screen-width:100vh;
+$image-displacement-screen:40%,30%;
+$image-displacement-phone: 0%,30%;
 
-$screen-size-counter: 'unknown';
+
 @mixin screen-size-change {
         @media screen and (max-width: 601px){
+        .topic-card {
+            width:$phone-screen-width;
+        }
         .topic-card-img-btn {
-            display:block;
-            & img {
-                width:150px;
+            flex-direction:column;
+            align-items: center;
+            justify-content: center;
+            & .topic-card-img {
+                // transform:translate($image-displacement-phone);
+                transform:scale(0.75);
+                transition:transform 300ms ease-in;
             }
         }
-        @media screen and (min-width: 601px) {
+    }
+        @media screen and (min-width: 602px) {
+            .topic-card {
+                width:$wide-screen-width;
+            }
             .topic-card-img-btn {
-                display:flex;
-                & img {
-                    width:200px;
+                flex-direction:row;
+                justify-content: space-evenly;
+                
+                & .topic-card-img {
+                    // transform:translate($image-displacement-screen);
+                    transform:scale(1);
+                    transition:transform 300ms ease-out;
                 }
             }
         }
 
-    }
 }
 
 
@@ -47,22 +61,41 @@ $screen-size-counter: 'unknown';
             display:flex;
             border-bottom:2px solid grey;
             align-self:center;
-            //justify-content: center;
             & h1 {
                 margin-top: 10px;
                 margin-bottom:10px;
                 
             }
         }
-        & img {
-            border-radius:50%;
+        & .topic-card-img-btn {
+            display:flex;
+            width:100%;
+            translate: 0px 30%;
+            & button {
+                border:none;
+                padding:10px;
+                font-size:15px;
+                padding-left:50px;
+                padding-right:50px;
+                width:200px;
+                height:50px;
+            }
+            & .topic-card-img {
+                display:flex;
+                width:200px;
+                height:200px;
+                border-radius:50%;
+                background-color: rgb(49, 38, 38);
+                justify-content: center;
+                align-items: center;
+                overflow:hidden;
+                & img {
+                    height:100%;
+                }
+
+                
+            }
         }
-        & button {
-            border:none;
-            padding:10px;
-            font-size:15px;
-            padding-left:50px;
-            padding-right:50px;
-        }
+
     }
 }
