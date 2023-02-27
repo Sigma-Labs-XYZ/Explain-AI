@@ -3,32 +3,31 @@ import React from "react";
 import renderer from "react-test-renderer";
 import userEvent from "@testing-library/user-event";
 import Header from "../components/Header";
-import App from "../App";
 
-//see if header component renders on first load
-test("Header component renders correctly", () => {
-  const headerTree = renderer.create(<Header />).toJSON();
-  expect(headerTree).toMatchSnapshot();
-});
-
-//Test if header changes to displaying Toggle or Dropdown depending on the screensize
-
-test("Header displays Age Toggle if screen size above 400px", () => {
-  render(<Header />);
-  const button = screen.getAllByRole("button");
-  window.resizeTo(300, 300);
-  expect(button[0]).not.toBeVisible();
-});
-
-//testing screen widths
-
-//test localstorage
 describe("localStorage tests", () => {
   beforeEach(() => {
     localStorage.clear();
     jest.clearAllMocks();
   });
   const key = "age";
+
+  test("should save to local storage", () => {
+    const value = "5";
+    localStorage.setItem(key, value);
+    expect(localStorage.setItem).toHaveBeenLastCalledWith(key, value);
+    expect(localStorage.__STORE__[key]).toBe(value);
+    expect(Object.keys(localStorage.__STORE__).length).toBe(1);
+  });
+
+  test("correct option should be selected when localStorage is set", () => {
+    const value = "10";
+    localStorage.setItem(key, value);
+    render(<Header />);
+    const options = screen.getAllByRole("option");
+    expect(options[0].selected).toBeFalsy();
+    expect(options[1].selected).toBeTruthy();
+    expect(options[2].selected).toBeFalsy();
+  });
 
   test("when age button is clicked it should update localStorage with the correct value", () => {
     render(<Header />);
@@ -54,7 +53,6 @@ describe("localStorage tests", () => {
 
 describe("test if all elements of header are rendered", () => {
   const tags = ["5", "10", "Adult"];
-  let tagidx = 0;
   test("logo rendered", () => {
     render(<Header />);
     const logo = screen.getByAltText("logo");
@@ -70,16 +68,16 @@ describe("test if all elements of header are rendered", () => {
     render(<Header />);
     const buttons = screen.getAllByRole("button");
     expect(buttons).toHaveLength(3);
-    //expect each button to have correct text content
-    buttons.map((button) => {
-      expect(button).toHaveTextContent(tags[tagidx]);
-      tagidx += 1;
+    tags.map((tag) => {
+      expect(screen.getByRole("button", { name: tag })).toBeInTheDocument();
     });
   });
 
   test("dropdown rendered", () => {
     render(<Header />);
-    const select = screen.getByRole("combobox");
-    console.log(select);
+    expect(screen.getByRole("combobox")).toBeInTheDocument();
+    tags.map((tag) => {
+      expect(screen.getByRole("option", { name: tag })).toBeInTheDocument();
+    });
   });
 });
