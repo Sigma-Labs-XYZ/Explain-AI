@@ -1,43 +1,45 @@
 import '../Styling/TopicCard.css'
-import {useState} from 'react'
-
-function findShortDescription(descriptions,audience) {
-    return descriptions.filter(description=> {
-        return description.audience===audience
-    }).map(des=>des.short)
-}
+import {useState,useEffect} from 'react'
 
 
 export function TopicCard({topic,audience}) {
     const [error,setError] = useState(false)
-    let description;
-    try {
-        description = findShortDescription(topic.descriptions,audience)
-    } catch(err) {
-        setError(true)
+    const  findShortDescription = (descriptions,audience)=> {
+        try {
+        return descriptions.filter(description=> {
+            return description.audience===audience
+        }).map(des=>des.short)
+        }
+        catch {
+            setError(true)
+        }
     }
+    useEffect(()=> {
+            findShortDescription(topic.descriptions,audience)
+    },[])
+    
     const imageHandler = ()=> {
         if (typeof topic.image!=='string' || topic.image==="") {
-            return '/no-image.jpeg'
+            return './no-image.jpeg'
         }
         else {
             return topic.image
         }
     }
-    const descriptionHandler = (description)=> {
+    const descriptionHandler = ()=> {
+        console.log(error)
         if (error) {
             return (
                 <div className='error'>
                     <h1>Error</h1>
-                    <p>Something went wrong on our side!</p>
+                    <h2>Something went wrong on our side!</h2>
                 </div>
             )
         }
         else {
-            return description
+            return findShortDescription(topic.descriptions,audience)
         }
     }
-    console.log(description)
     return (
         <div className="topic-card-parent">
             <div className='topic-card'>
@@ -48,7 +50,7 @@ export function TopicCard({topic,audience}) {
                 </div>
                 <div className='topic-card-description'>
                     <p>
-                        {descriptionHandler(description)}
+                        {descriptionHandler()}
                     </p>
                 </div>
                 <div className='topic-card-img-btn'>

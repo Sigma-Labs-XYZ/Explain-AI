@@ -1,4 +1,5 @@
 .topic-card-parent {
+  margin: 0px;
   margin-top: 20px;
   display: flex;
   justify-content: center;
@@ -26,25 +27,39 @@
     justify-content: space-evenly;
   }
   .topic-card-parent .topic-card-img-btn .topic-card-img {
+    transform: translate(20px, 0);
     transform: scale(1);
     transition: transform 300ms ease-out;
   }
 }
 .topic-card-parent .topic-card {
+  border: none !important;
   background-color: white;
 }
 .topic-card-parent .topic-card .topic-card-description {
   padding-left: 2em;
   padding-right: 2em;
   text-align: justify;
+  border: none;
 }
 .topic-card-parent .topic-card .topic-card-description .error {
+  display: flex;
   border: 2px solid red;
+  border-radius: 10px;
+  background-color: rgba(238, 7, 7, 0.625);
+  color: white;
+  align-items: center;
+  flex-direction: column;
+}
+.topic-card-parent .topic-card .topic-card-description .error h1, .topic-card-parent .topic-card .topic-card-description .error h2 {
+  margin: 0;
+  margin-bottom: 20px;
+  margin-top: 10px;
 }
 .topic-card-parent .topic-card .topic-card-title {
-  padding-left: 2em;
-  padding-right: 2em;
+  margin: 0px;
   display: flex;
+  padding-left: 2rem;
   align-self: center;
 }
 .topic-card-parent .topic-card .topic-card-title h1 {
@@ -58,18 +73,19 @@
 }
 .topic-card-parent .topic-card .topic-card-img-btn button {
   border: none;
+  padding: 10px;
   font-size: 15px;
   padding-left: 50px;
   padding-right: 50px;
   width: 275px;
   height: 50px;
   font-weight: bold;
-  background-color: #d9d9d9;
+  background-color: #D1D1D1;
 }
-
 .topic-card-parent .topic-card .topic-card-img-btn button:hover {
-  background-color: lightgrey;
+  background-color: #DADADA;
   transition: all 200ms ease-in-out;
+  transform: scale(1.05);
 }
 .topic-card-parent .topic-card .topic-card-img-btn .topic-card-img {
   display: flex;
@@ -80,8 +96,7 @@
   justify-content: center;
   align-items: center;
   overflow: hidden;
-  translate: 20px;
 }
 .topic-card-parent .topic-card .topic-card-img-btn .topic-card-img img {
   height: 100%;
-} /*# sourceMappingURL=TopicCard.css.map */
+}/*# sourceMappingURL=TopicCard.css.map */
