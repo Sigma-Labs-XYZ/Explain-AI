@@ -1,12 +1,12 @@
 import {render,screen} from '@testing-library/react'
 import { TopicCard } from '../components/TopicCard'
 import test_data from './dummy_data.json'
-const topic = test_data.topic[0]
-console.log(topic)
 
-
-
+let topic
 describe('Tests for TopicCard using RTL',()=> {
+    beforeEach(()=> {
+        topic={...test_data.topic[0]} //reset topic
+    })
     test('Renders everything in the right roles',()=> {
         render(<TopicCard topic={topic} audience={10}/>)
         const title = screen.getByRole('heading')
@@ -24,11 +24,10 @@ describe('Tests for TopicCard using RTL',()=> {
         expect(image.src).toBe('http://localhost/no-image.jpeg')
     })
     test('JSON is not the correct strucuture, so an error box appears',()=> {
-        //topic.descriptions = ''
+        console.log(topic.image)
+        topic.descriptions = ''
         render(<TopicCard topic={topic} audience={20}/>)
-        screen.getByRole('')
-
+        screen.getByTestId('error-api')
     })
-
-
 })
+

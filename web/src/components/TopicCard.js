@@ -27,10 +27,9 @@ export function TopicCard({topic,audience}) {
         }
     }
     const descriptionHandler = ()=> {
-        console.log(error)
         if (error) {
             return (
-                <div className='error'>
+                <div data-testid='error-api' className='error'>
                     <h1>Error</h1>
                     <h2>Something went wrong on our side!</h2>
                 </div>
