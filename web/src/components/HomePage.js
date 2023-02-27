@@ -1,4 +1,4 @@
-
+import Breadcrumbs from "./Breadcrumbs";
 export default function HomePage() {
   return (
     <div>
