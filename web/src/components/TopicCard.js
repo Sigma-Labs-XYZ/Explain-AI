@@ -16,6 +16,11 @@ export function TopicCard({topic}) {
     } catch(err) {
         setError(true)
     }
+    const imgErrorHandler = ({currentTarget})=> {
+        currentTarget.onerror = null; // prevents looping
+        currentTarget.src="./no-image.jpeg";
+
+    }
     const descriptionHandler = (description)=> {
         if (error) {
             return (
@@ -48,7 +53,7 @@ export function TopicCard({topic}) {
                         Tell me more
                     </button>
                     <div className = 'topic-card-img'>
-                    <img src={topic.image} alt={`A representation of ${topic.name}`}/>
+                    <img src={topic.image} onError={imgErrorHandler} alt={`A representation of ${topic.name}`}/>
                     </div>
             </div>
             </div>
