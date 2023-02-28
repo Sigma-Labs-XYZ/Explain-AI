@@ -1,0 +1,17 @@
+table:
+  name: description
+  schema: public
+object_relationships:
+  - name: topic
+    using:
+      foreign_key_constraint_on: topic_slug
+select_permissions:
+  - role: user
+    permission:
+      columns:
+        - audience
+        - long
+        - short
+        - topic_slug
+        - id
+      filter: {}
