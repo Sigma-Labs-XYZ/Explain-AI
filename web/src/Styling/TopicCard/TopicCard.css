@@ -1,3 +1,40 @@
+@keyframes error-wiggle {
+  0% {
+    transform: translateX(-1%);
+  }
+  20% {
+    transform: translateX(1%);
+  }
+  40% {
+    transform: translateX(-0.5%);
+  }
+  60% {
+    transform: translateX(0.5%);
+  }
+  80% {
+    transform: translateX(-0.5%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+.api-error {
+  display: flex;
+  border: 2px solid red;
+  border-radius: 10px;
+  background-color: rgba(238, 7, 7, 0.8);
+  color: white;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  animation: error-wiggle 500ms ease-in forwards;
+}
+.api-error h1, .api-error h2 {
+  margin: 0;
+  margin-bottom: 20px;
+  margin-top: 10px;
+}
+
 .topic-card-parent {
   margin: 0px;
   margin-top: 20px;
@@ -42,36 +79,22 @@
   text-align: justify;
   border: none;
 }
-.topic-card-parent .topic-card .topic-card-description .error {
-  display: flex;
-  border: 2px solid red;
-  border-radius: 10px;
-  background-color: rgba(238, 7, 7, 0.625);
-  color: white;
-  align-items: center;
-  flex-direction: column;
-}
-.topic-card-parent .topic-card .topic-card-description .error h1, .topic-card-parent .topic-card .topic-card-description .error h2 {
-  margin: 0;
-  margin-bottom: 20px;
-  margin-top: 10px;
-}
-.topic-card-parent .topic-card .topic-card-title {
+.topic-card-parent .topic-card-title {
   margin: 0px;
   display: flex;
   padding-left: 2rem;
   align-self: center;
 }
-.topic-card-parent .topic-card .topic-card-title h1 {
+.topic-card-parent .topic-card-title h1 {
   margin-top: 20px;
   margin-bottom: 10px;
 }
-.topic-card-parent .topic-card .topic-card-img-btn {
+.topic-card-parent .topic-card-img-btn {
   display: flex;
   width: 100%;
   translate: 0px 30%;
 }
-.topic-card-parent .topic-card .topic-card-img-btn button {
+.topic-card-parent .topic-card-img-btn button {
   border: none;
   padding: 10px;
   font-size: 15px;
@@ -82,12 +105,12 @@
   font-weight: bold;
   background-color: #D1D1D1;
 }
-.topic-card-parent .topic-card .topic-card-img-btn button:hover {
+.topic-card-parent .topic-card-img-btn button:hover {
   background-color: #DADADA;
   transition: all 200ms ease-in-out;
   transform: scale(1.05);
 }
-.topic-card-parent .topic-card .topic-card-img-btn .topic-card-img {
+.topic-card-parent .topic-card-img-btn .topic-card-img {
   display: flex;
   width: 200px;
   height: 200px;
@@ -97,6 +120,6 @@
   align-items: center;
   overflow: hidden;
 }
-.topic-card-parent .topic-card .topic-card-img-btn .topic-card-img img {
+.topic-card-parent .topic-card-img-btn .topic-card-img img {
   height: 100%;
 }/*# sourceMappingURL=TopicCard.css.map */
