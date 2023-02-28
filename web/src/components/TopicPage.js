@@ -20,6 +20,9 @@ export default function TopicPage() {
   return (
     <div>
       <h1>{topic}</h1>
+      <h2 className="text-left text-3xl ml-5 text-white font-bold mb-5">
+        Related
+      </h2>
       {relationships &&
         relationships.map((rel, i) => {
           return (
