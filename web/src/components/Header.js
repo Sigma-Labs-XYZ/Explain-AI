@@ -16,7 +16,9 @@ export default function Header() {
       <header>
         <img src={explainailogo} alt="logo" />
         <div>
-          <p>Like I'm</p>
+          <p>
+            <nobr>Like I'm </nobr>
+          </p>
           <button
             onClick={() => setAge("5")}
             className={age === "5" ? "btn selected" : "btn"}
@@ -37,7 +39,7 @@ export default function Header() {
           </button>
           <select
             onChange={(e) => setAge(e.target.value)}
-            className={age === "Adult" ? "select-adult" : "select-pg"}
+            className="select-pg"
             value={age}
           >
             <option value="5">5</option>
