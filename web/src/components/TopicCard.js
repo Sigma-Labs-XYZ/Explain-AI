@@ -1,8 +1,9 @@
 import '../Styling/TopicCard/TopicCard.css'
-import {useState,useEffect} from 'react'
+import {useState} from 'react'
 
 
 export function TopicCard({topic,audience}) {
+    console.log({audience})
     const [error,setError] = useState(false)
     const  findShortDescription = (descriptions,audience)=> {
         try {
@@ -14,15 +15,9 @@ export function TopicCard({topic,audience}) {
             setError(true)
         }
     }
-
-    
     const imageHandler = ()=> {
-        if (typeof topic.image!=='string' || topic.image==="") {
-            return './no-image.jpeg'
-        }
-        else {
-            return topic.image
-        }
+        const imageError = typeof topic.image !=='string' || topic.image===''//this may be changed depending on how the API responds
+        return (imageError? './no-image.jpeg' : topic.image)
     }
     const descriptionHandler = ()=> {
         if (error) {
