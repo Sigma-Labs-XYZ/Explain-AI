@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { useState, useEffect, React } from "react";
+import { React } from "react";
 export default function Breadcrumbs({ grandParent, parent }) {
   return (
     <nav>
