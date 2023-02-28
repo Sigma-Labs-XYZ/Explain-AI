@@ -43,11 +43,7 @@
     ]
   },
   "devDependencies": {
-<<<<<<< HEAD
     "eslint": "^8.35.0",
-=======
-    "eslint": "^8.2.0",
->>>>>>> 66e1787 ( added eslint, including testing, jest plugins and refactorred code)
     "eslint-config-airbnb": "^19.0.4",
     "eslint-plugin-import": "^2.27.5",
     "eslint-plugin-jsx-a11y": "^6.7.1",
