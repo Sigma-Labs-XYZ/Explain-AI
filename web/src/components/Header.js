@@ -3,7 +3,9 @@ import "./Header.scss";
 import { useState, useEffect } from "react";
 
 export default function Header() {
-  const [age, setAge] = useState(localStorage.getItem("age"));
+  const [age, setAge] = useState(
+    localStorage.getItem("age") || localStorage.setItem("age", "5") || "5"
+  );
 
   useEffect(() => {
     localStorage.setItem("age", age);
