@@ -10,9 +10,23 @@
               created_at
               descriptions(where: {audience:{_eq:$audience}}) {
                 short
+                long
+              }
+              parent {
+                parent {
+                  slug
+                  name
+                  grandparent: parent {
+                    grandparent: parent {
+                      slug
+                      name
+                    }
+                  }
+                }
               }
               relationships(where: {audience:{_eq:$audience}}) {
                 to {
+                  slug
                   name
                   image
                 }
@@ -22,18 +36,32 @@
           }
       - name: Topic_All_Audiences
         query: |
-          query GET_TOPIC_ALL_AUDIENCES($slug: String) {
-            topic(where:{slug:{_eq: $slug}}) {
+          query GET_TOPIC_ALL_AUDIENCES ($slug: String) {
+            topic(where: {slug:{_eq:$slug}}) {
               name
               image
               created_at
               descriptions {
                 short
+                long
                 audience
+              }
+              parent {
+                parent {
+                  slug
+                  name
+                  grandparent: parent {
+                    grandparent: parent {
+                      slug
+                      name
+                    }
+                  }
+                }
               }
               relationships {
                 audience
                 to {
+                  slug
                   name
                   image
                 }
@@ -45,13 +73,7 @@
         query: |
           query TOPICS {
             topic {
+              slug
               name
-              relationships {
-                priority
-                description
-                to {
-                  name
-                }
-              }
             }
           }
