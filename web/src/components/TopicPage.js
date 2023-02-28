@@ -6,7 +6,7 @@ import { TopicCard } from "./TopicCard";
 export default function TopicPage() {
   const { topic } = useParams();
   const [retrievedTopics, setRetrievedTopics] = useState();
-  const [audience,setAudience] = useState(parseInt(localStorage.getItem('age') || localStorage.setItem('age',5) || 5))
+  const [audience,] = useState(parseInt(localStorage.getItem('age') || localStorage.setItem('age',5) || 5))
   
   const MAIN_URL = `${process.env.REACT_APP_API_ENDPOINT}/topic/${topic}`;
   console.log(audience)
