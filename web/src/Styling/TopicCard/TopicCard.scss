@@ -1,32 +1,6 @@
 @import './variables.scss';
 
-@mixin screen-size-change {
-  @media screen and (max-width: 601px) {
-    .topic-card {
-      width: $phone-screen-width;
-    }
-    .topic-card-img-btn {
-      @include img-btn-phone-display;
-      & .topic-card-img {
-        transform: scale($image-shrinkage);
-        transition: transform 300ms ease-in;
-      }
-    }
-  }
-  @media screen and (min-width: 602px) {
-    .topic-card {
-      width: $wide-screen-width;
-    }
-    .topic-card-img-btn {
-      @include img-btn-screen-display;
-      & .topic-card-img {
-        transform:translate(20px,0);
-        transform: scale(1);
-        transition: transform 300ms ease-out;
-      }
-    }
-  }
-}
+
 
 .topic-card-parent {
   @include screen-size-change;
@@ -42,7 +16,6 @@
       padding-right: 2em;
       text-align: justify;
       border: none;
-
       & .error {
         display:flex;
         border: 2px solid red;
@@ -55,9 +28,7 @@
             margin:0;
             margin-bottom:20px;
             margin-top:10px;
-
         }
-
       }
     }
     & .topic-card-title {

@@ -14,9 +14,7 @@ export function TopicCard({topic,audience}) {
             setError(true)
         }
     }
-    useEffect(()=> {
-            findShortDescription(topic.descriptions,audience)
-    },[])
+
     
     const imageHandler = ()=> {
         if (typeof topic.image!=='string' || topic.image==="") {
