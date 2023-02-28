@@ -1,9 +1,15 @@
 import "../components/RelationCard.scss";
 import daddy from "./daddy.png";
+import { useNavigate } from "react-router-dom";
 
 export default function RelationCard({ name, description }) {
+  const navigate = useNavigate();
+
   return (
-    <div className="flex items-center phone:mr-0">
+    <div
+      className="flex items-center phone:mr-0"
+      onClick={() => navigate(`/${name.toLowerCase()}`)}
+    >
       <div className="text-left bg-white border-transparent ml-5 mb-3 p-3 pl-10 flex items-center w-full phone:ml-0 phone:pr-0">
         <div className="pr-24 phone:mr-10">
           <h2 className="text-2xl font-bold mb-0 mt-4">{name}</h2>
