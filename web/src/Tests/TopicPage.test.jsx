@@ -3,7 +3,6 @@ import fetchMock from "jest-fetch-mock";
 import React from "react";
 import App from "../App";
 
-
 beforeEach(() => {
   fetchMock.enableMocks();
   fetch.resetMocks();
