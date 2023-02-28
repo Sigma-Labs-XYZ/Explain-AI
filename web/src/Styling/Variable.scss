@@ -1,0 +1,31 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200&family=Tilt+Warp&display=swap");
+$fontStyle: "Tilt Warp", cursive;
+$fontFamily: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+  "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+
+//colours
+$black: black;
+$background: #4e4d4d;
+$buttonColour: #323232;
+$white: white;
+$grey: #a5a4a4;
+$offWhite: #e3e3e3;
+
+// header height
+$headerHeight: 100px;
+
+@mixin breakpoint($point) {
+  @if $point == md {
+    //768px
+    @media (max-width: 48em) {
+      //1em=16px
+      @content;
+    }
+  }
+}
+
+@mixin flex {
+  display: flex;
+  flex-direction: "row";
+  align-items: center;
+}

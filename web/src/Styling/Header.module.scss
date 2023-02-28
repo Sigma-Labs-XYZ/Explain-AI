@@ -1,0 +1,87 @@
+@import "./Variable.scss";
+
+.header {
+  background-color: $black;
+  height: $headerHeight;
+  width: 100%;
+  padding: 0 1.5rem;
+  @include breakpoint(md) {
+    padding: 0.1px;
+  }
+  transition: 0.3s ease all;
+
+  &__content {
+    overflow: hidden;
+    color: $white;
+    margin: 0 auto;
+    max-width: 1920px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    position: relative;
+    @include breakpoint(md) {
+      justify-content: space-between;
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+
+    &__logo {
+      height: 60%;
+      @include breakpoint(md) {
+        height: 30%;
+      }
+    }
+
+    &__ages {
+      @include flex;
+
+      & p {
+        @include flex;
+        color: $offWhite;
+        margin-right: 10px;
+        font-size: 18px;
+        font-family: $fontFamily;
+      }
+
+      & button {
+        border: none;
+        margin-left: 1%;
+        width: 75px;
+        height: 43px;
+        font-weight: bold;
+        font-family: $fontStyle;
+        font-size: 19px;
+        @include breakpoint(md) {
+          display: none;
+        }
+      }
+
+      &__selected {
+        cursor: pointer;
+        background-color: $white;
+        color: $black;
+      }
+
+      &__unselected {
+        background-color: $buttonColour;
+        cursor: pointer;
+        color: $grey;
+      }
+    }
+
+    & select {
+      display: none;
+      @include breakpoint(md) {
+        display: block;
+        border: none;
+        width: 75px;
+        height: 37px;
+        font-weight: bold;
+        font-family: $fontStyle;
+        font-size: 18px;
+        text-align-last: center;
+      }
+    }
+  }
+}
