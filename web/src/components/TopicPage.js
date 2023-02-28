@@ -8,7 +8,7 @@ export default function TopicPage() {
   const [retrievedTopics, setRetrievedTopics] = useState();
   const [fatherTopic, setFatherTopic] = useState();
   const [grandFatherTopic, setGrandFatherTopic] = useState();
-  const MAIN_URL = `http://localhost:4000/topic/${topic}`; // change this at the end
+  const MAIN_URL = `${process.env.REACT_APP_API_ENDPOINT}/topic/${topic}`; // change this at the end {process.env.REACT_APP_API_ENDPOINT}
 
   useEffect(() => {
     (async function () {
@@ -31,6 +31,7 @@ export default function TopicPage() {
   return (
     <div>
       <h1>{topic}</h1>
+      {console.log(process.env.REACT_APP_API_ENDPOINT)}
       <Breadcrumbs
         fatherTopic={fatherTopic}
         grandFatherTopic={grandFatherTopic}
