@@ -13,7 +13,7 @@ export function AppRouter() {
         element={
           <Breadcrumbs
             parent={{ name: "computing", slug: "computing" }}
-            grandParent={{ name: "engineering", slug: "engineering" }}
+            grandParent={{ name: "maths", slug: "maths" }}
           />
         }
       />
