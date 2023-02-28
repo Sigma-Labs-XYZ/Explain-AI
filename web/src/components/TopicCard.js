@@ -1,4 +1,4 @@
-import '../Styling/TopicCard.css'
+import '../Styling/TopicCard/TopicCard.css'
 import {useState,useEffect} from 'react'
 
 
