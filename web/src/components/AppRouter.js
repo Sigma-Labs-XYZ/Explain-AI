@@ -11,10 +11,10 @@ export function AppRouter() {
       <Route
         path="/testBreadCrumbs"
         element={
-          <Breadcrumbs
-            parent={{ name: "computing", slug: "computing" }}
-            grandParent={{ name: "maths", slug: "maths" }}
-          />
+            <Breadcrumbs
+              parent={{ name: "computing", slug: "computing" }}
+              grandParent={{ name: "maths", slug: "maths" }}
+            />
         }
       />
     </Routes>
