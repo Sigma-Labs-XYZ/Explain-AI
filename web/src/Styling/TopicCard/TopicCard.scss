@@ -1,20 +1,25 @@
 @import './variables.scss';
 
-
-.api-error {
+.api-error-container {
   display:flex;
-  border: 2px solid red;
-  border-radius:10px;
-  background-color: rgba(238, 7, 7, 0.8);
-  color:white;
-  align-items: center;
-  justify-content: center;
-  flex-direction:column;
-  animation:error-wiggle 500ms ease-in forwards;
-  & h1, h2 {
-      margin:0;
-      margin-bottom:20px;
-      margin-top:10px;
+  justify-content:center;
+  top:40%;
+  & .api-error {
+    display:flex;
+    width:500px;
+    border: 2px solid red;
+    border-radius:10px;
+    background-color: rgba(238, 7, 7, 0.8);
+    color:white;
+    align-items: center;
+    justify-content: center;
+    flex-direction:column;
+    animation:error-wiggle 400ms ease-in forwards;
+    & h1, h2 {
+        margin:0;
+        margin-bottom:20px;
+        margin-top:10px;
+    }
   }
 }
 .topic-card-parent {

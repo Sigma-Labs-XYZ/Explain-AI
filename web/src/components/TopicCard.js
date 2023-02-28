@@ -41,9 +41,11 @@ export function TopicCard({topic,audience}) {
 
     else {
         return (
-            <div data-testid='error-api' className='api-error'>
-                <h1>Error</h1>
-                <h2>The API format of this particular element is unreadable.</h2>
+            <div className='api-error-container'>
+                <div data-testid='error-api' className='api-error'>
+                    <h1>Error</h1>
+                    <h2>The API format of this particular element is unreadable.</h2>
+                </div>
             </div>
         )
     }
