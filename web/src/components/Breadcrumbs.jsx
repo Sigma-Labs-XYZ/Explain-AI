@@ -4,9 +4,9 @@ export default function Breadcrumbs({ grandParent, parent }) {
   return (
     <nav>
       <span>
-        <Link to={`/:${grandParent}`}>grandFatherTopic</Link>
+        <Link to={`/${grandParent.slug}`}>{grandParent.name}</Link>
         <p> > </p>
-        <Link to={`/:${parent}`}>fatherTopic</Link>
+        <Link to={`/${parent.slug}`}>{parent.name}</Link>
       </span>
     </nav>
   );
