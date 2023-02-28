@@ -12,7 +12,7 @@ $grey: #a5a4a4;
 $offWhite: #e3e3e3;
 
 // header height
-$headerHeight: 100px;
+$headerHeight: 70px;
 
 @mixin breakpoint($point) {
   @if $point == md {

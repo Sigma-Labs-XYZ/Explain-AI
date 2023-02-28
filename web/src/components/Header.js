@@ -1,23 +1,32 @@
-import { React, useState } from "react";
+import { React, useState, useEffect } from "react";
 import classes from "../Styling/Header.module.scss";
 
 export default function Header() {
-  const [buttonAge, setButtonAge] = useState(
-    parseInt(localStorage.getItem("age") || localStorage.setItem("age", 5) || 5)
-  );
+  const [buttonAge, setButtonAge] = useState();
+
+  useEffect(() => {
+    const storedAge = localStorage.getItem("age");
+    if (storedAge) {
+      setButtonAge(parseInt(localStorage.getItem("age")));
+    } else {
+      //defaults to 5
+      localStorage.setItem("age", 5);
+      setButtonAge(5);
+    }
+  }, [buttonAge]);
 
   const ages = {
     five: {
       name: "5",
-      number: "5",
+      number: 5,
     },
     ten: {
       name: "10",
-      number: "10",
+      number: 10,
     },
     adult: {
       name: "Adult",
-      number: "20",
+      number: 20,
     },
   };
 
@@ -47,7 +56,6 @@ export default function Header() {
                 onClick={(e) => {
                   localStorage.setItem("age", e.target.name);
                   setButtonAge(e.target.name);
-                  console.log(e.target.name);
                 }}
               >
                 {age.name}
@@ -58,12 +66,13 @@ export default function Header() {
             value={buttonAge}
             className={classes.header__content__ages__option}
             onChange={(e) => {
+              localStorage.setItem("age", e.target.value);
               setButtonAge(e.target.value);
             }}
           >
             {Object.values(ages).map((age, i) => {
               return (
-                <option value={age.text} key={i} name={age.number}>
+                <option value={age.number} key={i} name={age.number}>
                   {age.name}
                 </option>
               );
