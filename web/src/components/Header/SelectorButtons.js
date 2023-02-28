@@ -1,40 +1,28 @@
 import "../../Styles/header.css";
 
 export default function SelectorButtons({ select, audience }) {
+  const buttonData = [
+    { id: "five", name: "5" },
+    { id: "ten", name: "10" },
+    { id: "adult", name: "Adult" },
+  ];
   return (
     <div data-test-id="selectorButtons" className="selectorButtons">
-      <button
-        data-testid="five"
-        id="five"
-        className={audience === "5" ? "selected" : "unselected"}
-        name="5"
-        onClick={(event) => {
-          select(event.target.name);
-        }}
-      >
-        5
-      </button>
-      <button
-        data-testid="ten"
-        className={audience === "10" ? "selected" : "unselected"}
-        name="10"
-        onClick={(event) => {
-          select(event.target.name);
-        }}
-      >
-        10
-      </button>
-      <button
-        data-testid="adult"
-        id="adult"
-        className={audience === "Adult" ? "selected" : "unselected"}
-        name="Adult"
-        onClick={(event) => {
-          select(event.target.name);
-        }}
-      >
-        Adult
-      </button>
+      {buttonData.map((element) => {
+        return (
+          <button
+            data-testid={element.id}
+            id={element.id}
+            className={audience === element.name ? "selected" : "unselected"}
+            name={element.name}
+            onClick={(event) => {
+              select(event.target.name);
+            }}
+          >
+            {element.name}
+          </button>
+        );
+      })}
     </div>
   );
 }

@@ -14,9 +14,15 @@ export default function DropDownSelector(props) {
               select(event.target.value);
             }}
           >
-            <option value="5">5</option>
-            <option value="10">10</option>
-            <option value="Adult">Adult</option>
+            <option name="5" value="5">
+              5
+            </option>
+            <option name="10" value="10">
+              10
+            </option>
+            <option name="adult" value="Adult">
+              Adult
+            </option>
           </select>
         </form>
       </div>
