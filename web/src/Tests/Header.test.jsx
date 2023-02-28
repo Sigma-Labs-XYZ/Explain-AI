@@ -1,4 +1,3 @@
-/* eslint-disable no-underscore-dangle */
 import { render, screen, fireEvent } from '@testing-library/react';
 import React from 'react';
 import userEvent from '@testing-library/user-event';
