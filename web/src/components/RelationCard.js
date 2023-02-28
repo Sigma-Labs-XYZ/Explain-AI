@@ -16,7 +16,10 @@ export default function RelationCard({ name, description }) {
           <p className="mt-2">{description}</p>
         </div>
       </div>
-      <div className="-ml-12 mr-5 mb-[0.8%] phone:-ml-32 phone:mr-8">
+      <div
+        className="-ml-12 mr-5 mb-[0.8%] phone:-ml-32 phone:mr-0 "
+        data-test-id="img container"
+      >
         <img
           className="w-24 h-24 border-1 rounded-full"
           src={daddy}
