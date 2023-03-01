@@ -16,7 +16,7 @@ export default function Header() {
       <header>
         <img src={explainailogo} alt="logo" />
         <div>
-          <p>Like I'm</p>
+          <p>Like I&apos;m</p>
           <button
             onClick={() => setAge("5")}
             className={age === "5" ? "btn selected" : "btn"}

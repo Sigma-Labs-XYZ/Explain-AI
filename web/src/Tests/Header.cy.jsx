@@ -11,6 +11,7 @@ describe("Media queries and their effects on Age Toggle and Dropdown", () => {
   it("Toggle disappears when screen width below 400px (Mobile)", () => {
     cy.viewport(395, 1000);
     cy.mount(<Header />);
+    cy.get("button").dblclick({force: true})
     cy.get("button").should("have.css", "display", "none");
   });
 
