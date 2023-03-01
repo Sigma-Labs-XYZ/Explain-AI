@@ -2,20 +2,20 @@
   definition:
     query:
       collection_name: allowed-queries
-      query_name: Topic
-  methods:
-    - GET
-  name: Topic
-  url: topic/:slug/:audience
-- comment: ""
-  definition:
-    query:
-      collection_name: allowed-queries
       query_name: Topic_All_Audiences
   methods:
     - GET
   name: Topic_All_Audiences
   url: topic/:slug
+- comment: ""
+  definition:
+    query:
+      collection_name: allowed-queries
+      query_name: Topic
+  methods:
+    - GET
+  name: Topic
+  url: topic/:slug/:audience
 - comment: ""
   definition:
     query:
