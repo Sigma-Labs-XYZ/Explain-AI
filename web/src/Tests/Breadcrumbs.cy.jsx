@@ -37,7 +37,7 @@ describe("<Breadcrumbs /> - testing for component render and display on screen a
   });
 
   it("check text color and background for desktop breadcrumb", () => {
-    cy.viewport(300, 600);
+    cy.viewport(500, 600);
     cy.mount(
       <BrowserRouter>
         <Breadcrumbs
@@ -46,6 +46,7 @@ describe("<Breadcrumbs /> - testing for component render and display on screen a
         />
       </BrowserRouter>
     );
+    console.log(cy.get("[data-testid=desktop]").find("span").first());
     cy.get("[data-testid=desktop]")
       .find("span")
       .first()

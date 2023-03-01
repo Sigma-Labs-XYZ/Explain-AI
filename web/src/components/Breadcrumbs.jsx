@@ -5,13 +5,17 @@ import "../Styles/BreadCrumbs.css";
 export default function Breadcrumbs({ grandParent, parent }) {
   return (
     <>
-      <nav data-testid="desktop" id="desktop" className="ml-7">
-        <span className=" w-screen bg-backdrop text-white capitalize p-0.5">
-          <Link to={`/${grandParent.slug}`}>{grandParent.name} </Link>
+      <nav
+        data-testid="desktop"
+        id="desktop"
+        className="ml-7 w-screen bg-backdrop "
+      >
+        <span className="w-screen bg-backdrop text-white capitalize p-0.5 ml-7">
+          <Link to={`/${grandParent.slug}`}>{grandParent.name}</Link>
           <span data-testid="desktop-grandParent" className="font-thin">
             {"> "}
           </span>
-          <Link to={`/${parent.slug}`}>{parent.name} </Link>
+          <Link to={`/${parent.slug}`}>{parent.name}</Link>
           <span data-testid="desktop-parent" className="font-thin">
             {"> "}
           </span>
