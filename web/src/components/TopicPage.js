@@ -12,6 +12,7 @@ export default function TopicPage() {
   useEffect(() => {
     (async function () {
       const data = await fetchData(MAIN_URL);
+      console.log(JSON.stringify(data));
       setRetrievedTopics(data);
       setRelationships(data.topic[0].relationships);
     })();

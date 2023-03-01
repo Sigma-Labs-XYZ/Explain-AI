@@ -2,6 +2,8 @@ import { render, screen } from "@testing-library/react";
 import { waitFor } from "@testing-library/react";
 import TopicPage from "../components/TopicPage";
 import fetchMock from "jest-fetch-mock";
+import { MemoryRouter } from "react-router-dom";
+
 beforeEach(() => {
   fetchMock.enableMocks();
   fetch.resetMocks();
@@ -27,4 +29,56 @@ describe("Test for API render on sucess", () => {
       expect(screen.queryByTestId("jsondat")).not.toBeInTheDocument();
     });
   });
+});
+
+test("Clicking on a relation card should take you to the correct topic", async () => {
+  const response = {
+    topic: [
+      {
+        name: "Javascript",
+        image: null,
+        created_at: "2023-02-27",
+        descriptions: [
+          {
+            short:
+              "JavaScript is a special language that helps make websites more fun and exciting. It helps your computer do things like move things around on the screen, make things happen when you click on them, and make things look different.",
+            audience: 5,
+          },
+          {
+            short:
+              "JavaScript is a type of computer code that helps webpages do cool things. For example, when you play a game on a website, that game is powered by JavaScript. It can also make webpages look nicer by adding colors and animations. JavaScript is like a secret language that computers understand, and it helps make the internet a fun and exciting place.",
+            audience: 10,
+          },
+          {
+            short:
+              "JavaScript is a computer programming language that is used to create interactive websites and applications. It allows web developers to create websites and applications that respond to user actions, such as moving a mouse over a button, typing something in a textbox, or clicking a link. It is used to add behavior, store and retrieve information, and change the style and layout of web pages.",
+            audience: 20,
+          },
+        ],
+        relationships: [
+          {
+            audience: 10,
+            to: { name: "CSS", image: null },
+            description:
+              "Javascript and CSS work together to make websites look good and function properly.",
+          },
+          {
+            audience: 10,
+            to: { name: "HTML", image: null },
+            description:
+              "JavaScript is used to add interactivity to HTML pages.",
+          },
+        ],
+      },
+    ],
+  };
+  fetch.mockResponseOnce(JSON.stringify(response));
+  const pathParameter = "javascript";
+  const route = `/${pathParameter}`;
+  render(
+    <MemoryRouter initialEntries={[route]}>
+      <TopicPage />
+    </MemoryRouter>
+  );
+  expect(global.window.location.pathname).toBe(route);
 });
