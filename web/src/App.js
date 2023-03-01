@@ -1,5 +1,6 @@
 import "./App.css";
-import { AppRouter } from "./components/AppRouter";
+import React from "react";
+import AppRouter from "./components/AppRouter";
 import Header from "./components/Header";
 
 function App() {
