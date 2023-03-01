@@ -17,6 +17,8 @@
     "react-scripts": "5.0.1",
     "react-test-renderer": "^18.2.0",
     "sass": "^1.58.3",
+    "react-test-renderer": "^18.2.0",
+    "sass": "^1.58.3",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
