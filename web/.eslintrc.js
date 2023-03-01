@@ -14,8 +14,8 @@ module.exports = {
       jsx: true, // Enable JSX since we're using React
     },
   },
-  extends: ["airbnb", "prettier", "plugin:testing-library/react", "plugin:jest/all"],
-  plugins: ["prettier", "react", "react-hooks", "testing-library"],
+  extends: ["airbnb", "prettier", "plugin:testing-library/react"],
+  plugins: ["prettier", "react", "testing-library"],
   overrides: [
     Object.assign(
       {
