@@ -1,30 +1,26 @@
 import { Link } from "react-router-dom";
 import { React } from "react";
 
-import "../Styles/BreadCrumbs.css";
+import "../Styles/BreadCrumbs/BreadCrumbs.css";
 export default function Breadcrumbs({ grandParent, parent }) {
   return (
-    <>
-      <nav
-        data-testid="desktop"
-        id="desktop"
-        className="ml-7 w-screen bg-backdrop "
-      >
-        <span className="w-screen bg-backdrop text-white capitalize p-0.5 ml-7">
+    <div className="bg-backdrop">
+      <nav data-testid="desktop" id="desktop" className="desktop">
+        <span className="desktop-container">
           <Link to={`/${grandParent.slug}`}>{grandParent.name}</Link>
           <span data-testid="desktop-grandParent" className="font-thin">
-            {"> "}
+            {" > "}
           </span>
           <Link to={`/${parent.slug}`}>{parent.name}</Link>
           <span data-testid="desktop-parent" className="font-thin">
-            {"> "}
+            {" > "}
           </span>
         </span>
       </nav>
 
       <div id="mobile" data-testid="mobile">
         <Link data-testid="mobile-grandParent" to={`/${grandParent.slug}`}>
-          <button className="bg-backdrop2 pb-2 pt-2 text-left text-white capitalize w-screen">
+          <button className="mobile-parent-btn">
             <span className="ml-7">
               {" "}
               {grandParent.name}
@@ -34,7 +30,7 @@ export default function Breadcrumbs({ grandParent, parent }) {
         </Link>
 
         <Link data-testid="mobile-parent" to={`/${parent.slug}`}>
-          <button className="bg-backdrop pb-2 pt-2 text-left text-white capitalize w-screen">
+          <button className="mobile-grandParent-btn">
             <span className="ml-7">
               {" "}
               {parent.name}
@@ -43,6 +39,6 @@ export default function Breadcrumbs({ grandParent, parent }) {
           </button>
         </Link>
       </div>
-    </>
+    </div>
   );
 }

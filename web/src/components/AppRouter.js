@@ -8,15 +8,6 @@ export function AppRouter() {
     <Routes>
       <Route path="/" element={<HomePage />} />
       <Route path="/:topic" element={<TopicPage />} />
-      <Route
-        path="/testBreadCrumbs"
-        element={
-            <Breadcrumbs
-              parent={{ name: "computing", slug: "computing" }}
-              grandParent={{ name: "maths", slug: "maths" }}
-            />
-        }
-      />
     </Routes>
   );
 }

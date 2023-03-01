@@ -1,4 +1,4 @@
-@import "./variables";
+@import "../variables";
 
 #desktop {
   @include respond-to("small") {
@@ -23,4 +23,20 @@
   @include respond-to("large") {
     display: none;
   }
+}
+
+.desktop {
+  @apply ml-7 w-screen bg-backdrop;
+}
+
+.desktop-container {
+  @apply w-screen bg-backdrop text-white capitalize p-0.5;
+}
+
+.mobile-parent-btn {
+  @apply bg-backdrop2 pb-2 pt-2 text-left text-white capitalize w-screen;
+}
+
+.mobile-grandParent-btn {
+  @apply bg-backdrop pb-2 pt-2 text-left text-white capitalize w-screen;
 }
