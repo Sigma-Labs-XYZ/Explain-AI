@@ -30,14 +30,21 @@ services:
     container_name: explainai-backend-api
     working_dir: /app
     build: ./api
-    ports: 
-    - "4000:4000"
+    ports:
+      - "4000:4000"
     environment:
       - DB_ENDPOINT=http://localhost:8080
       - DB_SECRET=admin_secret
     depends_on:
       - explainai-database-api
     restart: always
-
+  explainai-frontend-web:
+    container_name: explainai-frontend-react
+    working_dir: /app
+    build: ./web
+    ports:
+      - "3000:3000"
+    stdin_open: true
+    tty: true
 volumes:
   db_data:
