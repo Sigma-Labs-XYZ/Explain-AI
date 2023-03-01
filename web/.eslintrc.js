@@ -15,7 +15,7 @@ module.exports = {
     },
   },
   extends: ["airbnb", "prettier", "plugin:testing-library/react", "plugin:jest/all"],
-  plugins: ["prettier", "react", "react-hooks", "testing-library", "jest"],
+  plugins: ["prettier", "react", "react-hooks", "testing-library"],
   overrides: [
     Object.assign(
       {
