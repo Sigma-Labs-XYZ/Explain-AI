@@ -5,7 +5,7 @@ module.exports = {
     extend: {},
     screens: {
       phone: { max: "400.5px" },
-      // => @media (min-width: 640px) { ... }
+      superWideDesktop: "1000.5px",
     },
   },
   plugins: [],
