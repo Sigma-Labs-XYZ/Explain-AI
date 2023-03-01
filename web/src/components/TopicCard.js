@@ -1,7 +1,6 @@
 import '../Styling/TopicCard/TopicCard.css'
 import {useState} from 'react'
 
-
 export function TopicCard({topic,audience}) {
     const [error,setError] = useState(false)
     const  getDescription = (descriptions,audience,length)=> {
