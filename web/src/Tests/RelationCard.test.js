@@ -6,7 +6,6 @@ import { BrowserRouter } from "react-router-dom";
 describe("Test if all elements of RelationCard are rendered", () => {
   const name = "HTML";
   const description = "JavaScript is used to add interactivity to HTML pages";
-  const image = "/image.png";
 
   test("Name of the topic rendered", () => {
     render(<RelationCard name={name} description={description} />, {
@@ -23,12 +22,11 @@ describe("Test if all elements of RelationCard are rendered", () => {
   });
 
   test("Image of the topic rendered", () => {
-    //CHANGE THIS TEST TO HAVE THE ACTUAL VALUE OF IMG SRC NOT PLACEHOLDER DADDY
     render(<RelationCard name={name} description={description} />, {
       wrapper: BrowserRouter,
     });
     const topicImg = screen.getByRole("img");
-    expect(topicImg).toHaveAttribute("src", "daddy.png");
-    expect(topicImg).toHaveAttribute("alt", "daddy");
+    expect(topicImg).toHaveAttribute("src", "pedro.png");
+    expect(topicImg).toHaveAttribute("alt", "pedro");
   });
 });

@@ -1,5 +1,5 @@
 import "../components/RelationCard.scss";
-import daddy from "./daddy.png";
+import pedroImage from "./pedro.png";
 import { useNavigate } from "react-router-dom";
 
 export default function RelationCard({ name, description }) {
@@ -9,6 +9,7 @@ export default function RelationCard({ name, description }) {
     <div
       className="flex items-center phone:mr-0"
       onClick={() => navigate(`/${name.toLowerCase()}`)}
+      data-testid="link-div"
     >
       <div className="text-left bg-white border-transparent ml-5 mb-3 p-3 pl-10 flex items-center w-full phone:ml-0 phone:pr-0">
         <div className="pr-24 phone:mr-10">
@@ -22,8 +23,8 @@ export default function RelationCard({ name, description }) {
       >
         <img
           className="w-24 h-24 border-1 rounded-full"
-          src={daddy}
-          alt="daddy"
+          src={pedroImage}
+          alt="pedro"
         />
       </div>
     </div>
