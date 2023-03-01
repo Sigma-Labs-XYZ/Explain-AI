@@ -44,6 +44,13 @@ services:
     build: ./web
     ports:
       - "3000:3000"
+    volumes:
+      - "./web:/app"
+      - "/app/node_modules"
+    environment:
+      - WDS_SOCKET_HOST=127.0.0.1
+      - CHOKIDAR_USEPOLLING=true
+      - WATCHPACK_POLLING=true
     stdin_open: true
     tty: true
 volumes:
