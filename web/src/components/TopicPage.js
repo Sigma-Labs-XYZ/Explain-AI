@@ -22,11 +22,7 @@ export default function TopicPage() {
   useEffect(() => {
     (async function () {
       const fetchedData = await fetchData(MAIN_URL);
-      if (fetchedData) {
-        setRetrievedTopics(fetchedData);
-      } else {
-        setRetrievedTopics(undefined);
-      }
+      setRetrievedTopics(fetchedData ? fetchedData : undefined);
     })();
   }, [MAIN_URL,audience]);
 

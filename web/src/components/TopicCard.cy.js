@@ -5,7 +5,7 @@ const dimensions = require('../Tests/dimensions.js')
 let topic= {...test_data.topic[0]}
 
 
-describe('General Tests',()=> {
+describe('Testing text alignment for each device dimension',()=> {
   Object.values(dimensions).map((device)=> {
   it('Text aligned for all types',()=> {
     cy.mount(<TopicCard topic={topic} audience={10} />);

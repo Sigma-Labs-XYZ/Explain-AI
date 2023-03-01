@@ -8,7 +8,7 @@ export function TopicCard({topic,audience}) {
         try {
             return descriptions.filter(description=> {
                 return description.audience===audience
-            }).map(des=>des.short)
+            }).map(des=>des[length])
         }
         catch {
             setError(true)
