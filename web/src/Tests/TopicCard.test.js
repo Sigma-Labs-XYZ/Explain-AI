@@ -23,7 +23,7 @@ describe('Tests for TopicCard using RTL',()=> {
         const image = screen.getByRole('img')
         expect(image.src).toBe('http://localhost/no-image.jpeg')
     })
-    test('JSON is not the correct strucuture, so an error box appears',()=> {
+    test('JSON is not the correct structure, so an error box appears',()=> {
         topic.descriptions = ''
         render(<TopicCard topic={topic} audience={20}/>)
         screen.getByTestId('error-api')
