@@ -17,7 +17,7 @@
     "ecmaVersion": "latest",
     "sourceType": "module"
   },
-  "plugins": ["react", "testing-library", "jest", "prettier", "cypress" ],
+  "plugins": ["react", "testing-library", "jest", "prettier", "cypress"],
   "rules": {
     "quotes": [2, "double", "avoid-escape"],
     "testing-library/await-async-query": "error",
@@ -31,6 +31,7 @@
     "jest/valid-expect": "error",
     "react/button-has-type": 0,
     "prettier/prettier": ["error"],
+    "no-underscore-dangle": 0,
     "import/no-extraneous-dependencies": [
       "error",
       { "devDependencies": ["**/*.test.ts", "**/*.test.tsx"] } //allow import of dev dependecny for tests only
