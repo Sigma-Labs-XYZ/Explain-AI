@@ -1,10 +1,10 @@
+import React, { useState, useEffect } from "react";
 import explainailogo from "../images/explainai-logo.png";
 import "./Header.scss";
-import { useState, useEffect } from "react";
 
 export default function Header() {
   const [age, setAge] = useState(
-    localStorage.getItem("age") || localStorage.setItem("age", "5") || "5"
+    localStorage.getItem("age") || localStorage.setItem("age", "5") || "5",
   );
 
   useEffect(() => {
@@ -16,20 +16,23 @@ export default function Header() {
       <header>
         <img src={explainailogo} alt="logo" />
         <div>
-          <p>Like I'm</p>
+          <p>Like I&apos;m</p>
           <button
+            type="button"
             onClick={() => setAge("5")}
             className={age === "5" ? "btn selected" : "btn"}
           >
             5
           </button>
           <button
+            type="button"
             onClick={() => setAge("10")}
             className={age === "10" ? "btn selected" : "btn"}
           >
             10
           </button>
           <button
+            type="button"
             onClick={() => setAge("Adult")}
             className={age === "Adult" ? "btn selected" : "btn"}
           >
