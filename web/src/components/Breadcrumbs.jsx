@@ -23,7 +23,7 @@ export default function Breadcrumbs({ grandParent, parent }) {
       </nav>
 
       <div id="mobile" data-testid="mobile">
-        <Link data-testid="mobile-grandparent" to={`/${grandParent.slug}`}>
+        <Link data-testid="mobile-grandParent" to={`/${grandParent.slug}`}>
           <button className="bg-backdrop2 pb-2 pt-2 text-left text-white capitalize w-screen">
             <span className="ml-7">
               {" "}

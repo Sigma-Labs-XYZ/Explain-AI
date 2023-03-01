@@ -1,10 +1,10 @@
 import React from "react";
 import { BrowserRouter } from "react-router-dom";
 import Breadcrumbs from "../components/Breadcrumbs";
+import "../App.css";
 
 describe("<Breadcrumbs /> - testing for component render and display on screen adjust", () => {
   it("desktop breadcrumb component renders on screen on desktop view", () => {
-    // see: https://on.cypress.io/mounting-react
     cy.viewport(1200, 1000);
     cy.mount(
       <BrowserRouter>
@@ -20,7 +20,6 @@ describe("<Breadcrumbs /> - testing for component render and display on screen a
   });
 
   it("mobile breadcrumb component doesn't render on screen on desktop view", () => {
-    // see: https://on.cypress.io/mounting-react
     cy.viewport(1200, 1000);
     cy.mount(
       <BrowserRouter>
@@ -33,7 +32,7 @@ describe("<Breadcrumbs /> - testing for component render and display on screen a
 
     cy.get("[data-testid=mobile]").should("have.css", "display", "none");
     cy.get("[data-testid=mobile-parent]").should("not.be.visible");
-    cy.get("[data-testid=mobile-grandparent]").should("not.be.visible");
+    cy.get("[data-testid=mobile-grandParent]").should("not.be.visible");
   });
 
   it("check text color and background for desktop breadcrumb", () => {
@@ -69,7 +68,7 @@ describe("<Breadcrumbs /> - testing for component render and display on screen a
     );
     cy.get("[data-testid=mobile]").should("have.css", "display", "block");
     cy.get("[data-testid=mobile-parent]").should("be.visible");
-    cy.get("[data-testid=mobile-grandparent]").should("be.visible");
+    cy.get("[data-testid=mobile-grandParent]").should("be.visible");
   });
 
   it("desktop component does not render on screen on mobile view", () => {
@@ -97,20 +96,20 @@ describe("<Breadcrumbs /> - testing for component render and display on screen a
         />
       </BrowserRouter>
     );
-    cy.get("[data-testid=mobile]").should(
-      "have.css",
-      "color",
-      "rgb(255, 255, 255)"
-    );
-    cy.get("[data-testid=mobile-parent]").should(
-      "have.css",
-      "background-color",
-      "rgb(78, 77, 77)"
-    );
-    cy.get("[data-testid=mobile-grandparent]").should(
-      "have.css",
-      "background-color",
-      "rgb(62, 61, 61)"
-    );
+
+    cy.get("[data-testid=mobile-parent]")
+      .find("button")
+      .should("have.css", "color", "rgb(255, 255, 255)");
+
+    cy.get("[data-testid=mobile-grandParent]")
+      .find("button")
+      .should("have.css", "color", "rgb(255, 255, 255)");
+
+    cy.get("[data-testid=mobile-parent]")
+      .find("button")
+      .should("have.css", "background-color", "rgb(78, 77, 77)");
+    cy.get("[data-testid=mobile-grandParent]")
+      .find("button")
+      .should("have.css", "background-color", "rgb(62, 61, 61)");
   });
 });
