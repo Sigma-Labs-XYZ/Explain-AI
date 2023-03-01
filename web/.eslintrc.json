@@ -4,7 +4,7 @@
     "es2021": true,
     "jest/globals": true
   },
-  "extends": ["plugin:react/recommended", "airbnb"],
+  "extends": ["airbnb", "prettier", "cypress"],
   "overrides": [
     {
       "files": ["test/**"],
@@ -17,7 +17,7 @@
     "ecmaVersion": "latest",
     "sourceType": "module"
   },
-  "plugins": ["react", "testing-library", "jest"],
+  "plugins": ["react", "testing-library", "jest", "prettier", "cypress"],
   "rules": {
     "quotes": [2, "double", "avoid-escape"],
     "testing-library/await-async-query": "error",
@@ -28,6 +28,11 @@
     "jest/no-focused-tests": "error",
     "jest/no-identical-title": "error",
     "jest/prefer-to-have-length": "warn",
-    "jest/valid-expect": "error"
+    "jest/valid-expect": "error",
+    "react/button-has-type": 0,
+    "import/no-extraneous-dependencies": [
+      "error",
+      { "devDependencies": ["**/*.test.ts", "**/*.test.tsx"] } //allow import of dev dependecny for tests only
+    ]
   }
 }

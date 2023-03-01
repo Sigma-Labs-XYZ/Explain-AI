@@ -1,6 +1,6 @@
+import { useState, useEffect, React } from "react";
 import explainailogo from "../images/explainai-logo.png";
 import "./Header.scss";
-import { useState, useEffect } from "react";
 
 export default function Header() {
   const [age, setAge] = useState(
