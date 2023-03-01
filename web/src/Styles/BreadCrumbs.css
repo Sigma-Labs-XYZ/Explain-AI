@@ -1,0 +1,32 @@
+@media (max-width: 400px) {
+  #desktop {
+    display: none;
+  }
+}
+@media (min-width: 400px) {
+  #desktop {
+    display: block;
+  }
+}
+@media (min-width: 1000px) {
+  #desktop {
+    display: block;
+    margin-left: 15%;
+  }
+}
+
+@media (max-width: 400px) {
+  #mobile {
+    display: block;
+  }
+}
+@media (min-width: 400px) {
+  #mobile {
+    display: none;
+  }
+}
+@media (min-width: 1000px) {
+  #mobile {
+    display: none;
+  }
+}/*# sourceMappingURL=BreadCrumbs.css.map */
