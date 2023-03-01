@@ -5,14 +5,12 @@ import RelationCard from "./RelationCard";
 
 export default function TopicPage() {
   const { topic } = useParams();
-  const [retrievedTopics, setRetrievedTopics] = useState();
   const [relationships, setRelationships] = useState();
   const MAIN_URL = `${process.env.REACT_APP_API_ENDPOINT}/topic/${topic}`;
 
   useEffect(() => {
     (async function () {
       const data = await fetchData(MAIN_URL);
-      setRetrievedTopics(data);
       setRelationships(data.topic[0].relationships);
     })();
   }, [MAIN_URL]);
