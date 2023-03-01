@@ -16,6 +16,16 @@ module.exports = {
   },
   extends: ["airbnb", "prettier", "plugin:testing-library/react", "plugin:jest/all"],
   plugins: ["prettier", "react", "react-hooks", "testing-library", "jest"],
+  overrides: [
+    Object.assign(
+      {
+        files: ["**/*.test.js"],
+        env: { jest: true },
+        plugins: ["jest"],
+      },
+      require("eslint-plugin-jest").configs.recommended,
+    ),
+  ],
   rules: {
     "prettier/prettier": ["warn", {}, { usePrettierrc: true }], // Use .prettierrc file as source
     "react/jsx-filename-extension": [1, { extensions: [".js", ".jsx"] }], // To allow importing .jsx files

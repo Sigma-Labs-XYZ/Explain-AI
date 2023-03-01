@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import React, { useState, useEffect } from "react";
-import { fetchData } from "../utils/networking";
+import fetchData from "../utils/networking";
 
 export default function TopicPage() {
   const { topic } = useParams();
