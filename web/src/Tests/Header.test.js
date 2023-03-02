@@ -1,6 +1,5 @@
 import { render, screen, fireEvent } from "@testing-library/react";
 import React from "react";
-import renderer from "react-test-renderer";
 import userEvent from "@testing-library/user-event";
 import Header from "../components/Header/Header";
 
@@ -31,12 +30,12 @@ describe("localStorage tests", () => {
 
   test("when age button is clicked it should update localStorage with the correct value", () => {
     render(<Header />);
-    const value = "Adult";
+    const value = "20";
     const button = screen.getByRole("button", {
-      name: value,
+      name: "Adult",
     });
     fireEvent.click(button);
-    expect(localStorage.setItem).toHaveBeenLastCalledWith(key, "Adult");
+    expect(localStorage.setItem).toHaveBeenLastCalledWith(key, "20");
     expect(localStorage.__STORE__[key]).toBe(value);
   });
 
