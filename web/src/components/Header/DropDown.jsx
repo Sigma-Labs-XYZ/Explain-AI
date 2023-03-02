@@ -9,7 +9,7 @@ export default function DropDown({ age, changeAge }) {
     >
       <option value="5">5</option>
       <option value="10">10</option>
-      <option value="Adult">Adult</option>
+      <option value="20">Adult</option>
     </select>
   );
 }
