@@ -1,11 +1,13 @@
-import "../components/RelationCard.scss";
-import pedroImage from "./pedro.png";
+import React from "react";
+import "./RelationCard.scss";
 import { useNavigate } from "react-router-dom";
+import pedroImage from "./pedro.png";
 
-export default function RelationCard({ name, description }) {
+function RelationCard({ name, description }) {
   const navigate = useNavigate();
 
   return (
+    // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions
     <div
       className="flex items-center phone:mr-0"
       onClick={() => navigate(`/${name.toLowerCase()}`)}
@@ -21,12 +23,10 @@ export default function RelationCard({ name, description }) {
         className="-ml-12 mr-5 mb-[0.8%] phone:-ml-32 phone:mr-8 superWideDesktop:mr-[15%] "
         data-test-id="img container"
       >
-        <img
-          className="w-24 h-24 border-1 rounded-full"
-          src={pedroImage}
-          alt="pedro"
-        />
+        <img className="w-24 h-24 border-1 rounded-full" src={pedroImage} alt="pedro" />
       </div>
     </div>
   );
 }
+
+export default RelationCard;

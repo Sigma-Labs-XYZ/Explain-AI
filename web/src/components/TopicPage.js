@@ -4,13 +4,12 @@ import fetchData from "../utils/networking";
 import Breadcrumbs from "./Breadcrumbs";
 import TopicCard from "./TopicCard";
 import ErrorMessage from "./ErrorMessage";
-import RelationCard FROM 
+import RelationCard from "./RelationCard";
 
 export default function TopicPage() {
   const { topic } = useParams();
   const [retrievedTopics, setRetrievedTopics] = useState();
   const [audience, setAudience] = useState();
-  const [relationships, setRelationships] = useState();
   const MAIN_URL = `${process.env.REACT_APP_API_ENDPOINT}/topic/${topic}`;
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
@@ -45,14 +44,12 @@ export default function TopicPage() {
         <h2 className="text-left text-3xl ml-5 text-white font-bold mb-5 superWideDesktop:ml-[15%]">
           Related
         </h2>
-        {relationships &&
-          relationships.map((rel, i) => (
-            <RelationCard key={i} name={rel.to.name} description={rel.description} />
+        {topicData.relationships &&
+          topicData.relationships.map((rel, i) => (
+            <RelationCard key={rel.to.name} name={rel.to.name} description={rel.description} />
           ))}
       </>
     );
   }
-  return <ErrorMessage message={`Failed to find "${topic} ;_; `} />;
-
   return <ErrorMessage message={`Failed to find "${topic} ;_; `} />;
 }
