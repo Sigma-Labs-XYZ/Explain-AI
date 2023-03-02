@@ -1,5 +1,6 @@
 import '../Styling/TopicCard/TopicCard.css'
 import {useState} from 'react'
+import { ErrorMessage } from './ErrorMessage'
 
 export function TopicCard({topic,audience}) {
     const [error,setError] = useState(false)
@@ -40,12 +41,7 @@ export function TopicCard({topic,audience}) {
 
     else {
         return (
-            <div className='api-error-container'>
-                <div data-testid='error-api' className='api-error'>
-                    <h1>Error</h1>
-                    <h2>The API format of this particular element is unreadable.</h2>
-                </div>
-            </div>
+            <ErrorMessage message={'The API format of this particular element is unreadable.'}/>
         )
     }
 }

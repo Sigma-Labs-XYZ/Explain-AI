@@ -22,7 +22,7 @@ export default function TopicPage() {
   useEffect(() => {
     (async function () {
       const fetchedData = await fetchData(MAIN_URL);
-      const topicExists = fetchedData.topic.length!==0
+      const topicExists = fetchedData.topic && fetchedData.topic.length!==0
       setRetrievedTopics(fetchedData && topicExists? fetchedData : undefined);
     })();
   }, [MAIN_URL,audience]);
@@ -34,7 +34,7 @@ export default function TopicPage() {
     )
   } else {
     return (<>
-      <ErrorMessage message={`Failed to find "${topic}" ;_; `}/>
+      <ErrorMessage message={`Failed to find "${topic} ;_; `}/>
     </>)
   }
 }

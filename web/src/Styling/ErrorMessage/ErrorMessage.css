@@ -18,12 +18,13 @@
     transform: translateX(0%);
   }
 }
-.api-error-container {
+.error-container {
+  padding: 30px;
   display: flex;
   justify-content: center;
   top: 40%;
 }
-.api-error-container .api-error {
+.error-container .error-message {
   display: flex;
   width: 500px;
   border: 2px solid red;
@@ -35,7 +36,7 @@
   flex-direction: column;
   animation: error-wiggle 400ms ease-in forwards;
 }
-.api-error-container .api-error h1, .api-error-container .api-error h2 {
+.error-container .error-message h1, .error-container .error-message h2 {
   margin: 0;
   margin-bottom: 20px;
   margin-top: 10px;

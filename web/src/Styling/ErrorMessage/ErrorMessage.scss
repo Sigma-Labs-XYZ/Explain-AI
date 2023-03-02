@@ -1,9 +1,10 @@
 @import './variables.scss';
-.api-error-container {
+.error-container {
+    padding:30px;
     display:flex;
     justify-content:center;
     top:40%;
-    & .api-error {
+    & .error-message {
       display:flex;
       width:500px;
       border: 2px solid red;

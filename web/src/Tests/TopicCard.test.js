@@ -26,7 +26,7 @@ describe('Tests for TopicCard using RTL',()=> {
     test('JSON is not the correct structure, so an error box appears',()=> {
         topic.descriptions = ''
         render(<TopicCard topic={topic} audience={20}/>)
-        screen.getByTestId('error-api')
+        screen.getByTestId('error-message')
     })
 })
 
