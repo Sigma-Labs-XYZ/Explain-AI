@@ -9,7 +9,7 @@ export default function TopicPage() {
   const { topic } = useParams();
   const [retrievedTopics, setRetrievedTopics] = useState();
   const [audience, setAudience] = useState();
-  const MAIN_URL = `http://${process.env.REACT_APP_API_ENDPOINT}/topic/${topic}`;
+  const MAIN_URL = `${process.env.REACT_APP_API_ENDPOINT}/topic/${topic}`;
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
     const storedAge = localStorage.getItem("age");
