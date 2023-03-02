@@ -33,12 +33,8 @@ export default function TopicPage() {
       </>
     )
   } else {
-    <>
-      <ErrorMessage message={'The API format of this particular element is unreadable.'}/>
-    </>
+    return (<>
+      <ErrorMessage message={`Failed to find "${topic}" ;_; `}/>
+    </>)
   }
-  return (
-    <div>
-    </div>
-  );
 }
