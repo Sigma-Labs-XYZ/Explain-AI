@@ -25,7 +25,7 @@ export default function TopicPage() {
       const topicExists = fetchedData.topic && fetchedData.topic.length!==0
       setRetrievedTopics(fetchedData && topicExists? fetchedData : undefined);
     })();
-  }, [MAIN_URL,audience]);
+  }, [MAIN_URL]);
   if (retrievedTopics) {
     return (
       <>
