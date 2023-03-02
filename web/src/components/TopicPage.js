@@ -1,6 +1,8 @@
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { fetchData } from "../utils/networking";
+import { ErrorMessage } from "./ErrorMessage";
+
 export default function TopicPage() {
   const { topic } = useParams();
   const [retrievedTopics, setRetrievedTopics] = useState();
