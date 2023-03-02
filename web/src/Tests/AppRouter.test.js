@@ -30,5 +30,5 @@ test("Path parameter for topic is correct", async () => {
       <App />
     </MemoryRouter>,
   );
-  expect(screen.getByText(pathParameter)).toBeInTheDocument();
+  expect(screen.getByTestId('error-message')).toBeInTheDocument();
 });

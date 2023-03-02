@@ -1,0 +1,61 @@
+@import "../../styles/variables.scss";
+
+header {
+  @include flex-row;
+  background-color: $black;
+  height: 70px;
+  justify-content: space-between;
+
+  img {
+    height: 60%;
+    margin: 10px;
+    margin-left: 30px;
+    @media (min-width: $desktop-width) {
+      margin-left: 15%;
+    }
+    @media (max-width: $phone-width) {
+      height: 40%;
+    }
+  }
+  div {
+    @include flex-row;
+    margin-right: 30px;
+
+    @media (min-width: $desktop-width) {
+      margin-right: 15%;
+    }
+    .btn {
+      border: none;
+      margin-left: 1%;
+      width: 75px;
+      height: 30px;
+      font-weight: bold;
+      font-family: $fontStyle;
+      font-size: 19px;
+      background-color: $bg-button-inactive;
+      border: none;
+      color: $btn-text-inactive;
+      font-weight: bolder;
+      font-family: $fontStyle;
+
+      &.selected {
+        background-color: $white;
+        color: $black;
+      }
+      @media (max-width: $phone-width) {
+        display: none;
+      }
+    }
+    p {
+      color: $offWhite;
+      margin-right: 10px;
+      font-size: 16px;
+      font-family: $fontStyle;
+      min-width: 70px;
+      text-align: right;
+    }
+    .select-pg {
+      @include select-style;
+    }
+  }
+}
