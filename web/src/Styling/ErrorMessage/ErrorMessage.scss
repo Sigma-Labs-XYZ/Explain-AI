@@ -1,0 +1,24 @@
+@import './variables.scss';
+.error-container {
+    padding:30px;
+    display:flex;
+    justify-content:center;
+    top:40%;
+    & .error-message {
+      display:flex;
+      width:500px;
+      border: 2px solid red;
+      border-radius:10px;
+      background-color: rgba(238, 7, 7, 0.8);
+      color:white;
+      align-items: center;
+      justify-content: center;
+      flex-direction:column;
+      animation:error-wiggle 400ms ease-in forwards;
+      & h1, h2 {
+          margin:0;
+          margin-bottom:20px;
+          margin-top:10px;
+      }
+    }
+  }

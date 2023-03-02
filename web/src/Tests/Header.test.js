@@ -1,8 +1,7 @@
 import { render, screen, fireEvent } from "@testing-library/react";
 import React from "react";
-import renderer from "react-test-renderer";
 import userEvent from "@testing-library/user-event";
-import Header from "../components/Header";
+import Header from "../components/Header/Header";
 
 describe("localStorage tests", () => {
   beforeEach(() => {
@@ -31,12 +30,12 @@ describe("localStorage tests", () => {
 
   test("when age button is clicked it should update localStorage with the correct value", () => {
     render(<Header />);
-    const value = "Adult";
+    const value = "20";
     const button = screen.getByRole("button", {
-      name: value,
+      name: "Adult",
     });
     fireEvent.click(button);
-    expect(localStorage.setItem).toHaveBeenLastCalledWith(key, "Adult");
+    expect(localStorage.setItem).toHaveBeenLastCalledWith(key, "20");
     expect(localStorage.__STORE__[key]).toBe(value);
   });
 
@@ -68,16 +67,12 @@ describe("test if all elements of header are rendered", () => {
     render(<Header />);
     const buttons = screen.getAllByRole("button");
     expect(buttons).toHaveLength(3);
-    tags.map((tag) => {
-      expect(screen.getByRole("button", { name: tag })).toBeInTheDocument();
-    });
+    tags.map((tag) => expect(screen.getByRole("button", { name: tag })).toBeInTheDocument());
   });
 
   test("dropdown rendered", () => {
     render(<Header />);
     expect(screen.getByRole("combobox")).toBeInTheDocument();
-    tags.map((tag) => {
-      expect(screen.getByRole("option", { name: tag })).toBeInTheDocument();
-    });
+    tags.map((tag) => expect(screen.getByRole("option", { name: tag })).toBeInTheDocument());
   });
 });
