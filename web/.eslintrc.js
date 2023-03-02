@@ -35,6 +35,7 @@ module.exports = {
     "no-undefined": 2,
     "react/jsx-uses-vars": 2,
     "no-underscore-dangle": "off",
+    "react/prop-types": 0,
   },
   globals: { cy: "readonly", Cypress: "readonly", window: true }, //Cannot be reassigned
 };
