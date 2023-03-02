@@ -29,7 +29,7 @@ export function TopicCard({topic,audience}) {
                         <p> {getDescription(topic.descriptions,audience,'short')} </p>
                     </div>
                     <div className='topic-card-img-btn'>
-                        <button>Tell me more</button>
+                        <button type="button">Tell me more</button>
                         <div className = 'topic-card-img'>
                         <img src={imageHandler()} alt={`A representation of ${topic.name}`}/>
                         </div>
