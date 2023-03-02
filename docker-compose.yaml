@@ -33,8 +33,9 @@ services:
     ports:
       - "4000:4000"
     environment:
-      - DB_ENDPOINT=http://localhost:8080
+      - DB_ENDPOINT=http://explainai-database-api:8080
       - DB_SECRET=admin_secret
+    network_mode: host
     depends_on:
       - explainai-database-api
     restart: always
@@ -51,6 +52,7 @@ services:
       - WDS_SOCKET_HOST=127.0.0.1
       - CHOKIDAR_USEPOLLING=true
       - WATCHPACK_POLLING=true
+      - REACT_APP_API_ENDPOINT=https://localhost:4000
     stdin_open: true
     tty: true
 volumes:
