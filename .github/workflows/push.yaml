@@ -1,8 +1,10 @@
 name: Test
 on: [push]
+
 jobs:
   test_job:
     runs-on: ubuntu-latest
-    name: Test Job
+    name: Test jobs
+
     steps:
-      - run: echo "Todo"
+      -run: echo "Todo"

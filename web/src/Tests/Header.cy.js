@@ -1,5 +1,5 @@
-import Header from "../components/Header/Header";
 import React from "react";
+import Header from "../components/Header/Header";
 
 describe("Media queries and their effects on Age Toggle and Dropdown", () => {
   it("Toggle appears when screen width above 400px (Desktop)", () => {
