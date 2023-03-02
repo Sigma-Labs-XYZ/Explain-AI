@@ -1,5 +1,5 @@
+import Header from "../components/Header/Header";
 import React from "react";
-import Header from "../components/Header";
 
 describe("Media queries and their effects on Age Toggle and Dropdown", () => {
   it("Toggle appears when screen width above 400px (Desktop)", () => {
@@ -44,7 +44,7 @@ it("Background color changes when a button is clicked", () => {
   cy.viewport(405, 1000);
   cy.mount(<Header />);
   cy.get("button")
-    .contains("5")
+    .contains("10")
     .should("have.css", "background-color", "rgb(50, 50, 50)")
     .trigger("click")
     .should("have.css", "background-color", "rgb(255, 255, 255)");

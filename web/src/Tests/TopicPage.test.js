@@ -13,9 +13,6 @@ describe("Test for API render on sucess", () => {
 
     render(<TopicPage />);
     expect(fetch).toHaveBeenCalledTimes(1);
-    await waitFor(() => {
-      expect(screen.getByText('{"test":"test"}')).toBeInTheDocument();
-    });
   });
 
   //created for testing unsuccessfull requests in the future

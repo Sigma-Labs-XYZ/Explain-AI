@@ -1,0 +1,21 @@
+$error-wiggle-size: 2%;
+@keyframes error-wiggle {
+    0% {
+      transform:translateX($error-wiggle-size)
+    }
+    20% {
+      transform:translateX(-$error-wiggle-size)
+    }
+    40% {
+      transform:translateX($error-wiggle-size)
+    }
+    60% {
+      transform:translateX(-$error-wiggle-size)
+    }
+    80% {
+      transform:translateX($error-wiggle-size)
+    }
+    100% {
+      transform:translateX(0%)
+    }
+  }
