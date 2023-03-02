@@ -2,7 +2,7 @@ import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { fetchData } from "../utils/networking";
 import { TopicCard } from "./TopicCard";
-
+import { ErrorMessage } from "./ErrorMessage";
 export default function TopicPage() {
   const { topic } = useParams();
   const [retrievedTopics, setRetrievedTopics] = useState();
@@ -22,16 +22,23 @@ export default function TopicPage() {
   useEffect(() => {
     (async function () {
       const fetchedData = await fetchData(MAIN_URL);
-      setRetrievedTopics(fetchedData ? fetchedData : undefined);
+      const topicExists = fetchedData.topic.length!==0
+      setRetrievedTopics(fetchedData && topicExists? fetchedData : undefined);
     })();
   }, [MAIN_URL,audience]);
-
+  if (retrievedTopics) {
+    return (
+      <>
+        <TopicCard topic={retrievedTopics.topic[0]} audience={audience}/>
+      </>
+    )
+  } else {
+    <>
+      <ErrorMessage message={'The API format of this particular element is unreadable.'}/>
+    </>
+  }
   return (
     <div>
-
-      {retrievedTopics && (
-        <TopicCard topic={retrievedTopics.topic[0]} audience={audience}/>
-      )}
     </div>
   );
 }
