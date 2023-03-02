@@ -36,3 +36,26 @@ $desktop-width: 1000.5px;
     display: none;
   }
 }
+
+$breakpoints: (
+  "small": (
+    max-width: 400px,
+  ),
+  "medium": (
+    min-width: 400px,
+  ),
+  "large": (
+    min-width: 1000px,
+  ),
+);
+
+@mixin respond-to($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    @media #{inspect(map-get($breakpoints, $breakpoint))} {
+      @content;
+    }
+  } @else {
+    @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
+        + "Available breakpoints are: #{map-keys($breakpoints)}.";
+  }
+}

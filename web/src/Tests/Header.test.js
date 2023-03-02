@@ -67,16 +67,12 @@ describe("test if all elements of header are rendered", () => {
     render(<Header />);
     const buttons = screen.getAllByRole("button");
     expect(buttons).toHaveLength(3);
-    tags.map((tag) => {
-      expect(screen.getByRole("button", { name: tag })).toBeInTheDocument();
-    });
+    tags.map((tag) => expect(screen.getByRole("button", { name: tag })).toBeInTheDocument());
   });
 
   test("dropdown rendered", () => {
     render(<Header />);
     expect(screen.getByRole("combobox")).toBeInTheDocument();
-    tags.map((tag) => {
-      expect(screen.getByRole("option", { name: tag })).toBeInTheDocument();
-    });
+    tags.map((tag) => expect(screen.getByRole("option", { name: tag })).toBeInTheDocument());
   });
 });

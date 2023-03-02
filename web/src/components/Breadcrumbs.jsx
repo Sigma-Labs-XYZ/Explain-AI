@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { React } from "react";
 
 import "../Styles/BreadCrumbs/BreadCrumbs.css";
+
 export default function Breadcrumbs({ grandParent, parent }) {
   return (
     <div className="bg-backdrop">

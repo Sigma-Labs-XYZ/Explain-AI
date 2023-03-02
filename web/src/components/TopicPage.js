@@ -1,47 +1,46 @@
+import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { useState, useEffect } from "react";
-import { fetchData } from "../utils/networking";
+import fetchData from "../utils/networking";
 import Breadcrumbs from "./Breadcrumbs";
-import { TopicCard } from "./TopicCard";
-import { ErrorMessage } from "./ErrorMessage";
+import TopicCard from "./TopicCard";
+import ErrorMessage from "./ErrorMessage";
+
 export default function TopicPage() {
   const { topic } = useParams();
   const [retrievedTopics, setRetrievedTopics] = useState();
   const [audience, setAudience] = useState();
-  const MAIN_URL = `${process.env.REACT_APP_API_ENDPOINT}/topic/${topic}`;
+  const MAIN_URL = `http://localhost:4000/topic/${topic}`;
+  const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
     const storedAge = localStorage.getItem("age");
     if (storedAge) {
-      setAudience(parseInt(localStorage.getItem("age")));
+      setAudience(parseInt(localStorage.getItem("age"), 10));
     } else {
       localStorage.setItem("age", 5);
       setAudience(5);
     }
   }, [audience]);
   useEffect(() => {
-    (async function () {
+    const doFetch = async () => {
       const fetchedData = await fetchData(MAIN_URL);
-      const topicExists = fetchedData.topic && fetchedData.topic.length !== 0;
-      setRetrievedTopics(fetchedData && topicExists ? fetchedData : undefined);
-    })();
+      setRetrievedTopics(fetchedData);
+      setIsLoading(false);
+    };
+    doFetch();
   }, [MAIN_URL]);
-  if (retrievedTopics) {
+
+  if (isLoading) return <div>Loading...</div>;
+  const topicData = retrievedTopics?.topic?.[0];
+  if (topicData) {
     return (
       <>
         <Breadcrumbs
-          parent={retrievedTopics.topic[0].parent.parent}
-          grandParent={
-            retrievedTopics.topic[0].parent.parent.grandparent.grandparent
-          }
+          parent={topicData.parent.parent}
+          grandParent={topicData.parent.parent.grandparent.grandparent}
         />
-        <TopicCard topic={retrievedTopics.topic[0]} audience={audience} />
-      </>
-    );
-  } else {
-    return (
-      <>
-        <ErrorMessage message={`Failed to find "${topic} ;_; `} />
+        <TopicCard topic={topicData} audience={audience} />
       </>
     );
   }
+  return <ErrorMessage message={`Failed to find "${topic} ;_; `} />;
 }
