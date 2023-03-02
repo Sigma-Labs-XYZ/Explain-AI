@@ -1,7 +1,8 @@
-import { render, screen } from "@testing-library/react";
-import { waitFor } from "@testing-library/react";
-import TopicPage from "../components/TopicPage";
+import { render, screen, waitFor } from "@testing-library/react";
+import React from "react";
 import fetchMock from "jest-fetch-mock";
+import TopicPage from "../components/TopicPage";
+
 beforeEach(() => {
   fetchMock.enableMocks();
   fetch.resetMocks();
@@ -18,7 +19,7 @@ describe("Test for API render on sucess", () => {
     });
   });
 
-  //created for testing unsuccessfull requests in the future
+  // created for testing unsuccessfull requests in the future
   test("a p tag is not created with json file upon an unsuccessful fetch", async () => {
     fetch.mockResponseOnce(JSON.stringify());
     render(<TopicPage />);
