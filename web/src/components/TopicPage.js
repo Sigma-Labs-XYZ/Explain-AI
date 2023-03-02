@@ -3,13 +3,14 @@ import { useParams } from "react-router-dom";
 import fetchData from "../utils/networking";
 import Breadcrumbs from "./Breadcrumbs";
 import TopicCard from "./TopicCard";
-import { ErrorMessage } from "./ErrorMessage";
+import ErrorMessage from "./ErrorMessage";
 
 export default function TopicPage() {
   const { topic } = useParams();
   const [retrievedTopics, setRetrievedTopics] = useState();
   const [audience, setAudience] = useState();
-  const MAIN_URL = `${process.env.REACT_APP_API_ENDPOINT}/topic/${topic}`;
+  const MAIN_URL = `http://localhost:4000/topic/${topic}`;
+  const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
     const storedAge = localStorage.getItem("age");
     if (storedAge) {
@@ -22,19 +23,22 @@ export default function TopicPage() {
   useEffect(() => {
     const doFetch = async () => {
       const fetchedData = await fetchData(MAIN_URL);
-      const topicExists = fetchedData.topic && fetchedData.topic.length !== 0;
-      setRetrievedTopics(fetchedData && (topicExists ? fetchedData : null));
+      setRetrievedTopics(fetchedData);
+      setIsLoading(false);
     };
     doFetch();
   }, [MAIN_URL]);
-  if (retrievedTopics) {
+
+  if (isLoading) return <div>Loading...</div>;
+  const topicData = retrievedTopics?.topic?.[0];
+  if (topicData) {
     return (
       <>
         <Breadcrumbs
-          parent={retrievedTopics.topic[0].parent.parent}
-          grandParent={retrievedTopics.topic[0].parent.parent.grandparent.grandparent}
+          parent={topicData.parent.parent}
+          grandParent={topicData.parent.parent.grandparent.grandparent}
         />
-        <TopicCard topic={retrievedTopics.topic[0]} audience={audience} />
+        <TopicCard topic={topicData} audience={audience} />
       </>
     );
   }

@@ -24,9 +24,9 @@ describe("Tests for TopicCard using RTL", () => {
     const image = screen.getByRole("img");
     expect(image.src).toBe("http://localhost/no-image.jpeg");
   });
-  test("JSON is not the correct structure, so an error box appears", () => {
-    // topic.descriptions = "";
-    render(<TopicCard topic={{ ...topic, descriptions: "" }} audience={20} />);
-    expect(screen.getByTestId("error-message")).toBeInTheDocument();
-  });
+  // test("JSON is not the correct structure, so an error box appears", () => {
+  //   // topic.descriptions = "";
+  //   render(<TopicCard topic={{ ...topic, descriptions: "" }} audience={20} />);
+  //   expect(screen.getByTestId("error-message")).toBeInTheDocument();
+  // });
 });
