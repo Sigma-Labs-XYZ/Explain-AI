@@ -1,4 +1,4 @@
-import Header from "../components/Header";
+import Header from "../components/Header/Header";
 import React from "react";
 
 describe("Media queries and their effects on Age Toggle and Dropdown", () => {
@@ -44,7 +44,7 @@ it("Background color changes when a button is clicked", () => {
   cy.viewport(405, 1000);
   cy.mount(<Header />);
   cy.get("button")
-    .contains("5")
+    .contains("10")
     .should("have.css", "background-color", "rgb(50, 50, 50)")
     .trigger("click")
     .should("have.css", "background-color", "rgb(255, 255, 255)");

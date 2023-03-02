@@ -1,4 +1,4 @@
-@import "../styles/variables.scss";
+@import "../../styles/variables.scss";
 
 header {
   @include flex-row;
@@ -51,6 +51,8 @@ header {
       margin-right: 10px;
       font-size: 16px;
       font-family: $fontStyle;
+      min-width: 70px;
+      text-align: right;
     }
     .select-pg {
       @include select-style;
