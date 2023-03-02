@@ -3,12 +3,13 @@ import { render, screen } from "@testing-library/react";
 import TopicCard from "../components/TopicCard";
 import testData from "./dummy_data.json";
 
-let topic;
+const topic = testData.topic[0];
 describe("Tests for TopicCard using RTL", () => {
   beforeEach(() => {
-    topic = { ...testData.topic[0] }; // reset topic
+    // topic = { ...testData.topic[0] }; // reset topic
   });
   test("Renders everything in the right roles", () => {
+    console.log({ test: topic });
     render(<TopicCard topic={topic} audience={10} />);
     const title = screen.getByRole("heading");
     screen.getByText(topic.descriptions[1].short);
@@ -19,14 +20,14 @@ describe("Tests for TopicCard using RTL", () => {
     expect(image.src).toBe(topic.image);
   });
   test("Renders dummy image if dummy data has no image", () => {
-    topic.image = false;
-    render(<TopicCard topic={topic} audience={10} />);
+    // topic.image = false;
+    render(<TopicCard topic={{ ...topic, image: false }} audience={10} />);
     const image = screen.getByRole("img");
     expect(image.src).toBe("http://localhost/no-image.jpeg");
   });
   test("JSON is not the correct structure, so an error box appears", () => {
-    topic.descriptions = "";
-    render(<TopicCard topic={topic} audience={20} />);
+    // topic.descriptions = "";
+    render(<TopicCard topic={{ ...topic, descriptions: "" }} audience={20} />);
     expect(screen.getByTestId("error-message")).toBeInTheDocument();
   });
 });

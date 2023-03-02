@@ -36,11 +36,6 @@ export default function TopicPage() {
         <TopicCard topic={retrievedTopics.topic[0]} audience={audience} />
       </>
     );
-  } else {
-    return (
-      <>
-        <ErrorMessage message={`Failed to find "${topic} ;_; `} />
-      </>
-    );
   }
+  return <ErrorMessage message={`Failed to find "${topic} ;_; `} />;
 }
