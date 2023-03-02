@@ -1,0 +1,38 @@
+@media (max-width: 400px) {
+  #desktop {
+    display: none;
+  }
+}
+
+@media (min-width: 1000px) {
+  #desktop {
+    margin-left: 15%;
+  }
+}
+
+@media (min-width: 400px) {
+  #mobile {
+    display: none;
+  }
+}
+@media (min-width: 1000px) {
+  #mobile {
+    display: none;
+  }
+}
+
+.desktop {
+  @apply ml-7 w-screen bg-backdrop;
+}
+
+.desktop-container {
+  @apply w-screen bg-backdrop text-white capitalize p-0.5;
+}
+
+.mobile-parent-btn {
+  @apply bg-backdrop2 pb-2 pt-2 text-left text-white capitalize w-screen;
+}
+
+.mobile-grandParent-btn {
+  @apply bg-backdrop pb-2 pt-2 text-left text-white capitalize w-screen;
+} /*# sourceMappingURL=BreadCrumbs.css.map */
