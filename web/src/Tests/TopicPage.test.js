@@ -54,21 +54,33 @@ describe("Test for API render on success", () => {
       expect(
         screen.getByRole("heading", { name: "RELATIONSHIP-TEST" })
       ).toBeInTheDocument();
+      render(<TopicPage />);
+      expect(fetch).toHaveBeenCalledTimes(1);
+    });
+
+    //created for testing unsuccessfull requests in the future
+    test("a p tag is not created with json file upon an unsuccessful fetch", async () => {
+      fetch.mockResponseOnce(JSON.stringify());
+      render(<TopicPage />);
+      expect(fetch).toHaveBeenCalledTimes(1);
+      await waitFor(() => {
+        expect(screen.queryByTestId("jsondat")).not.toBeInTheDocument();
+      });
     });
   });
-});
 
-test("Clicking on a relation card should take you to the correct topic", async () => {
-  fetchData.mockResolvedValue(response);
-  render(<TopicPage />, { wrapper: BrowserRouter });
-  let linkDiv;
-  await waitFor(() => {
-    linkDiv = screen.getByTestId("link-div");
-  });
+  test("Clicking on a relation card should take you to the correct topic", async () => {
+    fetchData.mockResolvedValue(response);
+    render(<TopicPage />, { wrapper: BrowserRouter });
+    let linkDiv;
+    await waitFor(() => {
+      linkDiv = screen.getByTestId("link-div");
+    });
 
-  fireEvent.click(linkDiv);
+    fireEvent.click(linkDiv);
 
-  await waitFor(() => {
-    expect(global.window.location.pathname).toBe("/relationship-test");
+    await waitFor(() => {
+      expect(global.window.location.pathname).toBe("/relationship-test");
+    });
   });
 });

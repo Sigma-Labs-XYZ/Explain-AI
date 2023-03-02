@@ -1,0 +1,43 @@
+@keyframes error-wiggle {
+  0% {
+    transform: translateX(2%);
+  }
+  20% {
+    transform: translateX(-2%);
+  }
+  40% {
+    transform: translateX(2%);
+  }
+  60% {
+    transform: translateX(-2%);
+  }
+  80% {
+    transform: translateX(2%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+.error-container {
+  padding: 30px;
+  display: flex;
+  justify-content: center;
+  top: 40%;
+}
+.error-container .error-message {
+  display: flex;
+  width: 500px;
+  border: 2px solid red;
+  border-radius: 10px;
+  background-color: rgba(238, 7, 7, 0.8);
+  color: white;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  animation: error-wiggle 400ms ease-in forwards;
+}
+.error-container .error-message h1, .error-container .error-message h2 {
+  margin: 0;
+  margin-bottom: 20px;
+  margin-top: 10px;
+}/*# sourceMappingURL=ErrorMessage.css.map */
