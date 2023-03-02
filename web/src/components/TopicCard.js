@@ -17,7 +17,7 @@ export function TopicCard({topic,audience}) {
         const imageError = typeof topic.image !=='string' || topic.image===''//this may be changed depending on how the API responds
         return (imageError? './no-image.jpeg' : topic.image)
     }
-    if (!error) {
+    if (error) {
         return (
             <div className="topic-card-parent">
                 <div className='topic-card'>
