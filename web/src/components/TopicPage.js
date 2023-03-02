@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { fetchData } from "../utils/networking";
 import Breadcrumbs from "./Breadcrumbs";
 import { TopicCard } from "./TopicCard";
-import { ErrorMessage } from "./ErrorMessage";
+import ErrorMessage from "./ErrorMessage";
 
 export default function TopicPage() {
   const { topic } = useParams();

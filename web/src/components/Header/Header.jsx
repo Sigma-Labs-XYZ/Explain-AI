@@ -1,9 +1,8 @@
+import React, { useState, useEffect } from "react";
 import explainailogo from "../../images/explainai-logo.png";
 import "./Header.scss";
 import DropDown from "./DropDown";
 import ButtonSelector from "./ButtonSelector";
-
-import { useState, useEffect } from "react";
 
 export default function Header() {
   const [age, setAge] = useState(
