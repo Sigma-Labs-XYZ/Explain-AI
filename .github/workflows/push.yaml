@@ -6,9 +6,11 @@ jobs:
     runs-on: ubuntu-latest
     name: Run all tests
     steps:
+      - uses: actions/setup-node@v3
       - run: npm run test
   lint_job:
     runs-on: ubuntu-latest
     name: Check linting
     steps:
+      - uses: actions/setup-node@v3
       - run: npm lint
