@@ -9,7 +9,6 @@ describe("Tests for TopicCard using RTL", () => {
     // topic = { ...testData.topic[0] }; // reset topic
   });
   test("Renders everything in the right roles", () => {
-    console.log({ test: topic });
     render(<TopicCard topic={topic} audience={10} />);
     const title = screen.getByRole("heading");
     screen.getByText(topic.descriptions[1].short);
