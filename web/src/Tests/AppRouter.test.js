@@ -1,7 +1,7 @@
-import { fireEvent, render, screen} from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
-import App from "../App";
 import { BrowserRouter, MemoryRouter } from "react-router-dom";
+import App from "../App";
 
 //Testing Home page route -> Renders HomePage.js component
 test("Home Page must be the first Page to be rendered", async () => {
@@ -13,10 +13,10 @@ test("Home Page must be the first Page to be rendered", async () => {
 test("navigating from Home page to Topic Page", async () => {
   render(<App />, { wrapper: BrowserRouter });
   const topic = "javascript";
-const topicLink = screen.getAllByRole('link')[0] //find the first link
-const topicName = topicLink.textContent
-fireEvent.click(topicLink)
-expect(screen.getByText(topicName)).toBeInTheDocument();
+  const topicLink = screen.getAllByRole("link")[0]; //find the first link
+  const topicName = topicLink.textContent;
+  fireEvent.click(topicLink);
+  expect(screen.getByText(topicName)).toBeInTheDocument();
   expect(screen.getByText(topic)).toBeInTheDocument();
 });
 

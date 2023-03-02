@@ -1,7 +1,7 @@
 import { userEvent, render, screen, fireEvent } from "@testing-library/react";
 import "@testing-library/jest-dom";
-import Breadcrumbs from "../components/Breadcrumbs";
 import { BrowserRouter, MemoryRouter } from "react-router-dom";
+import Breadcrumbs from "../components/Breadcrumbs";
 
 test("Clicking on a breadcrumb navigates you to that route", async () => {
   render(

@@ -20,7 +20,7 @@ export default function Breadcrumbs({ grandParent, parent }) {
 
       <div id="mobile" data-testid="mobile">
         <Link data-testid="mobile-grandParent" to={`/${grandParent.slug}`}>
-          <button className="mobile-parent-btn">
+          <button type="button" className="mobile-parent-btn">
             <span className="ml-7">
               {" "}
               {grandParent.name}
@@ -30,7 +30,7 @@ export default function Breadcrumbs({ grandParent, parent }) {
         </Link>
 
         <Link data-testid="mobile-parent" to={`/${parent.slug}`}>
-          <button className="mobile-grandParent-btn">
+          <button type="button" className="mobile-grandParent-btn">
             <span className="ml-7">
               {" "}
               {parent.name}

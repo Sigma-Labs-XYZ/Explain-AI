@@ -7,7 +7,7 @@ export default function TopicPage() {
   const { topic } = useParams();
   const [retrievedTopics, setRetrievedTopics] = useState();
 
-  const MAIN_URL = `${process.env.REACT_APP_API_ENDPOINT}/topic/${topic}`; // change this at the end {process.env.REACT_APP_API_ENDPOINT}
+  const MAIN_URL = `${process.env.REACT_APP_API_ENDPOINT}/topic/${topic}`;
 
   useEffect(() => {
     (async function () {
