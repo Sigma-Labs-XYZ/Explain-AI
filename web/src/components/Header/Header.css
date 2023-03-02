@@ -1,12 +1,14 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200&family=Tilt+Warp&display=swap");
 header {
   display: flex;
   align-items: center;
   flex-direction: row;
   background-color: #000;
+  height: 70px;
   justify-content: space-between;
 }
 header img {
-  width: 150px;
+  height: 60%;
   margin: 10px;
   margin-left: 30px;
 }
@@ -17,7 +19,7 @@ header img {
 }
 @media (max-width: 400.5px) {
   header img {
-    width: 100px;
+    height: 40%;
   }
 }
 header div {
@@ -32,13 +34,18 @@ header div {
   }
 }
 header div .btn {
-  width: 50px;
-  height: 25px;
-  margin: 1px;
+  border: none;
+  margin-left: 1%;
+  width: 75px;
+  height: 30px;
+  font-weight: bold;
+  font-family: "Tilt Warp", cursive;
+  font-size: 19px;
   background-color: #323232;
   border: none;
-  color: #6e6e6e;
+  color: #a5a4a4;
   font-weight: bolder;
+  font-family: "Tilt Warp", cursive;
 }
 header div .btn.selected {
   background-color: #fff;
@@ -50,16 +57,20 @@ header div .btn.selected {
   }
 }
 header div p {
-  color: #fff;
+  color: #e3e3e3;
   margin-right: 10px;
-  font-size: smaller;
+  font-size: 16px;
+  font-family: "Tilt Warp", cursive;
+  min-width: 70px;
+  text-align: right;
 }
 header div .select-pg {
-  width: 40px;
-  height: 15px;
+  width: 75px;
+  height: 37px;
   border: none;
   text-align: center;
-  font-weight: bolder;
+  font-family: "Tilt Warp", cursive;
+  font-size: 18px;
   position: relative;
   padding-right: 5px;
   -moz-appearance: none;
@@ -74,26 +85,4 @@ header div .select-pg {
   header div .select-pg {
     display: none;
   }
-}
-header div .select-adult {
-  width: 40px;
-  height: 15px;
-  border: none;
-  text-align: center;
-  font-weight: bolder;
-  position: relative;
-  padding-right: 5px;
-  -moz-appearance: none;
-  -webkit-appearance: none;
-  appearance: none;
-  background-image: url("data:image/svg+xml;utf8,<svg fill='black' height='24' viewBox='0 0 18 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
-  background-repeat: no-repeat, repeat;
-  background-position: right 1px top 50%, 0 0;
-  background-size: 15px auto, 50%;
-  font-size: 10px;
-}
-@media (min-width: 400.5px) {
-  header div .select-adult {
-    display: none;
-  }
-} /*# sourceMappingURL=Header.css.map */
+}/*# sourceMappingURL=Header.css.map */
