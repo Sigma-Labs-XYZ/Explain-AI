@@ -1,5 +1,5 @@
 import explainailogo from "../../images/explainai-logo.png";
-import "../Header.scss";
+import "./Header.scss";
 import DropDown from "./DropDown";
 import ButtonSelector from "./ButtonSelector";
 
@@ -15,7 +15,6 @@ export default function Header() {
   }, [age]);
 
   function changeAge(age) {
-    console.log(age);
     setAge(age);
   }
   return (

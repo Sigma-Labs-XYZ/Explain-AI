@@ -1,4 +1,4 @@
-import "../Header.scss";
+import "./Header.scss";
 import React from "react";
 
 export default function ButtonSelector({ age, changeAge }) {
