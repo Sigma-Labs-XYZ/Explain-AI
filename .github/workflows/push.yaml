@@ -35,8 +35,7 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 16
-
+      - name: print dir
+        run: pwd
       - name: Run Test
-        run: |
-          cd web
-          npm test
+        run: npm test
