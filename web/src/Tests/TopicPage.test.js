@@ -1,9 +1,8 @@
-import { fireEvent, render, screen } from "@testing-library/react";
-import { waitFor } from "@testing-library/react";
-import TopicPage from "../components/TopicPage";
-import { fetchData } from "../utils/networking";
+import React from "react";
+import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import { BrowserRouter, MemoryRouter } from "react-router-dom";
-import userEvent from "@testing-library/user-event";
+import TopicPage from "../components/TopicPage";
+import fetchData from "../utils/networking";
 
 jest.mock("../utils/networking", () => ({ fetchData: jest.fn() }));
 
@@ -52,11 +51,12 @@ describe("Test for API render on success", () => {
     );
     await waitFor(() => {
       expect(screen.getByRole("heading", { name: "RELATIONSHIP-TEST" })).toBeInTheDocument();
-      render(<TopicPage />);
-      expect(fetch).toHaveBeenCalledTimes(1);
     });
 
-    //created for testing unsuccessfull requests in the future
+    render(<TopicPage />);
+    expect(fetch).toHaveBeenCalledTimes(1);
+
+    // created for testing unsuccessfull requests in the future
     test("a p tag is not created with json file upon an unsuccessful fetch", async () => {
       fetch.mockResponseOnce(JSON.stringify());
       render(<TopicPage />);
