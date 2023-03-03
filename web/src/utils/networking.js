@@ -1,4 +1,4 @@
-export const fetchData = async (url) => {
+export default async function fetchData(url) {
   try {
     console.log(url);
     const apiResponse = await fetch(url);
@@ -8,4 +8,4 @@ export const fetchData = async (url) => {
     console.log("unable to fetch data", e);
     return "unable to fetch data";
   }
-};
+}
