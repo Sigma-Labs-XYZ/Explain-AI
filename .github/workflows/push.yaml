@@ -12,9 +12,6 @@ jobs:
       - name: Check out Git repository
         uses: actions/checkout@v2
 
-      - name: Change directory to web
-        run: cd web
-
       - name: Set up Node.js
         uses: actions/setup-node@v1
         with:
@@ -22,7 +19,7 @@ jobs:
 
       # ESLint and Prettier must be in `package.json`
       - name: Install Node.js dependencies
-        run: npm ci
+        run: cd web && npm ci
 
       - name: Run linters
         uses: wearerequired/lint-action@v2
