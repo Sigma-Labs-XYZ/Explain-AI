@@ -3,8 +3,26 @@ name: Lint
 on: [push]
 
 jobs:
-  eslint:
+  run-linters:
+    name: Run linters
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v3
-      - uses: wearerequired/lint-action@v2.3.0
+      - name: Check out Git repository
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+
+      # ESLint and Prettier must be in `package.json`
+      - name: change to web
+        run: cd web
+      - name: install node packages
+        run: npm install
+      - name: Run linters
+        uses: wearerequired/lint-action@v2
+        with:
+          eslint: true
+          prettier: true
