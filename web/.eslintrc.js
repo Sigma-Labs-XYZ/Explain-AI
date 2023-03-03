@@ -37,5 +37,5 @@ module.exports = {
     "no-underscore-dangle": "off",
     "react/prop-types": 0,
   },
-  globals: { cy: "readonly", Cypress: "readonly", window: true }, //Cannot be reassigned
+  globals: { cy: "readonly", Cypress: "readonly", window: true }, // Cannot be reassigned
 };

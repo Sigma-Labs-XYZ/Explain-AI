@@ -48,12 +48,10 @@ describe("Test for API render on success", () => {
     render(
       <MemoryRouter initialEntries={["/javascript"]}>
         <TopicPage />
-      </MemoryRouter>
+      </MemoryRouter>,
     );
     await waitFor(() => {
-      expect(
-        screen.getByRole("heading", { name: "RELATIONSHIP-TEST" })
-      ).toBeInTheDocument();
+      expect(screen.getByRole("heading", { name: "RELATIONSHIP-TEST" })).toBeInTheDocument();
       render(<TopicPage />);
       expect(fetch).toHaveBeenCalledTimes(1);
     });
