@@ -27,7 +27,7 @@ jobs:
   run-tests:
     name: Run Tests
     runs-on: ubuntu-latest
-    # needs: run-linters
+    needs: run-linters
     steps:
       - name: Check out Git repository
         uses: actions/checkout@v3
