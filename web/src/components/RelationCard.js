@@ -1,5 +1,4 @@
 import React from "react";
-import "./RelationCard.scss";
 import { useNavigate } from "react-router-dom";
 import pedroImage from "./pedro.png";
 
