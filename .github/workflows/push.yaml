@@ -37,4 +37,4 @@ jobs:
           node-version: 16
 
       - name: Run Test
-        run: npm test ./src/Tests
+        run: npm test
