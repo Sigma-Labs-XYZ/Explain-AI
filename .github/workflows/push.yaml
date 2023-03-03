@@ -7,6 +7,9 @@ jobs:
   run-linters:
     name: Run linters
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./web
 
     steps:
       - name: Check out Git repository
@@ -19,11 +22,10 @@ jobs:
 
       # ESLint and Prettier must be in `package.json`
       - name: Install Node.js dependencies
-        run: cd web && npm ci
+        run: npm ci
 
       - name: Run linters
         uses: wearerequired/lint-action@v2
         with:
           eslint: true
           prettier: true
-          working-directory: /web
