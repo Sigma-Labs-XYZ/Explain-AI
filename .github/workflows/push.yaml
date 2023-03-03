@@ -37,4 +37,6 @@ jobs:
           node-version: 16
 
       - name: Run Test
-        run: npm test
+        run: |
+        cd web
+        npm test
