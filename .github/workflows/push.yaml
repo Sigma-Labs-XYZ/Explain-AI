@@ -20,7 +20,7 @@ jobs:
       - name: change to web
         run: cd web
       - name: install node packages
-        run: npm install
+        run: pwd
       - name: Run linters
         uses: wearerequired/lint-action@v2
         with:
