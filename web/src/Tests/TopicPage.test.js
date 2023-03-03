@@ -5,7 +5,7 @@ import TopicPage from "../components/TopicPage";
 import fetchData from "../utils/networking";
 import pedro from "../images/pedro.png";
 
-jest.mock("../utils/networking", () => ({ fetchData: jest.fn() }));
+jest.mock("../utils/networking", () => ({ fetchData: jest.fn().mockResolvedValue(response) }));
 
 const response = {
   topic: [
@@ -43,7 +43,7 @@ const response = {
 
 describe("Test for API render on success", () => {
   test("Check that the relationship cards render after api call", async () => {
-    fetchData.mockResolvedValue(response);
+    //fetchData.mockResolvedValue(response);
 
     render(
       <MemoryRouter initialEntries={["/javascript"]}>
