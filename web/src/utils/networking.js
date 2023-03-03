@@ -1,6 +1,5 @@
 export default async function fetchData(url) {
   try {
-    console.log(url);
     const apiResponse = await fetch(url);
     const apiResponseJSON = await apiResponse.json();
     return apiResponseJSON;
