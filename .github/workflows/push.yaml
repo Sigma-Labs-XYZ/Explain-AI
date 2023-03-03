@@ -36,6 +36,8 @@ jobs:
         with:
           node-version: 16
       - name: print package.json
-        run: cat package.json
+        run: |
+          pwd
+          cat package.json
       - name: Run Test
         run: npm test
