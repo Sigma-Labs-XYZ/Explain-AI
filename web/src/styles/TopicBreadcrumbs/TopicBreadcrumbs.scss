@@ -1,0 +1,42 @@
+@import "../variables";
+
+#desktop {
+  @include respond-to("small") {
+    display: none;
+  }
+  @include respond-to("medium") {
+    display: block;
+  }
+  @include respond-to("large") {
+    display: block;
+    margin-left: 15%;
+  }
+}
+
+#mobile {
+  @include respond-to("small") {
+    display: block;
+  }
+  @include respond-to("medium") {
+    display: none;
+  }
+  @include respond-to("large") {
+    display: none;
+  }
+}
+
+.desktop {
+  @apply ml-7 w-screen bg-backdrop;
+}
+
+.desktop-container {
+  @apply w-screen bg-backdrop text-white capitalize p-0.5;
+}
+
+.mobile-parent-btn {
+  @apply bg-backdrop2 pb-2 pt-2 text-left text-white capitalize w-screen;
+}
+
+.mobile-grandParent-btn {
+  @apply bg-backdrop pb-2 pt-2 text-left text-white capitalize w-screen;
+}
