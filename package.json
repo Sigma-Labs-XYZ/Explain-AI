@@ -2,7 +2,7 @@
   "name": "explainai",
   "version": "1.0.0",
   "author": "nearformies",
-  "license": ": )",
+  "license": "commercial",
   "scripts": {
     "start": "docker-compose up --build --remove-orphans --force-recreate",
     "start:reset": "sh database/database-reset.sh && docker compose up"
