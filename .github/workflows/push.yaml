@@ -5,7 +5,7 @@ on:
 
 jobs:
   run-linters:
-    name: Run linters
+    name: Run linters and Tests
     runs-on: ubuntu-latest
     defaults:
       run:
