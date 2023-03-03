@@ -7,11 +7,11 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
-      - run: ls
-      - run: cd web
-      - run: ls
-      - run: npm install
-      - run: npm run test
+      - run: |
+          cd web
+          ls
+          npm install
+          npm test
   lint_job:
     runs-on: ubuntu-latest
     name: Check linting
