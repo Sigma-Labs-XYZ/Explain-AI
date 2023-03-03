@@ -24,17 +24,17 @@ jobs:
       - name: Run linter
         run: npm run lint
 
-    run-tests:
-      name: Run Tests
-      runs-on: ubuntu-latest
-      steps:
-        - name: Check out Git repository
-          uses: actions/checkout@v3
+  run-tests:
+    name: Run Tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out Git repository
+        uses: actions/checkout@v3
 
-        - name: Set up Node.js
-          uses: actions/setup-node@v3
-          with:
-            node-version: 16
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
 
-        - name: Run Test
-          run: npm test ./src/Tests
+      - name: Run Test
+        run: npm test ./src/Tests
