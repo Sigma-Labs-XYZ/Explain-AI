@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { React } from "react";
 
-import "../Styles/TopicBreadcrumbs/TopicBreadcrumbs.css";
+import "../styles/TopicBreadcrumbs/TopicBreadcrumbs.css";
 
 export default function Breadcrumbs({ grandParent, parent }) {
   return (
