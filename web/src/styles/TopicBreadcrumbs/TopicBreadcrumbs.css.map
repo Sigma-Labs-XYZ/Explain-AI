@@ -2,10 +2,10 @@
   "version": 3,
   "sources": [
     "../variables.scss",
-    "BreadCrumbs.scss",
-    "BreadCrumbs.css"
+    "TopicBreadcrumbs.scss",
+    "TopicBreadcrumbs.css"
   ],
   "names": [],
   "mappings": "AAcI;ECZJ;IAEI,aAAA;ECDF;AACF;AFUI;ECZJ;IAKI,cAAA;ECCF;AACF;AFKI;ECZJ;IAQI,cAAA;IACA,gBAAA;ECGF;AACF;;AFDI;ECCJ;IAEI,cAAA;ECGF;AACF;AFPI;ECCJ;IAKI,aAAA;ECKF;AACF;AFZI;ECCJ;IAQI,aAAA;ECOF;AACF;;ADJA;EACE,gCAAA;ACOF;;ADJA;EACE,uDAAA;ACOF;;ADJA;EACE,sEAAA;ACOF;;ADJA;EACE,qEAAA;ACOF",
-  "file": "BreadCrumbs.css"
+  "file": "TopicBreadcrumbs.css"
 }
