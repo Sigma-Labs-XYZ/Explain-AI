@@ -11,7 +11,6 @@ export default function ButtonSelector({ age, changeAge }) {
           key={String(section)}
           onClick={() => changeAge(section)}
           className={age === section ? "btn selected" : "btn"}
-          // children={section}
         >
           {names[i]}
         </button>

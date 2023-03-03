@@ -1,7 +1,7 @@
 import React from "react";
 import "../Styling/ErrorMessage/ErrorMessage.css";
 
-function ErrorMessage({ message }) {
+export default function ErrorMessage({ message }) {
   return (
     <div className="error-container">
       <div data-testid="error-message" className="error-message">
@@ -11,5 +11,3 @@ function ErrorMessage({ message }) {
     </div>
   );
 }
-
-export default ErrorMessage;
