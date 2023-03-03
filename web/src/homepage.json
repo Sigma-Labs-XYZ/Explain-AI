@@ -1,0 +1,54 @@
+{
+  "Science and Math": [
+    "Physical Science",
+    "Life Science",
+    "Earth Science",
+    "Maths",
+    "Computer Science"
+  ],
+  "Social Studies": ["History", "Geography", "Civics", "Economics", "Sociology"],
+  "Language and Literature": [
+    "Reading and Writing",
+    "Language Usage",
+    "Literary Analysis",
+    "Public Speaking",
+    "Media Literacy"
+  ],
+  "Arts and Humanities": ["Visual Arts", "Music", "Theater", "Film and Media", "Philosophy"],
+  "Health and Fitness": ["Physical Health", "Mental Health", "Nutrition", "Safety", "Fitness"],
+  "Business and Entrepreneurship": [
+    "Marketing",
+    "Accounting",
+    "Entrepreneurship",
+    "Leadership",
+    "International Business"
+  ],
+  "Technology and Engineering": [
+    "Electronics and Robotics",
+    "Mechanical Engineering",
+    "Civil Engineering",
+    "Environmental Engineering",
+    "Sustainability"
+  ],
+  "Law and Justice": [
+    "Criminal Law",
+    "Civil Law",
+    "Constitutional Law",
+    "International Law",
+    "Environmental Law"
+  ],
+  "Science and Technology in Society": [
+    "Ethics and Values",
+    "Social Impacts",
+    "History and Philosophy",
+    "Innovation and Creativity",
+    "Science Communication"
+  ],
+  "Global Studies": [
+    "Cultural Diversity",
+    "International Relations",
+    "Human Geography",
+    "Global Issues",
+    "Peace and Conflict Studies"
+  ]
+}
