@@ -19,5 +19,7 @@ jobs:
     name: Check linting
     steps:
       - uses: actions/setup-node@v3
-      - run: cd web
-      - run: npm lint
+
+      - run: |
+          npm install
+          npm lint
