@@ -38,9 +38,5 @@ jobs:
           node-version: 16
       - name: install node packages
         run: npm ci
-      - name: print package.json
-        run: |
-          pwd
-          cat package.json
       - name: Run Test
         run: npm test
