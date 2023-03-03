@@ -1,11 +1,5 @@
 {
-  "Science and Math": [
-    "Physical Science",
-    "Life Science",
-    "Earth Science",
-    "Maths",
-    "Computer Science"
-  ],
+  "Science": ["Physical Science", "Life Science", "Earth Science", "Maths", "Computer Science"],
   "Social Studies": ["History", "Geography", "Civics", "Economics", "Sociology"],
   "Language and Literature": [
     "Reading and Writing",
