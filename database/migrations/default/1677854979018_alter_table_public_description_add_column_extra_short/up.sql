@@ -11,4 +11,3 @@ UPDATE description SET extra_short = 'CSS is used to make web pages look pretty.
 UPDATE description SET extra_short = 'React helps make websites fun to use and explore.' WHERE topic_slug = 'react' AND audience = 5;
 UPDATE description SET extra_short = 'React helps make websites look cool and work fast.' WHERE topic_slug = 'react' AND audience = 10;
 UPDATE description SET extra_short = 'React is a JavaScript library for building user interfaces.' WHERE topic_slug = 'react' AND audience = 20;
-
