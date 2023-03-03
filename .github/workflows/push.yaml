@@ -6,6 +6,7 @@ jobs:
     name: Run all tests
     steps:
       - uses: actions/setup-node@v3
+      - run: ls
       - run: cd ./web
       - run: npm install
       - run: npm run test
