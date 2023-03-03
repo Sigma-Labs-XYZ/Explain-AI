@@ -22,7 +22,4 @@ jobs:
           cd ./web
           npm ci
       - name: Run linter
-        uses: wearerequired/lint-action@v2.3.0
-        with:
-          eslint: true
-          prettier: true
+        run: npm run lint
