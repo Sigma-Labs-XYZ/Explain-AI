@@ -21,7 +21,7 @@ jobs:
       - name: install node packages
         run: npm ci
       - name: run linter
-          npm run lint
+        run: npm run lint
     run-tests:
       name: Run Tests
       steps:
