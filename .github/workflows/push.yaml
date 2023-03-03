@@ -22,8 +22,8 @@ jobs:
         run: cd web && npm ci
 
       - name: Run linters
-        working-directory: /web
         uses: wearerequired/lint-action@v2
         with:
           eslint: true
           prettier: true
+          working-directory: /web
