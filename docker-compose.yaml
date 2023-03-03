@@ -17,8 +17,8 @@ services:
       - "explainai-database-engine"
     restart: always
     volumes:
-      - ./migrations:/hasura-migrations
-      - ./metadata:/hasura-metadata
+      - ./database/migrations:/hasura-migrations
+      - ./database/metadata:/hasura-metadata
     environment:
       HASURA_GRAPHQL_ENABLE_CONSOLE: "true"
       HASURA_GRAPHQL_DEV_MODE: "true"
@@ -26,5 +26,30 @@ services:
       HASURA_GRAPHQL_ADMIN_SECRET: admin_secret
       DATABASE_URL: postgres://postgres:postgrespassword@explainai-database-engine:5432/postgres
       HASURA_GRAPHQL_DATABASE_URL: postgres://postgres:postgrespassword@explainai-database-engine:5432/postgres
+  explainai-backend-api:
+    container_name: explainai-backend-api
+    working_dir: /app
+    build: ./api
+    ports:
+      - "4000:4000"
+    environment:
+      - DB_ENDPOINT=http://explainai-database-api:8080
+      - DB_SECRET=admin_secret
+    depends_on:
+      - explainai-database-api
+    restart: always
+  explainai-frontend-web:
+    container_name: explainai-frontend-react
+    working_dir: /app
+    build: ./web
+    ports:
+      - "3000:3000"
+    volumes:
+      - "./web:/app"
+      - "/app/node_modules"
+    environment:
+      - REACT_APP_API_ENDPOINT=http://localhost:4000
+    stdin_open: true
+    tty: true
 volumes:
   db_data:
