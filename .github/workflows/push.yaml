@@ -22,7 +22,7 @@ jobs:
         run: cd web && npm ci
 
       - name: Run linters
-        run: npm run lint
+        run: cd web && npm run lint
         # uses: wearerequired/lint-action@v2
         # with:
         #   eslint: true
