@@ -3,6 +3,7 @@ import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import { BrowserRouter, MemoryRouter } from "react-router-dom";
 import TopicPage from "../components/TopicPage";
 import fetchData from "../utils/networking";
+import pedro from "../images/pedro.png";
 
 jest.mock("../utils/networking", () => ({ fetchData: jest.fn() }));
 
@@ -10,7 +11,7 @@ const response = {
   topic: [
     {
       name: "Javascript",
-      image: null,
+      image: pedro,
       created_at: "2023-02-27",
       descriptions: [
         {
@@ -32,7 +33,7 @@ const response = {
       relationships: [
         {
           audience: 10,
-          to: { name: "RELATIONSHIP-TEST", image: null },
+          to: { name: "RELATIONSHIP-TEST", image: pedro },
           description: "relationship test description",
         },
       ],
