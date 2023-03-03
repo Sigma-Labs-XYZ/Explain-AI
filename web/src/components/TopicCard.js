@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "../Styling/TopicCard/TopicCard.css";
 
 export default function TopicCard({ topic, audience }) {
