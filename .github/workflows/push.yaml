@@ -38,5 +38,5 @@ jobs:
 
       - name: Run Test
         run: |
-        cd web
-        npm test
+          cd web
+          npm test
