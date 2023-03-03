@@ -2,13 +2,13 @@ name: Lint
 
 on: [push]
 
+defaults:
+  run:
+    working-directory: ./web
 jobs:
   run-linters:
-    name: Run linters
+    name: Run Linter
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ./web
     steps:
       - name: Check out Git repository
         uses: actions/checkout@v3
@@ -18,8 +18,20 @@ jobs:
         with:
           node-version: 16
 
-      # ESLint and Prettier must be in `package.json`
-      - name: install node packages and run linter
-        run: |
-          npm ci
+      - name: install node packages
+        run: npm ci
+      - name: run linter
           npm run lint
+    run-tests:
+      name: Run Tests
+      steps:
+        - name: Check out Git repository
+          uses: actions/checkout@v3
+
+        - name: Set up Node.js
+          uses: actions/setup-node@v3
+          with:
+            node-version: 16
+
+        - name: Run Test
+          run: npm test ./src/Tests
