@@ -27,6 +27,7 @@ jobs:
   run-tests:
     name: Run Tests
     runs-on: ubuntu-latest
+    needs: run-linters
     steps:
       - name: Check out Git repository
         uses: actions/checkout@v3
@@ -35,6 +36,8 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 16
+      - name: install node packages
+        run: npm ci
       - name: print package.json
         run: |
           pwd
