@@ -6,7 +6,7 @@ jobs:
     name: Run all tests
     steps:
       - uses: actions/setup-node@v3
-        working-directory: ./web
+      - run: cd ./web
       - run: npm install
       - run: npm run test
   lint_job:
