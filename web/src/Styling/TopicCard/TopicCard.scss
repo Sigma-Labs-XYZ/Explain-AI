@@ -1,5 +1,4 @@
-@import './variables.scss';
-
+@import "./variables.scss";
 
 .topic-card-parent {
   @include screen-size-change;
@@ -15,51 +14,53 @@
       padding-right: 2em;
       text-align: justify;
       border: none;
+    }
+  }
+  & .topic-card-title {
+    margin: 0px;
+    display: flex;
+    padding-left: 2rem;
+    align-self: center;
+    & h1 {
+      margin-top: 20px;
+      margin-bottom: 10px;
+      @apply text-2xl;
+      @apply font-bold;
+    }
+  }
+  & .topic-card-img-btn {
+    display: flex;
+    width: 100%;
+    translate: 0px 30%;
+    & button {
+      border: none;
+      padding: 10px;
+      font-size: 15px;
+      padding-left: 50px;
+      padding-right: 50px;
+      width: 275px;
+      height: 50px;
+      font-weight: bold;
+      background-color: #d1d1d1;
+      &:hover {
+        background-color: #dadada;
+        transition: all 200ms ease-in-out;
+        transform: scale(1.05);
       }
     }
-    & .topic-card-title {
-      margin: 0px;
+    & .topic-card-img {
       display: flex;
-      padding-left:2rem;
-      align-self: center;
-      & h1 {
-        margin-top: 20px;
-        margin-bottom: 10px;
-      }
-    }
-    & .topic-card-img-btn {
-      display: flex;
-      width: 100%;
-      translate: 0px 30%;
-      & button {
-        border: none;
-        padding: 10px;
-        font-size: 15px;
-        padding-left: 50px;
-        padding-right: 50px;
-        width: 275px;
-        height: 50px;
-        font-weight: bold;
-        background-color: #D1D1D1;
-        &:hover {
-            background-color: #DADADA;
-          transition: all 200ms ease-in-out;
-          transform:scale(1.05);
-        }
-      }
-      & .topic-card-img {
-        display: flex;
-        width: 200px;
-        height: 200px;
-        border-radius: 50%;
-        background-color: rgb(49, 38, 38);
-        justify-content: center;
-        align-items: center;
-        overflow: hidden;
-        & img {
-          height: 100%;
-        }
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      background-color: rgb(49, 38, 38);
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      & img {
+        height: 100%;
+        @apply object-cover;
       }
     }
   }
-
+}
