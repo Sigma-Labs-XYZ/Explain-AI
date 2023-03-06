@@ -5,7 +5,7 @@ import RelationCard from "../components/RelationCard";
 import pedro from "../images/pedro.png";
 
 describe("Test if all elements of RelationCard are rendered", () => {
-  const name = "HTML";
+  const name = "pedro";
   const description = "JavaScript is used to add interactivity to HTML pages";
   const image = pedro;
 
@@ -29,6 +29,6 @@ describe("Test if all elements of RelationCard are rendered", () => {
     });
     const topicImg = screen.getByRole("img");
     expect(topicImg).toHaveAttribute("src", "pedro.png");
-    expect(topicImg).toHaveAttribute("alt", "HTML");
+    expect(topicImg).toHaveAttribute("alt", "pedro");
   });
 });
