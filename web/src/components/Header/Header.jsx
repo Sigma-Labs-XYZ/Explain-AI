@@ -19,6 +19,7 @@ export default function Header() {
   function changeAge(newAge) {
     setAge(newAge);
   }
+
   return (
     <div>
       <header>
