@@ -3,7 +3,7 @@ import React, { createContext, useState } from "react";
 export const ageContext = createContext(null);
 
 export function AudienceContext({ children }) {
-  const [age, setAge] = useState(
+  const [audience, setAudience] = useState(
     localStorage.getItem("age") || localStorage.setItem("age", "5") || "5",
   );
 
@@ -13,8 +13,8 @@ export function AudienceContext({ children }) {
 
   // eslint-disable-next-line
   const value = {
-    age,
-    setAge,
+    audience,
+    setAudience,
     updateLocalStorage,
   };
 

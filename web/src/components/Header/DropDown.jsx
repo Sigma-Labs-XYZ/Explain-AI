@@ -3,16 +3,16 @@ import React, { useContext } from "react";
 import { ageContext } from "../AudienceContext";
 
 export default function DropDown() {
-  const { age, setAge, updateLocalStorage } = useContext(ageContext);
+  const { audience, setAudience, updateLocalStorage } = useContext(ageContext);
 
   return (
     <select
       onChange={(e) => {
         updateLocalStorage(e.target.value);
-        setAge(e.target.value);
+        setAudience(e.target.value);
       }}
       className="select-pg"
-      value={age}
+      value={audience}
     >
       <option value="5">5</option>
       <option value="10">10</option>
