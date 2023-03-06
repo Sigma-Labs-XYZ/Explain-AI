@@ -5,14 +5,6 @@ import { ageContext } from "../AudienceContext";
 export default function ButtonSelector() {
   const names = ["5", "10", "Adult"];
   const { age, setAge, updateLocalStorage } = useContext(ageContext);
-  const handleButtonClick = (section) => {
-    updateLocalStorage(section);
-    setAge(section);
-  };
-
-  useEffect(() => {
-    console.log("Age changed: ", age);
-  }, [age]);
 
   return (
     <>
@@ -20,7 +12,10 @@ export default function ButtonSelector() {
         <button
           type="button"
           key={String(section)}
-          onClick={() => handleButtonClick(section)}
+          onClick={() => {
+            updateLocalStorage(section);
+            setAge(section);
+          }}
           className={age === section ? "btn selected" : "btn"}
         >
           {names[i]}
