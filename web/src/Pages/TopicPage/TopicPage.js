@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import fetchData from "../utils/networking";
-import Breadcrumbs from "./Breadcrumbs";
-import TopicCard from "./TopicCard";
-import ErrorMessage from "./ErrorMessage";
-import RelationCard from "./RelationCard";
+import fetchData from "../../utils/networking";
+import Breadcrumbs from "./BreadCrumbs/Breadcrumbs";
+import TopicCard from "./TopicCard/TopicCard";
+import ErrorMessage from "../../components/ErrorMessage";
+import RelationCard from "./RelationCard/RelationCard";
 
 export default function TopicPage() {
   const { topic } = useParams();
