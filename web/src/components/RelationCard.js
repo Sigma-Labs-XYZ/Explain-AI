@@ -4,6 +4,11 @@ import { useNavigate } from "react-router-dom";
 function RelationCard({ name, description, image }) {
   const navigate = useNavigate();
 
+  // ReactGA.event({
+  //   category: `relationship card click`,
+  //   action: "your action",
+  //   label: `${parent} going to ${name}`,
+  // )}
   return (
     // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions
     <div

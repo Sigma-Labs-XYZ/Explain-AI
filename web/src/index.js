@@ -18,10 +18,10 @@ root.render(
 );
 
 // const SendAnalytics = () => {
-//   ReactGA.send({
-//     hitType: "pageview",
-//     page: window.location.pathname,
-//   });
+// ReactGA.send({
+//   hitType: "pageview",
+//   page: window.location.pathname,
+// });
 // };
 
 // If you want to start measuring performance in your app, pass a function
