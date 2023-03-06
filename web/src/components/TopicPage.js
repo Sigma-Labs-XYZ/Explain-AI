@@ -5,10 +5,12 @@ import Breadcrumbs from "./Breadcrumbs";
 import TopicCard from "./TopicCard";
 import ErrorMessage from "./ErrorMessage";
 import RelationCard from "./RelationCard";
+import { ageContext } from "./AudienceContext";
 
 export default function TopicPage() {
   const { topic } = useParams();
   const [retrievedTopics, setRetrievedTopics] = useState();
+  const { audience } = useContext(ageContext);
   const MAIN_URL = `${process.env.REACT_APP_API_ENDPOINT}/topic/${topic}`;
   const [isLoading, setIsLoading] = useState(true);
 
@@ -38,14 +40,16 @@ export default function TopicPage() {
           Related
         </h2>
         {topicData.relationships &&
-          topicData.relationships.map((rel) => (
-            <RelationCard
-              key={rel.to.name}
-              name={rel.to.name}
-              description={rel.description}
-              image={rel.to.image}
-            />
-          ))}
+          topicData.relationships.map((rel) =>
+            rel.audience === parseInt(audience, 10) ? (
+              <RelationCard
+                key={rel.to.name}
+                name={rel.to.name}
+                description={rel.description}
+                image={rel.to.image}
+              />
+            ) : null,
+          )}
       </>
     );
   }
