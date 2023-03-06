@@ -29,6 +29,6 @@ describe("Test if all elements of RelationCard are rendered", () => {
     });
     const topicImg = screen.getByRole("img");
     expect(topicImg).toHaveAttribute("src", "pedro.png");
-    expect(topicImg).toHaveAttribute("alt", "pedro");
+    expect(topicImg).toHaveAttribute("alt", "HTML");
   });
 });

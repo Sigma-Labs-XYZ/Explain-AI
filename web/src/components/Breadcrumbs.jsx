@@ -5,8 +5,8 @@ import "../styles/TopicBreadcrumbs/TopicBreadcrumbs.css";
 
 export default function Breadcrumbs({ grandParent, parent }) {
   return (
-    <div className="bg-backdrop">
-      <nav data-testid="desktop" id="desktop" className="desktop">
+    <div className='bg-backdrop'>
+      <nav data-testid="desktop" id='desktop' className="desktop">
         <span className="desktop-container">
           <Link to={`/${grandParent.slug}`}>{grandParent.name}</Link>
           <span data-testid="desktop-grandParent" className="font-thin">
