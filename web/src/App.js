@@ -1,9 +1,16 @@
-import React from "react";
+import { React, useEffect } from "react"; // eslint-disable-next-line
+import ReactGA from "react-ga4";
 import "./App.css";
 import AppRouter from "./components/AppRouter";
 import Header from "./components/Header/Header";
 
 function App() {
+  useEffect(() => {
+    ReactGA.send({
+      hitType: "pageview",
+      page: window.location.pathname,
+    });
+  });
   return (
     <div className="App">
       <Header />
