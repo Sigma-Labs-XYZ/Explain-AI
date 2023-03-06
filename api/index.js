@@ -2,6 +2,7 @@ import express from "express";
 import fetch from "node-fetch";
 import dotenv from "dotenv";
 import cors from "cors";
+import { generateTopic, parseTopic } from "./openAI.js";
 
 dotenv.config();
 const app = express();
@@ -27,8 +28,16 @@ app.get("/topic/:slug", async (req, res) => {
   const audience = req.query.audience ? `/${req.query.audience}` : "";
   const endpoint = `${DB_ENDPOINT}/api/rest/topic/${req.params.slug}${audience}`;
   const response = await fetch(endpoint, { method: "GET", headers });
-  const topic = await response.json();
-  res.send(topic);
+  const json = await response.json();
+  const topic = json?.topic?.[0];
+  if (!topic) return res.status(404).send("Topic not found");
+  if (!topic.descriptions?.length) return res.send(json);
+  else {
+    const newTopic = await generateTopic({ topicName: topic.name });
+    const parsedTopic = parseTopic(newTopic);
+    // TODO: saveToDB
+    // TODO: return newly generated topic
+  }
 });
 
 app.listen(port, () => console.log(`API listening on port ${port}`));
