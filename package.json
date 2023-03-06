@@ -1,0 +1,11 @@
+{
+  "name": "explain-root",
+  "version": "1.0.0",
+  "description": "My Project",
+  "scripts": {
+    "start": "docker-compose up --build --remove-orphans --force-recreate",
+    "start:reset": "sh database/database-reset.sh && docker-compose up"
+  },
+  "author": "Me",
+  "license": "Commercial"
+}
