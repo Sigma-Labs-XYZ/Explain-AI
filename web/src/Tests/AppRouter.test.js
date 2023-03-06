@@ -1,16 +1,15 @@
+/* eslint-disable no-console */
 import React from "react";
 import { fireEvent, render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
-import { BrowserRouter, MemoryRouter } from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
 import App from "../App";
 
-// Testing Home page route -> Renders HomePage.js component
 test("Home Page must be the first Page to be rendered", async () => {
   render(<App />, { wrapper: BrowserRouter });
   expect(screen.getByText("Homepage")).toBeInTheDocument();
 });
 
-// Testing Topic Page route -> Renders TopicPage.js component
 test("navigating from Home page to Topic Page", async () => {
   render(<App />, { wrapper: BrowserRouter });
   const topic = "javascript";
