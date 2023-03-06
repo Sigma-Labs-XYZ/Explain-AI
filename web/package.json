@@ -2,10 +2,9 @@
   "name": "web",
   "jest": {
     "resetMocks": false,
-    "moduleNameMapper": {
-      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js",
-      "\\.(css|less)$": "<rootDir>/__mocks__/styleMock.js"
-    }
+    "transform": {
+        ".+\\.(css|scss|png|jpg|svg)$": "jest-transform-stub"
+        }
   },
   "version": "0.1.0",
   "private": true,
@@ -64,6 +63,7 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "identity-obj-proxy": "^3.0.0",
     "jest-localstorage-mock": "^2.4.26",
+    "jest-transform-stub": "^2.0.0",
     "post-cli": "^1.0.5",
     "postcss-import": "^15.1.0",
     "prettier": "^2.8.4",
