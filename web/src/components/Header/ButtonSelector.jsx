@@ -1,10 +1,10 @@
 import "./Header.scss";
-import React, { useContext, useEffect } from "react";
+import React, { useContext } from "react";
 import { ageContext } from "../AudienceContext";
 
 export default function ButtonSelector() {
   const names = ["5", "10", "Adult"];
-  const { audience, setAudience, updateLocalStorage } = useContext(ageContext);
+  const { audience, setAudience } = useContext(ageContext);
 
   return (
     <>
@@ -13,7 +13,6 @@ export default function ButtonSelector() {
           type="button"
           key={String(section)}
           onClick={() => {
-            updateLocalStorage(section);
             setAudience(section);
           }}
           className={audience === section ? "btn selected" : "btn"}
