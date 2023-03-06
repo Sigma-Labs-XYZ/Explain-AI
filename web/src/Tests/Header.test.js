@@ -1,7 +1,7 @@
 import { render, screen, fireEvent } from "@testing-library/react";
 import React from "react";
 import userEvent from "@testing-library/user-event";
-import Header from "../components/Header/Header";
+import Header from "../Global/Header/Header";
 
 describe("localStorage tests", () => {
   beforeEach(() => {

@@ -1,6 +1,6 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
-import TopicCard from "../components/TopicCard";
+import TopicCard from "../Pages/TopicPage/TopicCard";
 import testData from "./dummy_data.json";
 
 const topic = testData.topic[0];

@@ -1,7 +1,7 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
 import HomePage from "./HomePage";
-import TopicPage from "./TopicPage";
+import TopicPage from "../Pages/TopicPage/TopicPage";
 
 export default function AppRouter() {
   return (
