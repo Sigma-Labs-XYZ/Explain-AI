@@ -1,7 +1,6 @@
 /* eslint-disable react/button-has-type */
 import { Link } from "react-router-dom";
 import { React } from "react";
-
 import "../../../Styles/TopicBreadcrumbs/TopicBreadcrumbs.css";
 
 export default function Breadcrumbs({ grandParent, parent }) {
