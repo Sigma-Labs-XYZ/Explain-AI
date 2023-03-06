@@ -1,8 +1,8 @@
 import React from "react";
-import TopicCard from "../Pages/TopicPage/TopicCard";
-import testData from "../Tests/dummy_data.json";
+import TopicCard from "./TopicCard";
+import testData from "./dummy_data.json";
 
-const dimensions = require("../Tests/dimensions");
+const dimensions = require("../../../Tests/dimensions");
 
 const topic = { ...testData.topic[0] };
 

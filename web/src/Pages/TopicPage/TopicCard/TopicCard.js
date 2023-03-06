@@ -1,5 +1,5 @@
 import React from "react";
-import "../../Styling/TopicCard/TopicCard.css";
+import "../../../Styles/TopicCard/TopicCard.css";
 
 export default function TopicCard({ topic, audience }) {
   const description = topic.descriptions?.find?.(({ audience: a }) => audience === a)?.short;
