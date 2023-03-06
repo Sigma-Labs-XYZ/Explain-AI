@@ -1,0 +1,1 @@
+ALTER TABLE description DROP COLUMN extra_short;

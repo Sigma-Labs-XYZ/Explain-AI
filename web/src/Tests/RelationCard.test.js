@@ -5,7 +5,7 @@ import RelationCard from "../components/RelationCard";
 import pedro from "../images/pedro.png";
 
 describe("Test if all elements of RelationCard are rendered", () => {
-  const name = "HTML";
+  const name = "pedro";
   const description = "JavaScript is used to add interactivity to HTML pages";
   const image = pedro;
 
