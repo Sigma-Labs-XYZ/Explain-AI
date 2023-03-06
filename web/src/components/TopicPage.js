@@ -4,6 +4,7 @@ import fetchData from "../utils/networking";
 import Breadcrumbs from "./Breadcrumbs";
 import TopicCard from "./TopicCard";
 import ErrorMessage from "./ErrorMessage";
+import RelationCard from "./RelationCard";
 
 export default function TopicPage() {
   const { topic } = useParams();
@@ -38,7 +39,20 @@ export default function TopicPage() {
           parent={topicData.parent.parent}
           grandParent={topicData.parent.parent.grandparent.grandparent}
         />
-        <TopicCard topic={topicData} audience={audience} />
+        <TopicCard topic={retrievedTopics.topic[0]} audience={audience} />
+
+        <h2 className="text-left text-3xl ml-5 text-white font-bold mb-5 superWideDesktop:ml-[15%]">
+          Related
+        </h2>
+        {topicData.relationships &&
+          topicData.relationships.map((rel) => (
+            <RelationCard
+              key={rel.to.name}
+              name={rel.to.name}
+              description={rel.description}
+              image={rel.to.image}
+            />
+          ))}
       </>
     );
   }
