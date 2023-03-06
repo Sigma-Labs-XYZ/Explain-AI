@@ -4,11 +4,9 @@ import explainailogo from "../../images/explainai-logo.png";
 import "./Header.scss";
 import DropDown from "./DropDown";
 import ButtonSelector from "./ButtonSelector";
-import { ageContext } from "../AudienceContext";
 
 export default function Header() {
   const labelText = "Like I'm";
-  const { age } = useContext(ageContext);
 
   return (
     <div>

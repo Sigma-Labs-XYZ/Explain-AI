@@ -2,6 +2,7 @@ import { render, screen, fireEvent } from "@testing-library/react";
 import React from "react";
 import userEvent from "@testing-library/user-event";
 import Header from "../components/Header/Header";
+import { AudienceContext } from "../components/AudienceContext";
 
 describe("localStorage tests", () => {
   beforeEach(() => {
@@ -21,7 +22,11 @@ describe("localStorage tests", () => {
   test("correct option should be selected when localStorage is set", () => {
     const value = "10";
     localStorage.setItem(key, value);
-    render(<Header />);
+    render(
+      <AudienceContext>
+        <Header />{" "}
+      </AudienceContext>,
+    );
     const options = screen.getAllByRole("option");
     expect(options[0].selected).toBeFalsy();
     expect(options[1].selected).toBeTruthy();
@@ -29,7 +34,11 @@ describe("localStorage tests", () => {
   });
 
   test("when age button is clicked it should update localStorage with the correct value", () => {
-    render(<Header />);
+    render(
+      <AudienceContext>
+        <Header />{" "}
+      </AudienceContext>,
+    );
     const value = "20";
     const button = screen.getByRole("button", {
       name: "Adult",
@@ -40,7 +49,11 @@ describe("localStorage tests", () => {
   });
 
   test("when dropdown is changed it should update localStorage with the correct value", () => {
-    render(<Header />);
+    render(
+      <AudienceContext>
+        <Header />{" "}
+      </AudienceContext>,
+    );
     const value = "10";
     const select = screen.getByRole("combobox");
     const option = screen.getByRole("option", { name: value });
@@ -53,25 +66,41 @@ describe("localStorage tests", () => {
 describe("test if all elements of header are rendered", () => {
   const tags = ["5", "10", "Adult"];
   test("logo rendered", () => {
-    render(<Header />);
+    render(
+      <AudienceContext>
+        <Header />{" "}
+      </AudienceContext>,
+    );
     const logo = screen.getByAltText("logo");
     expect(logo.src).toContain("explainai-logo.png");
   });
 
   test("'Like I'm' <p> appears", () => {
-    render(<Header />);
+    render(
+      <AudienceContext>
+        <Header />{" "}
+      </AudienceContext>,
+    );
     expect(screen.getByText("Like I'm")).toBeInTheDocument();
   });
 
   test("buttons rendered", () => {
-    render(<Header />);
+    render(
+      <AudienceContext>
+        <Header />{" "}
+      </AudienceContext>,
+    );
     const buttons = screen.getAllByRole("button");
     expect(buttons).toHaveLength(3);
     tags.map((tag) => expect(screen.getByRole("button", { name: tag })).toBeInTheDocument());
   });
 
   test("dropdown rendered", () => {
-    render(<Header />);
+    render(
+      <AudienceContext>
+        <Header />{" "}
+      </AudienceContext>,
+    );
     expect(screen.getByRole("combobox")).toBeInTheDocument();
     tags.map((tag) => expect(screen.getByRole("option", { name: tag })).toBeInTheDocument());
   });
