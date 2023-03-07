@@ -31,9 +31,9 @@ app.get("/topic/:slug", async (req, res) => {
   const json = await response.json();
   const topic = json?.topic?.[0];
   if (!topic) return res.status(404).send("Topic not found");
-  if (!topic.descriptions?.length) return res.send(json);
+  if (topic.descriptions?.length) return res.send(json);
   else {
-    const newTopic = await generateTopic({ topicName: topic.name });
+    const newTopic = await generateTopic({ topicName: topic.name, audience:audience });
     const parsedTopic = parseTopic(newTopic);
     // TODO: saveToDB
     // TODO: return newly generated topic

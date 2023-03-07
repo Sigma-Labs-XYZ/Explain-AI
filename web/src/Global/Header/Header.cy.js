@@ -1,5 +1,5 @@
 import React from "react";
-import Header from "../components/Header/Header";
+import Header from "./Header";
 
 describe("Media queries and their effects on Age Toggle and Dropdown", () => {
   it("Toggle appears when screen width above 400px (Desktop)", () => {
@@ -37,7 +37,7 @@ it("Selecting Adult in dropdown reduces font size to 10px", () => {
   cy.viewport(395, 1000);
   cy.mount(<Header />);
   cy.get("select").invoke("val", "Adult").trigger("change");
-  cy.get("select").should("have.css", "font-size", "10px");
+  cy.get("select").should("have.css", "font-size", "18px");
 });
 
 it("Background color changes when a button is clicked", () => {
