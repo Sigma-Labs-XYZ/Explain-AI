@@ -30,18 +30,13 @@ app.get("/topic/:slug", async (req, res) => {
   const response = await fetch(endpoint, { method: "GET", headers });
   const json = await response.json();
   const topic = json?.topic?.[0];
-  // Does the topic exist?
   if (!topic) return res.status(404).send("Topic not found");
-  // If so, has it had descriptions generated yet?
   const isGenerated = topic?.descriptions?.length > 0;
-  // (Because if not, the front end will request a POST to generate them)
   return res.send({ ...json, isGenerated });
 });
 
-app.post("/topic/:slug", async ({ params: { slug } }, res) => {
-  // It wasn't generated, so generate it
-  await generate({ topicName: slug });
-  // Once that's done, call the GET endpoint again
+app.post("/topic/:name", async ({ body }, res) => {
+  const slug = await generate({ name: body.name });
   const get = `/topic/${slug}`;
   app._router.handle({ method: "GET", url: get }, res, { end: res.send });
 });

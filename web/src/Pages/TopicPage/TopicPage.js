@@ -25,7 +25,7 @@ export default function TopicPage() {
       }
       // Descriptions were not found, let's generate them
       setIsGenerating(true);
-      const generatedData = await fetchData(MAIN_URL, "POST");
+      const generatedData = await fetchData(MAIN_URL, "POST", { name: topic });
       setRetrievedTopics(generatedData);
       setIsGenerating(false);
       return setIsLoading(false);
