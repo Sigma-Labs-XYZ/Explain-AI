@@ -4,6 +4,7 @@ import userEvent from "@testing-library/user-event";
 import { within } from "@testing-library/dom"; // eslint-disable-line
 import Header from "./Header";
 import { AudienceContext } from "../../components/AudienceContext";
+import { BrowserRouter } from "react-router-dom";
 
 describe("localStorage tests", () => {
   beforeEach(() => {
@@ -25,7 +26,9 @@ describe("localStorage tests", () => {
     localStorage.setItem(key, value);
     render(
       <AudienceContext>
-        <Header />{" "}
+        <BrowserRouter>
+          <Header />
+        </BrowserRouter>
       </AudienceContext>,
     );
     const options = screen.getAllByRole("option");
@@ -37,7 +40,9 @@ describe("localStorage tests", () => {
   test("when age button is clicked it should update localStorage with the correct value", () => {
     render(
       <AudienceContext>
-        <Header />{" "}
+        <BrowserRouter>
+          <Header />
+        </BrowserRouter>
       </AudienceContext>,
     );
     const value = 20;
@@ -52,7 +57,9 @@ describe("localStorage tests", () => {
   test("when dropdown is changed it should update localStorage with the correct value", () => {
     render(
       <AudienceContext>
-        <Header />{" "}
+        <BrowserRouter>
+          <Header />
+        </BrowserRouter>
       </AudienceContext>,
     );
     const value = "10";
@@ -69,17 +76,21 @@ describe("test if all elements of header are rendered", () => {
   test("logo rendered", () => {
     render(
       <AudienceContext>
-        <Header />{" "}
+        <BrowserRouter>
+          <Header />
+        </BrowserRouter>
       </AudienceContext>,
     );
-    const logo = screen.getByAltText("Logo of explain-ai & link to take you back to the homepage");
+    const logo = screen.getByAltText("Explain AI");
     expect(logo.src).toContain("explainai-logo.png");
   });
 
   test("'Like I'm' <p> appears", () => {
     render(
       <AudienceContext>
-        <Header />{" "}
+        <BrowserRouter>
+          <Header />
+        </BrowserRouter>
       </AudienceContext>,
     );
     expect(screen.getByText("Like I'm")).toBeInTheDocument();
@@ -88,7 +99,9 @@ describe("test if all elements of header are rendered", () => {
   test("buttons rendered", () => {
     render(
       <AudienceContext>
-        <Header />{" "}
+        <BrowserRouter>
+          <Header />
+        </BrowserRouter>
       </AudienceContext>,
     );
     const buttons = screen.getAllByRole("button");
@@ -99,7 +112,9 @@ describe("test if all elements of header are rendered", () => {
   test("dropdown rendered", () => {
     render(
       <AudienceContext>
-        <Header />{" "}
+        <BrowserRouter>
+          <Header />
+        </BrowserRouter>
       </AudienceContext>,
     );
     expect(screen.getByRole("combobox")).toBeInTheDocument();
@@ -109,7 +124,13 @@ describe("test if all elements of header are rendered", () => {
 
 describe("test logo loads homepage when clicked", () => {
   test("The logo is within an a tag", () => {
-    render(<Header />);
+    render(
+      <AudienceContext>
+        <BrowserRouter>
+          <Header />
+        </BrowserRouter>
+      </AudienceContext>,
+    );
     const link = screen.getByRole("link");
     expect(link).toHaveAttribute("href", "/");
     const img = within(link).getByRole("img");
