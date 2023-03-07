@@ -41,11 +41,11 @@ function TopicCard({ topic }) {
 }
 
 TopicCard.propTypes = {
-  topic: PropType.arrayOf(PropType.shape({
+  topic: PropType.shape({
     name: PropType.string,
     description: PropType.arrayOf(PropType.object),
     parent: PropType.object,
-    relationships: PropType.arrayOf(PropType.object)
-  })).isRequired
+    relationships: PropType.arrayOf(PropType.object),
+  }).isRequired,
 };
 export default TopicCard;
