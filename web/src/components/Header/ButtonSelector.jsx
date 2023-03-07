@@ -2,22 +2,24 @@ import "./Header.scss";
 import React, { useContext } from "react";
 import { ageContext } from "../AudienceContext";
 
-export default function ButtonSelector() {
-  const names = ["5", "10", "Adult"];
-  const { audience, setAudience } = useContext(ageContext);
+const audiences = [
+  { value: 5, label: "5" },
+  { value: 10, label: "10" },
+  { value: 20, label: "Adult" },
+];
 
+export default function ButtonSelector() {
+  const { audience, setAudience } = useContext(ageContext);
   return (
     <>
-      {["5", "10", "20"].map((section, i) => (
+      {audiences.map((a) => (
         <button
           type="button"
-          key={String(section)}
-          onClick={() => {
-            setAudience(section);
-          }}
-          className={audience === section ? "btn selected" : "btn"}
+          key={audience.label}
+          onClick={() => setAudience(audience.value)}
+          className={audience === a.value ? "btn selected" : "btn"}
         >
-          {names[i]}
+          {a.label}
         </button>
       ))}
     </>
