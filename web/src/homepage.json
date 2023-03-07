@@ -4,10 +4,22 @@
     "name": "Science",
     "description": "Subjects related to the natural world and scientific inquiry",
     "children": [
-      { "slug": "physical-science", "name": "Physical Science" },
+      {
+        "slug": "physical-science",
+        "name": "Physical Science",
+        "image": "https://learning.edanz.com/wp-content/uploads/2019/02/AdobeStock_142087350-1024x698.jpg"
+      },
       { "slug": "life-science", "name": "Life Science" },
-      { "slug": "earth-science", "name": "Earth Science" },
-      { "slug": "maths", "name": "Maths" },
+      {
+        "slug": "earth-science",
+        "name": "Earth Science",
+        "image": "https://i0.wp.com/blog.frontiersin.org/wp-content/uploads/2017/12/frontiers-in-earth-science-launch-solid-earth-geophysics.jpg?fit=1000%2C600&ssl=1"
+      },
+      {
+        "slug": "maths",
+        "name": "Maths",
+        "image": "https://i.guim.co.uk/img/media/1f88ae6599ec098c9c0e4556c68a95f01fd314fc/0_187_4287_2572/master/4287.jpg?width=1200&height=1200&quality=85&auto=format&fit=crop&s=6d830672ef7bfe1e5cf3873548c0a2ab"
+      },
       { "slug": "computer-science", "name": "Computer Science" }
     ]
   },
@@ -16,7 +28,11 @@
     "name": "Social Studies",
     "description": "Subjects related to the study of human society and relationships between individuals, groups, and institutions",
     "children": [
-      { "slug": "history", "name": "History" },
+      {
+        "slug": "history",
+        "name": "History",
+        "image": "https://www.dundryprimary.co.uk/wp-content/uploads/2021/11/istockphoto-1092170968-612x612-1.jpg"
+      },
       { "slug": "geography", "name": "Geography" },
       { "slug": "civics", "name": "Civics" },
       { "slug": "economics", "name": "Economics" },
