@@ -1,5 +1,4 @@
 /* eslint-disable react/jsx-no-bind */
-
 import React from "react";
 import { Link } from "react-router-dom";
 import "./Header.scss";
