@@ -1,14 +1,14 @@
 import { render, screen } from "@testing-library/react";
 import React from "react";
 import { BrowserRouter } from "react-router-dom";
-import RelationCard from "../components/RelationCard";
-import pedro from "../images/pedro.png";
+import RelationCard from "./RelationCard";
 import { AudienceContext } from "../components/AudienceContext";
+import RelationCard from "./RelationCard";
 
 describe("Test if all elements of RelationCard are rendered", () => {
   const name = "pedro";
   const description = "JavaScript is used to add interactivity to HTML pages";
-  const image = pedro;
+  const image = `${process.env.PUBLIC_URL}pedro.png`;
 
   test("Name of the topic rendered", () => {
     render(

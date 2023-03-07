@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import "../Styling/TopicCard/TopicCard.css";
+import "../../../Styling/TopicCard/TopicCard.css";
 import { ageContext } from "./AudienceContext";
 
 export default function TopicCard({ topic }) {
