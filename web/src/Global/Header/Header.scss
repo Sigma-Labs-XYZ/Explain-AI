@@ -18,6 +18,10 @@ header {
     }
     img {
        height: 60%;
+       &:hover {
+        transition:all 200ms ease-in-out;
+        transform:scale(1.05)
+       }
     }
   }
   
