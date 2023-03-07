@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import React from "react";
-import { BrowserRouter, fireEvent } from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
 import { AudienceContext } from "../../../components/AudienceContext";
 import RelationCard from "./RelationCard";
 import { within } from "@testing-library/dom";
