@@ -2,6 +2,7 @@ import { render, screen, fireEvent } from "@testing-library/react";
 import React from "react";
 import userEvent from "@testing-library/user-event";
 import Header from "./Header";
+import {within} from '@testing-library/dom'
 
 describe("localStorage tests", () => {
   beforeEach(() => {
@@ -54,7 +55,7 @@ describe("test if all elements of header are rendered", () => {
   const tags = ["5", "10", "Adult"];
   test("logo rendered", () => {
     render(<Header />);
-    const logo = screen.getByAltText("logo");
+    const logo = screen.getByAltText("Logo of explain-ai & link to take you back to the homepage");
     expect(logo.src).toContain("explainai-logo.png");
   });
 
@@ -76,3 +77,14 @@ describe("test if all elements of header are rendered", () => {
     tags.map((tag) => expect(screen.getByRole("option", { name: tag })).toBeInTheDocument());
   });
 });
+
+describe("test logo loads homepage when clicked", ()=>{
+
+  test('The logo is within an a tag',()=> {
+    render(<Header/>)
+    const link = screen.getByRole('link')
+    const img = within(link).getByRole('img')
+    expect(img.src).toBe('http://localhost/explainai-logo.png')
+
+  })
+})

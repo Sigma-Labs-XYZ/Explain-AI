@@ -26,6 +26,10 @@ header a {
 header a img {
   height: 60%;
 }
+header a img:hover {
+  transition: all 200ms ease-in-out;
+  transform: scale(1.05);
+}
 header div {
   display: flex;
   align-items: center;

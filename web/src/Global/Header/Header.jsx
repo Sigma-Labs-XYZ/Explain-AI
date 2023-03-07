@@ -22,8 +22,8 @@ export default function Header() {
   return (
     <div>
       <header>
-        <a href="/">
-          <img src="./explainai-logo.png" alt="logo" />
+        <a href="/" title='Link to homepage'>
+          <img src="./explainai-logo.png" alt="Logo of explain-ai & link to take you back to the homepage" />
         </a>
         <div>
           <p>{labelText}</p>
