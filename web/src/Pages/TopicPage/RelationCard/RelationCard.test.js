@@ -1,6 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import React from "react";
 import { BrowserRouter } from "react-router-dom";
+import { AudienceContext } from "../../../components/AudienceContext";
 import RelationCard from "./RelationCard";
 
 describe("Test if all elements of RelationCard are rendered", () => {
@@ -9,23 +10,38 @@ describe("Test if all elements of RelationCard are rendered", () => {
   const image = `${process.env.PUBLIC_URL}pedro.png`;
 
   test("Name of the topic rendered", () => {
-    render(<RelationCard name={name} description={description} image={image} />, {
-      wrapper: BrowserRouter,
-    });
+    render(
+      <AudienceContext>
+        <RelationCard name={name} description={description} image={image} />
+      </AudienceContext>,
+      {
+        wrapper: BrowserRouter,
+      },
+    );
     expect(screen.getByText(name)).toBeInTheDocument();
   });
 
   test("Description of the topic rendered", () => {
-    render(<RelationCard name={name} description={description} image={image} />, {
-      wrapper: BrowserRouter,
-    });
+    render(
+      <AudienceContext>
+        <RelationCard name={name} description={description} image={image} />
+      </AudienceContext>,
+      {
+        wrapper: BrowserRouter,
+      },
+    );
     expect(screen.getByText(description)).toBeInTheDocument();
   });
 
   test("Image of the topic rendered", () => {
-    render(<RelationCard name={name} description={description} image={image} />, {
-      wrapper: BrowserRouter,
-    });
+    render(
+      <AudienceContext>
+        <RelationCard name={name} description={description} image={image} />
+      </AudienceContext>,
+      {
+        wrapper: BrowserRouter,
+      },
+    );
     const topicImg = screen.getByRole("img");
     expect(topicImg).toHaveAttribute("src", "pedro.png");
     expect(topicImg).toHaveAttribute("alt", "pedro");
