@@ -1,10 +1,7 @@
 {
   "name": "web",
   "jest": {
-    "resetMocks": false,
-    "transform": {
-        ".+\\.(css|scss|png|jpg|svg)$": "jest-transform-stub"
-        }
+    "resetMocks": false
   },
   "version": "0.1.0",
   "private": true,

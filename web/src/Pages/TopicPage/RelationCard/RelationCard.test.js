@@ -1,8 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import React from "react";
 import { BrowserRouter } from "react-router-dom";
-import RelationCard from "./RelationCard";
-import { AudienceContext } from "../components/AudienceContext";
+import { AudienceContext } from "../../../components/AudienceContext";
 import RelationCard from "./RelationCard";
 
 describe("Test if all elements of RelationCard are rendered", () => {
