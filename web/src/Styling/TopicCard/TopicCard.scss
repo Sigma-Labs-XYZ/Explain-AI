@@ -9,6 +9,7 @@
   & .topic-card {
     border: none !important;
     background-color: white;
+
     & .topic-card-description {
       padding-left: 2em;
       padding-right: 2em;
@@ -23,18 +24,20 @@
     align-self: center;
     & h1 {
       margin-top: 20px;
-      margin-bottom: 10px;
-      @apply text-2xl;
+      margin-bottom: 20px;
+      @apply text-4xl;
       @apply font-bold;
     }
   }
   & .topic-card-img-btn {
     display: flex;
-    width: 100%;
+    justify-content: space-between;
+    margin-left: 32px;
+    margin-right: 85px;
+    // width: 100%;
     translate: 0px 30%;
     & button {
       border: none;
-      padding: 10px;
       font-size: 15px;
       padding-left: 50px;
       padding-right: 50px;
@@ -50,8 +53,8 @@
     }
     & .topic-card-img {
       display: flex;
-      width: 200px;
-      height: 200px;
+      width: 250px;
+      height: 250px;
       border-radius: 50%;
       background-color: rgb(49, 38, 38);
       justify-content: center;
