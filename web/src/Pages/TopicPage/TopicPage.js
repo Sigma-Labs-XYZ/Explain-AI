@@ -52,6 +52,7 @@ export default function TopicPage() {
                 name={rel.to.name}
                 description={rel.description}
                 image={rel.to.image}
+                parent={topic}
               />
             ) : null,
           )}

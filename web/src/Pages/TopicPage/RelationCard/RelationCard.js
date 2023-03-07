@@ -1,19 +1,19 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import { sendRelationEvent, sendClickEvent } from "../../../utils/gaEvents";
 
-function RelationCard({ name, description, image }) {
+function RelationCard({ name, description, image, parent }) {
   const navigate = useNavigate();
 
-  // ReactGA.event({
-  //   category: `relationship card click`,
-  //   action: "your action",
-  //   label: `${parent} going to ${name}`,
-  // )}
   return (
     // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions
     <div
       className="flex items-center ml-5 phone:mr-0 phone:ml-0 superWideDesktop:mr-[15%]"
-      onClick={() => navigate(`/${name.toLowerCase()}`)}
+      onClick={() => {
+        sendRelationEvent();
+        sendClickEvent("RelationCard", name);
+        navigate(`/${name.toLowerCase()}`);
+      }}
       data-test-id="link-div"
     >
       <div className="text-left bg-white border-transparent mb-3 p-3 pl-10 flex items-center w-full phone:ml-0 phone:pr-0 superWideDesktop:ml-[15%]">
