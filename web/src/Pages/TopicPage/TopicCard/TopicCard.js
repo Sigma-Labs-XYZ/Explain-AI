@@ -5,9 +5,7 @@ import "../../../Styling/TopicCard/TopicCard.css";
 export default function TopicCard({ topic }) {
   const { audience } = useContext(ageContext);
 
-  const description = topic.descriptions?.find?.(
-    ({ audience: a }) => parseInt(audience, 10) === a,
-  )?.short;
+  const description = topic.descriptions?.find?.(({ audience: a }) => audience === a)?.short;
   const imageHandler = () => {
     const imageError = typeof topic.image !== "string" || topic.image === ""; // this may be changed depending on how the API responds
     return imageError ? "./no-image.jpeg" : topic.image;

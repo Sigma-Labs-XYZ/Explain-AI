@@ -41,7 +41,7 @@ export default function TopicPage() {
         </h2>
         {topicData.relationships &&
           topicData.relationships.map((rel) =>
-            rel.audience === parseInt(audience, 10) ? (
+            rel.audience === audience ? (
               <RelationCard
                 key={rel.to.name}
                 name={rel.to.name}
