@@ -28,7 +28,7 @@ $image-shrinkage: 0.75;
     }
 
     & .topic-card-description {
-      height: 400px;
+      height: 300px;
       overflow: auto;
       transition: all 300ms ease-in;
     }
@@ -49,12 +49,12 @@ $image-shrinkage: 0.75;
       }
     }
     & .topic-card-description {
-      height: 200px;
+      height: 170px;
       overflow: auto;
       transition: all 300ms ease-in;
     }
     & .topic-card-description.expanding {
-      height: 500px;
+      height: 440px;
     }
   }
 }
