@@ -4,6 +4,7 @@ import userEvent from "@testing-library/user-event";
 import { within } from "@testing-library/dom"; // eslint-disable-line
 import Header from "./Header";
 import { AudienceContext } from "../../components/AudienceContext";
+import { within } from "@testing-library/dom";
 
 describe("localStorage tests", () => {
   beforeEach(() => {
