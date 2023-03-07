@@ -1,5 +1,6 @@
 /* eslint-disable react/jsx-no-bind */
 import React, { useState, useEffect } from "react";
+import {Link} from 'react-router-dom'
 import "./Header.scss";
 import DropDown from "./DropDown";
 import ButtonSelector from "./ButtonSelector";
@@ -21,7 +22,9 @@ export default function Header() {
   return (
     <div>
       <header>
-        <img src="./explainai-logo.png" alt="logo" />
+        <a href="/">
+          <img src="./explainai-logo.png" alt="logo" />
+        </a>
         <div>
           <p>{labelText}</p>
           <ButtonSelector age={age} changeAge={changeAge} />

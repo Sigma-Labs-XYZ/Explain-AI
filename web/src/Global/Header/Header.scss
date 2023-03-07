@@ -5,18 +5,22 @@ header {
   background-color: $black;
   height: 70px;
   justify-content: space-between;
-
-  img {
-    height: 60%;
-    margin: 10px;
-    margin-left: 30px;
+  a {
+    display:flex;
+    height:100%;
+    align-items: center;
+    margin-left:30px;
     @media (min-width: $desktop-width) {
       margin-left: 15%;
     }
     @media (max-width: $phone-width) {
-      height: 40%;
+      height: 70%;
+    }
+    img {
+       height: 60%;
     }
   }
+  
   div {
     @include flex-row;
     margin-right: 30px;
