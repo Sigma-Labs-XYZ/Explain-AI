@@ -1,5 +1,6 @@
 /* eslint-disable react/jsx-no-bind */
 import React from "react";
+import { Link } from "react-router-dom";
 import "./Header.scss";
 import DropDown from "./DropDown";
 import ButtonSelector from "./ButtonSelector";
@@ -10,7 +11,9 @@ export default function Header() {
   return (
     <div>
       <header>
-        <img src="./explainai-logo.png" alt="logo" />
+        <Link to="/" title="Link to homepage">
+          <img src="./explainai-logo.png" alt="Explain AI" />
+        </Link>
         <div>
           <p>{labelText}</p>
           <ButtonSelector />
