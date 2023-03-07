@@ -83,6 +83,7 @@ describe("test logo loads homepage when clicked", ()=>{
   test('The logo is within an a tag',()=> {
     render(<Header/>)
     const link = screen.getByRole('link')
+    expect(link).toHaveAttribute('href',"/")
     const img = within(link).getByRole('img')
     expect(img.src).toBe('http://localhost/explainai-logo.png')
 

@@ -22,19 +22,3 @@ test("navigating from Home page to Topic Page", async () => {
   expect(screen.getByText(topic)).toBeInTheDocument();
 });
 
-  test("the logo should take the user to the homepage when clicked", async ()=>{
-    render(<App />, {wrapper: BrowserRouter});
-    const logo = screen.getByAltText("Logo of explain-ai & link to take you back to the homepage");
-    const links = screen.getAllByRole("link");
-    const topicLink = links.filter(link=>link.textContent==='javascript')[0]
-    const topicName = topicLink.textContent;
-    userEvent.click(topicLink);
-    await waitFor(()=>{
-       expect(global.window.location.pathname).toBe("/javascript");
-    })
-
-    // fireEvent.click(logo)
-    // await waitFor(()=>{
-    //       expect(global.window.location.pathname).toBe("/"); 
-    // })
-  })
