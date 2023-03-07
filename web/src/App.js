@@ -1,5 +1,6 @@
 import { React, useEffect } from "react"; // eslint-disable-next-line
 import ReactGA from "react-ga4";
+import { AudienceContext } from "./components/AudienceContext";
 import "./App.css";
 import AppRouter from "./AppRouter/AppRouter";
 import Header from "./Global/Header/Header";
@@ -14,10 +15,12 @@ function App() {
     });
   });
   return (
-    <div className="App">
-      <Header />
-      <AppRouter />
-    </div>
+    <AudienceContext>
+      <div className="App">
+        <Header />
+        <AppRouter />
+      </div>
+    </AudienceContext>
   );
 }
 
