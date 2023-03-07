@@ -1,11 +1,11 @@
 import React, { useState, useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
-import { ageContext } from "./AudienceContext";
 import fetchData from "../../utils/networking";
 import Breadcrumbs from "./BreadCrumbs/Breadcrumbs";
 import TopicCard from "./TopicCard/TopicCard";
 import ErrorMessage from "../../components/ErrorMessage";
 import RelationCard from "./RelationCard/RelationCard";
+import { ageContext } from "../../components/AudienceContext";
 
 export default function TopicPage() {
   const { topic } = useParams();

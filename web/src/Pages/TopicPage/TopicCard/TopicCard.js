@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
+import { ageContext } from "../../../components/AudienceContext";
 import "../../../Styling/TopicCard/TopicCard.css";
-import { ageContext } from "./AudienceContext";
 
 export default function TopicCard({ topic }) {
   const { audience } = useContext(ageContext);

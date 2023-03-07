@@ -1,6 +1,6 @@
 import "./Header.scss";
 import React, { useContext } from "react";
-import { ageContext } from "../AudienceContext";
+import { ageContext } from "../../components/AudienceContext";
 
 const audiences = [
   { value: 5, label: "5" },
@@ -15,8 +15,8 @@ export default function ButtonSelector() {
       {audiences.map((a) => (
         <button
           type="button"
-          key={audience.label}
-          onClick={() => setAudience(audience.value)}
+          key={a.label}
+          onClick={() => setAudience(a.value)}
           className={audience === a.value ? "btn selected" : "btn"}
         >
           {a.label}

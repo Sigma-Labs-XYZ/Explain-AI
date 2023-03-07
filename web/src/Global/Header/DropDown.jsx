@@ -1,6 +1,6 @@
 import "./Header.scss";
 import React, { useContext } from "react";
-import { ageContext } from "../AudienceContext";
+import { ageContext } from "../../components/AudienceContext";
 
 export default function DropDown() {
   const { audience, setAudience } = useContext(ageContext);
