@@ -21,6 +21,7 @@ export default function TopicPage() {
       setAudience(5);
     }
   }, [audience]);
+
   useEffect(() => {
     const doFetch = async () => {
       const fetchedData = await fetchData(MAIN_URL);
