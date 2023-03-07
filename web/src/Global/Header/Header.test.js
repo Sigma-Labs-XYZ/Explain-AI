@@ -1,8 +1,8 @@
 import { render, screen, fireEvent } from "@testing-library/react";
 import React from "react";
 import userEvent from "@testing-library/user-event";
+import { within } from "@testing-library/dom"; // eslint-disable-line
 import Header from "./Header";
-import {within} from '@testing-library/dom'
 
 describe("localStorage tests", () => {
   beforeEach(() => {
@@ -78,14 +78,12 @@ describe("test if all elements of header are rendered", () => {
   });
 });
 
-describe("test logo loads homepage when clicked", ()=>{
-
-  test('The logo is within an a tag',()=> {
-    render(<Header/>)
-    const link = screen.getByRole('link')
-    expect(link).toHaveAttribute('href',"/")
-    const img = within(link).getByRole('img')
-    expect(img.src).toBe('http://localhost/explainai-logo.png')
-
-  })
-})
+describe("test logo loads homepage when clicked", () => {
+  test("The logo is within an a tag", () => {
+    render(<Header />);
+    const link = screen.getByRole("link");
+    expect(link).toHaveAttribute("href", "/");
+    const img = within(link).getByRole("img");
+    expect(img.src).toBe("http://localhost/explainai-logo.png");
+  });
+});
