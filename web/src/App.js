@@ -5,7 +5,7 @@ import "./App.css";
 import AppRouter from "./AppRouter/AppRouter";
 import Header from "./Global/Header/Header";
 
-ReactGA.initialize("G-NDPH0VPH2Y");
+ReactGA.initialize("G-33SMDRCPBW");
 
 function App() {
   useEffect(() => {
