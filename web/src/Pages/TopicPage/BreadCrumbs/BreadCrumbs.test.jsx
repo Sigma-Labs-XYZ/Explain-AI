@@ -1,7 +1,8 @@
+import React from "react";
 import { userEvent, render, screen, fireEvent } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import { BrowserRouter, MemoryRouter } from "react-router-dom";
-import Breadcrumbs from "../components/Breadcrumbs";
+import Breadcrumbs from "./Breadcrumbs";
 
 test("Clicking on a breadcrumb navigates you to that route", async () => {
   render(
@@ -9,10 +10,10 @@ test("Clicking on a breadcrumb navigates you to that route", async () => {
       parent={{ name: "computing", slug: "computing" }}
       grandParent={{ name: "maths", slug: "maths" }}
     />,
-    { wrapper: BrowserRouter }
+    { wrapper: BrowserRouter },
   );
 
-  const breadCrumbLinkComputing = screen.getAllByText("computing"); //find the first link
+  const breadCrumbLinkComputing = screen.getAllByText("computing"); // find the first link
   const breadCrumbLinkMaths = screen.getAllByText("maths");
   const allLinks = breadCrumbLinkComputing.concat(breadCrumbLinkMaths);
 

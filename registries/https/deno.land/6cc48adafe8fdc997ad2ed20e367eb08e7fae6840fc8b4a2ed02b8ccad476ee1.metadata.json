@@ -1,16 +1,16 @@
 {
   "headers": {
-    "via": "http/2 edgeproxy-h",
+    "content-length": "1618",
+    "date": "Mon, 06 Mar 2023 11:35:53 GMT",
     "server": "deno/gcp-europe-west2",
-    "cache-control": "max-age=86400",
-    "content-type": "application/vnd.deno.reg.v2+json",
-    "date": "Mon, 27 Feb 2023 14:51:05 GMT",
+    "via": "http/2 edgeproxy-h",
     "vary": "Accept-Encoding",
-    "content-length": "1618"
+    "cache-control": "max-age=86400",
+    "content-type": "application/vnd.deno.reg.v2+json"
   },
   "url": "https://deno.land/.well-known/deno-import-intellisense.json",
   "now": {
-    "secs_since_epoch": 1677509463,
-    "nanos_since_epoch": 906137000
+    "secs_since_epoch": 1678102553,
+    "nanos_since_epoch": 402480000
   }
 }
