@@ -34,6 +34,8 @@ const runGPTQuery = async ({ query }) => {
 
 const saveToDatabase = async ({ slug, name, data }) => {
   console.log({ slug, name, data });
+  //  Save all this to hasura
+  
 };
 
 const generate = async ({ name }) => {

@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
-import fetchData from "../../utils/networking";
+import fetchData, { postData } from "../../utils/networking";
 import Breadcrumbs from "./BreadCrumbs/Breadcrumbs";
 import TopicCard from "./TopicCard/TopicCard";
 import ErrorMessage from "../../components/ErrorMessage";
@@ -25,7 +25,7 @@ export default function TopicPage() {
       }
       // Descriptions were not found, let's generate them
       setIsGenerating(true);
-      const generatedData = await fetchData(MAIN_URL, "POST", { name: topic });
+      const generatedData = await postData({ url: MAIN_URL, body: { name: topic } });
       setRetrievedTopics(generatedData);
       setIsGenerating(false);
       return setIsLoading(false);
