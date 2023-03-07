@@ -1,14 +1,11 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
-import TopicCard from "../components/TopicCard";
+import TopicCard from "./TopicCard";
 import testData from "./dummy_data.json";
 import { AudienceContext } from "../components/AudienceContext";
 
 const topic = testData.topic[0];
 describe("Tests for TopicCard using RTL", () => {
-  beforeEach(() => {
-    // topic = { ...testData.topic[0] }; // reset topic
-  });
   test("Renders everything in the right roles", () => {
     render(
       <AudienceContext>
@@ -33,9 +30,4 @@ describe("Tests for TopicCard using RTL", () => {
     const image = screen.getByRole("img");
     expect(image.src).toBe("http://localhost/no-image.jpeg");
   });
-  // test("JSON is not the correct structure, so an error box appears", () => {
-  //   // topic.descriptions = "";
-  //   render(<TopicCard topic={{ ...topic, descriptions: "" }} audience={20} />);
-  //   expect(screen.getByTestId("error-message")).toBeInTheDocument();
-  // });
 });

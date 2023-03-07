@@ -32,6 +32,9 @@ services:
     build: ./api
     ports:
       - "4000:4000"
+    volumes:
+      - "./api:/app"
+      - "/app/node_modules"
     environment:
       - DB_ENDPOINT=http://explainai-database-api:8080
       - DB_SECRET=admin_secret

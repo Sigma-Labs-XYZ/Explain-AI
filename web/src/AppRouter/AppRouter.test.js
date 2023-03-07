@@ -13,21 +13,9 @@ test("Home Page must be the first Page to be rendered", async () => {
 test("navigating from Home page to Topic Page", async () => {
   render(<App />, { wrapper: BrowserRouter });
   const topic = "javascript";
-  const topicLink = screen.getAllByRole("link")[0]; // find the first link
+  const topicLink = screen.getAllByRole("link")[0];
   const topicName = topicLink.textContent;
   fireEvent.click(topicLink);
   expect(screen.getByText(topicName)).toBeInTheDocument();
   expect(screen.getByText(topic)).toBeInTheDocument();
 });
-
-// Test path parameter for topic is correct
-// test("Path parameter for topic is correct", async () => {
-//   const pathParameter = "test";
-//   const route = `/${pathParameter}`;
-//   render(
-//     <MemoryRouter initialEntries={[route]}>
-//       <App />
-//     </MemoryRouter>,
-//   );
-//   expect(screen.getByTestId("error-message")).toBeInTheDocument();
-// });

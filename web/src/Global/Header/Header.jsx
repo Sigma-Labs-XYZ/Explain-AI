@@ -1,6 +1,5 @@
 /* eslint-disable react/jsx-no-bind */
-import React, { useContext } from "react";
-import explainailogo from "../../images/explainai-logo.png";
+import React from "react";
 import "./Header.scss";
 import DropDown from "./DropDown";
 import ButtonSelector from "./ButtonSelector";
@@ -11,7 +10,7 @@ export default function Header() {
   return (
     <div>
       <header>
-        <img src={explainailogo} alt="logo" />
+        <img src="./explainai-logo.png" alt="logo" />
         <div>
           <p>{labelText}</p>
           <ButtonSelector />
