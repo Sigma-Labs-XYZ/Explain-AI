@@ -30,7 +30,6 @@ export function sendClickEvent(element, name) {
 }
 
 export function audienceChangeOnSubjectEvent(subject, audience) {
-  // Not being used now but required in the future
   ReactGA.event({
     category: "audience level for subject",
     action: "audience for subject changed",

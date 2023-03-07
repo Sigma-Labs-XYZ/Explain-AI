@@ -6,6 +6,7 @@ import TopicCard from "./TopicCard/TopicCard";
 import ErrorMessage from "../../components/ErrorMessage";
 import RelationCard from "./RelationCard/RelationCard";
 import { ageContext } from "../../components/AudienceContext";
+import { audienceChangeOnSubjectEvent } from "../../utils/gaEvents";
 
 export default function TopicPage() {
   const { topic } = useParams();
@@ -22,6 +23,10 @@ export default function TopicPage() {
     };
     doFetch();
   }, [MAIN_URL]);
+
+  useEffect(() => {
+    audienceChangeOnSubjectEvent(topic, audience);
+  }, [audience]);
 
   if (isLoading) return <div>Loading...</div>;
 
