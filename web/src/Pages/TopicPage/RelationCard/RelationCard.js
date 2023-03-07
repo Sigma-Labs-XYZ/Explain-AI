@@ -14,7 +14,7 @@ function RelationCard({ name, description, image }) {
     <div
       className="flex items-center ml-5 phone:mr-0 phone:ml-0 superWideDesktop:mr-[15%]"
       onClick={() => navigate(`/${name.toLowerCase()}`)}
-      data-testid="link-div"
+      data-test-id="link-div"
     >
       <div className="text-left bg-white border-transparent mb-3 p-3 pl-10 flex items-center w-full phone:ml-0 phone:pr-0 superWideDesktop:ml-[15%]">
         <div className="pr-24 phone:mr-10">
