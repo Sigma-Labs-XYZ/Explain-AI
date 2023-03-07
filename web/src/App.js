@@ -4,6 +4,8 @@ import "./App.css";
 import AppRouter from "./AppRouter/AppRouter";
 import Header from "./Global/Header/Header";
 
+ReactGA.initialize("G-NDPH0VPH2Y");
+
 function App() {
   useEffect(() => {
     ReactGA.send({

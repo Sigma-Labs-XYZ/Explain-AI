@@ -5,7 +5,6 @@ import Breadcrumbs from "./BreadCrumbs/Breadcrumbs";
 import TopicCard from "./TopicCard/TopicCard";
 import ErrorMessage from "../../components/ErrorMessage";
 import RelationCard from "./RelationCard/RelationCard";
-import { audienceChangeOnSubjectEvent } from "../../utils/gaEvents";
 
 export default function TopicPage() {
   const { topic } = useParams();
@@ -40,6 +39,7 @@ export default function TopicPage() {
         <Breadcrumbs
           parent={topicData.parent.parent}
           grandParent={topicData.parent.parent.grandparent.grandparent}
+          current={topic}
         />
         <TopicCard topic={retrievedTopics.topic[0]} audience={audience} />
 
