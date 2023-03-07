@@ -10,7 +10,7 @@ function RelationCard({ name, description, image, parent }) {
     <div
       className="flex items-center ml-5 phone:mr-0 phone:ml-0 superWideDesktop:mr-[15%]"
       onClick={() => {
-        sendRelationEvent();
+        sendRelationEvent(parent, name);
         sendClickEvent("RelationCard", name);
         navigate(`/${name.toLowerCase()}`);
       }}

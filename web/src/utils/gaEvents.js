@@ -8,14 +8,16 @@ export function sendGAEvent(data) {
 export function sendRelationEvent(parent, child) {
   ReactGA.event({
     category: "relationship click",
-    action: `changed from ${parent} to ${child}`,
+    action: "navigated to a related card",
+    label: `changed from ${parent} to ${child}`,
   });
 }
 
 export function sendBreadCrumbEvent(child, parent) {
   ReactGA.event({
     category: "breadCrumb click",
-    action: `changed from ${child} to ${parent}`,
+    action: "navigated to a breadcrumb",
+    label: `changed from ${child} to ${parent}`,
   });
 }
 
@@ -27,23 +29,18 @@ export function sendClickEvent(element, name) {
   });
 }
 
-export function sendAudienceLevelSubjectEvent(subject, audience) {
+export function audienceChangeOnSubjectEvent(subject, audience) {
   ReactGA.event({
-    category: "changed level",
-    action: "audience for subject",
+    category: "audience level for subject",
+    action: "audience for subject changed",
     label: `${subject}:${audience}}`,
   });
 }
 
 export function sendAudienceLevelChangeEvent(level) {
   ReactGA.event({
-    category: "changed level",
+    category: "changed audience level",
     action: "Changed audience age level",
     label: `Changed to :${level}}`,
   });
 }
-// export function
-// Relation Cards are clickable
-// Tell Me More Button Click
-// Breadcrumbs click
-//

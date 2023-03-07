@@ -5,6 +5,7 @@ import Breadcrumbs from "./BreadCrumbs/Breadcrumbs";
 import TopicCard from "./TopicCard/TopicCard";
 import ErrorMessage from "../../components/ErrorMessage";
 import RelationCard from "./RelationCard/RelationCard";
+import { audienceChangeOnSubjectEvent } from "../../utils/gaEvents";
 
 export default function TopicPage() {
   const { topic } = useParams();

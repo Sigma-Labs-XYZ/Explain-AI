@@ -1,5 +1,6 @@
 import React from "react";
 import "../../../Styling/TopicCard/TopicCard.css";
+import { sendClickEvent } from "../../../utils/gaEvents";
 
 export default function TopicCard({ topic, audience }) {
   const description = topic.descriptions?.find?.(({ audience: a }) => audience === a)?.short;
@@ -17,7 +18,14 @@ export default function TopicCard({ topic, audience }) {
           <p> {description} </p>
         </div>
         <div className="topic-card-img-btn">
-          <button type="button">Tell me more</button>
+          <button
+            type="button"
+            onClick={() => {
+              sendClickEvent("button", "Tell me more");
+            }}
+          >
+            Tell me more
+          </button>
           <div className="topic-card-img">
             <img src={imageHandler()} alt={`A representation of ${topic.name}`} />
           </div>
