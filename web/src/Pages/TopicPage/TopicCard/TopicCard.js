@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
+import { ageContext } from "../../../components/AudienceContext";
 import "../../../Styling/TopicCard/TopicCard.css";
 
-export default function TopicCard({ topic, audience }) {
+export default function TopicCard({ topic }) {
+  const { audience } = useContext(ageContext);
+
   const description = topic.descriptions?.find?.(({ audience: a }) => audience === a)?.short;
   const imageHandler = () => {
     const imageError = typeof topic.image !== "string" || topic.image === ""; // this may be changed depending on how the API responds
