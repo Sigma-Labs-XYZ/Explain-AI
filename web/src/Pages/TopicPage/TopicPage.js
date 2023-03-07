@@ -25,7 +25,7 @@ export default function TopicPage() {
   useEffect(() => {
     const doFetch = async () => {
       const fetchedData = await fetchData(MAIN_URL);
-      if (!fetchedData.hasDescription) {
+      if (!fetchedData.isGenerated) {
         setIsGenerating(true);
         const generatedData = await fetchData(MAIN_URL, "POST");
         setRetrievedTopics(generatedData);
