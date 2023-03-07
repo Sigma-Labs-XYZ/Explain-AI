@@ -39,13 +39,13 @@ describe("localStorage tests", () => {
         <Header />{" "}
       </AudienceContext>,
     );
-    const value = "20";
+    const value = 20;
     const button = screen.getByRole("button", {
       name: "Adult",
     });
     fireEvent.click(button);
-    expect(localStorage.setItem).toHaveBeenLastCalledWith(key, "20");
-    expect(localStorage.__STORE__[key]).toBe(value);
+    expect(localStorage.setItem).toHaveBeenLastCalledWith(key, value);
+    expect(localStorage.__STORE__[key]).toBe(String(value));
   });
 
   test("when dropdown is changed it should update localStorage with the correct value", () => {
