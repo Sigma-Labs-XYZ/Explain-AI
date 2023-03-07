@@ -17,6 +17,14 @@
     transform: scale(0.75);
     transition: transform 300ms ease-in;
   }
+  .topic-card-parent .topic-card-description {
+    height: 400px;
+    overflow: auto;
+    transition: all 300ms ease-in;
+  }
+  .topic-card-parent .topic-card-description.expanding {
+    height: 700px;
+  }
 }
 @media screen and (min-width: 602px) {
   .topic-card-parent .topic-card {
@@ -31,6 +39,14 @@
     transform: scale(1);
     transition: transform 300ms ease-out;
   }
+  .topic-card-parent .topic-card-description {
+    height: 200px;
+    overflow: auto;
+    transition: all 300ms ease-in;
+  }
+  .topic-card-parent .topic-card-description.expanding {
+    height: 500px;
+  }
 }
 .topic-card-parent .topic-card {
   border: none !important;
@@ -41,6 +57,7 @@
   padding-right: 2em;
   text-align: justify;
   border: none;
+  overflow: auto;
 }
 .topic-card-parent .topic-card-title {
   margin: 0px;

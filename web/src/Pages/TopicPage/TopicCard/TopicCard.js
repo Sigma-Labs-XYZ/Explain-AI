@@ -26,8 +26,8 @@ export default function TopicCard({ topic }) {
         <div className="topic-card-title">
           <h1>{topic.name}</h1>
         </div>
-        <div className="topic-card-description">
-          <p> {description} </p>
+        <div className={`topic-card-description ${descLength === "long" ? "expanding" : " "}`}>
+          <p className="topic-desc"> {description} </p>
         </div>
         <div className="topic-card-img-btn">
           <button type="button" onClick={lengthSetter}>
