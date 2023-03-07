@@ -12,6 +12,7 @@ export default function TopicPage() {
   const [audience, setAudience] = useState();
   const MAIN_URL = `${process.env.REACT_APP_API_ENDPOINT}/topic/${topic}`;
   const [isLoading, setIsLoading] = useState(true);
+  const [isGenerating, setIsGenerating] = useState(false);
   useEffect(() => {
     const storedAge = localStorage.getItem("age");
     if (storedAge) {
@@ -24,15 +25,23 @@ export default function TopicPage() {
   useEffect(() => {
     const doFetch = async () => {
       const fetchedData = await fetchData(MAIN_URL);
-      setRetrievedTopics(fetchedData);
+      if (!fetchedData.hasDescription) {
+        setIsGenerating(true);
+        const generatedData = await fetchData(MAIN_URL, "POST");
+        setRetrievedTopics(generatedData);
+      } else {
+        setRetrievedTopics(fetchedData);
+      }
       setIsLoading(false);
+      setIsGenerating(false);
     };
     doFetch();
   }, [MAIN_URL]);
 
+  if (isGenerating) return <div>Generating...</div>;
   if (isLoading) return <div>Loading...</div>;
   const topicData = retrievedTopics?.topic?.[0];
-  if (topicData) {
+  if (topicData?.descriptions.length) {
     return (
       <>
         <Breadcrumbs

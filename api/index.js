@@ -34,11 +34,12 @@ app.get("/topic/:slug", async (req, res) => {
   return res.send({ ...json, hasDescription: !!topic?.descriptions?.length });
 });
 
-app.post("/topic/:slug", async (req, res) => {
-  await generate({ topicName: req.params.slug });
-  app._router.handle({ method: "GET", url: `/topic/${req.params.slug}` }, res, {
-    end: (data) => res.send(data),
-  });
+app.post("/topic/:slug", async ({ params: { slug } }, res) => {
+  await generate({ topicName: slug });
+  setTimeout(() => {
+    const get = `/topic/${slug}`;
+    app._router.handle({ method: "GET", url: get }, res, { end: res.send });
+  }, 4000);
 });
 
 app.listen(port, () => console.log(`API listening on port ${port}`));
