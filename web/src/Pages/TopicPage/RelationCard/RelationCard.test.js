@@ -1,7 +1,7 @@
 import { render, screen, within } from "@testing-library/react";
 import React from "react";
 import { BrowserRouter } from "react-router-dom";
-import  AudienceContext  from "../../../components/AudienceContext";
+import AudienceContext from "../../../components/AudienceContext";
 import RelationCard from "./RelationCard";
 
 const name = "pedro";

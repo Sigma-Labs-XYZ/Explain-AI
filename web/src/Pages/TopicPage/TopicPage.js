@@ -8,7 +8,6 @@ import RelationCard from "./RelationCard/RelationCard";
 import { ageContext } from "../../components/AudienceContext";
 import { audienceChangeOnSubjectEvent } from "../../utils/gaEvents";
 
-
 export default function TopicPage() {
   const { topic } = useParams();
   const [retrievedTopics, setRetrievedTopics] = useState();
