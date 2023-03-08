@@ -60,8 +60,7 @@ describe("link elements", () => {
     );
     expect(global.window.location.pathname).toBe("/");
     const link = screen.getByRole("link");
-    const lv = screen.getByTestId("t1");
-    fireEvent.click(lv);
+    fireEvent.click(link);
     expect(global.window.location.pathname).toBe(`/${name}`);
     expect(link).toHaveAttribute("href", `/${name}`);
     const img = within(link).getByRole("img");

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 function RelationCard({ name, description, image }) {
   return (
-    <Link to={`/${name.toLowerCase()}`} title={`link to ${name.toLowerCase()}`} data-testid="t1">
+    <Link to={`/${name.toLowerCase()}`} title={`link to ${name.toLowerCase()}`}>
       <div
         className="flex items-center ml-5 phone:mr-0 phone:ml-0 superWideDesktop:mr-[15%]"
         data-test-id="link-div"
