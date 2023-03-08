@@ -6,6 +6,29 @@ defaults:
   run:
     working-directory: ./web
 jobs:
+  run-cypress-tests:
+    name: run Cypress tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout GitCode
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+
+      - name: Clear Cypress cache
+        run: npx cypress cache clear
+
+      - name: install node packages
+        run: npm ci
+
+      - name: Run Cypress Test
+        uses: cypress-io/github-action@v5
+        with:
+          component: true
+          command: npx cypress run --component
   # run-linters:
   #   name: Run Linter
   #   runs-on: ubuntu-latest
@@ -42,24 +65,3 @@ jobs:
   #       run: npm test
   #       env:
   #         REACT_APP_MEASUREMENT_ID: "measurement-ID"
-
-  run-cypress-tests:
-    name: run Cypress tests
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout GitCode
-        uses: actions/checkout@v3
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: 16
-      - name: Clear Cypress cache
-        run: npx cypress cache clear
-      - name: install node packages
-        run: npm ci
-
-      - name: Run Cypress Test
-        uses: cypress-io/github-action@v4
-        with:
-          command: npx cypress run --component
