@@ -1,6 +1,7 @@
 import "./Header.scss";
 import React, { useContext } from "react";
 import { ageContext } from "../../components/AudienceContext";
+import { sendAudienceLevelChangeEvent } from "../../utils/gaEvents";
 
 export default function DropDown() {
   const { audience, setAudience } = useContext(ageContext);
@@ -9,6 +10,7 @@ export default function DropDown() {
     <select
       onChange={(e) => {
         setAudience(e.target.value);
+        sendAudienceLevelChangeEvent(e.target.value);
       }}
       className="select-pg"
       value={audience}
