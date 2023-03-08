@@ -14,14 +14,18 @@ $image-shrinkage: 0.75;
   flex-direction: row;
   justify-content: space-evenly;
 }
+
 @mixin screen-size-change {
   @media screen and (max-width: 1000px) and (min-width: 400px) {
     .topic-card {
       width: $phone-screen-width;
     }
     .topic-card-img-btn {
+      @include img-btn-screen-display;
       & .topic-card-img {
-        transform: scale($image-shrinkage);
+        width: 230px;
+        height: 230px;
+        transform: translateY(55px);
         transition: transform 300ms ease-in;
       }
     }
@@ -31,9 +35,11 @@ $image-shrinkage: 0.75;
       width: $wide-screen-width;
     }
     .topic-card-img-btn {
+      @include img-btn-screen-display;
       & .topic-card-img {
-        transform: translate(20px, 0);
-        transform: scale(1);
+        width: 250px;
+        height: 250px;
+        transform: translateY(75px);
         transition: transform 300ms ease-out;
       }
     }
@@ -43,14 +49,22 @@ $image-shrinkage: 0.75;
       width: 100%;
     }
     & .topic-card-img-btn {
+      @include img-btn-phone-display;
       display: -webkit-flex;
       display: flex;
 
-      // & .topic-card-img {
-      //   margin-left: 35px;
-      //   transform: scale($image-shrinkage);
-      //   transition: transform 300ms ease-in;
-      // }
+      & .topic-card-img {
+        margin-left: 45px;
+        width: 200px;
+        height: 200px;
+        transform: translateY(75px);
+        transition: transform 300ms ease-in;
+      }
+
+      & button {
+        margin-left: 30px;
+        margin-top: 40px;
+      }
     }
   }
 }
