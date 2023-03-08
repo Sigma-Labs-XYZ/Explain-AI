@@ -36,7 +36,7 @@ export default function TopicPage() {
         />
         <TopicCard topic={retrievedTopics.topic[0]} />
 
-        <h2 className="text-left text-3xl ml-5 text-white font-bold mb-5 mt-16 superWideDesktop:ml-[15%]">
+        <h2 className="text-left text-4xl ml-5 text-white font-extrabold mb-5 mt-16 superWideDesktop:ml-[14.5%]">
           Related
         </h2>
         {topicData.relationships &&
