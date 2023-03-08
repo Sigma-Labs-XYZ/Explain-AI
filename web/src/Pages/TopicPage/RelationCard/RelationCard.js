@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { sendRelationEvent, sendClickEvent } from "../../../utils/gaEvents";
+import PropType from "prop-types";
 
 function RelationCard({ name, description, image, parent }) {
   return (
@@ -34,5 +35,11 @@ function RelationCard({ name, description, image, parent }) {
     </Link>
   );
 }
+
+RelationCard.propTypes = {
+  name: PropType.string.isRequired,
+  description: PropType.string.isRequired,
+  image: PropType.string.isRequired,
+};
 
 export default RelationCard;
