@@ -1,10 +1,13 @@
 import React, { useState, useEffect, useContext } from "react";
+import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
 import { useParams } from "react-router-dom";
 import fetchData from "../../utils/networking";
 import Breadcrumbs from "./BreadCrumbs/Breadcrumbs";
 import TopicCard from "./TopicCard/TopicCard";
 import ErrorMessage from "../../components/ErrorMessage";
 import RelationCard from "./RelationCard/RelationCard";
+import TopicPageLoading from "./Skeleton/TopicPageLoading";
 import { ageContext } from "../../components/AudienceContext";
 import { audienceChangeOnSubjectEvent } from "../../utils/gaEvents";
 
@@ -18,8 +21,10 @@ export default function TopicPage() {
   useEffect(() => {
     const doFetch = async () => {
       const fetchedData = await fetchData(MAIN_URL);
-      setRetrievedTopics(fetchedData);
-      setIsLoading(false);
+      setTimeout(() => {
+        setRetrievedTopics(fetchedData);
+        setIsLoading(false);
+      }, 5000);
     };
     doFetch();
   }, [MAIN_URL]);
@@ -28,7 +33,7 @@ export default function TopicPage() {
     audienceChangeOnSubjectEvent(topic, audience);
   }, [audience]);
 
-  if (isLoading) return <div>Loading...</div>;
+  if (isLoading) return <TopicPageLoading />;
 
   const topicData = retrievedTopics?.topic?.[0];
 
@@ -45,6 +50,7 @@ export default function TopicPage() {
         <h2 className="text-left text-3xl ml-5 text-white font-bold mb-5 mt-16 superWideDesktop:ml-[15%]">
           Related
         </h2>
+
         {topicData.relationships &&
           topicData.relationships.map((rel) =>
             rel.audience === audience ? (

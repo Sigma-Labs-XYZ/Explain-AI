@@ -1,9 +1,11 @@
 import React, { useContext } from "react";
+import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
 import { ageContext } from "../../../components/AudienceContext";
 import "../../../Styling/TopicCard/TopicCard.css";
 import { sendClickEvent } from "../../../utils/gaEvents";
 
-export default function TopicCard({ topic }) {
+export default function TopicCard({ topic, isLoading }) {
   const { audience } = useContext(ageContext);
 
   const description = topic.descriptions?.find?.(({ audience: a }) => audience === a)?.short;
@@ -15,10 +17,10 @@ export default function TopicCard({ topic }) {
     <div className="topic-card-parent">
       <div className="topic-card">
         <div className="topic-card-title">
-          <h1>{topic.name}</h1>
+          <h1>{isLoading ? <Skeleton /> : topic.name}</h1>
         </div>
         <div className="topic-card-description">
-          <p> {description} </p>
+          <p> {!isLoading ? description : <Skeleton count={5} />} </p>
         </div>
         <div className="topic-card-img-btn">
           <button
