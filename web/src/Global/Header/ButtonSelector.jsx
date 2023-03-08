@@ -3,7 +3,6 @@ import React, { useContext } from "react";
 import { sendAudienceLevelChangeEvent } from "../../utils/gaEvents";
 import { ageContext } from "../../components/AudienceContext";
 
-
 const audiences = [
   { value: 5, label: "5" },
   { value: 10, label: "10" },
@@ -30,7 +29,5 @@ function ButtonSelector() {
     </>
   );
 }
-
-
 
 export default ButtonSelector;
