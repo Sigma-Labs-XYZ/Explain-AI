@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import { ageContext } from "../../../components/AudienceContext";
 import "../../../Styling/TopicCard/TopicCard.css";
+import { sendClickEvent } from "../../../utils/gaEvents";
 
 export default function TopicCard({ topic }) {
   const { audience } = useContext(ageContext);
@@ -33,8 +34,14 @@ export default function TopicCard({ topic }) {
           </p>
         </div>
         <div className="topic-card-img-btn">
-          <button type="button" onClick={lengthSetter}>
-            {buttonTxt}
+          <button
+            type="button"
+            onClick={() => {
+              lengthSetter()
+              sendClickEvent("button", "Tell me more");
+            }}
+          >
+            Tell me more
           </button>
           <div className="topic-card-img">
             <img src={imageHandler()} alt={`A representation of ${topic.name}`} />
