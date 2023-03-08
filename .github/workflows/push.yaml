@@ -20,7 +20,7 @@ jobs:
       - name: Install Cypress
         run: npm install cypress@12.7.0
       - name: Run tests with Cypress
-        run: npx cypress run
+        run: npx cypress run --component
   # run-linters:
   #   name: Run Linter
   #   runs-on: ubuntu-latest
