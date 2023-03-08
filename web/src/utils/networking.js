@@ -7,3 +7,4 @@ export default async function fetchData(url) {
     return "unable to fetch data";
   }
 }
+

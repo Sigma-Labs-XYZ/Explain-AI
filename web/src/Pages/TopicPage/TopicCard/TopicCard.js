@@ -2,7 +2,11 @@ import React, { useContext, useState } from "react";
 import PropType from "prop-types";
 import { ageContext } from "../../../components/AudienceContext";
 import "../../../Styling/TopicCard/TopicCard.css";
+<<<<<<< HEAD
 import { sendClickEvent } from "../../../utils/gaEvents";
+=======
+import { replaceImage } from "../../../components/ErrorMessage";
+>>>>>>> 75e8223 (adding in placeholder image for relation card)
 /* eslint react/forbid-prop-types: 0 */
 
 function TopicCard({ topic }) {
@@ -41,7 +45,7 @@ function TopicCard({ topic }) {
             {buttonTxt}
           </button>
           <div className="topic-card-img">
-            <img src={imageHandler()} alt={`A representation of ${topic.name}`} />
+            <img src={topic?.image} alt={`A representation of ${topic.name}`} onError={replaceImage} />
           </div>
         </div>
       </div>
