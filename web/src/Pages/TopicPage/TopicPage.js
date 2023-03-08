@@ -6,6 +6,7 @@ import TopicCard from "./TopicCard/TopicCard";
 import ErrorMessage from "../../components/ErrorMessage";
 import RelationCard from "./RelationCard/RelationCard";
 import { ageContext } from "../../components/AudienceContext";
+import { audienceChangeOnSubjectEvent } from "../../utils/gaEvents";
 
 export default function TopicPage() {
   const { topic } = useParams();
@@ -23,6 +24,10 @@ export default function TopicPage() {
     doFetch();
   }, [MAIN_URL]);
 
+  useEffect(() => {
+    audienceChangeOnSubjectEvent(topic, audience);
+  }, [audience]);
+
   if (isLoading) return <div>Loading...</div>;
 
   const topicData = retrievedTopics?.topic?.[0];
@@ -33,6 +38,7 @@ export default function TopicPage() {
         <Breadcrumbs
           parent={topicData.parent.parent}
           grandParent={topicData.parent.parent.grandparent.grandparent}
+          current={topic}
         />
         <TopicCard topic={retrievedTopics.topic[0]} />
 
@@ -47,6 +53,7 @@ export default function TopicPage() {
                 name={rel.to.name}
                 description={rel.description}
                 image={rel.to.image}
+                parent={topic}
               />
             ) : null,
           )}
