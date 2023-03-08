@@ -21,8 +21,10 @@ export default function TopicCard({ topic }) {
         </div>
         <div className="topic-card-img-btn">
           <button type="button">Tell me more</button>
-          <div className="topic-card-img">
-            <img src={imageHandler()} alt={`A representation of ${topic.name}`} />
+          <div className="object-cover">
+            <div className="topic-card-img">
+              <img src={imageHandler()} alt={`A representation of ${topic.name}`} />
+            </div>
           </div>
         </div>
       </div>
