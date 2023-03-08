@@ -13,10 +13,14 @@ jobs:
       - name: Checkout Git repository
         uses: actions/checkout@v3
 
-      - name: Run Component tests
-        uses: cypress-io/github-action@v5
+      - name: Install Node.js and NPM
+        uses: actions/setup-node@v2
         with:
-          component: true
+          node-version: "14.x"
+      - name: Install Cypress
+        run: npm install cypress@12.7.0
+      - name: Run tests with Cypress
+        run: npx cypress run
   # run-linters:
   #   name: Run Linter
   #   runs-on: ubuntu-latest
