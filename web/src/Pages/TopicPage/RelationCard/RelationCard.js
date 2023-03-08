@@ -7,7 +7,7 @@ function RelationCard({ name, description, image }) {
   return (
     // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions
     <div
-      className="flex items-center ml-5 phone:mr-0 phone:ml-0 superWideDesktop:mr-[15%]"
+      className="flex items-center ml-5 phone:mr-0 phone:ml-0 superWideDesktop:mr-[13.5%] superWideDesktop:ml-[2%]"
       onClick={() => navigate(`/${name.toLowerCase()}`)}
       data-test-id="link-div"
     >
