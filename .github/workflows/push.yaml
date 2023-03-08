@@ -54,6 +54,8 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 16
+      - name: Clear Cypress cache
+        run: npx cypress cache clear
       - name: install node packages
         run: npm ci
 
