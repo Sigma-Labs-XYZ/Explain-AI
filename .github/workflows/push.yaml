@@ -7,16 +7,16 @@ defaults:
     working-directory: ./web
 jobs:
   run-cypress-tests:
-- name: Run E2E tests 🧪
-  uses: cypress-io/github-action@v5
+    - name: Run E2E tests 🧪
+      uses: cypress-io/github-action@v5
 
-- name: Run Component tests 🧪
-  uses: cypress-io/github-action@v5
-  with:
-    # we have already installed everything
-    install: false
-    # to run component tests we need to use "component: true"
-    component: true
+    - name: Run Component tests 🧪
+      uses: cypress-io/github-action@v5
+      with:
+        # we have already installed everything
+        install: false
+        # to run component tests we need to use "component: true"
+      component: true
   # run-linters:
   #   name: Run Linter
   #   runs-on: ubuntu-latest
