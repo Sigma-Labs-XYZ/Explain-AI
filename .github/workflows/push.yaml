@@ -7,10 +7,10 @@ defaults:
     working-directory: ./web
 jobs:
   run-cypress-tests:
-    - name: Run E2E tests 🧪
+    name: Run E2E tests 🧪
       uses: cypress-io/github-action@v5
 
-    - name: Run Component tests 🧪
+    name: Run Component tests 🧪
       uses: cypress-io/github-action@v5
       with:
         # we have already installed everything
