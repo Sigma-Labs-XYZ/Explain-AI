@@ -1,6 +1,5 @@
 import { React } from "react";
 import { AudienceContext } from "./components/AudienceContext";
-import "./App.css";
 import AppRouter from "./AppRouter/AppRouter";
 import Header from "./Global/Header/Header";
 

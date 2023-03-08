@@ -10,7 +10,7 @@ function RelationCard({ name, description, image }) {
       >
         <div className="text-left bg-white border-transparent mb-3 p-3 pl-10 flex items-center w-full phone:ml-0 phone:pr-0 superWideDesktop:ml-[15%]">
           <div className="pr-24 phone:mr-10">
-            <h2 className="text-2xl font-bold mb-0 mt-4">{name}</h2>
+            <h3 className="font-bold text-black mb-0 mt-4">{name}</h3>
             <p className="mt-2">{description}</p>
           </div>
         </div>
@@ -19,7 +19,7 @@ function RelationCard({ name, description, image }) {
           data-test-id="img container"
         >
           <div className="w-24 h-24">
-            <img className="rounded-full object-cover h-full w-full" src={image} alt={name} />
+            <img className="rounded-full h-full w-full" src={image} alt={name} />
           </div>
         </div>
       </div>
