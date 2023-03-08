@@ -1,12 +1,6 @@
-<<<<<<< HEAD
-import { React, useEffect } from "react"; // eslint-disable-next-line
+import React, { useEffect } from "react"; // eslint-disable-next-line
 import ReactGA from "react-ga4";
-import { AudienceContext } from "./components/AudienceContext";
-=======
-import { React } from "react";
-import AudienceContext from "./components/AudienceContext";
-import "./App.css";
->>>>>>> 7c3d93f (added in all prop types)
+import  AudienceContext from "./components/AudienceContext";
 import AppRouter from "./AppRouter/AppRouter";
 import Header from "./Global/Header/Header";
 

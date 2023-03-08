@@ -5,12 +5,7 @@ import PropType from "prop-types"
 import "../../../Styling/TopicBreadcrumbs/TopicBreadcrumbs.css";
 import { sendBreadCrumbEvent } from "../../../utils/gaEvents";
 
-<<<<<<< HEAD
-export default function Breadcrumbs({ grandParent, parent, current }) {
-=======
-
-function Breadcrumbs({ grandParent, parent }) {
->>>>>>> 0728b57 (inputting prop types)
+export function Breadcrumbs({ grandParent, parent, current }) {
   return (
     <div className="bg-backdrop">
       <nav data-testid="desktop" id="desktop" className="desktop">
