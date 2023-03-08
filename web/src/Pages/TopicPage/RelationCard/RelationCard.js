@@ -1,9 +1,17 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { sendRelationEvent, sendClickEvent } from "../../../utils/gaEvents";
 
-function RelationCard({ name, description, image }) {
+function RelationCard({ name, description, image, parent }) {
   return (
-    <Link to={`/${name.toLowerCase()}`} title={`link to ${name.toLowerCase()}`}>
+    <Link
+      to={`/${name.toLowerCase()}`}
+      title={`link to ${name.toLowerCase()}`}
+      onClick={() => {
+        sendRelationEvent(parent, name);
+        sendClickEvent("RelationCard", name);
+      }}
+    >
       <div
         className="flex items-center ml-5 phone:mr-0 phone:ml-0 superWideDesktop:mr-[13.5%] superWideDesktop:ml-[2%]"
         data-test-id="link-div"
