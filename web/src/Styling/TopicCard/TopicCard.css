@@ -18,8 +18,8 @@
     transition: transform 300ms ease-in;
   }
   .topic-card-parent .topic-card-description {
-    max-height: 350px;
-    overflow: auto;
+    overflow: hidden;
+    transition: max-height 300ms ease-in;
   }
   .topic-card-parent .topic-card-description.expanding {
     max-height: 700px;
@@ -40,12 +40,11 @@
     transition: transform 300ms ease-out;
   }
   .topic-card-parent .topic-card-description {
-    max-height: 250px;
-    overflow: auto;
+    overflow: hidden;
+    transition: all 300ms ease-in;
   }
   .topic-card-parent .topic-card-description.expanding {
     max-height: 600px;
-    transition: max-height 300ms ease-in;
   }
 }
 .topic-card-parent .topic-card {
