@@ -9,6 +9,7 @@
   & .topic-card {
     border: none !important;
     background-color: white;
+    display: flex;
 
     & .topic-card-description {
       padding-left: 2em;
@@ -30,12 +31,12 @@
     }
   }
   & .topic-card-img-btn {
-    display: flex;
-    justify-content: space-between;
-    margin-left: 32px;
-    margin-right: 85px;
-    // width: 100%;
-    translate: 0px 30%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    // margin-left: 32px;
+    // margin-right: 85px;
+    // translate: 0px 30%;
     & button {
       border: none;
       font-size: 15px;
