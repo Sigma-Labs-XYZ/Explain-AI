@@ -1,6 +1,6 @@
 import React, { useEffect } from "react"; // eslint-disable-next-line
 import ReactGA from "react-ga4";
-import  AudienceContext from "./components/AudienceContext";
+import AudienceContext from "./components/AudienceContext";
 import AppRouter from "./AppRouter/AppRouter";
 import Header from "./Global/Header/Header";
 

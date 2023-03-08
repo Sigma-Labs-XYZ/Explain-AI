@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import PropType from "prop-types";
 import { sendRelationEvent, sendClickEvent } from "../../../utils/gaEvents";
 
-
 function RelationCard({ name, description, image, parent }) {
   return (
     <Link
