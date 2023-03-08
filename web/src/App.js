@@ -5,7 +5,7 @@ import "./App.css";
 import AppRouter from "./AppRouter/AppRouter";
 import Header from "./Global/Header/Header";
 
-ReactGA.initialize("G-33SMDRCPBW");
+ReactGA.initialize(process.env.REACT_APP_MEASUREMENT_ID);
 
 function App() {
   useEffect(() => {
