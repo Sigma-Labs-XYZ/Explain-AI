@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter } from "react-router-dom";
-import { AudienceContext } from "../../components/AudienceContext";
+import AudienceContext from "../../components/AudienceContext";
 import Header from "./Header";
 
 describe("Media queries and their effects on Age Toggle and Dropdown", () => {

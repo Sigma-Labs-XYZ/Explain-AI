@@ -1,7 +1,7 @@
 import React from "react";
 import TopicCard from "./TopicCard";
 import testData from "./dummy_data.json";
-import { AudienceContext } from "../../../components/AudienceContext";
+import AudienceContext from "../../../components/AudienceContext";
 
 const dimensions = require("../../../Tests/dimensions");
 
