@@ -46,7 +46,6 @@ jobs:
   run-cypress-tests:
     name: run Cypress tests
     runs-on: ubuntu-latest
-    needs: run-linters
     steps:
       - name: Checkout GitCode
         uses: actions/checkout@v3
