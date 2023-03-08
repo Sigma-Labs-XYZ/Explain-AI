@@ -7,25 +7,16 @@ defaults:
     working-directory: ./web
 jobs:
   run-cypress-tests:
-    name: run Cypress tests
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout GitCode
-        uses: actions/checkout@v3
+- name: Run E2E tests 🧪
+  uses: cypress-io/github-action@v5
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: 16
-
-      - name: Clear Cypress cache
-        run: npx cypress cache clear
-
-      - name: Run Cypress Test
-        uses: cypress-io/github-action@v5
-        with:
-          component: true
-          command: npx cypress run --component
+- name: Run Component tests 🧪
+  uses: cypress-io/github-action@v5
+  with:
+    # we have already installed everything
+    install: false
+    # to run component tests we need to use "component: true"
+    component: true
   # run-linters:
   #   name: Run Linter
   #   runs-on: ubuntu-latest
