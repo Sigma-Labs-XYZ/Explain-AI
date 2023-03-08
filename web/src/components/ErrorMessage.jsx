@@ -5,8 +5,8 @@ export default function ErrorMessage({ message }) {
   return (
     <div className="error-container">
       <div data-testid="error-message" className="error-message">
-        <h1>Error</h1>
-        <h2>{message}</h2>
+        <h3>Error</h3>
+        <h4>{message}</h4>
       </div>
     </div>
   );

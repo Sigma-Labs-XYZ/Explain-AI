@@ -42,9 +42,7 @@ export default function TopicPage() {
         />
         <TopicCard topic={retrievedTopics.topic[0]} />
 
-        <h2 className="text-left text-3xl ml-5 text-white font-bold mb-5 mt-16 superWideDesktop:ml-[15%]">
-          Related
-        </h2>
+        <h1 className="text-left text-white ml-5 mb-5 mt-16 superWideDesktop:ml-[15%]">Related</h1>
         {topicData.relationships &&
           topicData.relationships.map((rel) =>
             rel.audience === audience ? (
