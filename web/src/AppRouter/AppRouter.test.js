@@ -13,7 +13,8 @@ test("Home Page must be the first Page to be rendered", async () => {
 test("navigating from Home page to Topic Page", async () => {
   render(<App />, { wrapper: BrowserRouter });
   const topic = "javascript";
-  const topicLink = screen.getAllByRole("link")[0];
+  const links = screen.getAllByRole("link");
+  const topicLink = links.filter((link) => link.textContent === "javascript")[0];
   const topicName = topicLink.textContent;
   fireEvent.click(topicLink);
   expect(screen.getByText(topicName)).toBeInTheDocument();
