@@ -5,7 +5,7 @@ import "../../../Styling/TopicBreadcrumbs/TopicBreadcrumbs.css";
 
 export default function Breadcrumbs({ grandParent, parent }) {
   return (
-    <div className="bg-backdrop">
+    <div className="bg-backdrop h-[65px]">
       <nav data-testid="desktop" id="desktop" className="desktop">
         <span className="desktop-container">
           <Link to={`/${grandParent.slug}`}>{grandParent.name}</Link>
