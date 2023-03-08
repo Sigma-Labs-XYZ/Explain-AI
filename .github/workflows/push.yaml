@@ -40,6 +40,8 @@ jobs:
         run: npm ci
       - name: Run Test
         run: npm test
+        env:
+          REACT_APP_MEASUREMENT_ID: "measurement-ID"
 
   run-cypress-tests:
     name: Run Cypress Tests

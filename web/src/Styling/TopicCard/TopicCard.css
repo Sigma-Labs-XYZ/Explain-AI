@@ -51,8 +51,6 @@
 .topic-card-parent .topic-card-title h1 {
   margin-top: 20px;
   margin-bottom: 10px;
-  @apply text-2xl;
-  @apply font-bold;
 }
 .topic-card-parent .topic-card-img-btn {
   display: flex;
@@ -87,5 +85,4 @@
 }
 .topic-card-parent .topic-card-img-btn .topic-card-img img {
   height: 100%;
-  @apply object-cover;
 }/*# sourceMappingURL=TopicCard.css.map */

@@ -1,8 +1,11 @@
 import React, { useContext } from "react";
+import PropType from "prop-types";
 import { ageContext } from "../../../components/AudienceContext";
 import "../../../Styling/TopicCard/TopicCard.css";
+import { sendClickEvent } from "../../../utils/gaEvents";
+/* eslint react/forbid-prop-types: 0 */
 
-export default function TopicCard({ topic }) {
+function TopicCard({ topic }) {
   const { audience } = useContext(ageContext);
 
   const description = topic.descriptions?.find?.(({ audience: a }) => audience === a)?.short;
@@ -20,7 +23,14 @@ export default function TopicCard({ topic }) {
           <p> {description} </p>
         </div>
         <div className="topic-card-img-btn">
-          <button type="button">Tell me more</button>
+          <button
+            type="button"
+            onClick={() => {
+              sendClickEvent("button", "Tell me more");
+            }}
+          >
+            Tell me more
+          </button>
           <div className="topic-card-img">
             <img src={imageHandler()} alt={`A representation of ${topic.name}`} />
           </div>
@@ -29,3 +39,13 @@ export default function TopicCard({ topic }) {
     </div>
   );
 }
+
+TopicCard.propTypes = {
+  topic: PropType.shape({
+    name: PropType.string,
+    description: PropType.arrayOf(PropType.object),
+    parent: PropType.object,
+    relationships: PropType.arrayOf(PropType.object),
+  }).isRequired,
+};
+export default TopicCard;

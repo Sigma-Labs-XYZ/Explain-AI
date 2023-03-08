@@ -2,7 +2,7 @@ import React from "react";
 import { render, screen } from "@testing-library/react";
 import TopicCard from "./TopicCard";
 import testData from "./dummy_data.json";
-import { AudienceContext } from "../../../components/AudienceContext";
+import  AudienceContext from "../../../components/AudienceContext";
 
 const topic = testData.topic[0];
 describe("Tests for TopicCard using RTL", () => {
