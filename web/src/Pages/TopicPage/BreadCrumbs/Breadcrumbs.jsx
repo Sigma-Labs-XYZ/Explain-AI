@@ -1,16 +1,11 @@
 /* eslint-disable react/button-has-type */
 import { Link } from "react-router-dom";
 import { React } from "react";
-import PropType from "prop-types"
+import PropType from "prop-types";
 import "../../../Styling/TopicBreadcrumbs/TopicBreadcrumbs.css";
 import { sendBreadCrumbEvent } from "../../../utils/gaEvents";
 
-<<<<<<< HEAD
 export default function Breadcrumbs({ grandParent, parent, current }) {
-=======
-
-function Breadcrumbs({ grandParent, parent }) {
->>>>>>> 0728b57 (inputting prop types)
   return (
     <div className="bg-backdrop">
       <nav data-testid="desktop" id="desktop" className="desktop">
@@ -79,15 +74,12 @@ function Breadcrumbs({ grandParent, parent }) {
 
 Breadcrumbs.propTypes = {
   grandParent: PropType.shape({
-    name: PropType.string.isRequired, 
-    slug: PropType.string.isRequired
+    name: PropType.string.isRequired,
+    slug: PropType.string.isRequired,
   }).isRequired,
   parent: PropType.shape({
     grandParent: PropType.objectOf(PropType.string),
     name: PropType.string.isRequired,
-    slug: PropType.string.isRequired
-  }).isRequired
+    slug: PropType.string.isRequired,
+  }).isRequired,
 };
- 
-
-export default Breadcrumbs;
