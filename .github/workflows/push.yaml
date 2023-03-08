@@ -40,3 +40,20 @@ jobs:
         run: npm ci
       - name: Run Test
         run: npm test
+
+  run-cypress-tests:
+    name: Run Cypress Tests
+    runs-on: ubuntu-latest
+    needs: run-linters
+    steps:
+      - name: Checkout Git repository
+        uses: actions/checkout@v3
+
+      - name: Install Node.js and NPM
+        uses: actions/setup-node@v3
+        with:
+          node-version: "18"
+      - name: Install Cypress
+        run: npm install cypress@12.7.0
+      - name: Run tests with Cypress
+        run: npx cypress run --component
