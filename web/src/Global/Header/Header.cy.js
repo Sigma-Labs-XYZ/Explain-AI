@@ -61,7 +61,7 @@ describe("Media queries and their effects on Age Toggle and Dropdown", () => {
         </BrowserRouter>
       </AudienceContext>,
     );
-    cy.get('[data-test-id="router-Link"]').should("have.css", "margin-left", "177.594px");
+    cy.get('[data-test-id="router-Link"]').should("have.css", "margin-left", "180px");
   });
 });
 
