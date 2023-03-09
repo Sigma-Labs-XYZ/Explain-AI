@@ -62,12 +62,4 @@
   margin: 0;
   margin-bottom: 20px;
   margin-top: 10px;
-}
-.error-container .error-message h1 {
-  @apply text-2xl;
-  @apply font-bold;
-}
-.error-container .error-message h2 {
-  @apply text-xl;
-  @apply font-bold;
 }/*# sourceMappingURL=ErrorMessage.css.map */

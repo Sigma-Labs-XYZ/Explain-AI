@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter } from "react-router-dom";
 import RelationCard from "./RelationCard";
-import "../../../App.css";
+import "../../../index.css";
 
 describe("media queries for the card display for phone/desktop", () => {
   it("there are margins for desktop screen size", () => {
