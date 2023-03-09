@@ -1,11 +1,39 @@
 import slugify from "slug";
-import fs from "fs";
+import request from "request-promise";
 import runGPTQuery from "./runGPTQuery.js";
+import fs from "fs";
+import dotenv from "dotenv";
+
+dotenv.config();
 
 const MAX_RELATED = 10;
 
 const trim = (item) =>
   item.replace(/^[^a-zA-Z0-9]*|[^a-zA-Z0-9]*$/g, "").trim();
+
+async function getImage({ name }) {
+  const options = {
+    url: "https://api.bing.microsoft.com/v7.0/images/search",
+    qs: {
+      q: name,
+      count: 1,
+      offset: 0,
+      mkt: "en-US",
+      safeSearch: "Moderate",
+    },
+    headers: {
+      "Ocp-Apim-Subscription-Key": process.env.BING_KEY,
+    },
+    json: true,
+  };
+  try {
+    const data = await request(options);
+    const imageUrl = data.value[0].contentUrl;
+    return imageUrl;
+  } catch (error) {
+    throw new Error(error);
+  }
+}
 
 const parseRelated = ({ relatedBulletString }) =>
   relatedBulletString
@@ -82,7 +110,11 @@ const generate = async ({ name }) => {
           parent_slug: slugify(parent),
           child_slug: slug,
         });
-        result.topics.push({ name: trim(parent), slug: slugify(parent) });
+        result.topics.push({
+          name: trim(parent),
+          slug: slugify(parent),
+          image: await getImage({ name: parent }),
+        });
         result.hierarchies.push({
           parent_slug: slugify(grandparent),
           child_slug: slugify(parent),
@@ -90,6 +122,7 @@ const generate = async ({ name }) => {
         result.topics.push({
           name: trim(grandparent),
           slug: slugify(grandparent),
+          image: await getImage({ name: grandparent }),
         });
       }
       if (query.type === "related") {
@@ -126,10 +159,15 @@ const generate = async ({ name }) => {
               };
             })
           )
-        ).forEach((related, i) => {
+        ).forEach(async (related, i) => {
           const related_slug = slugify(related.name);
-          if (!result.topics.find((t) => t.slug === related_slug))
-            result.topics.push({ name: related.name, slug: related_slug });
+          if (!result.topics.find((t) => t.slug === related_slug)) {
+            result.topics.push({
+              name: related.name,
+              slug: related_slug,
+              image: await getImage({ name: related.name }),
+            });
+          }
           result.relationships.push({
             from_slug: slug,
             to_slug: related_slug,
@@ -164,6 +202,7 @@ if (process.argv.find((arg) => arg.includes("--topic"))) {
   const name = process.argv
     .find((arg) => arg.includes("--topic"))
     .split("=")[1];
+  // console.log(await getImage({ name }));
   const { slug, data } = await generate({ name });
   fs.writeFileSync(`./generated/${slug}.json`, JSON.stringify(data));
 }
