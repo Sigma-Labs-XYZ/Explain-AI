@@ -24,7 +24,7 @@ function TopicCard({ topic }) {
     <div className="topic-card-parent">
       <div className="topic-card">
         <div className="topic-card-title">
-          <h1>topic.name</h1>
+          <h1>{topic.name}</h1>
         </div>
         <div className={`topic-card-description ${descLength === "long" ? "expanding" : ""}`}>
           <p data-testid="description-container" className="topic-desc">

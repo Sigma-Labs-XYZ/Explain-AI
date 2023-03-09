@@ -41,7 +41,7 @@ export default function TopicPage() {
 
   if (topicData) {
     return (
-      <>
+      <div className="mt-[70px]">
         <Breadcrumbs
           parent={topicData.parent.parent}
           grandParent={topicData.parent.parent.grandparent.grandparent}
@@ -65,7 +65,7 @@ export default function TopicPage() {
               />
             ) : null,
           )}
-      </>
+      </div>
     );
   }
   return <ErrorMessage message={`Failed to find "${topic} ;_; `} />;
