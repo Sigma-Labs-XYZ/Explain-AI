@@ -5,7 +5,7 @@ import Header from "./Header";
 
 describe("Media queries and their effects on Age Toggle and Dropdown", () => {
   it("Toggle appears when screen width above 400px (Desktop)", () => {
-    cy.viewport(405, 1000);
+    cy.viewport(555, 1000);
     cy.mount(
       <AudienceContext>
         <BrowserRouter>
@@ -17,7 +17,7 @@ describe("Media queries and their effects on Age Toggle and Dropdown", () => {
   });
 
   it("Toggle disappears when screen width below 400px (Mobile)", () => {
-    cy.viewport(395, 1000);
+    cy.viewport(400, 1000);
     cy.mount(
       <AudienceContext>
         <BrowserRouter>
@@ -28,7 +28,7 @@ describe("Media queries and their effects on Age Toggle and Dropdown", () => {
     cy.get("button").should("have.css", "display", "none");
   });
 
-  it("Dropdown appears when screen width below 400px (Desktop)", () => {
+  it("Dropdown appears when screen width below 550px (Desktop)", () => {
     cy.viewport(395, 1000);
     cy.mount(
       <AudienceContext>
@@ -40,8 +40,8 @@ describe("Media queries and their effects on Age Toggle and Dropdown", () => {
     cy.get("select").should("not.have.css", "display", "none");
   });
 
-  it("Dropdown disappears when screen width above 400px (Mobile)", () => {
-    cy.viewport(405, 1000);
+  it("Dropdown disappears when screen width above 550px (Mobile)", () => {
+    cy.viewport(555, 1000);
     cy.mount(
       <AudienceContext>
         <BrowserRouter>
@@ -65,7 +65,7 @@ describe("Media queries and their effects on Age Toggle and Dropdown", () => {
   });
 });
 
-it("Selecting Adult in dropdown reduces font size to 10px", () => {
+it("Selecting Adult in dropdown reduces font size to 18px", () => {
   cy.viewport(395, 1000);
   cy.mount(
     <AudienceContext>
@@ -79,7 +79,7 @@ it("Selecting Adult in dropdown reduces font size to 10px", () => {
 });
 
 it("Background color changes when a button is clicked", () => {
-  cy.viewport(405, 1000);
+  cy.viewport(555, 1000);
   cy.mount(
     <AudienceContext>
       <BrowserRouter>
