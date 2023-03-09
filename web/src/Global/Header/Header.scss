@@ -21,6 +21,8 @@ header {
       height: 70%;
     }
     img {
+      display: block;
+      overflow: visible;
       height: 60%;
       &:hover {
         transition: all 200ms ease-in-out;
@@ -57,13 +59,16 @@ header {
         display: none;
       }
     }
-    p {
+    .likeIm {
       color: $offWhite;
       margin-right: 10px;
       font-size: 16px;
       font-family: $fontStyle;
       min-width: 70px;
       text-align: right;
+      @media (max-width:$small-phone-width) {
+        display:none;
+      }
     }
     .select-pg {
       @include select-style;

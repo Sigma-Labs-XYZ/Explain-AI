@@ -15,7 +15,7 @@ export default function Header() {
           <img src="./explainai-logo.png" alt="Explain AI" />
         </Link>
         <div>
-          <p>{labelText}</p>
+          <p className="likeIm">{labelText}</p>
           <ButtonSelector />
           <DropDown />
         </div>

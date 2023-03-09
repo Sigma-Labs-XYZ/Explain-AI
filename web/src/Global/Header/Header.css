@@ -22,12 +22,14 @@ header a {
     margin-left: 15%;
   }
 }
-@media (max-width: 400.5px) {
+@media (max-width: 550.5px) {
   header a {
     height: 70%;
   }
 }
 header a img {
+  display: block;
+  overflow: visible;
   height: 60%;
 }
 header a img:hover {
@@ -63,18 +65,23 @@ header div .btn.selected {
   background-color: #fff;
   color: #000;
 }
-@media (max-width: 400.5px) {
+@media (max-width: 550.5px) {
   header div .btn {
     display: none;
   }
 }
-header div p {
+header div .likeIm {
   color: #e3e3e3;
   margin-right: 10px;
   font-size: 16px;
   font-family: "Tilt Warp", cursive;
   min-width: 70px;
   text-align: right;
+}
+@media (max-width: 330px) {
+  header div .likeIm {
+    display: none;
+  }
 }
 header div .select-pg {
   width: 75px;
@@ -93,7 +100,7 @@ header div .select-pg {
   background-position: right 1px top 50%, 0 0;
   background-size: 15px auto, 50%;
 }
-@media (min-width: 400.5px) {
+@media (min-width: 550.5px) {
   header div .select-pg {
     display: none;
   }
