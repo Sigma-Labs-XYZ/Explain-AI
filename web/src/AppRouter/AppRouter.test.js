@@ -6,6 +6,7 @@ import { BrowserRouter } from "react-router-dom";
 import App from "../App";
 
 test("Home Page must be the first Page to be rendered", async () => {
+  process.env.REACT_APP_MEASUREMENT_ID = "MEASUREMENT-ID";
   render(<App />, { wrapper: BrowserRouter });
   expect(screen.getByText("Homepage")).toBeInTheDocument();
 });

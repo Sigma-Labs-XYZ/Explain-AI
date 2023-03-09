@@ -24,8 +24,6 @@
     & h1 {
       margin-top: 20px;
       margin-bottom: 10px;
-      @apply text-2xl;
-      @apply font-bold;
     }
   }
   & .topic-card-img-btn {
@@ -59,7 +57,6 @@
       overflow: hidden;
       & img {
         height: 100%;
-        @apply object-cover;
       }
     }
   }
