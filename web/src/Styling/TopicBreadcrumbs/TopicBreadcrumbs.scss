@@ -3,13 +3,16 @@
 #desktop {
   @include respond-to("small") {
     display: none;
+    margin-top: 30px;
   }
   @include respond-to("medium") {
     display: block;
+    margin-top: 30px;
   }
   @include respond-to("large") {
     display: block;
-    margin-left: 15%;
+    margin-top: 30px;
+    margin-left: 14.6%;
   }
 }
 
