@@ -23,6 +23,7 @@ jobs:
 
       - name: Run linter
         run: npm run lint
+        run: npx prettier -l
 
   run-tests:
     name: Run Tests
