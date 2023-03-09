@@ -10,10 +10,10 @@ import "../../../Styling/TopicBreadcrumbs/TopicBreadcrumbs.css";
 function BreadcrumbLoading() {
   return (
     <div className="bg-backdrop h-[65px]">
-      <nav data-testid="desktop" id="desktop" className="desktop">
-        <span className="desktop-container">
+      <nav id="desktop" className="desktop">
+        <span className="desktop-container" data-test-id="skeleton">
           <Link>Loading...</Link>
-          <span data-testid="desktop-grandParent" className="font-thin">
+          <span data-test-id="skeleton" className="font-thin">
             {"  > "}
           </span>
           <Link>Loading...</Link>

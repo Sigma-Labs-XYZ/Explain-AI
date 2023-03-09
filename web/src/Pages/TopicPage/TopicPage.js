@@ -21,7 +21,6 @@ export default function TopicPage() {
 
   useEffect(() => {
     const doFetch = async () => {
-      console.log(`doing a fetch for ${topic}`);
       const fetchedData = await fetchData(MAIN_URL);
       setRetrievedTopics(fetchedData);
       const data = fetchedData?.topic?.[0];
@@ -36,10 +35,6 @@ export default function TopicPage() {
   useEffect(() => {
     audienceChangeOnSubjectEvent(topic, audience);
   }, [audience]);
-
-  useEffect(() => {
-    console.log(isLoading);
-  }, [isLoading]);
 
   function loading() {
     setIsLoading(true);
