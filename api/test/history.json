@@ -1,0 +1,73 @@
+{
+  "descriptions": {
+    "5": {
+      "extra_short": "History is the story of the past.",
+      "short": "History is learning about things that happened a long time ago, like stories about people, places, and events from the past. It helps us understand how things used to be and how they became the way they are now.",
+      "long": "History is like a storybook of things that happened in the past. It's like a big puzzle that helps us understand how the world came to be the way it is today. \n\nThink of it like this: Imagine you are reading a book about a person's life. The book tells you about their childhood, their teenage years, and all the things they did as an adult. In the same way, history tells us about the things that happened in the past, like how people lived, what they ate, how they dressed, and what they believed in. \n\nHistory helps us learn from the mistakes and achievements of people who came before us. It helps us understand how our culture, traditions, and ideas have evolved over time. It's like a time machine that takes us back to different eras and helps us appreciate the present by understanding the past. \n\nSo, in short, history is the study of the past, and it helps us understand the world we live in today."
+    },
+    "10": {
+      "extra_short": "History is the study of past events and people.",
+      "short": "History is the study of past events, people, and societies. It helps us understand how things have changed over time, and how those changes affect us today. By learning about history, we can gain a better understanding of different cultures and traditions, and how they have influenced the world we live in.",
+      "long": "History is the study of past events, people, and societies. It helps us understand how the world we live in today came to be. History includes everything that happened before now, from the earliest humans to recent events. It tells us about the lives of people in different times and places, how they lived, what they believed, and how they interacted with each other.\n\nThere are different ways to study history, including reading books, watching documentaries, visiting museums, and talking to people who have experienced historical events themselves. Historians use evidence from different sources such as letters, diaries, artifacts, and photographs to piece together a picture of what happened in the past.\n\nKnowing history is important because it helps us understand and appreciate different cultures, traditions, and ways of life. It also helps us avoid making the same mistakes that people made in the past. By studying history, we can learn from the successes and failures of our ancestors and make better decisions for our future."
+    },
+    "adult": {
+      "extra_short": "The study of past events, people, societies, and cultures.",
+      "short": "History is the study of past events, particularly human affairs. It involves researching and analyzing primary and secondary sources to understand the causes, effects, and significance of past events and how they have shaped the world we live in today.",
+      "long": "History is the study of past events and their impact on human society. It encompasses everything from the development of human civilization to modern-day politics, culture, and technology. Historians analyze primary sources such as documents, artifacts, and oral histories to piece together a narrative of the past.\n\nThe study of history is important because it helps us understand how we got to where we are today. By examining the decisions and actions of people in the past, we can better understand the context and motivations behind current events. History also provides us with a sense of identity and connection to our ancestors, as well as a perspective on the evolution of human culture and society.\n\nIn addition, studying history allows us to learn from past mistakes and successes, and to apply those lessons to the present and future. It helps us develop critical thinking skills, as we evaluate sources and interpretations of historical events.\n\nOverall, history is a crucial component of a well-rounded education and provides us with a deeper understanding of our world and ourselves."
+    }
+  },
+  "related": {
+    "archaeology": {
+      "name": "Archaeology",
+      "slug": "archaeology",
+      "descriptions": {
+        "5": "History is written, archaeology studies physical remains to learn about the past.",
+        "10": "Archaeology helps us learn about history by studying artifacts and remains left by past civilizations.",
+        "adult": "History studies written records, while archaeology studies material remains to understand past human societies."
+      }
+    },
+    "anthropology": {
+      "name": "Anthropology",
+      "slug": "anthropology",
+      "descriptions": {
+        "5": "History studies past events, while Anthropology studies human societies and cultures, including past and present.",
+        "10": "History studies past events; Anthropology studies human societies and cultures, including their past.",
+        "adult": "Anthropology studies culture and society while History studies past events and their significance."
+      }
+    },
+    "sociology": {
+      "name": "Sociology",
+      "slug": "sociology",
+      "descriptions": {
+        "5": "History studies past events, while Sociology studies human behavior and society in the present.",
+        "10": "History studies past events while Sociology studies human society and behavior, including past and present events.",
+        "adult": "Sociology studies society and its changes, while history studies past events and their impact on society."
+      }
+    },
+    "political-science": {
+      "name": "Political Science",
+      "slug": "political-science",
+      "descriptions": {
+        "5": "History and Political Science study past events and government systems, respectively. They can complement each other.",
+        "10": "History and Political Science are related because Political Science studies the past and present political events.",
+        "adult": "Political Science studies the organization and function of government, while History studies past events and their impact."
+      }
+    },
+    "cultural-studies": {
+      "name": "Cultural Studies",
+      "slug": "cultural-studies",
+      "descriptions": {
+        "5": "History and Cultural Studies are related because they both study the past and how it shapes society.",
+        "10": "History studies what happened in the past, while Cultural Studies examines how people live and think.",
+        "adult": "History examines past events, while Cultural Studies looks at the impact of culture on society."
+      }
+    }
+  },
+  "hierarchy": {
+    "parent": { "name": "Social Sciences", "slug": "social-sciences" },
+    "grandparent": {
+      "name": "Social Sciences: None",
+      "slug": "social-sciences-none"
+    }
+  }
+}

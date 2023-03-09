@@ -2,11 +2,14 @@ import { Configuration, OpenAIApi } from "openai";
 import slugify from "slug";
 import dotenv from "dotenv";
 import { data } from "./generate.mock.js";
+import fs from "fs";
+import path, { dirname } from "path";
 dotenv.config();
 
-const systemMessage = "You are a helpful assistant.";
+const defaultSystemMessage = "You are a helpful assistant.";
+const MAX_RELATED = 5;
 
-const runGPTQuery = async ({ query }) => {
+const runGPTQuery = async ({ query, system = "" }) => {
   try {
     const configuration = new Configuration({ apiKey: process.env.OPENAI_KEY });
     const openai = new OpenAIApi(configuration);
@@ -15,7 +18,7 @@ const runGPTQuery = async ({ query }) => {
       temperature: 0.7,
       max_tokens: 300,
       messages: [
-        { role: "system", content: systemMessage },
+        { role: "system", content: `${defaultSystemMessage} ${system}` },
         {
           role: "user",
           content: query,
@@ -32,90 +35,163 @@ const runGPTQuery = async ({ query }) => {
 // 2. save it to the database
 // 3. return the slug
 
-const saveToDatabase = async ({ slug, name, data }) => {
-  console.log({ slug, name, data });
-  //  Save all this to hasura
-  
+const saveToDatabase = async ({ slug, name, data, result }) => {
+  // console.log({ slug, name, data });
+
+  // save data object as json file in /test directory
+  fs.writeFileSync(`./test/${slug}.json`, JSON.stringify(result));
 };
+
+const trim = (item) =>
+  item.replace(/^[^a-zA-Z0-9]*|[^a-zA-Z0-9]*$/g, "").trim();
+
+const audiences = [
+  { key: "5", token: "5 year old", request: "make it super simple" },
+  { key: "10", token: "10 year old", request: "make it easy to understand" },
+  {
+    key: "adult",
+    token: "non-technical adult",
+    request: "use language I would understand",
+  },
+];
+const lengths = [
+  { key: "extra_short", token: "15 words or less" },
+  { key: "short", token: "50 words or less" },
+  { key: "long", token: "about 200 words" },
+];
 
 const generate = async ({ name }) => {
   const slug = slugify(name);
   const queries = [];
-  const audiences = [
-    { key: "5", token: "5 year old" },
-    { key: "10", token: "10 year old" },
-    { key: "adult", token: "non-technical adult" },
-  ];
-  const lengths = [
-    { key: "extra_short", token: "15 words or less" },
-    { key: "short", token: "50 words or less" },
-    { key: "long", token: "about 200 words" },
-  ];
   for (const audience of audiences) {
     for (const length of lengths) {
       queries.push({
+        type: "description",
+        audience: audience.key,
+        length: length.key,
         key: `${audience.key}_${length.key}`,
-        query: `I am a ${audience.token}, in language that I could understand, what is ${name} in ${length.token}?`,
+        system: `I am a ${audience.token}, so ${audience.request}. The length of your reply should be ${length.token}.`,
+        query: `What is ${name}?`,
       });
     }
   }
   queries.push({
     key: "parent",
-    query: `In three words or less, what field does ${name} belong to?`,
+    type: "hierarchy",
+    system:
+      "Use three words or less. If there is no widely accepted answer, reply with just the word 'none'.",
+    query: `What field does ${name} belong to?`,
   });
   queries.push({
     key: "related",
-    query: `Give me a bullet-point list of popular topics similar to ${name}. Each one should be no more than a word or two`,
+    type: "related",
+    system:
+      "Reply with a bullet-point list. Each item should be no more than a word or two in length. Do not terminate items with a period.",
+    query: `What are some popular topics similar to ${name}?`,
   });
+
+  const result = {
+    descriptions: audiences.reduce((acc, audience) => {
+      acc[audience.key] = lengths.reduce((acc, length) => {
+        acc[length.key] = "";
+        return acc;
+      }, {});
+      return acc;
+    }, {}),
+    related: {},
+    hierarchy: {
+      parent: { name: "", slug: "" },
+      grandparent: { name: "", slug: "" },
+    },
+  };
 
   // run all queries in parallel
   const results = await Promise.all(
     queries.map(async (query) => {
       if (query.key === "parent") {
-        const parent = await runGPTQuery({ query: query.query });
-        const grandparent = await runGPTQuery({
-          query: `In three words or less, what field does ${parent} belong to?`,
+        const parent = await runGPTQuery({
+          query: query.query,
+          system: query.system,
         });
+        const grandparent = await runGPTQuery({
+          type: "hierarchy",
+          system:
+            "Use three words or less. If there is no widely accepted answer, reply with just the word 'none'.",
+          query: `What field does ${parent} belong to?`,
+        });
+        result.hierarchy = {
+          parent: { name: trim(parent), slug: slugify(parent) },
+          grandparent: { name: trim(grandparent), slug: slugify(grandparent) },
+        };
         return { ...query, result: { parent, grandparent } };
       }
       if (query.key === "related") {
-        const result = await runGPTQuery({ query: query.query });
-        const parsedRelated = parseRelated({ relatedBulletString: result });
+        const response = await runGPTQuery({
+          query: query.query,
+          system: query.system,
+        });
+        const parsedRelated = parseRelated({ relatedBulletString: response });
         const relatedDescriptionQueries = parsedRelated
           .map((related) => {
             return audiences.map((audience, i) => {
               return {
+                name: related,
                 key: `related_${i}_${audience.key}`,
-                query: `Using language a ${audience.token} could understand, what is the relationship between ${name} and ${related} in 15 words or less?`,
+                audience,
+                system: `I am a ${audience.token}, so use language I would understand. The length of your reply should be 15 words or less.`,
+                query: `What is the relationship between ${name} and ${related}?`,
               };
             });
           })
           .flat();
         const relatedDescriptionResults = await Promise.all(
           relatedDescriptionQueries.map(async (query) => {
+            const description = await runGPTQuery({
+              query: query.query,
+              system: query.system,
+            });
             return {
               key: query.key,
-              description: await runGPTQuery({ query: query.query }),
+              name: query.name,
+              audience: query.audience.key,
+              description,
             };
           })
         );
 
+        relatedDescriptionResults.forEach((related) => {
+          const slug = slugify(related.name);
+          if (!result.related[slug])
+            result.related[slug] = {
+              name: related.name,
+              slug,
+              descriptions: audiences.reduce((acc, audience) => {
+                acc[audience.key] = "";
+                return acc;
+              }, {}),
+            };
+          result.related[slug].descriptions[related.audience] =
+            related.description;
+        });
+
         return { ...query, result: relatedDescriptionResults };
       }
-      const result = await runGPTQuery({ query: query.query });
-      return { ...query, result };
+      if (query.type === "description") {
+        const response = await runGPTQuery({
+          query: query.query,
+          system: query.system,
+        });
+        result.descriptions[query.audience][query.length] = response;
+        return { ...query, result: response };
+      }
     })
   );
-  await saveToDatabase({ slug, name, data: results });
+  await saveToDatabase({ slug, name, data: results, result });
   return slug;
 };
 
 const parseRelated = ({ relatedBulletString }) => {
-  const regex = /[A-Za-z](.+)/;
-  return relatedBulletString
-    .split("\n")
-    .map((item) => regex.exec(item)?.[0])
-    .slice(0, 5);
+  return relatedBulletString.split("\n").map(trim).slice(0, MAX_RELATED);
 };
 
 // if running from command line
@@ -124,9 +200,6 @@ if (process.argv.find((arg) => arg.includes("--topic"))) {
     .find((arg) => arg.includes("--topic"))
     .split("=")[1];
   generate({ name });
-  // parseRelated({
-  //   relatedBulletString: data.results.find((r) => r.key === "related")?.result,
-  // });
 }
 
 export default generate;

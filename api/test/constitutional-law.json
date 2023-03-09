@@ -1,0 +1,73 @@
+{
+  "descriptions": {
+    "5": {
+      "extra_short": "Constitutional law is the set of rules for how a country's government operates.",
+      "short": "Constitutional law is the set of rules and principles that define the powers and limitations of government, as well as the rights and freedoms of individuals, as outlined in a country's constitution. It guides how laws are created, enforced, and interpreted.",
+      "long": "Constitutional Law is a type of law that deals with the rules and principles that guide how a country or state is governed. In most countries, the Constitution is the supreme law of the land, and it sets out the framework for the government, the rights and responsibilities of the citizens, and the limits of the government's power.\n\nConstitutional Law also deals with the interpretation and enforcement of the Constitution, as well as the relationship between different branches of government, such as the executive, legislative, and judicial branches.\n\nSome important issues in Constitutional Law include freedom of speech, religion, and the press, the right to bear arms, the right to a fair trial, and the protection of property rights. These rights are often enshrined in the Constitution, and it is the role of Constitutional Law to ensure that they are upheld and protected.\n\nIn summary, Constitutional Law is the set of rules and principles that govern how a country or state is run, and it plays a crucial role in protecting the rights and freedoms of citizens."
+    },
+    "10": {
+      "extra_short": "Constitutional Law is the body of rules that govern the creation and operation of government.",
+      "short": "Constitutional law is the study of the fundamental rules and principles that govern a country or state. It deals with the structure of government, the distribution of power, and individual rights and freedoms. It is based on the constitution, which is the supreme law of the land.",
+      "long": "\n\nConstitutional law is the set of rules and principles that govern the structure and powers of government, as well as the rights and freedoms of individuals within a country. It is based on a country's constitution, which is a written document that outlines the fundamental principles and values of the country, as well as the procedures for making and enforcing laws.\n\nConstitutional law is important because it provides the foundation for how a government operates and how it interacts with its citizens. It establishes the roles and responsibilities of different branches of government, such as the legislative, executive, and judicial branches, and outlines the limits of their power.\n\nIn addition, constitutional law protects individual rights and freedoms, such as freedom of speech, religion, and the press. It also ensures that everyone is treated fairly under the law and that the government cannot take away these rights without due process.\n\nOverall, constitutional law is essential for maintaining a just and democratic society, where everyone's rights are protected and the government operates in a transparent and accountable manner."
+    },
+    "adult": {
+      "extra_short": "The study of laws outlined in the Constitution that govern the powers of government and protect individual rights.",
+      "short": "Constitutional law is the branch of law that deals with the interpretation and application of a country's constitution. It determines the powers and limitations of government entities, establishes basic rights and freedoms, and outlines the structure and functions of the government.",
+      "long": "Constitutional law is a branch of law that deals with the study, interpretation, and application of a country's constitution. A constitution is a document that outlines the basic principles and rules governing a country's political system, including the powers and limitations of the government and individual rights and freedoms.\n\nConstitutional law is important because it establishes the framework for the functioning of the government and the relationship between the government and its citizens. It provides the foundation for the rule of law, which ensures that everyone is subject to the same laws and that the government is accountable to the people.\n\nConstitutional law is also significant because it guarantees fundamental rights and liberties, such as freedom of speech, religion, and assembly, as well as protections against unreasonable searches and seizures and cruel and unusual punishment. It provides a mechanism for resolving disputes between the government and its citizens and between different branches of government.\n\nOverall, constitutional law is a critical area of law that serves as the backbone of a country's legal system and ensures that the government operates in a fair and just manner while protecting the rights and freedoms of its citizens."
+    }
+  },
+  "related": {
+    "administrative-law": {
+      "name": "Administrative Law",
+      "slug": "administrative-law",
+      "descriptions": {
+        "5": "Constitutional Law sets the framework for Administrative Law, which regulates government agencies and their actions.",
+        "10": "Constitutional law sets the framework for administrative law. Administrative law applies constitutional principles to government agencies.",
+        "adult": "Administrative law is derived from and subject to Constitutional law."
+      }
+    },
+    "civil-rights": {
+      "name": "Civil Rights",
+      "slug": "civil-rights",
+      "descriptions": {
+        "5": "Constitutional law sets the framework for civil rights protections.",
+        "10": "Constitutional law protects civil rights by setting rules for how the government should treat its citizens.",
+        "adult": "Constitutional law protects civil rights by outlining the fundamental rights and principles of government."
+      }
+    },
+    "criminal-law": {
+      "name": "Criminal Law",
+      "slug": "criminal-law",
+      "descriptions": {
+        "5": "Constitutional Law sets the rules for Criminal Law. Criminal law must follow Constitutional law.",
+        "10": "Constitutional law sets the rules for the government, while criminal law defines and punishes illegal behavior.",
+        "adult": "Constitutional Law sets the boundaries for Criminal Law, ensuring that it does not violate individual rights."
+      }
+    },
+    "election-law": {
+      "name": "Election Law",
+      "slug": "election-law",
+      "descriptions": {
+        "5": "Constitutional Law sets rules for Election Law. Election Law controls how we vote and elect leaders.",
+        "10": "Constitutional Law sets the framework for Election Law in the United States.",
+        "adult": "Election Law is a subset of Constitutional Law that governs the rules and regulations for elections."
+      }
+    },
+    "first-amendment": {
+      "name": "First Amendment",
+      "slug": "first-amendment",
+      "descriptions": {
+        "5": "Constitutional Law protects First Amendment rights - freedom of speech, religion, press, assembly, and petition.",
+        "10": "Constitutional Law protects First Amendment, which guarantees freedom of speech, religion, press, assembly, and petition.",
+        "adult": "The First Amendment is part of Constitutional Law, protecting freedom of speech, religion, press, assembly."
+      }
+    }
+  },
+  "hierarchy": {
+    "parent": { "name": "Law", "slug": "law" },
+    "grandparent": {
+      "name": "Law. (with a period) is not a complete term. If you meant \"Law\", then it belongs to the field of legal studies",
+      "slug": "law-with-a-period-is-not-a-complete-term-if-you-meant-law-then-it-belongs-to-the-field-of-legal-studies"
+    }
+  }
+}
