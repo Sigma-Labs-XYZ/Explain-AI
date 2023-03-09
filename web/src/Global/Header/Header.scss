@@ -4,7 +4,11 @@ header {
   @include flex-row;
   background-color: $black;
   height: 70px;
+  width: 100%;
   justify-content: space-between;
+  position: fixed;
+  top: 0;
+  z-index: 100;
   a {
     display: flex;
     height: 100%;
@@ -28,7 +32,6 @@ header {
   div {
     @include flex-row;
     margin-right: 30px;
-
     @media (min-width: $desktop-width) {
       margin-right: 15%;
     }
