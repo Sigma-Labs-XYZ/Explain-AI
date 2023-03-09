@@ -1,13 +1,20 @@
 import React from "react";
 import "../Styling/ErrorMessage/ErrorMessage.css";
+import PropTypes from "prop-types";
 
-export default function ErrorMessage({ message }) {
+function ErrorMessage({ message }) {
   return (
     <div className="error-container">
       <div data-testid="error-message" className="error-message">
-        <h1>Error</h1>
-        <h2>{message}</h2>
+        <h3>Error</h3>
+        <h4>{message}</h4>
       </div>
     </div>
   );
 }
+
+ErrorMessage.propTypes = {
+  message: PropTypes.string.isRequired,
+};
+
+export default ErrorMessage;
