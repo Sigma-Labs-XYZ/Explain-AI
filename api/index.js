@@ -6,6 +6,7 @@ import generate from "./generate/index.js";
 
 dotenv.config();
 const app = express();
+app.use(express.json());
 app.use(cors());
 
 const port = 4000;
@@ -35,14 +36,11 @@ app.get("/topic/:slug", async (req, res) => {
   return res.send({ ...json, isGenerated });
 });
 
-app.post("/topic/:name", async ({ body }, res) => {
-  const result = await generate({ name: body.name });
-  const endpoint = `${DB_ENDPOINT}/api/rest/topic/${req.params.slug}`;
-  await fetch(endpoint, {
-    method: "POST",
-    headers,
-    body: JSON.stringify(result),
-  });
+app.post("/topic", async (req, res) => {
+  const { slug, data } = await generate({ name: req.body.name });
+  const endpoint = `${DB_ENDPOINT}/api/rest/topic`;
+  const body = JSON.stringify(data);
+  await fetch(endpoint, { method: "POST", headers, body });
   const get = `/topic/${slug}`;
   app._router.handle({ method: "GET", url: get }, res, { end: res.send });
 });

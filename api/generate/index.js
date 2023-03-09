@@ -139,22 +139,19 @@ const generate = async ({ name }) => {
           query: query.query,
           system: query.system,
         });
-        if (!result.descriptions.find((d) => d.topic_slug === slug)) {
+        if (!result.descriptions.find((d) => d.audience === query.audience)) {
           result.descriptions.push({
             topic_slug: slug,
             audience: query.audience,
           });
         }
-        result.descriptions = result.descriptions.map((d) => {
-          if (d.topic_slug === slug) {
-            d[query.length] = response;
-          }
-          return d;
-        });
+        result.descriptions.find((d) => d.audience === query.audience)[
+          query.length
+        ] = response;
       }
     })
   );
-  return result;
+  return { slug, data: result };
 };
 
 // if running from command line, save to a local file
@@ -162,9 +159,8 @@ if (process.argv.find((arg) => arg.includes("--topic"))) {
   const name = process.argv
     .find((arg) => arg.includes("--topic"))
     .split("=")[1];
-  const result = await generate({ name });
-  const slug = slugify(name);
-  fs.writeFileSync(`./generated/${slug}.json`, JSON.stringify(result));
+  const { slug, data } = await generate({ name });
+  fs.writeFileSync(`./generated/${slug}.json`, JSON.stringify(data));
 }
 
 export default generate;
