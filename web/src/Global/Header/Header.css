@@ -5,7 +5,11 @@ header {
   flex-direction: row;
   background-color: #000;
   height: 70px;
+  width: 100%;
   justify-content: space-between;
+  position: fixed;
+  top: 0;
+  z-index: 100;
 }
 header a {
   display: flex;

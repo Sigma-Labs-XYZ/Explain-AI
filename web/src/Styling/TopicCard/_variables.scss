@@ -29,6 +29,14 @@ $image-shrinkage: 0.75;
         transition: transform 300ms ease-in;
       }
     }
+    & .topic-card-description {
+      max-height: 350px;
+      overflow: auto;
+    }
+    & .topic-card-description.expanding {
+      max-height: 700px;
+      transition: max-height 300ms ease-in;
+    }
   }
   @media screen and (min-width: 1001px) {
     .topic-card {
@@ -65,6 +73,14 @@ $image-shrinkage: 0.75;
         margin-left: 30px;
         margin-top: 40px;
       }
+    }
+    & .topic-card-description {
+      max-height: 250px;
+      overflow: auto;
+    }
+    & .topic-card-description.expanding {
+      max-height: 600px;
+      transition: max-height 300ms ease-in;
     }
   }
 }

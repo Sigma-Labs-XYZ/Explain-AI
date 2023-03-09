@@ -7,6 +7,29 @@
 @media screen and (max-width: 1000px) and (min-width: 400px) {
   .topic-card-parent .topic-card {
     width: 94%;
+    /* width: 100vh; */
+  }
+  .topic-card-parent .topic-card-img-btn {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .topic-card-parent .topic-card-img-btn .topic-card-img {
+    transform: scale(0.75);
+    transition: transform 300ms ease-in;
+  }
+  .topic-card-parent .topic-card-description {
+    max-height: 350px;
+    overflow: auto;
+  }
+  .topic-card-parent .topic-card-description.expanding {
+    max-height: 700px;
+    transition: max-height 300ms ease-in;
+  }
+}
+@media screen and (min-width: 602px) {
+  .topic-card-parent .topic-card {
+    width: 600px;
   }
   .topic-card-parent .topic-card-img-btn {
     flex-direction: row;
@@ -32,6 +55,14 @@
     height: 250px;
     transform: translateY(75px);
     transition: transform 300ms ease-out;
+  }
+  .topic-card-parent .topic-card-description {
+    max-height: 250px;
+    overflow: auto;
+  }
+  .topic-card-parent .topic-card-description.expanding {
+    max-height: 600px;
+    transition: max-height 300ms ease-in;
   }
 }
 @media screen and (max-width: 399px) {
@@ -67,6 +98,7 @@
   padding-right: 2em;
   text-align: justify;
   border: none;
+  overflow: auto;
 }
 .topic-card-parent .topic-card-title {
   margin: 0px;
@@ -112,5 +144,4 @@
 }
 .topic-card-parent .topic-card-img-btn .topic-card-img img {
   height: 100%;
-  @apply object-cover;
-}/*# sourceMappingURL=TopicCard.css.map */
+} /*# sourceMappingURL=TopicCard.css.map */
