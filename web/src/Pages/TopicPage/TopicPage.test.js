@@ -1,12 +1,11 @@
-import { fireEvent, render, screen } from "@testing-library/react";
-import { waitFor } from "@testing-library/react";
-import TopicPage from "./TopicPage";
-import { fetchData } from "../../utils/networking";
-import { BrowserRouter, MemoryRouter } from "react-router-dom";
-import userEvent from "@testing-library/user-event";
-import AudienceContext from "../../components/AudienceContext";
+import React from "react";
+import { render, screen, waitFor } from "@testing-library/react";
+import { MemoryRouter } from "react-router-dom";
 import fetchMock from "jest-fetch-mock";
+import TopicPage from "./TopicPage";
+import AudienceContext from "../../components/AudienceContext";
 import testData from "./TopicCard/dummy_data.json";
+
 fetchMock.enableMocks();
 beforeEach(() => {
   fetch.resetMocks();
@@ -22,14 +21,12 @@ describe("Test for API render on success", () => {
         </AudienceContext>
       </MemoryRouter>,
     );
-    console.log(global.window.location.pathname);
     await waitFor(() => {
       expect(
         screen.getByText("Javascript and React help you make websites look special."),
       ).toBeInTheDocument();
-
-      expect(fetch).toHaveBeenCalledTimes(1);
     });
+    expect(fetch).toHaveBeenCalledTimes(1);
   });
   test("Check that all elements on TopicPage are rendered", async () => {
     fetch.mockResponseOnce(JSON.stringify(testData));
@@ -40,11 +37,10 @@ describe("Test for API render on success", () => {
         </AudienceContext>
       </MemoryRouter>,
     );
-    await waitFor(() => {
-      screen.getAllByTestId("link-div-rtl");
-      screen.getByTestId("mobile-grandParent");
-      screen.getByTestId("mobile-parent");
-      screen.getByTestId("description-container");
-    });
+
+    expect(await screen.findByText("Javascript makes HTML do cool things.")).toBeInTheDocument();
+    expect(await screen.findByTestId("mobile-grandParent")).toBeInTheDocument();
+    expect(await screen.findByTestId("description-container")).toBeInTheDocument();
+    expect(await screen.findByTestId("mobile-parent")).toBeInTheDocument();
   });
 });
