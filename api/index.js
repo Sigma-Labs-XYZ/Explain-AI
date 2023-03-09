@@ -2,7 +2,7 @@ import express from "express";
 import fetch from "node-fetch";
 import dotenv from "dotenv";
 import cors from "cors";
-import generate from "./generate.js";
+import generate from "./generate/index.js";
 
 dotenv.config();
 const app = express();
@@ -36,7 +36,13 @@ app.get("/topic/:slug", async (req, res) => {
 });
 
 app.post("/topic/:name", async ({ body }, res) => {
-  const slug = await generate({ name: body.name });
+  const result = await generate({ name: body.name });
+  const endpoint = `${DB_ENDPOINT}/api/rest/topic/${req.params.slug}`;
+  await fetch(endpoint, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(result),
+  });
   const get = `/topic/${slug}`;
   app._router.handle({ method: "GET", url: get }, res, { end: res.send });
 });
