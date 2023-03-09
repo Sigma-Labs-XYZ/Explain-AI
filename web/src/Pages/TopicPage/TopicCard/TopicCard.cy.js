@@ -46,7 +46,7 @@ describe("<TopicCard /> on Phone", () => {
         <TopicCard topic={topic} audience={10} />
       </AudienceContext>,
     );
-    cy.get(".topic-card-img-btn").should("have.css", "flex-direction", "row");
+    cy.get(".topic-card-img-btn").should("have.css", "flex-direction", "column");
     cy.get(".topic-card-img-btn").should("have.css", "justify-content", "space-between");
   });
 });

@@ -38,12 +38,12 @@ function TopicCard({ topic }) {
             {buttonTxt}
           </button>
 
-          <div className="w-56 h-56 -mb-28 mt-5 phone:w-32 phone:h-32 phone:-mb-16 phone: ml-[25%] tablet:w-32 tablet:h-32 tablet:-mb-16">
+          <div className="topic-card-img">
             <img
               src={topic?.image}
               alt={`A representation of ${topic.name}`}
               onError={replaceImage}
-              className="h-full w-full rounded-full"
+              className=""
             />
           </div>
         </div>

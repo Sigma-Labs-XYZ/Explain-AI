@@ -36,6 +36,7 @@
     margin-left: 32px;
     margin-right: 85px;
     display: flex;
+    transform: translateY(75px);
 
     & button {
       border: none;
@@ -46,11 +47,10 @@
       height: 50px;
       font-weight: bold;
       background-color: #d1d1d1;
-      align-self: center;
       &:hover {
         background-color: #dadada;
-        transition: all 200ms ease-in-out;
-        transform: scale(1.05);
+        // transition: all 200ms ease-in-out;
+        // transform: scale(1.05);
       }
     }
     & .topic-card-img {
@@ -60,6 +60,7 @@
       justify-content: center;
       align-items: center;
       overflow: hidden;
+      min-width: 240px;
       & img {
         height: 100%;
       }
