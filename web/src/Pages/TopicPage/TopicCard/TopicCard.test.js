@@ -36,7 +36,7 @@ describe("test the show me more button loads more text", () => {
   test("the button changes changes text based on what's shown", () => {
     render(
       <AudienceContext>
-        <TopicCard topic={{ ...topic, image: false }} />
+        <TopicCard topic={topic} />
       </AudienceContext>,
     );
 
@@ -49,7 +49,7 @@ describe("test the show me more button loads more text", () => {
   test("the longer description is shown when the button is pressed", () => {
     render(
       <AudienceContext>
-        <TopicCard topic={{ ...topic, image: false }} />
+        <TopicCard topic={topic} />
       </AudienceContext>,
     );
     const tellMeMoreButton = screen.getByRole("button");
@@ -59,3 +59,4 @@ describe("test the show me more button loads more text", () => {
     expect(descriptionHolder.textContent.trim()).toBe(topic.descriptions[0].long);
   });
 });
+ß;

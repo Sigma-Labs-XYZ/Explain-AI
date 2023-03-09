@@ -13,13 +13,8 @@ export default function TopicCard({ topic }) {
     return imageError ? "./no-image.jpeg" : topic.image;
   };
   const lengthSetter = () => {
-    if (descLength === "short") {
-      setDescLength("long");
-      setButtonTxt("Tell me less");
-    } else {
-      setDescLength("short");
-      setButtonTxt("Tell me more");
-    }
+    setDescLength(descLength === "short" ? "long" : "short");
+    setButtonTxt(descLength === "short" ? "Tell me less" : "Tell me more");
   };
   return (
     <div className="topic-card-parent">
@@ -37,11 +32,11 @@ export default function TopicCard({ topic }) {
           <button
             type="button"
             onClick={() => {
-              lengthSetter()
+              lengthSetter();
               sendClickEvent("button", "Tell me more");
             }}
           >
-            Tell me more
+            {buttonTxt}
           </button>
           <div className="topic-card-img">
             <img src={imageHandler()} alt={`A representation of ${topic.name}`} />
