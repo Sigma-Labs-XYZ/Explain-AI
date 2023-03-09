@@ -5,6 +5,7 @@ import PropType from "prop-types";
 import { ageContext } from "../../../components/AudienceContext";
 import "../../../Styling/TopicCard/TopicCard.css";
 import { sendClickEvent } from "../../../utils/gaEvents";
+import { replaceImage } from "../../../components/ErrorMessage";
 /* eslint react/forbid-prop-types: 0 */
 
 function TopicCard({ topic }) {
@@ -12,10 +13,6 @@ function TopicCard({ topic }) {
   const [descLength, setDescLength] = useState("short");
   const [buttonTxt, setButtonTxt] = useState("Tell me more");
   const description = topic.descriptions?.find?.(({ audience: a }) => audience === a)[descLength];
-  const imageHandler = () => {
-    const imageError = typeof topic.image !== "string" || topic.image === ""; // this may be changed depending on how the API responds
-    return imageError ? "./no-image.jpeg" : topic.image;
-  };
   const lengthSetter = () => {
     setDescLength(descLength === "short" ? "long" : "short");
     setButtonTxt(descLength === "short" ? "Tell me less" : "Tell me more");
@@ -43,7 +40,11 @@ function TopicCard({ topic }) {
             {buttonTxt}
           </button>
           <div className="topic-card-img">
-            <img src={imageHandler()} alt={`A representation of ${topic.name}`} />
+            <img
+              src={topic?.image}
+              alt={`A representation of ${topic.name}`}
+              onError={replaceImage}
+            />
           </div>
         </div>
       </div>

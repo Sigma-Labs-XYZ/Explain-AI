@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import PropType from "prop-types";
 import { sendRelationEvent, sendClickEvent } from "../../../utils/gaEvents";
+import { replaceImage } from "../../../components/ErrorMessage";
 
 function RelationCard({ name, description, image, parent, loading }) {
   return (
@@ -29,7 +30,12 @@ function RelationCard({ name, description, image, parent, loading }) {
           data-test-id="img container"
         >
           <div className="w-24 h-24">
-            <img className="rounded-full h-full w-full" src={image} alt={name} />
+            <img
+              className="rounded-full object-cover h-full w-full"
+              src={image}
+              alt={name}
+              onError={replaceImage}
+            />
           </div>
         </div>
       </div>
