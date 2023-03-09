@@ -18,3 +18,8 @@ ErrorMessage.propTypes = {
 };
 
 export default ErrorMessage;
+
+export const replaceImage = (error) => {
+  // eslint-disable-next-line no-param-reassign
+  error.target.src = "/no-image.jpeg";
+};

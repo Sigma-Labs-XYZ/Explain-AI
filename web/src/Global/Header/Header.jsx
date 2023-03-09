@@ -11,7 +11,7 @@ export default function Header() {
   return (
     <div>
       <header>
-        <Link to="/" title="Link to homepage">
+        <Link data-test-id="router-Link" to="/" title="Link to homepage">
           <img src="./explainai-logo.png" alt="Explain AI" />
         </Link>
         <div>
