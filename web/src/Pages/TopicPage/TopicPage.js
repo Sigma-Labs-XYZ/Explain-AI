@@ -26,7 +26,9 @@ export default function TopicPage() {
       }
       // Descriptions were not found, let's generate them
       setIsGenerating(true);
-      const generatedData = await postData({ url: MAIN_URL, body: { name: topic } });
+      const GENERATE_URL = `${process.env.REACT_APP_API_ENDPOINT}/topic`;
+      const generatedData = await postData({ url: GENERATE_URL, body: { name: topic } });
+      console.log({ generatedData });
       setRetrievedTopics(generatedData);
       setIsGenerating(false);
       return setIsLoading(false);
@@ -38,7 +40,7 @@ export default function TopicPage() {
     audienceChangeOnSubjectEvent(topic, audience);
   }, [audience]);
 
-  if (isGenerating) return <div>Generating...</div>;
+  if (isGenerating) return <div style={{ textAlign: "center", marginTop: 200 }}>Generating...</div>;
   if (isLoading) return <div>Loading...</div>;
   const topicData = retrievedTopics?.topic?.[0];
   if (topicData?.descriptions.length) {

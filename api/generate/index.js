@@ -2,13 +2,19 @@ import slugify from "slug";
 import fs from "fs";
 import runGPTQuery from "./runGPTQuery.js";
 
-const MAX_RELATED = 5;
+const MAX_RELATED = 10;
 
 const trim = (item) =>
   item.replace(/^[^a-zA-Z0-9]*|[^a-zA-Z0-9]*$/g, "").trim();
 
 const parseRelated = ({ relatedBulletString }) =>
-  relatedBulletString.split("\n").map(trim).slice(0, MAX_RELATED);
+  relatedBulletString
+    .split(",")
+    .map((item) => {
+      const trimmed = trim(item);
+      return trimmed.charAt(0).toUpperCase() + trimmed.slice(1);
+    })
+    .slice(0, MAX_RELATED);
 
 const audiences = [
   { key: 5, token: "5 year old", request: "make it super simple" },
@@ -49,8 +55,7 @@ const generate = async ({ name }) => {
   });
   queries.push({
     type: "related",
-    system:
-      "Reply with a bullet-point list. Each item should be no more than a word or two in length. Do not terminate items with a period.",
+    system: `Reply with a comma separated list. Show up to ${MAX_RELATED} items. Each item should be no more than 1-2 words in length.`,
     query: `What are some popular topics similar to ${name}?`,
   });
 

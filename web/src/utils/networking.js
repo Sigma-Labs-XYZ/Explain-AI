@@ -8,4 +8,18 @@ export default async function fetchData(url) {
   }
 }
 
-export const postData = ({ url, body }) => fetchData(url, "POST", body);
+export const postData = async ({ url, body }) => {
+  try {
+    const postResponse = await fetch(url, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(body),
+    });
+    const postResponseJSON = await postResponse.json();
+    return postResponseJSON;
+  } catch (e) {
+    return "unable to fetch data";
+  }
+};
