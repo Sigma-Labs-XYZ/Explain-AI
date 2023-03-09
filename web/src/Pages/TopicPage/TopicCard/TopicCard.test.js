@@ -1,5 +1,5 @@
 import React from "react";
-import { render, screen } from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
 import TopicCard from "./TopicCard";
 import testData from "./dummy_data.json";
 import AudienceContext from "../../../components/AudienceContext";
@@ -29,5 +29,33 @@ describe("Tests for TopicCard using RTL", () => {
     );
     const image = screen.getByRole("img");
     expect(image.src).toBe("http://localhost/no-image.jpeg");
+  });
+});
+
+describe("test the show me more button loads more text", () => {
+  test("the button changes changes text based on what's shown", () => {
+    render(
+      <AudienceContext>
+        <TopicCard topic={topic} />
+      </AudienceContext>,
+    );
+
+    const tellMeMoreButton = screen.getByRole("button");
+    expect(tellMeMoreButton.textContent).toBe("Tell me more");
+    fireEvent.click(tellMeMoreButton);
+    expect(tellMeMoreButton.textContent).toBe("Tell me less");
+  });
+
+  test("the longer description is shown when the button is pressed", () => {
+    render(
+      <AudienceContext>
+        <TopicCard topic={topic} />
+      </AudienceContext>,
+    );
+    const tellMeMoreButton = screen.getByRole("button");
+    const descriptionHolder = screen.getByTestId("description-container");
+    expect(descriptionHolder.textContent.trim()).toBe(topic.descriptions[0].short);
+    fireEvent.click(tellMeMoreButton);
+    expect(descriptionHolder.textContent.trim()).toBe(topic.descriptions[0].long);
   });
 });

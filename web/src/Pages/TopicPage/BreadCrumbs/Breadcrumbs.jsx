@@ -7,7 +7,7 @@ import { sendBreadCrumbEvent } from "../../../utils/gaEvents";
 
 function Breadcrumbs({ grandParent, parent, current }) {
   return (
-    <div className="bg-backdrop">
+    <div className="bg-backdrop h-[65px]">
       <nav data-testid="desktop" id="desktop" className="desktop">
         <span className="desktop-container">
           <Link

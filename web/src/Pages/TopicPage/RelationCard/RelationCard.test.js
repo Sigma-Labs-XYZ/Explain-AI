@@ -1,4 +1,4 @@
-import { render, screen, within } from "@testing-library/react";
+import { fireEvent, render, screen, within } from "@testing-library/react";
 import React from "react";
 import { BrowserRouter } from "react-router-dom";
 import AudienceContext from "../../../components/AudienceContext";
@@ -58,7 +58,10 @@ describe("link elements", () => {
         wrapper: BrowserRouter,
       },
     );
+    expect(global.window.location.pathname).toBe("/");
     const link = screen.getByRole("link");
+    fireEvent.click(link);
+    expect(global.window.location.pathname).toBe(`/${name}`);
     expect(link).toHaveAttribute("href", `/${name}`);
     const img = within(link).getByRole("img");
     expect(img).toHaveAttribute("src", `${name}.png`);
