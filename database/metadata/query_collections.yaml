@@ -1,23 +1,6 @@
 - name: allowed-queries
   definition:
     queries:
-      - name: groups
-        query: |
-          query GET_GROUPS {
-            group {
-              name
-              items {
-                topic {
-                  name
-                  slug
-                  image
-                  descriptions {
-                    extra_short
-                  }
-                }
-              }
-            }
-          }
       - name: Topics
         query: |
           query TOPICS {
@@ -108,5 +91,23 @@
             }
             insert_hierarchy(objects: $hierarchies, on_conflict: {update_columns:[],constraint:hierarchy_pkey}) {
               affected_rows
+            }
+          }
+      - name: groups
+        query: |
+          query GET_GROUPS {
+            group {
+              name
+              description
+              items {
+                topic {
+                  name
+                  slug
+                  image
+                  descriptions {
+                    extra_short
+                  }
+                }
+              }
             }
           }
