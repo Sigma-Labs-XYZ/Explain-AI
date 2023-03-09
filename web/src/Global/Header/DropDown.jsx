@@ -9,8 +9,8 @@ export default function DropDown() {
   return (
     <select
       onChange={(e) => {
-        setAudience(e.target.value);
-        sendAudienceLevelChangeEvent(e.target.value);
+        setAudience(Number(e.target.value));
+        sendAudienceLevelChangeEvent(Number(e.target.value));
       }}
       className="select-pg"
       value={audience}
