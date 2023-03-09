@@ -1,4 +1,13 @@
-- comment: ""
+- comment: A list of groups for the homepage
+  definition:
+    query:
+      collection_name: allowed-queries
+      query_name: groups
+  methods:
+    - GET
+  name: groups
+  url: groups
+- comment: A single topic, return all audiences
   definition:
     query:
       collection_name: allowed-queries
@@ -7,7 +16,7 @@
     - GET
   name: Topic_All_Audiences
   url: topic/:slug
-- comment: ""
+- comment: A single topic with a single audience level (5/10/adult)
   definition:
     query:
       collection_name: allowed-queries
@@ -16,7 +25,7 @@
     - GET
   name: Topic
   url: topic/:slug/:audience
-- comment: ""
+- comment: A list of all topics in the database
   definition:
     query:
       collection_name: allowed-queries

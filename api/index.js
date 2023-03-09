@@ -24,6 +24,13 @@ app.get("/topics", async (_, res) => {
   res.send(topics);
 });
 
+app.get("/groups", async (_, res) => {
+  const endpoint = `${DB_ENDPOINT}/api/rest/groups`;
+  const response = await fetch(endpoint, { method: "GET", headers });
+  const topics = await response.json();
+  res.send(topics);
+});
+
 app.get("/topic/:slug", async (req, res) => {
   const audience = req.query.audience ? `/${req.query.audience}` : "";
   const endpoint = `${DB_ENDPOINT}/api/rest/topic/${req.params.slug}${audience}`;
@@ -33,7 +40,10 @@ app.get("/topic/:slug", async (req, res) => {
   if (!topic) return res.status(404).send("Topic not found");
   if (topic.descriptions?.length) return res.send(json);
   else {
-    const newTopic = await generateTopic({ topicName: topic.name, audience:audience });
+    const newTopic = await generateTopic({
+      topicName: topic.name,
+      audience: audience,
+    });
     const parsedTopic = parseTopic(newTopic);
     // TODO: saveToDB
     // TODO: return newly generated topic
