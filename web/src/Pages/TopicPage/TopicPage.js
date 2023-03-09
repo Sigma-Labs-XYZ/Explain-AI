@@ -45,6 +45,7 @@ export default function TopicPage() {
         <h2 className="text-left text-4xl ml-5 text-white font-extrabold mb-5 mt-16 superWideDesktop:ml-[14.5%]">
           Related
         </h2>
+        {/* <h1 className="text-left text-white ml-5 mb-5 mt-16 superWideDesktop:ml-[15%]">Related</h1> */}
         {topicData.relationships &&
           topicData.relationships.map((rel) =>
             rel.audience === audience ? (
