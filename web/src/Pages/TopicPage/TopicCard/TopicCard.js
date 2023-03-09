@@ -40,11 +40,12 @@ function TopicCard({ topic }) {
           >
             {buttonTxt}
           </button>
-          <div className="w-56 h-56 -mb-24 mt-10 phone:w-32 phone:h-32 phone:-mb-16 phone: ml-[25%]">
+
+          <div className="w-56 h-56 -mb-28 mt-5 phone:w-32 phone:h-32 phone:-mb-16 phone: ml-[25%] tablet:w-44 tablet:h-44">
             <img
               src={imageHandler()}
               alt={`A representation of ${topic.name}`}
-              className="rounded-full h-full w-full"
+              className="h-full w-full rounded-full"
             />
           </div>
         </div>

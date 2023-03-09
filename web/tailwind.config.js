@@ -8,6 +8,8 @@ module.exports = {
     screens: {
       phone: { max: "400.5px" },
       superWideDesktop: "1000.5px",
+      desktop: { max: "1000px", min: "401px" },
+      tablet: { max: "650px", min: "401px" },
     },
   },
   plugins: [],
