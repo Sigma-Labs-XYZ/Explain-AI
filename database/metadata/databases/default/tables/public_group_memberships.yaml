@@ -1,0 +1,22 @@
+table:
+  name: group_memberships
+  schema: public
+object_relationships:
+  - name: group
+    using:
+      manual_configuration:
+        column_mapping:
+          group_id: id
+        insertion_order: null
+        remote_table:
+          name: group
+          schema: public
+  - name: topic
+    using:
+      manual_configuration:
+        column_mapping:
+          topic_slug: slug
+        insertion_order: null
+        remote_table:
+          name: topic
+          schema: public

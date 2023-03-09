@@ -1,6 +1,31 @@
 - name: allowed-queries
   definition:
     queries:
+      - name: groups
+        query: |
+          query GET_GROUPS {
+            group {
+              name
+              items {
+                topic {
+                  name
+                  slug
+                  image
+                  descriptions {
+                    extra_short
+                  }
+                }
+              }
+            }
+          }
+      - name: Topics
+        query: |
+          query TOPICS {
+            topic {
+              slug
+              name
+            }
+          }
       - name: Topic
         query: |
           query GET_TOPIC ($slug: String, $audience: numeric) {
@@ -67,13 +92,5 @@
                 }
                 description
               }
-            }
-          }
-      - name: Topics
-        query: |
-          query TOPICS {
-            topic {
-              slug
-              name
             }
           }

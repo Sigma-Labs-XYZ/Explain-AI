@@ -1,0 +1,95 @@
+[
+  {
+    "name": "Science",
+    "description": "Subjects related to the natural world and scientific inquiry",
+    "children": [
+      "Physical Science",
+      "Life Science",
+      "Earth Science",
+      "Maths",
+      "Computer Science"
+    ]
+  },
+  {
+    "name": "Social Studies",
+    "description": "Subjects related to the study of human society and relationships between individuals, groups, and institutions",
+    "children": ["History", "Geography", "Civics", "Economics", "Sociology"]
+  },
+  {
+    "name": "Language and Literature",
+    "description": "Subjects related to the use of language for communication and creative expression",
+    "children": [
+      "Reading and Writing",
+      "Language Usage",
+      "Literary Analysis",
+      "Public Speaking",
+      "Media Literacy"
+    ]
+  },
+  {
+    "name": "Arts and Humanities",
+    "description": "Subjects related to the creative expression and interpretation of art and culture",
+    "children": [
+      "Visual Arts",
+      "Music",
+      "Theater",
+      "Film and Media",
+      "Philosophy"
+    ]
+  },
+  {
+    "name": "Health and Fitness",
+    "description": "Subjects related to physical and mental health, nutrition, and fitness",
+    "children": [
+      "Physical Health",
+      "Mental Health",
+      "Nutrition",
+      "Safety",
+      "Fitness"
+    ]
+  },
+  {
+    "name": "Technology and Engineering",
+    "description": "Subjects related to the design, development, and application of technology and engineering",
+    "children": [
+      "Electronics and Robotics",
+      "Mechanical Engineering",
+      "Civil Engineering",
+      "Environmental Engineering",
+      "Sustainability"
+    ]
+  },
+  {
+    "name": "Law and Justice",
+    "description": "Subjects related to the study of law and justice systems",
+    "children": [
+      "Criminal Law",
+      "Civil Law",
+      "Constitutional Law",
+      "International Law",
+      "Environmental Law"
+    ]
+  },
+  {
+    "name": "Science and Technology in Society",
+    "description": "Subjects related to the study of the social and cultural dimensions of science and technology",
+    "children": [
+      "Ethics and Values",
+      "Social Impacts",
+      "History and Philosophy",
+      "Innovation and Creativity",
+      "Science Communication"
+    ]
+  },
+  {
+    "name": "Global Studies",
+    "description": "Subjects related to the study of global issues and cultural diversity",
+    "children": [
+      "Cultural Diversity",
+      "International Relations",
+      "Human Geography",
+      "Global Issues",
+      "Peace and Conflict Studies"
+    ]
+  }
+]

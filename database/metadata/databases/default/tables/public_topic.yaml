@@ -30,6 +30,15 @@ array_relationships:
         remote_table:
           name: description
           schema: public
+  - name: groups
+    using:
+      manual_configuration:
+        column_mapping:
+          slug: topic_slug
+        insertion_order: null
+        remote_table:
+          name: group_memberships
+          schema: public
   - name: relationships
     using:
       manual_configuration:
