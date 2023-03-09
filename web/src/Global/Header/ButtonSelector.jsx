@@ -9,7 +9,7 @@ const audiences = [
   { value: 20, label: "Adult" },
 ];
 
-export default function ButtonSelector() {
+function ButtonSelector() {
   const { audience, setAudience } = useContext(ageContext);
   return (
     <>
@@ -29,3 +29,5 @@ export default function ButtonSelector() {
     </>
   );
 }
+
+export default ButtonSelector;

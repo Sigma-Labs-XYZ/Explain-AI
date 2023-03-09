@@ -1,7 +1,7 @@
 /* eslint-disable react/jsx-no-bind */
 import React from "react";
 import { Link } from "react-router-dom";
-import "./Header.scss";
+import "./Header.css";
 import DropDown from "./DropDown";
 import ButtonSelector from "./ButtonSelector";
 

@@ -14,6 +14,7 @@ import { audienceChangeOnSubjectEvent } from "../../utils/gaEvents";
 export default function TopicPage() {
   const { topic } = useParams();
   const [retrievedTopics, setRetrievedTopics] = useState();
+  const [topicData, setTopicData] = useState();
   const { audience } = useContext(ageContext);
   const MAIN_URL = `${process.env.REACT_APP_API_ENDPOINT}/topic/${topic}`;
   const [isLoading, setIsLoading] = useState(true);
@@ -23,6 +24,9 @@ export default function TopicPage() {
       const fetchedData = await fetchData(MAIN_URL);
       setTimeout(() => {
         setRetrievedTopics(fetchedData);
+        const data = fetchedData?.topic?.[0];
+
+        setTopicData(data);
         setIsLoading(false);
       }, 5000);
     };
@@ -34,8 +38,6 @@ export default function TopicPage() {
   }, [audience]);
 
   if (isLoading) return <TopicPageLoading />;
-
-  const topicData = retrievedTopics?.topic?.[0];
 
   if (topicData) {
     return (
