@@ -21,14 +21,14 @@ export default function TopicPage() {
 
   useEffect(() => {
     const doFetch = async () => {
+      console.log(`doing a fetch for ${topic}`);
       const fetchedData = await fetchData(MAIN_URL);
-      setTimeout(() => {
-        setRetrievedTopics(fetchedData);
-        const data = fetchedData?.topic?.[0];
+      setRetrievedTopics(fetchedData);
+      const data = fetchedData?.topic?.[0];
 
-        setTopicData(data);
-        setIsLoading(false);
-      }, 5000);
+      setTopicData(data);
+
+      setIsLoading(false);
     };
     doFetch();
   }, [MAIN_URL]);
@@ -37,6 +37,13 @@ export default function TopicPage() {
     audienceChangeOnSubjectEvent(topic, audience);
   }, [audience]);
 
+  useEffect(() => {
+    console.log(isLoading);
+  }, [isLoading]);
+
+  function loading() {
+    setIsLoading(true);
+  }
   if (isLoading) return <TopicPageLoading />;
 
   if (topicData) {
@@ -47,7 +54,11 @@ export default function TopicPage() {
           grandParent={topicData.parent.parent.grandparent.grandparent}
           current={topic}
         />
-        <TopicCard topic={retrievedTopics.topic[0]} />
+        <TopicCard
+          topic={retrievedTopics.topic[0]}
+          // isLoading={isLoading}
+          // setIsLoading={setIsLoading}
+        />
 
         <h2 className="text-left text-3xl ml-5 text-white font-bold mb-5 mt-16 superWideDesktop:ml-[15%]">
           Related
@@ -62,6 +73,8 @@ export default function TopicPage() {
                 description={rel.description}
                 image={rel.to.image}
                 parent={topic}
+                // eslint-disable-next-line react/jsx-no-bind
+                loading={loading}
               />
             ) : null,
           )}

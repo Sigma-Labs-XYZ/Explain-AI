@@ -6,14 +6,14 @@ export default function TopicCardLoading() {
   return (
     <div className="topic-card-parent">
       <div className="topic-card">
-        <div>
+        <div className="topic-card-title">
           <h1>
-            <Skeleton className="m-[20px] " />
+            <Skeleton height={50} width={200} className="m-[20px] " />
           </h1>
         </div>
-        <div>
+        <div className="topic-card-description">
           <p data-testid="description-container" className="topic-desc">
-            <Skeleton count={3} className="ml-[20px] mr-[15px] w-[100%]" />
+            <Skeleton count={3} />
           </p>
         </div>
 

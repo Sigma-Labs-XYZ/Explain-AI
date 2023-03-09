@@ -3,12 +3,13 @@ import { Link } from "react-router-dom";
 import PropType from "prop-types";
 import { sendRelationEvent, sendClickEvent } from "../../../utils/gaEvents";
 
-function RelationCard({ name, description, image, parent }) {
+function RelationCard({ name, description, image, parent, loading }) {
   return (
     <Link
       to={`/${name.toLowerCase()}`}
       title={`link to ${name.toLowerCase()}`}
       onClick={() => {
+        loading();
         sendRelationEvent(parent, name);
         sendClickEvent("RelationCard", name);
       }}
