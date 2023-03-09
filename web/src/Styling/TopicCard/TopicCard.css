@@ -10,7 +10,7 @@
     /* width: 100vh; */
   }
   .topic-card-parent .topic-card-img-btn {
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     justify-content: center;
   }
@@ -27,7 +27,7 @@
     transition: max-height 300ms ease-in;
   }
 }
-@media screen and (min-width: 602px) {
+/* @media screen and (min-width: 602px) {
   .topic-card-parent .topic-card {
     width: 600px;
   }
@@ -41,7 +41,7 @@
     transform: translateY(55px);
     transition: transform 300ms ease-in;
   }
-}
+} */
 @media screen and (min-width: 1001px) {
   .topic-card-parent .topic-card {
     width: 70.5%;
