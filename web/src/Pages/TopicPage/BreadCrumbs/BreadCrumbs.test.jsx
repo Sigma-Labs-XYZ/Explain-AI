@@ -16,7 +16,6 @@ test("Clicking on a breadcrumb navigates you to that route", async () => {
   const breadCrumbLinkComputing = screen.getAllByText("computing"); // find the first link
   const breadCrumbLinkMaths = screen.getAllByText("maths");
   const allLinks = breadCrumbLinkComputing.concat(breadCrumbLinkMaths);
-
   expect(global.window.location.pathname).toBe("/");
   allLinks.forEach((item) => {
     const breadCrumbText = item.textContent;

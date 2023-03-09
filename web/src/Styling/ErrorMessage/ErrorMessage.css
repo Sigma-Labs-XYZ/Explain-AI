@@ -1,3 +1,23 @@
+@-webkit-keyframes error-wiggle {
+  0% {
+    transform: translateX(2%);
+  }
+  20% {
+    transform: translateX(-2%);
+  }
+  40% {
+    transform: translateX(2%);
+  }
+  60% {
+    transform: translateX(-2%);
+  }
+  80% {
+    transform: translateX(2%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
 @keyframes error-wiggle {
   0% {
     transform: translateX(2%);
@@ -34,19 +54,12 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  animation: error-wiggle 400ms ease-in forwards;
+  -webkit-animation: error-wiggle 400ms ease-in forwards;
+          animation: error-wiggle 400ms ease-in forwards;
 }
 .error-container .error-message h1,
 .error-container .error-message h2 {
   margin: 0;
   margin-bottom: 20px;
   margin-top: 10px;
-}
-.error-container .error-message h1 {
-  @apply text-2xl;
-  @apply font-bold;
-}
-.error-container .error-message h2 {
-  @apply text-xl;
-  @apply font-bold;
 }/*# sourceMappingURL=ErrorMessage.css.map */

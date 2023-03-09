@@ -17,6 +17,14 @@
     transform: scale(0.75);
     transition: transform 300ms ease-in;
   }
+  .topic-card-parent .topic-card-description {
+    max-height: 350px;
+    overflow: auto;
+  }
+  .topic-card-parent .topic-card-description.expanding {
+    max-height: 700px;
+    transition: max-height 300ms ease-in;
+  }
 }
 @media screen and (min-width: 602px) {
   .topic-card-parent .topic-card {
@@ -31,6 +39,14 @@
     transform: scale(1);
     transition: transform 300ms ease-out;
   }
+  .topic-card-parent .topic-card-description {
+    max-height: 250px;
+    overflow: auto;
+  }
+  .topic-card-parent .topic-card-description.expanding {
+    max-height: 600px;
+    transition: max-height 300ms ease-in;
+  }
 }
 .topic-card-parent .topic-card {
   border: none !important;
@@ -41,6 +57,7 @@
   padding-right: 2em;
   text-align: justify;
   border: none;
+  overflow: auto;
 }
 .topic-card-parent .topic-card-title {
   margin: 0px;
@@ -51,8 +68,6 @@
 .topic-card-parent .topic-card-title h1 {
   margin-top: 20px;
   margin-bottom: 10px;
-  @apply text-2xl;
-  @apply font-bold;
 }
 .topic-card-parent .topic-card-img-btn {
   display: flex;
@@ -87,5 +102,4 @@
 }
 .topic-card-parent .topic-card-img-btn .topic-card-img img {
   height: 100%;
-  @apply object-cover;
 }/*# sourceMappingURL=TopicCard.css.map */
