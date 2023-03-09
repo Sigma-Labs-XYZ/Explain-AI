@@ -1,7 +1,10 @@
 {
   "name": "web",
   "jest": {
-    "resetMocks": false
+    "resetMocks": false,
+    "setupFiles": [
+      "dotenv/config"
+    ]
   },
   "version": "0.1.0",
   "private": true,
