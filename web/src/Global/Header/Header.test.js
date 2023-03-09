@@ -62,12 +62,12 @@ describe("localStorage tests", () => {
         </BrowserRouter>
       </AudienceContext>,
     );
-    const value = "10";
+    const value = 10;
     const select = screen.getByRole("combobox");
     const option = screen.getByRole("option", { name: value });
     userEvent.selectOptions(select, option);
     expect(localStorage.setItem).toHaveBeenLastCalledWith(key, value);
-    expect(localStorage.__STORE__[key]).toBe(value);
+    expect(localStorage.__STORE__[key]).toBe(String(value));
   });
 });
 
