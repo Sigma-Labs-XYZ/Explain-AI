@@ -16,6 +16,7 @@
       padding-right: 2em;
       text-align: justify;
       border: none;
+      overflow: auto;
     }
   }
   & .topic-card-title {
@@ -61,7 +62,6 @@
       overflow: hidden;
       & img {
         height: 100%;
-        @apply object-cover;
       }
     }
   }

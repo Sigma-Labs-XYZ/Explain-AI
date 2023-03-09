@@ -3,8 +3,7 @@ $phone-screen-width: 94%;
 $image-displacement-screen: 40%, 30%;
 $image-displacement-phone: 0%, 30%;
 $image-shrinkage: 0.75;
-
-@mixin img-btn-phone-display {
+ssd @mixin img-btn-phone-display {
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -16,21 +15,31 @@ $image-shrinkage: 0.75;
 }
 
 @mixin screen-size-change {
-  @media screen and (max-width: 1000px) and (min-width: 400px) {
+  @media screen and (max-width: 601px) {
     .topic-card {
       width: $phone-screen-width;
     }
     .topic-card-img-btn {
-      @include img-btn-screen-display;
+      @include img-btn-phone-display;
       & .topic-card-img {
         width: 230px;
         height: 230px;
         transform: translateY(55px);
+        transform: scale($image-shrinkage);
         transition: transform 300ms ease-in;
       }
     }
+
+    & .topic-card-description {
+      max-height: 350px;
+      overflow: auto;
+    }
+    & .topic-card-description.expanding {
+      max-height: 700px;
+      transition: max-height 300ms ease-in;
+    }
   }
-  @media screen and (min-width: 1001px) {
+  @media screen and (min-width: 602px) {
     .topic-card {
       width: $wide-screen-width;
     }
@@ -58,6 +67,8 @@ $image-shrinkage: 0.75;
         width: 200px;
         height: 200px;
         transform: translateY(75px);
+        transform: translate(20px, 0);
+        transform: scale(1);
         transition: transform 300ms ease-in;
       }
 
@@ -65,6 +76,14 @@ $image-shrinkage: 0.75;
         margin-left: 30px;
         margin-top: 40px;
       }
+    }
+    & .topic-card-description {
+      max-height: 250px;
+      overflow: auto;
+    }
+    & .topic-card-description.expanding {
+      max-height: 600px;
+      transition: max-height 300ms ease-in;
     }
   }
 }
