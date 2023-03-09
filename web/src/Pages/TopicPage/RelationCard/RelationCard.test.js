@@ -1,4 +1,4 @@
-import { fireEvent, render, screen, within } from "@testing-library/react";
+import { render, screen, within, fireEvent } from "@testing-library/react";
 import React from "react";
 import { BrowserRouter } from "react-router-dom";
 import AudienceContext from "../../../components/AudienceContext";
@@ -45,6 +45,19 @@ describe("Test if all elements of RelationCard are rendered", () => {
     const topicImg = screen.getByRole("img");
     expect(topicImg).toHaveAttribute("src", `${name}.png`);
     expect(topicImg).toHaveAttribute("alt", name);
+  });
+  test("Failure to find image resolves to default image", () => {
+    render(
+      <AudienceContext>
+        <RelationCard name={name} description={description} image={image} />
+      </AudienceContext>,
+      {
+        wrapper: BrowserRouter,
+      },
+    );
+    const img = screen.getByRole("img");
+    fireEvent.error(img);
+    expect(img.src).toBe("http://localhost/no-image.jpeg");
   });
 });
 

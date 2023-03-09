@@ -3,6 +3,7 @@ import PropType from "prop-types";
 import { ageContext } from "../../../components/AudienceContext";
 import "../../../Styling/TopicCard/TopicCard.css";
 import { sendClickEvent } from "../../../utils/gaEvents";
+import { replaceImage } from "../../../components/ErrorMessage";
 /* eslint react/forbid-prop-types: 0 */
 
 function TopicCard({ topic }) {
@@ -10,10 +11,6 @@ function TopicCard({ topic }) {
   const [descLength, setDescLength] = useState("short");
   const [buttonTxt, setButtonTxt] = useState("Tell me more");
   const description = topic.descriptions?.find?.(({ audience: a }) => audience === a)[descLength];
-  const imageHandler = () => {
-    const imageError = typeof topic.image !== "string" || topic.image === ""; // this may be changed depending on how the API responds
-    return imageError ? "./no-image.jpeg" : topic.image;
-  };
   const lengthSetter = () => {
     setDescLength(descLength === "short" ? "long" : "short");
     setButtonTxt(descLength === "short" ? "Tell me less" : "Tell me more");
@@ -43,8 +40,9 @@ function TopicCard({ topic }) {
 
           <div className="w-56 h-56 -mb-28 mt-5 phone:w-32 phone:h-32 phone:-mb-16 phone: ml-[25%] tablet:w-32 tablet:h-32 tablet:-mb-16">
             <img
-              src={imageHandler()}
+              src={topic?.image}
               alt={`A representation of ${topic.name}`}
+              onError={replaceImage}
               className="h-full w-full rounded-full"
             />
           </div>

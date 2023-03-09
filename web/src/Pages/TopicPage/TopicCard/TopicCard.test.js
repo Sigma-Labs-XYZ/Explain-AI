@@ -1,5 +1,5 @@
 import React from "react";
-import { fireEvent, render, screen } from "@testing-library/react";
+import { render, screen, fireEvent } from "@testing-library/react";
 import TopicCard from "./TopicCard";
 import testData from "./dummy_data.json";
 import AudienceContext from "../../../components/AudienceContext";
@@ -20,14 +20,15 @@ describe("Tests for TopicCard using RTL", () => {
     expect(button.textContent).toMatch(/Tell me more/i);
     expect(image.src).toBe(topic.image);
   });
-  test("Renders dummy image if dummy data has no image", () => {
+  test("Renders dummy image if dummy data has no image", async () => {
     // topic.image = false;
     render(
       <AudienceContext>
-        <TopicCard topic={{ ...topic, image: false }} />
+        <TopicCard topic={{ ...topic, image: "noadsdaz" }} />
       </AudienceContext>,
     );
     const image = screen.getByRole("img");
+    fireEvent.error(image);
     expect(image.src).toBe("http://localhost/no-image.jpeg");
   });
 });
