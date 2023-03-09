@@ -1,4 +1,6 @@
 - "!include public_description.yaml"
+- "!include public_group.yaml"
+- "!include public_group_memberships.yaml"
 - "!include public_hierarchy.yaml"
 - "!include public_relationship.yaml"
 - "!include public_topic.yaml"

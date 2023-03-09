@@ -1,0 +1,13 @@
+table:
+  name: group
+  schema: public
+array_relationships:
+  - name: items
+    using:
+      manual_configuration:
+        column_mapping:
+          id: group_id
+        insertion_order: null
+        remote_table:
+          name: group_memberships
+          schema: public
