@@ -59,4 +59,3 @@ describe("test the show me more button loads more text", () => {
     expect(descriptionHolder.textContent.trim()).toBe(topic.descriptions[0].long);
   });
 });
-ß;
