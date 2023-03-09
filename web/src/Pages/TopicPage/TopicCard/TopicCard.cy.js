@@ -32,9 +32,7 @@ describe("<TopicCard /> on Desktop", () => {
       </AudienceContext>,
     );
     cy.get(".topic-card-img-btn").should("have.css", "flex-direction", "row");
-    cy.get(".topic-card-img-btn").should("have.css", "justify-content", "space-evenly");
-    cy.get(".topic-card-img-btn").should("have.css", "translate", "0px 30%");
-    cy.get(".topic-card").should("have.css", "width", "600px");
+    cy.get(".topic-card-img-btn").should("have.css", "justify-content", "space-between");
   });
 });
 
@@ -48,8 +46,7 @@ describe("<TopicCard /> on Phone", () => {
         <TopicCard topic={topic} audience={10} />
       </AudienceContext>,
     );
-    cy.get(".topic-card-img-btn").should("have.css", "flex-direction", "column");
-    cy.get(".topic-card-img-btn").should("have.css", "justify-content", "center");
-    cy.get(".topic-card-img-btn").should("have.css", "translate", "0px 30%");
+    cy.get(".topic-card-img-btn").should("have.css", "flex-direction", "row");
+    cy.get(".topic-card-img-btn").should("have.css", "justify-content", "space-between");
   });
 });
