@@ -11,10 +11,6 @@ function TopicCard({ topic }) {
   const [descLength, setDescLength] = useState("short");
   const [buttonTxt, setButtonTxt] = useState("Tell me more");
   const description = topic.descriptions?.find?.(({ audience: a }) => audience === a)[descLength];
-  const imageHandler = () => {
-    const imageError = typeof topic.image !== "string" || topic.image === ""; // this may be changed depending on how the API responds
-    return imageError ? "./no-image.jpeg" : topic.image;
-  };
   const lengthSetter = () => {
     setDescLength(descLength === "short" ? "long" : "short");
     setButtonTxt(descLength === "short" ? "Tell me less" : "Tell me more");
