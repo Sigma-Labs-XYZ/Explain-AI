@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter, MemoryRouter } from "react-router-dom";
 import TopicPageLoading from "./TopicPageLoading";
 import TopicPage from "../TopicPage";
 import "../../../index.css";
@@ -8,7 +8,7 @@ import "../../../Styling/TopicBreadcrumbs/TopicBreadcrumbs.css";
 import dimensions from "../../../Tests/dimensions";
 import { checkPropTypes } from "prop-types";
 import TestingData from "./TestingData.json";
-import fetchData from "../../../utils/networking";
+import AudienceContext from "../../../components/AudienceContext";
 
 const topic = { ...TestingData.topic[0] };
 describe("<TopicPageLoading />", () => {
@@ -35,8 +35,13 @@ describe("<TopicPageLoading />", () => {
 
 describe("Testing skeleton on Topic Page", () => {
   it("Should display skeleton", () => {
-    cy.stub(window, "fetchData").returns(new Promise(() => {}));
-    cy.mount(<TopicPage />);
+    cy.mount(
+      <BrowserRouter>
+        <AudienceContext>
+          <TopicPage />
+        </AudienceContext>
+      </BrowserRouter>,
+    );
     cy.get("[data-testid=skeleton]").should("be.visible");
   });
 });
