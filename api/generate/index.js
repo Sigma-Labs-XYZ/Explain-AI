@@ -31,7 +31,8 @@ async function getImage({ name }) {
     const imageUrl = data.value[0].contentUrl;
     return imageUrl || "";
   } catch (error) {
-    throw new Error(error);
+    console.error(error);
+    return "";
   }
 }
 
