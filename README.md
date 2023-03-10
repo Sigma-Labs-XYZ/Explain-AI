@@ -12,7 +12,7 @@ To run the application, you will need to open 3 terminal instances and run each 
 
 ## Terminal 1. Launch the database
 
-The database runs inside a Docker container. 
+The database runs inside a Docker container.
 
 1. You will need to [install Docker](https://docs.docker.com/desktop/install/mac-install/)
 2. Ensure it is running on your computer to run the database.
