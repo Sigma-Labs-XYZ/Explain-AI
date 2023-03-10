@@ -7,6 +7,15 @@
     - GET
   name: groups
   url: groups
+- comment: Adds a new topic to the database
+  definition:
+    query:
+      collection_name: allowed-queries
+      query_name: Insert Topic
+  methods:
+    - POST
+  name: Insert Topic
+  url: topic
 - comment: A single topic, return all audiences
   definition:
     query:
