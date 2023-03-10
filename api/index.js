@@ -13,6 +13,26 @@ const port = 4000;
 const DB_ENDPOINT = process.env.DB_ENDPOINT || "http://localhost:8080";
 const DB_SECRET = process.env.DB_SECRET || "admin_secret";
 
+const getTopic = async ({ slug }) => {
+  try {
+    const endpoint = `${DB_ENDPOINT}/api/rest/topic/${slug}`;
+    const response = await fetch(endpoint, { method: "GET", headers });
+    const json = await response.json();
+    const topic = json?.topic?.[0];
+    if (!topic) return null;
+    const isGenerated = topic?.descriptions?.length > 0;
+    return { ...json, isGenerated };
+  } catch (e) {
+    console.log(e);
+  }
+};
+
+const saveToDB = async ({ data }) => {
+  const endpoint = `${DB_ENDPOINT}/api/rest/topic`;
+  const body = JSON.stringify(data);
+  await fetch(endpoint, { method: "POST", headers, body });
+};
+
 const headers = {
   "Content-Type": "application/json",
   "X-Hasura-Admin-Secret": DB_SECRET,
@@ -32,36 +52,18 @@ app.get("/groups", async (_, res) => {
   res.send(topics);
 });
 
-const getTopic = async ({ slug, audience }) => {
-  try {
-    const audience = audience ? `/${slug}` : "";
-    const endpoint = `${DB_ENDPOINT}/api/rest/topic/${slug}${audience}`;
-    const response = await fetch(endpoint, { method: "GET", headers });
-    const json = await response.json();
-    const topic = json?.topic?.[0];
-    if (!topic) return null;
-    const isGenerated = topic?.descriptions?.length > 0;
-    return { ...json, isGenerated };
-  } catch (e) {
-    console.log(e);
-  }
-};
-
 app.get("/topic/:slug", async (req, res) => {
-  const { audience } = req.query;
   const { slug } = req.params;
-  const topic = await getTopic({ slug, audience });
+  const topic = await getTopic({ slug });
   if (!topic) return res.status(404).send("Topic not found");
   return res.send(topic);
 });
 
 app.post("/topic", async (req, res) => {
   const { slug, data } = await generate({ name: req.body.name });
-  const endpoint = `${DB_ENDPOINT}/api/rest/topic`;
-  const body = JSON.stringify(data);
-  await fetch(endpoint, { method: "POST", headers, body });
-  const topic = await getTopic({ slug, audience });
-  if (!topic) return res.status(404).send("Topic not found");
+  await saveToDB({ data });
+  const topic = await getTopic({ slug });
+  if (!topic) return res.status(404).send("Topic not generated");
   return res.send(topic);
 });
 
