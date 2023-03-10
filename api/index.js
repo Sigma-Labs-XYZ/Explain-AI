@@ -53,18 +53,26 @@ app.get("/groups", async (_, res) => {
 });
 
 app.get("/topic/:slug", async (req, res) => {
-  const { slug } = req.params;
-  const topic = await getTopic({ slug });
-  if (!topic) return res.status(404).send("Topic not found");
-  return res.send(topic);
+  try {
+    const { slug } = req.params;
+    const topic = await getTopic({ slug });
+    if (!topic) throw new Error("Topic not found");
+    return res.send(topic);
+  } catch (e) {
+    res.status(404).send(e);
+  }
 });
 
 app.post("/topic", async (req, res) => {
-  const { slug, data } = await generate({ name: req.body.name });
-  await saveToDB({ data });
-  const topic = await getTopic({ slug });
-  if (!topic) return res.status(404).send("Topic not generated");
-  return res.send(topic);
+  try {
+    const { slug, data } = await generate({ name: req.body.name });
+    await saveToDB({ data });
+    const topic = await getTopic({ slug });
+    if (!topic) throw new Error("Error generating topic");
+    return res.send(topic);
+  } catch (e) {
+    res.status(500).send(e);
+  }
 });
 
 app.listen(port, () => console.log(`API listening on port ${port}`));
