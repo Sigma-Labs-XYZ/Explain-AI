@@ -9,6 +9,8 @@
   & .topic-card {
     border: none !important;
     background-color: white;
+    display: flex;
+    flex-direction: column;
     & .topic-card-description {
       padding-left: 2em;
       padding-right: 2em;
@@ -21,19 +23,23 @@
     margin: 0px;
     display: flex;
     padding-left: 2rem;
-    align-self: center;
+    align-self: space-between;
     & h1 {
       margin-top: 20px;
-      margin-bottom: 10px;
+      margin-bottom: 20px;
+      @apply text-4xl;
+      @apply font-bold;
     }
   }
   & .topic-card-img-btn {
+    justify-content: space-between;
+    margin-left: 32px;
+    margin-right: 85px;
     display: flex;
-    width: 100%;
-    translate: 0px 30%;
+    transform: translateY(75px);
+
     & button {
       border: none;
-      padding: 10px;
       font-size: 15px;
       padding-left: 50px;
       padding-right: 50px;
@@ -43,19 +49,18 @@
       background-color: #d1d1d1;
       &:hover {
         background-color: #dadada;
-        transition: all 200ms ease-in-out;
-        transform: scale(1.05);
+        // transition: all 200ms ease-in-out;
+        // transform: scale(1.05);
       }
     }
     & .topic-card-img {
       display: flex;
-      width: 200px;
-      height: 200px;
       border-radius: 50%;
       background-color: rgb(49, 38, 38);
       justify-content: center;
       align-items: center;
       overflow: hidden;
+      min-width: 240px;
       & img {
         height: 100%;
       }
