@@ -33,7 +33,7 @@ export function audienceChangeOnSubjectEvent(subject, audience) {
   ReactGA.event({
     category: "audience level for subject",
     action: "audience for subject changed",
-    label: `${subject}:${audience}}`,
+    label: `${subject}:${audience}`,
   });
 }
 
@@ -41,6 +41,6 @@ export function sendAudienceLevelChangeEvent(level) {
   ReactGA.event({
     category: "changed audience level",
     action: "Changed audience age level",
-    label: `Changed to :${level}}`,
+    label: `Changed to :${level}`,
   });
 }
