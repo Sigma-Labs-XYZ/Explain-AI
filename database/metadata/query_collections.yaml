@@ -1,23 +1,6 @@
 - name: allowed-queries
   definition:
     queries:
-      - name: groups
-        query: |
-          query GET_GROUPS {
-            group {
-              name
-              items {
-                topic {
-                  name
-                  slug
-                  image
-                  descriptions {
-                    extra_short
-                  }
-                }
-              }
-            }
-          }
       - name: Topics
         query: |
           query TOPICS {
@@ -91,6 +74,40 @@
                   image
                 }
                 description
+              }
+            }
+          }
+      - name: Insert Topic
+        query: |
+          mutation ADD_TOPIC ($topics: [topic_insert_input!]!, $descriptions: [description_insert_input!]!, $relationships: [relationship_insert_input!]!, $hierarchies: [hierarchy_insert_input!]!) {
+            insert_topic(objects: $topics, on_conflict: {update_columns:[],constraint:topic_pkey}) {
+              affected_rows
+            }
+            insert_description(objects: $descriptions, on_conflict: {update_columns:[],constraint:description_pkey}) {
+              affected_rows
+            }
+            insert_relationship(objects: $relationships, on_conflict: {update_columns:[],constraint:relationship_pkey}) {
+              affected_rows
+            }
+            insert_hierarchy(objects: $hierarchies, on_conflict: {update_columns:[],constraint:hierarchy_pkey}) {
+              affected_rows
+            }
+          }
+      - name: groups
+        query: |
+          query GET_GROUPS {
+            group {
+              name
+              description
+              items {
+                topic {
+                  name
+                  slug
+                  image
+                  descriptions {
+                    extra_short
+                  }
+                }
               }
             }
           }
