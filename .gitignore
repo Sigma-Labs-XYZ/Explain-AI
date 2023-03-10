@@ -105,3 +105,6 @@ dist
 
 
 generated
+
+# ignore cypress vid and reg
+registries/
