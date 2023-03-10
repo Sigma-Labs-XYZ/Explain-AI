@@ -32,15 +32,27 @@ app.get("/groups", async (_, res) => {
   res.send(topics);
 });
 
+const getTopic = async ({ slug, audience }) => {
+  try {
+    const audience = audience ? `/${slug}` : "";
+    const endpoint = `${DB_ENDPOINT}/api/rest/topic/${slug}${audience}`;
+    const response = await fetch(endpoint, { method: "GET", headers });
+    const json = await response.json();
+    const topic = json?.topic?.[0];
+    if (!topic) return null;
+    const isGenerated = topic?.descriptions?.length > 0;
+    return { ...json, isGenerated };
+  } catch (e) {
+    console.log(e);
+  }
+};
+
 app.get("/topic/:slug", async (req, res) => {
-  const audience = req.query.audience ? `/${req.query.audience}` : "";
-  const endpoint = `${DB_ENDPOINT}/api/rest/topic/${req.params.slug}${audience}`;
-  const response = await fetch(endpoint, { method: "GET", headers });
-  const json = await response.json();
-  const topic = json?.topic?.[0];
+  const { audience } = req.query;
+  const { slug } = req.params;
+  const topic = await getTopic({ slug, audience });
   if (!topic) return res.status(404).send("Topic not found");
-  const isGenerated = topic?.descriptions?.length > 0;
-  return res.send({ ...json, isGenerated });
+  return res.send(topic);
 });
 
 app.post("/topic", async (req, res) => {
@@ -48,8 +60,9 @@ app.post("/topic", async (req, res) => {
   const endpoint = `${DB_ENDPOINT}/api/rest/topic`;
   const body = JSON.stringify(data);
   await fetch(endpoint, { method: "POST", headers, body });
-  const get = `/topic/${slug}`;
-  app._router.handle({ method: "GET", url: get }, res, { end: res.send });
+  const topic = await getTopic({ slug, audience });
+  if (!topic) return res.status(404).send("Topic not found");
+  return res.send(topic);
 });
 
 app.listen(port, () => console.log(`API listening on port ${port}`));
