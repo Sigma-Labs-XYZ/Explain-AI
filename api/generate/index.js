@@ -29,7 +29,7 @@ async function getImage({ name }) {
   try {
     const data = await request(options);
     const imageUrl = data.value[0].contentUrl;
-    return imageUrl;
+    return imageUrl || "";
   } catch (error) {
     throw new Error(error);
   }
