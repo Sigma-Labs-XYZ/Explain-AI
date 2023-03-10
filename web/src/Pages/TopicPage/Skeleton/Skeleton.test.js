@@ -29,4 +29,17 @@ describe("Rendering Topic Page", () => {
       expect(skeleton).toBeInTheDocument();
     });
   });
+
+  test("Testing if Skeleton is Present whe", () => {
+    fetch.mockResponseOnce(JSON.stringify(TestingData));
+
+    render(
+      <AudienceContext>
+        <TopicPage />
+      </AudienceContext>,
+      {
+        wrapper: BrowserRouter,
+      },
+    );
+  });
 });

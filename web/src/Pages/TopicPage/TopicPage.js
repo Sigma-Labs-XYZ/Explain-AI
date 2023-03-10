@@ -26,7 +26,6 @@ export default function TopicPage() {
       const data = fetchedData?.topic?.[0];
 
       setTopicData(data);
-
       setIsLoading(false);
     };
     doFetch();
@@ -50,7 +49,7 @@ export default function TopicPage() {
           current={topic}
         />
         <TopicCard
-          topic={retrievedTopics.topic[0]}
+          topic={topicData}
           // isLoading={isLoading}
           // setIsLoading={setIsLoading}
         />
