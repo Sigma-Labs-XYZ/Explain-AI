@@ -66,8 +66,8 @@ header {
       font-family: $fontStyle;
       min-width: 70px;
       text-align: right;
-      @media (max-width:$small-phone-width) {
-        display:none;
+      @media (max-width: $small-phone-width) {
+        display: none;
       }
     }
     .select-pg {
