@@ -1,14 +1,14 @@
 # ExplainAI
 
-This is a monorepo composed of three packages.
+This is a monorepo composed of two packages.
 
-- Web (Front End)
-- API (Back End)
-- Database
+- `hasura` (Backend as a service)
+- `nextjs` (Static site generator)
 
 # Quick Start
 
-To run the application, you will need to open 3 terminal instances and run each of these steps in a separate terminal.
+1. Ensure Docker is running
+2. `yarn start`
 
 ## Terminal 1. Launch the database
 

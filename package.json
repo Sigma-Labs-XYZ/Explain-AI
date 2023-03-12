@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "My Project",
   "scripts": {
-    "start": "docker-compose up --build --remove-orphans --force-recreate",
-    "start:reset": "sh database/database-reset.sh && docker-compose up"
+    "database": "docker-compose up",
+    "database:reset": "sh docker-reset.sh && docker-compose up --build --remove-orphans --force-recreate"
   },
   "author": "Me",
   "license": "Commercial",

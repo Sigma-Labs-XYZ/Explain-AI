@@ -1,16 +1,13 @@
 "use client";
+import useLocal from "use-local-storage-state";
 
 export default function Header() {
+  const [audience, setAudience] = useLocal("audience", { defaultValue: "10" });
   return (
     <>
       <button
         onClick={() => {
-          // set local storage
-          const currentAudience = window.localStorage.getItem("audience");
-          window.localStorage.setItem(
-            "audience",
-            currentAudience === "5" ? "10" : "5"
-          );
+          setAudience(audience === "5" ? "10" : "5");
         }}
       >
         test

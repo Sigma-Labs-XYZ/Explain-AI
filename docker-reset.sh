@@ -10,7 +10,7 @@ then
 else
     echo "No containers found"
 fi
-repos=("explainai-database-engine" "explainai-database-api" "hasura/graphql-engine" "postgres")
+repos=("explainai-postgres" "explainai-hasura" "hasura/graphql-engine" "explainai-nextjs")
 for i in "${repos[@]}"
 do
     images=$(docker images -qa $i)

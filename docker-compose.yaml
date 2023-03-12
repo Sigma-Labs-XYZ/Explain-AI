@@ -1,59 +1,44 @@
 version: "3.6"
 services:
-  explainai-database-engine:
-    container_name: explainai-database-engine
+  explainai-postgres:
+    container_name: explainai-postgres
     image: postgres:13.0-alpine
     restart: always
     volumes:
       - db_data:/var/lib/postgresql/data
     environment:
       POSTGRES_PASSWORD: postgrespassword
-  explainai-database-api:
-    container_name: explainai-database-api
+  explainai-hasura:
+    container_name: explainai-hasura
     image: hasura/graphql-engine:v2.19.0-ce.cli-migrations-v3
     ports:
       - "8080:8080"
     depends_on:
-      - "explainai-database-engine"
+      - "explainai-postgres"
     restart: always
     volumes:
-      - ./database/migrations:/hasura-migrations
-      - ./database/metadata:/hasura-metadata
+      - ./hasura/migrations:/hasura-migrations
+      - ./hasura/metadata:/hasura-metadata
     environment:
       HASURA_GRAPHQL_ENABLE_CONSOLE: "true"
       HASURA_GRAPHQL_DEV_MODE: "true"
-      HASURA_GRAPHQL_ENABLED_LOG_TYPES: startup, http-log, webhook-log, websocket-log, query-log
+      HASURA_GRAPHQL_ENABLED_LOG_TYPES: startup, query-log
       HASURA_GRAPHQL_ADMIN_SECRET: admin_secret
-      DATABASE_URL: postgres://postgres:postgrespassword@explainai-database-engine:5432/postgres
-      HASURA_GRAPHQL_DATABASE_URL: postgres://postgres:postgrespassword@explainai-database-engine:5432/postgres
-  explainai-backend-api:
-    container_name: explainai-backend-api
-    working_dir: /app
-    build: ./api
-    ports:
-      - "4000:4000"
-    volumes:
-      - "./api:/app"
-      - "/app/node_modules"
-    environment:
-      - DB_ENDPOINT=http://explainai-database-api:8080
-      - DB_SECRET=admin_secret
-    depends_on:
-      - explainai-database-api
-    restart: always
-  explainai-frontend-web:
-    container_name: explainai-frontend-react
-    working_dir: /app
-    build: ./web
-    ports:
-      - "3000:3000"
-    volumes:
-      - "./web:/app"
-      - "/app/node_modules"
-    environment:
-      - REACT_APP_API_ENDPOINT=http://localhost:4000
-      - REACT_APP_MEASUREMENT_ID=G-NDPH0VPH2Y
-    stdin_open: true
-    tty: true
+      DATABASE_URL: postgres://postgres:postgrespassword@explainai-postgres:5432/postgres
+      HASURA_GRAPHQL_DATABASE_URL: postgres://postgres:postgrespassword@explainai-postgres:5432/postgres
+  # explainai-nextjs:
+  #   build:
+  #     context: ./nextjs
+  #     target: runner
+  #   depends_on:
+  #     - "explainai-hasura"
+  #   volumes:
+  #     - ./nextjs:/app
+  #   command: npm run dev
+  #   ports:
+  #     - "3000:3000"
+  #   environment:
+  #     NODE_ENV: development
+  #     REVALIDATE_SECRET: secret
 volumes:
   db_data:
