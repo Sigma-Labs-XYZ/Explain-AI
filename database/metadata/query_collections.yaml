@@ -42,41 +42,6 @@
               }
             }
           }
-      - name: Topic_All_Audiences
-        query: |
-          query GET_TOPIC_ALL_AUDIENCES ($slug: String) {
-            topic(where: {slug:{_eq:$slug}}) {
-              name
-              image
-              created_at
-              descriptions {
-                short
-                long
-                audience
-              }
-              parent {
-                parent {
-                  slug
-                  name
-                  grandparent: parent {
-                    grandparent: parent {
-                      slug
-                      name
-                    }
-                  }
-                }
-              }
-              relationships {
-                audience
-                to {
-                  slug
-                  name
-                  image
-                }
-                description
-              }
-            }
-          }
       - name: Insert Topic
         query: |
           mutation ADD_TOPIC ($topics: [topic_insert_input!]!, $descriptions: [description_insert_input!]!, $relationships: [relationship_insert_input!]!, $hierarchies: [hierarchy_insert_input!]!) {
@@ -108,6 +73,49 @@
                     extra_short
                   }
                 }
+              }
+            }
+          }
+      - name: All Topics
+        query: |
+          query ALL_TOPICS {
+            topics: topic {
+              topic: slug
+            }
+          }
+      - name: Topic_All_Audiences
+        query: |
+          query GET_TOPIC_ALL_AUDIENCES ($slug: String) {
+            topic(where: {slug:{_eq:$slug}}) {
+              slug
+              name
+              image
+              created_at
+              descriptions {
+                short
+                long
+                audience
+              }
+              parent {
+                parent {
+                  slug
+                  name
+                  grandparent: parent {
+                    grandparent: parent {
+                      slug
+                      name
+                    }
+                  }
+                }
+              }
+              relationships {
+                audience
+                to {
+                  slug
+                  name
+                  image
+                }
+                description
               }
             }
           }

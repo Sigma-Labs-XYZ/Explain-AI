@@ -43,3 +43,12 @@
     - GET
   name: Topics
   url: topics
+- comment: ""
+  definition:
+    query:
+      collection_name: allowed-queries
+      query_name: All Topics
+  methods:
+    - GET
+  name: All Topics
+  url: topics/all
