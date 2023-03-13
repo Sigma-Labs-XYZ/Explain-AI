@@ -59,8 +59,6 @@ export default function TopicPage() {
         />
         <TopicCard
           topic={topicData}
-          // isLoading={isLoading}
-          // setIsLoading={setIsLoading}
         />
 
         <h2 className="text-left text-3xl ml-5 text-white font-bold mb-5 mt-16 superWideDesktop:ml-[14.5%]">
