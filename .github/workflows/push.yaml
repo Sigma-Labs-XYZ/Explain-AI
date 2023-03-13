@@ -58,7 +58,7 @@ jobs:
         with:
           node-version: "18"
       - name: Install Cypress
-        run: npm install cypress@12.7.0
+        run: npm install cypress@8.19.2
       - name: Run tests with Cypress
         run: npx cypress run --component
         env:
