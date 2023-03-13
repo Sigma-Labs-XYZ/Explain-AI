@@ -8,7 +8,7 @@ import data from "../HomePageDummyData.json";
 describe("Test to check spacing and colors on groups <HomePage />", () => {
   const { group } = data;
   beforeEach(() => {
-    cy.intercept("GET", "https://explainai-api.onrender.com/groups", { group }).as("new-fetch");
+    cy.intercept("GET", "https://explainai-api.onrender.com/groups", { group }).as("fetch-groups");
   });
   it("Test to check the text color and margins for group containers", () => {
     cy.mount(
