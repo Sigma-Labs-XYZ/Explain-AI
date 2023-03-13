@@ -27,6 +27,8 @@ export default function TopicPage() {
         return setIsLoading(false);
       }
       // Descriptions were not found, let's generate them
+      const data = fetchedData?.topic?.[0];
+      setTopicData(data);
       setIsGenerating(true);
       const GENERATE_URL = `${process.env.REACT_APP_API_ENDPOINT}/topic`;
       const generatedData = await postData({ url: GENERATE_URL, body: { name: topic } });
@@ -49,6 +51,7 @@ export default function TopicPage() {
   if (isGenerating)
     return <div style={{ textAlign: "center", marginTop: 200 }}>Generating... </div>;
   if (isLoading) return <TopicPageLoading />;
+
   if (topicData?.descriptions.length) {
     return (
       <div className="mt-[70px]">
