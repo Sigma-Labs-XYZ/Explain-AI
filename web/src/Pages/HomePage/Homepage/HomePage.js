@@ -15,7 +15,6 @@ export default function HomePage() {
   }, []);
   // eslint-disable-next-line
   const generateGroups = () => {
-    console.log(groupData);
     return groupData.group.map((group) => (
       <HomePageCard key={`${group.name}`} group={group} audience={audience} />
     ));
