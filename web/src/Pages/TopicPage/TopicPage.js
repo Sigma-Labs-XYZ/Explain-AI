@@ -50,9 +50,9 @@ export default function TopicPage() {
         <Helmet>
           <meta property="og:title" content="Topic" data-react-helmet="true" />
           <meta property="og:description" content="topic description" data-react-helmet="true" />
-          <meta
-            property="og:url"
-            content="https://deploy-preview-118--explain-ai.netlify.app/javascript"
+          <link
+            rel="canonical"
+            href="https://deploy-preview-118--explain-ai.netlify.app/javascript"
           />
         </Helmet>
         <Breadcrumbs
