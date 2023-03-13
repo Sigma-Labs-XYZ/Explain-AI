@@ -1,5 +1,5 @@
 .topic-card-parent {
-  margin: 0px;
+  margin: 100px;
   margin-top: 20px;
   display: flex;
   justify-content: center;
@@ -125,4 +125,4 @@
 }
 .topic-card-parent .topic-card-img-btn .topic-card-img img {
   height: 100%;
-} /*# sourceMappingURL=TopicCard.css.map */
+}/*# sourceMappingURL=TopicCard.css.map */
