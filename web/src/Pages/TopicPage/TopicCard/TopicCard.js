@@ -39,11 +39,13 @@ function TopicCard({ topic }) {
           >
             {buttonTxt}
           </button>
+
           <div className="topic-card-img">
             <img
               src={topic?.image}
               alt={`A representation of ${topic.name}`}
               onError={replaceImage}
+              className=""
             />
           </div>
         </div>
