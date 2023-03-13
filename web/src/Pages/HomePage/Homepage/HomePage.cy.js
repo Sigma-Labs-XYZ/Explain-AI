@@ -9,14 +9,12 @@ describe("Test to check spacing and colors on groups <HomePage />", () => {
   Cypress.on("uncaught:exception", (err, runnable) => false);
 
   const { group } = data;
-  // beforeEach(() => {
-  //   cy.intercept("/dummy").as("dummy");
-  //   cy.intercept("GET", "https://explainai-api.onrender.com/groups", { group }).as("fetchgroups");
-  // });
-  it("Test to check the text color and margins for group containers", () => {
+  beforeEach(() => {
     cy.intercept("/dummy").as("dummy");
     cy.intercept("GET", "https://explainai-api.onrender.com/groups", { group }).as("fetchgroups");
-
+    cy.wait(5000); //eslint-disable-line
+  });
+  it("Test to check the text color and margins for group containers", () => {
     cy.mount(
       <AudienceContext>
         <BrowserRouter>
