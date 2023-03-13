@@ -35,11 +35,10 @@ export default function TopicPage() {
       const GENERATE_URL = `${process.env.REACT_APP_API_ENDPOINT}/topic`;
       const generatedData = await postData({ url: GENERATE_URL, body: { name: topic } });
       const currentTopicData = generatedData?.topic?.[0];
-      setTimeout(() => {
-        setTopicData(currentTopicData);
-        setIsGenerating(false);
-        return setIsLoading(false);
-      }, 8000);
+
+      setTopicData(currentTopicData);
+      setIsGenerating(false);
+      return setIsLoading(false);
     };
     doFetch();
   }, [MAIN_URL]);
