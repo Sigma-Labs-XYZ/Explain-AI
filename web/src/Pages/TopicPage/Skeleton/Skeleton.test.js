@@ -1,4 +1,4 @@
-import { render, screen, within, fireEvent, getAllByTestId } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import fetchMock from "jest-fetch-mock";
 import React from "react";
 import { BrowserRouter } from "react-router-dom";
@@ -28,18 +28,5 @@ describe("Rendering Topic Page", () => {
     skeletons.forEach((skeleton) => {
       expect(skeleton).toBeInTheDocument();
     });
-  });
-
-  test("Testing if Skeleton is Present whe", () => {
-    fetch.mockResponseOnce(JSON.stringify(TestingData));
-
-    render(
-      <AudienceContext>
-        <TopicPage />
-      </AudienceContext>,
-      {
-        wrapper: BrowserRouter,
-      },
-    );
   });
 });

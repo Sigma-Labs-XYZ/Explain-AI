@@ -1,16 +1,13 @@
 import React from "react";
-import { BrowserRouter, MemoryRouter } from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
 import TopicPageLoading from "./TopicPageLoading";
 import TopicPage from "../TopicPage";
 import "../../../index.css";
 import "../../../Styling/TopicCard/TopicCard.css";
 import "../../../Styling/TopicBreadcrumbs/TopicBreadcrumbs.css";
 import dimensions from "../../../Tests/dimensions";
-import { checkPropTypes } from "prop-types";
-import TestingData from "./TestingData.json";
 import AudienceContext from "../../../components/AudienceContext";
 
-const topic = { ...TestingData.topic[0] };
 describe("<TopicPageLoading />", () => {
   it("renders", () => {
     cy.mount(

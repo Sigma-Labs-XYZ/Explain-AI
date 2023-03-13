@@ -8,7 +8,9 @@ const name = "pedro";
 const description = "JavaScript is used to add interactivity to HTML pages";
 const image = `${process.env.PUBLIC_URL}pedro.png`;
 function loading() {
+  /* eslint-disable no-console */
   console.log("is loading : )");
+  /* eslint-enable no-console */
 }
 
 describe("Test if all elements of RelationCard are rendered", () => {

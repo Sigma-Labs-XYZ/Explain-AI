@@ -4,7 +4,6 @@
 /* eslint-disable react/jsx-no-comment-textnodes */
 import { React } from "react";
 import { Link } from "react-router-dom";
-import PropType from "prop-types";
 import "../../../Styling/TopicBreadcrumbs/TopicBreadcrumbs.css";
 
 function BreadcrumbLoading() {
@@ -45,17 +44,5 @@ function BreadcrumbLoading() {
     </div>
   );
 }
-
-// Breadcrumbs.propTypes = {
-//   grandParent: PropType.shape({
-//     name: PropType.string.isRequired,
-//     slug: PropType.string.isRequired,
-//   }).isRequired,
-//   parent: PropType.shape({
-//     grandParent: PropType.objectOf(PropType.string),
-//     name: PropType.string.isRequired,
-//     slug: PropType.string.isRequired,
-//   }).isRequired,
-// };
 
 export default BreadcrumbLoading;

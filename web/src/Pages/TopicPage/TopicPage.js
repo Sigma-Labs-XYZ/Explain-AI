@@ -1,6 +1,4 @@
 import React, { useState, useEffect, useContext } from "react";
-import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
-import "react-loading-skeleton/dist/skeleton.css";
 import { useParams } from "react-router-dom";
 import fetchData, { postData } from "../../utils/networking";
 import Breadcrumbs from "./BreadCrumbs/Breadcrumbs";
@@ -13,7 +11,6 @@ import { audienceChangeOnSubjectEvent } from "../../utils/gaEvents";
 
 export default function TopicPage() {
   const { topic } = useParams();
-  const [retrievedTopics, setRetrievedTopics] = useState();
   const [topicData, setTopicData] = useState();
   const { audience } = useContext(ageContext);
   const MAIN_URL = `${process.env.REACT_APP_API_ENDPOINT}/topic/${topic}`;
@@ -23,26 +20,20 @@ export default function TopicPage() {
   useEffect(() => {
     const doFetch = async () => {
       const fetchedData = await fetchData(MAIN_URL);
-<<<<<<< HEAD
-      setRetrievedTopics(fetchedData);
-      const data = fetchedData?.topic?.[0];
-
-      setTopicData(data);
-      setIsLoading(false);
-=======
       // Descriptions were found
       if (fetchedData.isGenerated) {
-        setRetrievedTopics(fetchedData);
+        const currentTopicData = fetchedData?.topic?.[0];
+        setTopicData(currentTopicData);
         return setIsLoading(false);
       }
       // Descriptions were not found, let's generate them
       setIsGenerating(true);
       const GENERATE_URL = `${process.env.REACT_APP_API_ENDPOINT}/topic`;
       const generatedData = await postData({ url: GENERATE_URL, body: { name: topic } });
-      setRetrievedTopics(generatedData);
+      const currentTopicData = generatedData?.topic?.[0];
+      setTopicData(currentTopicData);
       setIsGenerating(false);
       return setIsLoading(false);
->>>>>>> main
     };
     doFetch();
   }, [MAIN_URL]);
@@ -51,19 +42,14 @@ export default function TopicPage() {
     audienceChangeOnSubjectEvent(topic, audience);
   }, [audience]);
 
-<<<<<<< HEAD
   function loading() {
     setIsLoading(true);
   }
-  if (isLoading) return <TopicPageLoading />;
 
-  if (topicData) {
-=======
-  if (isGenerating) return <div style={{ textAlign: "center", marginTop: 200 }}>Generating...</div>;
-  if (isLoading) return <div>Loading...</div>;
-  const topicData = retrievedTopics?.topic?.[0];
+  if (isGenerating)
+    return <div style={{ textAlign: "center", marginTop: 200 }}>Generating... </div>;
+  if (isLoading) return <TopicPageLoading />;
   if (topicData?.descriptions.length) {
->>>>>>> main
     return (
       <div className="mt-[70px]">
         <Breadcrumbs
@@ -77,17 +63,9 @@ export default function TopicPage() {
           // setIsLoading={setIsLoading}
         />
 
-        <h2 className="text-left text-3xl ml-5 text-white font-bold mb-5 mt-16 superWideDesktop:ml-[15%]">
+        <h2 className="text-left text-3xl ml-5 text-white font-bold mb-5 mt-16 superWideDesktop:ml-[14.5%]">
           Related
         </h2>
-
-<<<<<<< HEAD
-=======
-        <h2 className="text-left text-4xl ml-5 text-white font-extrabold mb-5 mt-28 superWideDesktop:ml-[14.5%]">
-          Related
-        </h2>
-        {/* <h1 className="text-left text-white ml-5 mb-5 mt-16 superWideDesktop:ml-[15%]">Related</h1> */}
->>>>>>> main
         {topicData.relationships &&
           topicData.relationships.map((rel) =>
             rel.audience === audience ? (

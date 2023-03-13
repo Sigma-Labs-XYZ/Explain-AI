@@ -1,6 +1,4 @@
 import React from "react";
-import Skeleton from "react-loading-skeleton";
-import "react-loading-skeleton/dist/skeleton.css";
 import RelationCardLoading from "./RelationCardLoading";
 import TopicCardLoading from "./TopicCardLoading";
 import BreadCrumbLoading from "./BreadCrumbLoading";
