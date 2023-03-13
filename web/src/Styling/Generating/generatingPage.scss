@@ -1,0 +1,24 @@
+@import "./variables.scss";
+
+.generating {
+  margin-top: 200px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  width: 800px;
+
+  .title {
+    @include flex-center;
+    font-size: 40px;
+  }
+
+  .description {
+    @include flex-center;
+  }
+
+  .lottie {
+    margin: auto;
+    width: 200px;
+  }
+}

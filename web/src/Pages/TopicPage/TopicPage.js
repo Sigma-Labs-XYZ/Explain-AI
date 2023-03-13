@@ -26,8 +26,10 @@ export default function TopicPage() {
       }
       // Descriptions were not found, let's generate them
       setIsGenerating(true);
+
       const GENERATE_URL = `${process.env.REACT_APP_API_ENDPOINT}/topic`;
       const generatedData = await postData({ url: GENERATE_URL, body: { name: topic } });
+
       setRetrievedTopics(generatedData);
       setIsGenerating(false);
       return setIsLoading(false);

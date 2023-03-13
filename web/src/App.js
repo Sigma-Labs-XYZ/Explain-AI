@@ -3,6 +3,7 @@ import ReactGA from "react-ga4";
 import AudienceContext from "./components/AudienceContext";
 import AppRouter from "./AppRouter/AppRouter";
 import Header from "./Global/Header/Header";
+import Generating from "./Pages/TopicPage/Generating/Generating";
 
 ReactGA.initialize(process.env.REACT_APP_MEASUREMENT_ID);
 
@@ -17,6 +18,7 @@ function App() {
     <AudienceContext>
       <div className="App">
         <Header />
+        {/* <Generating /> */}
         <AppRouter />
       </div>
     </AudienceContext>

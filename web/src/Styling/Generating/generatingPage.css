@@ -1,0 +1,23 @@
+.generating {
+  margin-top: 200px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  width: 800px;
+}
+.generating .title {
+  align-self: center;
+  color: white;
+  margin-bottom: 10px;
+  font-size: 40px;
+}
+.generating .description {
+  align-self: center;
+  color: white;
+  margin-bottom: 10px;
+}
+.generating .lottie {
+  margin: auto;
+  width: 200px;
+}/*# sourceMappingURL=generatingPage.css.map */
