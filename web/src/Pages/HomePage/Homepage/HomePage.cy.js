@@ -10,11 +10,10 @@ describe("Test to check spacing and colors on groups <HomePage />", () => {
 
   const { group } = data;
   beforeEach(() => {
-    cy.intercept("GET", "https://explainai-api.onrender.com/groups", { group }).as("fetch-groups");
+    cy.intercept("/dummy").as("dummy");
+    cy.intercept("GET", "https://explainai-api.onrender.com/groups", { group }).as("fetchgroups");
   });
   it("Test to check the text color and margins for group containers", () => {
-    cy.intercept("/dummy").as("dummy");
-    cy.intercept("GET", "https://explainai-api.onrender.com/groups", { group }).as("fetch-groups");
     cy.mount(
       <AudienceContext>
         <BrowserRouter>
@@ -22,7 +21,7 @@ describe("Test to check spacing and colors on groups <HomePage />", () => {
         </BrowserRouter>
       </AudienceContext>,
     );
-    cy.get(".group-title").should("have.css", "color", "rgb(255, 255, 255)");
+    cy.get(".group-title", { timeout: 1000 }).should("have.css", "color", "rgb(255, 255, 255)");
     cy.get(".group-description").should("have.css", "color", "rgb(131, 131, 131)");
     cy.get(".groups-container").should("have.css", "margin-top", "50px");
     cy.get(".homepage-container").should("have.css", "margin", "100px 0px 0px");
