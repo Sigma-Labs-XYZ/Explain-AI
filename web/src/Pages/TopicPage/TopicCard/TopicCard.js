@@ -15,6 +15,7 @@ function TopicCard({ topic }) {
     setDescLength(descLength === "short" ? "long" : "short");
     setButtonTxt(descLength === "short" ? "Tell me less" : "Tell me more");
   };
+
   return (
     <div className="topic-card-parent">
       <div className="topic-card">
@@ -22,10 +23,11 @@ function TopicCard({ topic }) {
           <h1>{topic.name}</h1>
         </div>
         <div className={`topic-card-description ${descLength === "long" ? "expanding" : ""}`}>
-          <p data-testid="description-container" className="topic-desc">
-            {" "}
-            {description}{" "}
-          </p>
+          <div data-testid="description-container" className="topic-desc">
+            {description.split(`\n\n`).map((paragraph) => (
+              <p>{paragraph}</p>
+            ))}
+          </div>
         </div>
         <div className="topic-card-img-btn">
           <button
