@@ -13,6 +13,26 @@ const port = 4000;
 const DB_ENDPOINT = process.env.DB_ENDPOINT || "http://localhost:8080";
 const DB_SECRET = process.env.DB_SECRET || "admin_secret";
 
+const getTopic = async ({ slug }) => {
+  try {
+    const endpoint = `${DB_ENDPOINT}/api/rest/topic/${slug}`;
+    const response = await fetch(endpoint, { method: "GET", headers });
+    const json = await response.json();
+    const topic = json?.topic?.[0];
+    if (!topic) return null;
+    const isGenerated = topic?.descriptions?.length > 0;
+    return { ...json, isGenerated };
+  } catch (e) {
+    console.log(e);
+  }
+};
+
+const saveToDB = async ({ data }) => {
+  const endpoint = `${DB_ENDPOINT}/api/rest/topic`;
+  const body = JSON.stringify(data);
+  await fetch(endpoint, { method: "POST", headers, body });
+};
+
 const headers = {
   "Content-Type": "application/json",
   "X-Hasura-Admin-Secret": DB_SECRET,
@@ -33,23 +53,26 @@ app.get("/groups", async (_, res) => {
 });
 
 app.get("/topic/:slug", async (req, res) => {
-  const audience = req.query.audience ? `/${req.query.audience}` : "";
-  const endpoint = `${DB_ENDPOINT}/api/rest/topic/${req.params.slug}${audience}`;
-  const response = await fetch(endpoint, { method: "GET", headers });
-  const json = await response.json();
-  const topic = json?.topic?.[0];
-  if (!topic) return res.status(404).send("Topic not found");
-  const isGenerated = topic?.descriptions?.length > 0;
-  return res.send({ ...json, isGenerated });
+  try {
+    const { slug } = req.params;
+    const topic = await getTopic({ slug });
+    if (!topic) throw new Error("Topic not found");
+    return res.send(topic);
+  } catch (e) {
+    res.status(404).send(e);
+  }
 });
 
 app.post("/topic", async (req, res) => {
-  const { slug, data } = await generate({ name: req.body.name });
-  const endpoint = `${DB_ENDPOINT}/api/rest/topic`;
-  const body = JSON.stringify(data);
-  await fetch(endpoint, { method: "POST", headers, body });
-  const get = `/topic/${slug}`;
-  app._router.handle({ method: "GET", url: get }, res, { end: res.send });
+  try {
+    const { slug, data } = await generate({ name: req.body.name });
+    await saveToDB({ data });
+    const topic = await getTopic({ slug });
+    if (!topic) throw new Error("Error generating topic");
+    return res.send(topic);
+  } catch (e) {
+    res.status(500).send(e);
+  }
 });
 
 app.listen(port, () => console.log(`API listening on port ${port}`));

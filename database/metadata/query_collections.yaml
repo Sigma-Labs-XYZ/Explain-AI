@@ -111,3 +111,10 @@
               }
             }
           }
+      - name: All Topics
+        query: |
+          query ALL_TOPICS {
+            topics: topic {
+              topic: slug
+            }
+          }
