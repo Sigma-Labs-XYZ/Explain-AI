@@ -3,10 +3,11 @@ import { BrowserRouter } from "react-router-dom";
 import HomePage from "./HomePage";
 import AudienceContext from "../../../components/AudienceContext";
 import "../../../index.css";
+import data from "../HomePageDummyData.json";
 
 describe("Test to check spacing and colors on groups <HomePage />", () => {
   beforeEach(() => {
-    cy.intercept("GET", "https://explainai-api.onrender.com/groups");
+    cy.intercept("GET", "https://explainai-api.onrender.com/groups", { data });
   });
   it("Test to check the text color and margins for group containers", () => {
     cy.mount(
