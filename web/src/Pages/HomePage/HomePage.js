@@ -7,7 +7,7 @@ export default function HomePage() {
     <div>
       <Helmet>
         <title>My Title</title>
-        <meta name="description" content="Explain it to me. Simply." />
+        <meta name="og:description" content="og:Explain it to me. Simply." />
       </Helmet>
       <h1>Homepage</h1>
       <a href="/javascript">javascript</a>
