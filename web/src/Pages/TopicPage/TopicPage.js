@@ -48,7 +48,7 @@ export default function TopicPage() {
     return (
       <div className="mt-[80px] phone:mt-[70.5px]">
         <Helmet>
-          <meta property="og:title" content="Topic Page" />
+          <title>Javascript</title>
           <meta property="og:description" content="topic description" />
         </Helmet>
         <Breadcrumbs

@@ -7,7 +7,7 @@ export default function HomePage() {
     <div>
       <Helmet>
         {/* <title>My Title</title> */}
-        <meta property="og:title" content="Explain AI" data-react-helmet="true" />
+        <title>Explain AI</title>
         <meta
           property="og:description"
           content="Explain it to me. Simply."
