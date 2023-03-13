@@ -14,6 +14,11 @@ export default function HomePage() {
             content="Explain it to me. Simply."
             data-react-helmet="true"
           />
+          <meta
+            property="og:image"
+            content="https://example.com/my-image.jpg"
+            data-react-helmet="true"
+          />
         </Helmet>
         <h1>Homepage</h1>
         <a href="/javascript">javascript</a>
