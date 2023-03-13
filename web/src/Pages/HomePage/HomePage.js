@@ -7,10 +7,10 @@ export default function HomePage() {
     <div>
       <Helmet>
         {/* <title>My Title</title> */}
-        <meta property="og:title" content="og:Explain AI" data-react-helmet="true" />
+        <meta property="og:title" content="Explain AI" data-react-helmet="true" />
         <meta
           property="og:description"
-          content="og:Explain it to me. Simply."
+          content="Explain it to me. Simply."
           data-react-helmet="true"
         />
       </Helmet>

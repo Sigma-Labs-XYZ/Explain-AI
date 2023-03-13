@@ -48,8 +48,8 @@ export default function TopicPage() {
     return (
       <div className="mt-[80px] phone:mt-[70.5px]">
         <Helmet>
-          <meta property="og:title" content="og:Topic Page" />
-          <meta property="og:description" content="og:topic description" />
+          <meta property="og:title" content="Topic Page" />
+          <meta property="og:description" content="topic description" />
         </Helmet>
         <Breadcrumbs
           parent={topicData.parent.parent}
