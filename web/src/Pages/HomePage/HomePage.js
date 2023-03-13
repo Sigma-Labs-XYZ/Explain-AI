@@ -1,6 +1,6 @@
 import React from "react";
 // eslint-disable-next-line
-import Helmet, { HelmetProvider } from "react-helmet-async";
+import { Helmet, HelmetProvider } from "react-helmet-async";
 // import { Helmet } from "react-helmet";
 
 export default function HomePage() {
