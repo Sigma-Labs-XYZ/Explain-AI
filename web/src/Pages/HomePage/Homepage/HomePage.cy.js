@@ -13,6 +13,8 @@ describe("Test to check spacing and colors on groups <HomePage />", () => {
     cy.intercept("GET", "https://explainai-api.onrender.com/groups", { group }).as("fetch-groups");
   });
   it("Test to check the text color and margins for group containers", () => {
+    cy.intercept("/dummy").as("dummy");
+    cy.intercept("GET", "https://explainai-api.onrender.com/groups", { group }).as("fetch-groups");
     cy.mount(
       <AudienceContext>
         <BrowserRouter>
