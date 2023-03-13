@@ -8,7 +8,7 @@ import AudienceContext from "../../../components/AudienceContext";
 
 describe("checking margins for HomePageCard at each screen<HomePageCard />", () => {
   it("checking margins for a phone screen", () => {
-    cy.viewport(555, 1000);
+    cy.viewport(500, 1000);
 
     cy.mount(
       <AudienceContext>
@@ -17,7 +17,7 @@ describe("checking margins for HomePageCard at each screen<HomePageCard />", () 
         </BrowserRouter>
       </AudienceContext>,
     );
-    cy.get(".group-display-title").should("have.css", "margin", "112px 83.25px 0px 20px");
+    cy.get(".group-display-title").should("have.css", "margin", "112px 75px 0px 20px");
   });
 
   it("checking margins for a desktop screen", () => {
