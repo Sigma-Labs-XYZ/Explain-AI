@@ -6,6 +6,8 @@ import TopicCard from "./TopicCard/TopicCard";
 import ErrorMessage from "../../components/ErrorMessage";
 import RelationCard from "./RelationCard/RelationCard";
 import { ageContext } from "../../components/AudienceContext";
+// eslint-disable-next-line
+import { Helmet } from "react-helmet";
 import { audienceChangeOnSubjectEvent } from "../../utils/gaEvents";
 
 export default function TopicPage() {
@@ -45,6 +47,10 @@ export default function TopicPage() {
   if (topicData?.descriptions.length) {
     return (
       <div className="mt-[80px] phone:mt-[70.5px]">
+        <Helmet>
+          <title>TopicPage</title>
+          <meta name="description" content="Helmet application" />
+        </Helmet>
         <Breadcrumbs
           parent={topicData.parent.parent}
           grandParent={topicData.parent.parent.grandparent.grandparent}
