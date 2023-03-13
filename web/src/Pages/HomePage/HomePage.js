@@ -19,6 +19,10 @@ export default function HomePage() {
             content="https://example.com/my-image.jpg"
             data-react-helmet="true"
           />
+          <link
+            rel="canonical"
+            href="https://deploy-preview-118--explain-ai.netlify.app/javascript"
+          />
         </Helmet>
         <h1>Homepage</h1>
         <a href="/javascript">javascript</a>
