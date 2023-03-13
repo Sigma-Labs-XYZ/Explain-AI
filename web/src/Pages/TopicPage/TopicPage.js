@@ -39,7 +39,7 @@ export default function TopicPage() {
         setTopicData(currentTopicData);
         setIsGenerating(false);
         return setIsLoading(false);
-      }, 900000);
+      }, 8000);
     };
     doFetch();
   }, [MAIN_URL]);
