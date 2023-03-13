@@ -5,6 +5,9 @@ import AudienceContext from "../../../components/AudienceContext";
 import "../../../index.css";
 
 describe("Test to check spacing and colors on groups <HomePage />", () => {
+  beforeEach(() => {
+    cy.intercept("GET", "https://explainai-api.onrender.com/groups");
+  });
   it("Test to check the text color and margins for group containers", () => {
     cy.mount(
       <AudienceContext>

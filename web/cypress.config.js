@@ -7,5 +7,6 @@ module.exports = defineConfig({
       bundler: "webpack",
     },
   },
+
   video: false,
 });

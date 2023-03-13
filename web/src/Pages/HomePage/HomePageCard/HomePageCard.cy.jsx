@@ -17,7 +17,7 @@ describe("checking margins for HomePageCard at each screen<HomePageCard />", () 
         </BrowserRouter>
       </AudienceContext>,
     );
-    cy.get(".group-display-title").should("have.css", "margin", "112px 75px 0px 20px");
+    cy.get(".group-display-title").should("have.css", "margin", "112px 72.5px 0px 20px");
   });
 
   it("checking margins for a desktop screen", () => {
