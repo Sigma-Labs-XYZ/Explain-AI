@@ -33,7 +33,7 @@ describe("<TopicPageLoading />", () => {
   });
 });
 
-describe("Testing skeleton on Topic Page", () => {
+describe("Testing skeleton on Topic Page when data is not fetching, and error message appears afterwards", () => {
   it("Should display skeleton", () => {
     cy.mount(
       <BrowserRouter>
@@ -43,5 +43,6 @@ describe("Testing skeleton on Topic Page", () => {
       </BrowserRouter>,
     );
     cy.get("[data-testid=skeleton]").should("be.visible");
+    cy.get("[data-testid=error-message]").should("be.visible");
   });
 });
