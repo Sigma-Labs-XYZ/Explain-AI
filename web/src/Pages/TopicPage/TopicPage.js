@@ -57,9 +57,7 @@ export default function TopicPage() {
           grandParent={topicData.parent.parent.grandparent.grandparent}
           current={topic}
         />
-        <TopicCard
-          topic={topicData}
-        />
+        <TopicCard topic={topicData} />
 
         <h2 className="text-left text-3xl ml-5 text-white font-bold mb-5 mt-16 superWideDesktop:ml-[14.5%]">
           Related
