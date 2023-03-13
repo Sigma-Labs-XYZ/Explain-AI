@@ -34,7 +34,6 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  -webkit-animation: error-wiggle 400ms ease-in forwards;
   animation: error-wiggle 400ms ease-in forwards;
 }
 .error-container .error-message h1,
@@ -42,4 +41,4 @@
   margin: 0;
   margin-bottom: 20px;
   margin-top: 10px;
-} /*# sourceMappingURL=ErrorMessage.css.map */
+}/*# sourceMappingURL=ErrorMessage.css.map */
