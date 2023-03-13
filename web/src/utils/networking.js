@@ -23,3 +23,12 @@ export const postData = async ({ url, body }) => {
     return "unable to fetch data";
   }
 };
+
+export function homepageFetch() {
+  try {
+    const response = await fetch(`process.env.REACT_APP_ENDPOINT/groups`)
+
+  } catch(e){
+
+  }
+}
