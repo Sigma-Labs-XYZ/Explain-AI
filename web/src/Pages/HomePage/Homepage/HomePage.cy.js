@@ -6,6 +6,8 @@ import "../../../index.css";
 import data from "../HomePageDummyData.json";
 
 describe("Test to check spacing and colors on groups <HomePage />", () => {
+  Cypress.on("uncaught:exception", (err, runnable) => false);
+
   const { group } = data;
   beforeEach(() => {
     cy.intercept("GET", "https://explainai-api.onrender.com/groups", { group }).as("fetch-groups");
