@@ -20,9 +20,9 @@ export default function TopicCardLoading() {
         <div className="topic-card-img-btn">
           {/* <Skeleton height={50} width={300} className="translate-x-[13%] translate-y-[75%]" /> */}
           <button type="button" data-testid="skeleton">
-            Tell me more
+            <Skeleton />
           </button>
-          <div data-testid="skeleton">
+          <div data-testid="skeleton" className="translate-y-[50px]">
             <Skeleton circle height={200} width={200} />
           </div>
         </div>
