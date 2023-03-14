@@ -32,7 +32,7 @@ describe("<TopicPageLoading />", () => {
   });
 });
 
-describe("Testing skeleton on Topic Page when data is not fetching, and error message appears afterwards", () => {
+describe("Testing skeleton appears before normal data", () => {
   it("Should display skeleton", () => {
     cy.intercept(
       {
