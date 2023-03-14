@@ -60,7 +60,7 @@ export default function TopicPage() {
         />
         <TopicCard topic={topicData} />
 
-        <h2 className="text-left text-4xl ml-5 text-white font-extrabold mb-5 mt-28 superWideDesktop:ml-[14.5%]">
+        <h2 className="text-left text-4xl text-white font-extrabold mb-5 mt-28 superWideDesktop:">
           Related
         </h2>
         {/* <h1 className="text-left text-white ml-5 mb-5 mt-16 superWideDesktop:ml-[15%]">Related</h1> */}

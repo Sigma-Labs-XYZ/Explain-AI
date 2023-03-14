@@ -2,8 +2,8 @@
 
 .topic-card-parent {
   @include screen-size-change;
-  margin: 0px;
-  margin-top: 20px;
+  // margin: 0px;
+  // margin-top: 20px;
   display: flex;
   justify-content: center;
   & .topic-card {

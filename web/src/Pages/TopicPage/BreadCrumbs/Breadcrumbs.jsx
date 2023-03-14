@@ -44,7 +44,7 @@ function Breadcrumbs({ grandParent, parent, current }) {
           to={`/${grandParent.slug}`}
         >
           <button className="mobile-parent-btn">
-            <span className="ml-7">
+            <span className="">
               {" "}
               {grandParent.name}
               {"  > "}{" "}
@@ -60,7 +60,7 @@ function Breadcrumbs({ grandParent, parent, current }) {
           to={`/${parent.slug}`}
         >
           <button className="mobile-grandParent-btn">
-            <span className="ml-7">
+            <span className="">
               {" "}
               {parent.name}
               {"  > "}{" "}

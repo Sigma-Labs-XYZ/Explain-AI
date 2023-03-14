@@ -12,7 +12,7 @@
   @include respond-to("large") {
     display: block;
     margin-top: 30px;
-    margin-left: 14.6%;
+    // margin-left: 14.6%;
   }
 }
 
@@ -29,17 +29,17 @@
 }
 
 .desktop {
-  @apply ml-7 w-screen bg-backdrop;
+  @apply w-screen bg-backdrop;
 }
 
 .desktop-container {
-  @apply w-screen bg-backdrop text-white capitalize p-0.5;
+  @apply w-screen bg-backdrop text-white capitalize;
 }
 
 .mobile-parent-btn {
-  @apply bg-backdrop2 pb-2 pt-2 text-left text-white capitalize w-screen;
+  @apply bg-backdrop2 pt-2 text-left text-white capitalize w-screen;
 }
 
 .mobile-grandParent-btn {
-  @apply bg-backdrop pb-2 pt-2 text-left text-white capitalize w-screen;
+  @apply bg-backdrop pt-2 text-left text-white capitalize w-screen;
 }
