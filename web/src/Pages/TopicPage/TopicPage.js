@@ -15,6 +15,7 @@ export default function TopicPage() {
   const MAIN_URL = `${process.env.REACT_APP_API_ENDPOINT}/topic/${topic}`;
   const [isLoading, setIsLoading] = useState(true);
   const [isGenerating, setIsGenerating] = useState(false);
+  const [isDevMode, setIsDevMode] = useState(false);
 
   useEffect(() => {
     const doFetch = async () => {
@@ -27,6 +28,7 @@ export default function TopicPage() {
       // Descriptions were not found, let's generate them
       setIsGenerating(true);
       const GENERATE_URL = `${process.env.REACT_APP_API_ENDPOINT}/topic`;
+      if (process.env.NODE_ENV === "development") return setIsDevMode(true);
       const generatedData = await postData({ url: GENERATE_URL, body: { name: topic } });
       setRetrievedTopics(generatedData);
       setIsGenerating(false);
@@ -39,6 +41,12 @@ export default function TopicPage() {
     audienceChangeOnSubjectEvent(topic, audience);
   }, [audience]);
 
+  if (isDevMode)
+    return (
+      <div style={{ textAlign: "center", marginTop: 200, color: "white" }}>
+        AI generation is not enabled in local development mode
+      </div>
+    );
   if (isGenerating) return <div style={{ textAlign: "center", marginTop: 200 }}>Generating...</div>;
   if (isLoading) return <div>Loading...</div>;
   const topicData = retrievedTopics?.topic?.[0];
