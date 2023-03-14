@@ -10,10 +10,14 @@ describe("Test to check spacing and colors on groups <HomePage />", () => {
 
   const { group } = data;
   beforeEach(() => {
-    cy.intercept("/dummy").as("dummy");
-    cy.intercept("GET", "https://explainai-api.onrender.com/groups", { group }).as("fetchgroups");
-    cy.wait(5000); //eslint-disable-line
+    cy.intercept("GET", "https://explainai-api.onrender.com/groups", {
+      statusCode: 200,
+      body: {
+        group: group, //eslint-disable-line
+      },
+    }).as("fetchgroups");
   });
+
   it("Test to check the text color and margins for group containers", () => {
     cy.mount(
       <AudienceContext>
@@ -23,7 +27,8 @@ describe("Test to check spacing and colors on groups <HomePage />", () => {
       </AudienceContext>,
     );
 
-    cy.intercept("GET", "https://explainai-api.onrender.com/groups", { group });
+    cy.wait("@fetchgroups"); //eslint-disable-line
+    cy.contains("Science");
     cy.wait(5000); //eslint-disable-line
 
     cy.get(".group-title").should("have.css", "color", "rgb(255, 255, 255)");
