@@ -37,7 +37,7 @@ describe("Testing skeleton appears before normal data", () => {
       {
         method: "GET", // Route all GET requests
       },
-      { delay: 5000, body: dummyData },
+      { delay: 10000, body: dummyData },
     ).as("topicrequest");
 
     cy.mount(
