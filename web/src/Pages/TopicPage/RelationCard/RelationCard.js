@@ -19,7 +19,7 @@ function RelationCard({ name, description, image, parent }) {
         data-testid="link-div-rtl"
         data-test-id="link-div"
       >
-        <div className="text-left bg-white border-transparent mb-3 flex items-center w-full phone:ml-0 phone:pr-0">
+        <div className="text-left bg-white border-transparent mb-3 p-3 pl-10 flex items-center w-full phone:ml-0 phone:pr-0">
           <div className="pr-24 phone:mr-10">
             <h3 className="font-bold text-black mb-0 mt-4">{name}</h3>
             <p className="mt-2">{description}</p>

@@ -37,9 +37,9 @@
 }
 
 .mobile-parent-btn {
-  @apply bg-backdrop2 pt-2 text-left text-white capitalize w-screen;
+  @apply bg-backdrop2 pt-2 text-left text-white pb-2 pl-[2rem] capitalize w-screen;
 }
 
 .mobile-grandParent-btn {
-  @apply bg-backdrop pt-2 text-left text-white capitalize w-screen;
+  @apply bg-backdrop pt-2 text-left text-white pl-[2rem] capitalize w-screen;
 }

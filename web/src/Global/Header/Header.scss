@@ -4,7 +4,7 @@ header {
   @include flex-row;
   background-color: $black;
   height: 70px;
-  width: 100% !important;
+  width: 100%;
   justify-content: space-between;
   position: fixed;
   top: 0;

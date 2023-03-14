@@ -12,7 +12,7 @@ header {
           flex-direction: row;
   background-color: #000;
   height: 70px;
-  width: 100% !important;
+  width: 100%;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;

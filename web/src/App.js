@@ -3,7 +3,6 @@ import ReactGA from "react-ga4";
 import AudienceContext from "./components/AudienceContext";
 import AppRouter from "./AppRouter/AppRouter";
 import Header from "./Global/Header/Header";
-import "./App.css";
 
 ReactGA.initialize(process.env.REACT_APP_MEASUREMENT_ID);
 
