@@ -23,3 +23,18 @@ test("Clicking on a breadcrumb navigates you to that route", async () => {
     expect(global.window.location.pathname).toBe(`/${breadCrumbText}`);
   });
 });
+test("If there are no grandparents, buttonclick stays on current", async () => {
+  render(
+    <Breadcrumbs
+      parent={{ name: "computing", slug: "computing" }}
+      grandParent={null}
+      current={"IT"}
+    />,
+    {
+      wrapper: BrowserRouter,
+    },
+  );
+  const grandParentLink = (await screen.findAllByRole("link"))[0];
+  expect(grandParentLink).toHaveAttribute("href", "/IT");
+  expect(grandParentLink.textContent).toBe("");
+});
