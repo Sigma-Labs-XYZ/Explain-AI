@@ -82,7 +82,6 @@
   -webkit-box-direction: normal;
   -ms-flex-direction: column;
   flex-direction: column;
-  -webkit-animation: error-wiggle 400ms ease-in forwards;
   animation: error-wiggle 400ms ease-in forwards;
 }
 

@@ -58,8 +58,9 @@ jobs:
         with:
           node-version: "18"
       - name: Install Cypress
-        run: npm install cypress@12.7.0
+        run: npm install cypress
       - name: Run tests with Cypress
         run: npx cypress run --component
         env:
           REACT_APP_MEASUREMENT_ID: "measurement-ID"
+          REACT_APP_API_ENDPOINT: "http://localhost:4000"
