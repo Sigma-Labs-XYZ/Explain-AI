@@ -2,7 +2,6 @@
 
 .topic-card-parent {
   @include screen-size-change;
-  margin: 100px;
   margin-top: 20px;
   display: flex;
   justify-content: center;

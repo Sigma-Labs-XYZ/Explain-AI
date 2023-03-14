@@ -22,20 +22,22 @@ export default function TopicPage() {
       const fetchedData = await fetchData(MAIN_URL);
       // Descriptions were found
       if (fetchedData.isGenerated) {
-        const currentTopicData = fetchedData?.topic?.[0];
-        setTopicData(currentTopicData);
-        return setIsLoading(false);
+        setTimeout(() => {
+          const currentTopicData = fetchedData?.topic?.[0];
+          setTopicData(currentTopicData);
+          return setIsLoading(false);
+        }, 90000);
       }
       // Descriptions were not found, let's generate them
-      const data = fetchedData?.topic?.[0];
-      setTopicData(data);
-      setIsGenerating(true);
-      const GENERATE_URL = `${process.env.REACT_APP_API_ENDPOINT}/topic`;
-      const generatedData = await postData({ url: GENERATE_URL, body: { name: topic } });
-      const currentTopicData = generatedData?.topic?.[0];
-      setTopicData(currentTopicData);
-      setIsGenerating(false);
-      return setIsLoading(false);
+      // const data = fetchedData?.topic?.[0];
+      // setTopicData(data);
+      // setIsGenerating(true);
+      // const GENERATE_URL = `${process.env.REACT_APP_API_ENDPOINT}/topic`;
+      // const generatedData = await postData({ url: GENERATE_URL, body: { name: topic } });
+      // const currentTopicData = generatedData?.topic?.[0];
+      // setTopicData(currentTopicData);
+      // setIsGenerating(false);
+      // return setIsLoading(false);
     };
     doFetch();
   }, [MAIN_URL]);
@@ -62,7 +64,7 @@ export default function TopicPage() {
         />
         <TopicCard topic={topicData} />
 
-        <h2 className="text-left text-3xl ml-5 text-white font-bold mb-5 mt-16 superWideDesktop:ml-[14.5%]">
+        <h2 className="text-left ml-5 text-white mb-5 mt-16 superWideDesktop:ml-[14.5%]">
           Related
         </h2>
         {topicData.relationships &&

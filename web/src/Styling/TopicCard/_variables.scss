@@ -53,7 +53,7 @@ $image-shrinkage: 0.75;
   }
   @media screen and (max-width: 700px) {
     .topic-card {
-      width: 100%;
+      width: 600px;
     }
     & .topic-card-img-btn {
       display: flex;

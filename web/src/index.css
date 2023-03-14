@@ -3,8 +3,7 @@
 @tailwind utilities;
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu",
-    "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #4e4d4d;
@@ -32,4 +31,4 @@ h3 {
 
 h4 {
   @apply text-xl  font-bold;
-} /*# sourceMappingURL=App.css.map */ /*# sourceMappingURL=index.css.map */
+} /*# sourceMappingURL=App.css.map *//*# sourceMappingURL=index.css.map */

@@ -1,5 +1,4 @@
 .topic-card-parent {
-  margin: 100px;
   margin-top: 20px;
   display: flex;
   justify-content: center;
@@ -43,7 +42,7 @@
 }
 @media screen and (max-width: 700px) {
   .topic-card-parent .topic-card {
-    width: 100%;
+    width: 600px;
   }
   .topic-card-parent .topic-card-img-btn {
     display: flex;
@@ -125,4 +124,4 @@
 }
 .topic-card-parent .topic-card-img-btn .topic-card-img img {
   height: 100%;
-} /*# sourceMappingURL=TopicCard.css.map */
+}/*# sourceMappingURL=TopicCard.css.map */
