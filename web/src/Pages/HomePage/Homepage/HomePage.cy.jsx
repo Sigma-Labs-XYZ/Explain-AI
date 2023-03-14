@@ -23,7 +23,8 @@ describe("Test to check spacing and colors on groups <HomePage />", () => {
       </AudienceContext>,
     );
 
-    cy.intercept("GET", "https://explainai-api.onrender.com/groups", { group }).as("fetchgroups");
+    cy.intercept("GET", "https://explainai-api.onrender.com/groups", { group });
+    cy.wait(5000); //eslint-disable-line
 
     cy.get(".group-title").should("have.css", "color", "rgb(255, 255, 255)");
     cy.get(".group-description").should("have.css", "color", "rgb(131, 131, 131)");

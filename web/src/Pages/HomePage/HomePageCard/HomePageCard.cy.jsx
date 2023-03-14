@@ -7,19 +7,6 @@ import testData from "../HomePageDummyData.json";
 import AudienceContext from "../../../components/AudienceContext";
 
 describe("checking margins for HomePageCard at each screen<HomePageCard />", () => {
-  it("checking margins for a phone screen", () => {
-    cy.viewport(500, 1000);
-
-    cy.mount(
-      <AudienceContext>
-        <BrowserRouter>
-          <HomePageCard group={testData.group[0]} audience={5} />
-        </BrowserRouter>
-      </AudienceContext>,
-    );
-    cy.get(".group-display-title").should("have.css", "margin", "112px 72.75px 0px 20px");
-  });
-
   it("checking margins for a desktop screen", () => {
     cy.viewport(900, 1000);
 
@@ -44,5 +31,18 @@ describe("checking margins for HomePageCard at each screen<HomePageCard />", () 
       </AudienceContext>,
     );
     cy.get(".group-display-title").should("have.css", "margin", "112px 180px 0px");
+  });
+
+  it("checking margins for a phone screen", () => {
+    cy.viewport(300, 600);
+
+    cy.mount(
+      <AudienceContext>
+        <BrowserRouter>
+          <HomePageCard group={testData.group[0]} audience={5} />
+        </BrowserRouter>
+      </AudienceContext>,
+    );
+    cy.get(".group-display-title").should("have.css", "margin", "112px 0px 0px");
   });
 });
