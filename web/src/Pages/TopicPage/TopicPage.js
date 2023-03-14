@@ -8,6 +8,7 @@ import RelationCard from "./RelationCard/RelationCard";
 import TopicPageLoading from "./Skeleton/TopicPageLoading";
 import { ageContext } from "../../components/AudienceContext";
 import { audienceChangeOnSubjectEvent } from "../../utils/gaEvents";
+import Generating from "./Generating/Generating";
 
 export default function TopicPage() {
   const { topic } = useParams();
@@ -17,27 +18,32 @@ export default function TopicPage() {
   const [isLoading, setIsLoading] = useState(true);
   const [isGenerating, setIsGenerating] = useState(false);
 
+  function loading() {
+    setIsLoading(true);
+  }
+
   useEffect(() => {
+    // eslint-disable-next-line consistent-return
     const doFetch = async () => {
       const fetchedData = await fetchData(MAIN_URL);
       // Descriptions were found
       if (fetchedData.isGenerated) {
-        setTimeout(() => {
-          const currentTopicData = fetchedData?.topic?.[0];
-          setTopicData(currentTopicData);
-          return setIsLoading(false);
-        }, 90000);
+        const currentTopicData = fetchedData?.topic?.[0];
+        setTopicData(currentTopicData);
+        // currentTopicData;
+        return setIsLoading(false);
       }
       // Descriptions were not found, let's generate them
-      // const data = fetchedData?.topic?.[0];
-      // setTopicData(data);
-      // setIsGenerating(true);
-      // const GENERATE_URL = `${process.env.REACT_APP_API_ENDPOINT}/topic`;
-      // const generatedData = await postData({ url: GENERATE_URL, body: { name: topic } });
-      // const currentTopicData = generatedData?.topic?.[0];
-      // setTopicData(currentTopicData);
-      // setIsGenerating(false);
-      // return setIsLoading(false);
+      const data = fetchedData?.topic?.[0];
+      setTopicData(data);
+      setIsGenerating(true);
+      const GENERATE_URL = `${process.env.REACT_APP_API_ENDPOINT}/topic`;
+      const generatedData = await postData({ url: GENERATE_URL, body: { name: topic } });
+      const currentTopicData = generatedData?.topic?.[0];
+
+      setTopicData(currentTopicData);
+      setIsGenerating(false);
+      return setIsLoading(false);
     };
     doFetch();
   }, [MAIN_URL]);
@@ -46,12 +52,7 @@ export default function TopicPage() {
     audienceChangeOnSubjectEvent(topic, audience);
   }, [audience]);
 
-  function loading() {
-    setIsLoading(true);
-  }
-
-  if (isGenerating)
-    return <div style={{ textAlign: "center", marginTop: 200 }}>Generating... </div>;
+  if (isGenerating) return <Generating topic={topicData} />;
   if (isLoading) return <TopicPageLoading />;
 
   if (topicData?.descriptions.length) {

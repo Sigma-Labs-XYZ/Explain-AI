@@ -13,6 +13,7 @@
         query: |
           query GET_TOPIC ($slug: String, $audience: numeric) {
             topic(where: {slug:{_eq:$slug}}) {
+              slug
               name
               image
               created_at
