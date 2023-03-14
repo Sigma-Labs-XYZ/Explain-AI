@@ -7,6 +7,8 @@ import "../../../Styling/TopicCard/TopicCard.css";
 import "../../../Styling/TopicBreadcrumbs/TopicBreadcrumbs.css";
 import dimensions from "../../../Tests/dimensions";
 import AudienceContext from "../../../components/AudienceContext";
+import App from "../../../App";
+import dummyData from "../TopicCard/dummy_data.json";
 
 describe("<TopicPageLoading />", () => {
   it("renders", () => {
@@ -32,6 +34,13 @@ describe("<TopicPageLoading />", () => {
 
 describe("Testing skeleton on Topic Page when data is not fetching, and error message appears afterwards", () => {
   it("Should display skeleton", () => {
+    cy.intercept(
+      {
+        method: "GET", // Route all GET requests
+      },
+      { delay: 5000, body: dummyData },
+    ).as("topicrequest");
+
     cy.mount(
       <BrowserRouter>
         <AudienceContext>
@@ -39,7 +48,13 @@ describe("Testing skeleton on Topic Page when data is not fetching, and error me
         </AudienceContext>
       </BrowserRouter>,
     );
-    cy.get("[data-testid=skeleton]").should("be.visible");
-    cy.get("[data-testid=error-message]").should("be.visible");
+    const skeleton = cy.get("[data-testid=skeleton]");
+    skeleton.should();
+
+    // eslint-disable-next-line testing-library/await-async-utils
+    cy.wait("@topicrequest");
+
+    cy.get("[data-testid=skeleton]").should("not.be.visible");
+    cy.get("[data-testid=loadedPage]").should("be.visible");
   });
 });

@@ -28,8 +28,8 @@ export default function TopicPage() {
       const fetchedData = await fetchData(MAIN_URL);
       // Descriptions were found
 
-      if (fetchedData.isGenerated) {
-        const currentTopicData = fetchedData?.topic?.[0];
+      if (fetchedData?.isGenerated) {
+        const currentTopicData = fetchedData.topic?.[0];
         setTopicData(currentTopicData);
         // currentTopicData;
         return setIsLoading(false);
@@ -42,7 +42,6 @@ export default function TopicPage() {
       const GENERATE_URL = `${process.env.REACT_APP_API_ENDPOINT}/topic`;
       const generatedData = await postData({ url: GENERATE_URL, body: { name: topic } });
       const currentTopicData = generatedData?.topic?.[0];
-
       setTopicData(currentTopicData);
       setIsGenerating(false);
       return setIsLoading(false);
@@ -56,10 +55,9 @@ export default function TopicPage() {
 
   if (isGenerating) return <Generating topic={topicData} />;
   if (isLoading) return <TopicPageLoading />;
-
   if (topicData?.descriptions.length) {
     return (
-      <div className="mt-[70px]">
+      <div data-testid="loadedPage" className="mt-[70px]">
         <Breadcrumbs
           parent={topicData.parent.parent}
           grandParent={topicData.parent.parent.grandparent.grandparent}

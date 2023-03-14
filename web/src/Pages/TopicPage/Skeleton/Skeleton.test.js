@@ -4,7 +4,7 @@ import React from "react";
 import { BrowserRouter } from "react-router-dom";
 import AudienceContext from "../../../components/AudienceContext";
 import TopicPage from "../TopicPage";
-import TestingData from "./TestingData.json";
+import TestingData from "../TopicCard/dummy_data.json";
 
 beforeEach(() => {
   fetchMock.enableMocks();
