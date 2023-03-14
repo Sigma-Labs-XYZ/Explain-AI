@@ -1,6 +1,6 @@
 /* eslint-disable import/no-unresolved */
 import React from "react";
-// eslint-disable-next-line import/no-extraneous-dependencies
+// eslint-disable-next-line
 import Lottie from "lottie-react";
 import GeneratingAnimation from "./GeneratingAnimation.json";
 import "../../../Styling/Generating/generatingPage.css";
