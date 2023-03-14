@@ -4,7 +4,7 @@ export default async function fetchData(url) {
     const apiResponseJSON = await apiResponse.json();
     return apiResponseJSON;
   } catch (e) {
-    return "unable to fetch data";
+    return `Unable to fetch data: ${e}`;
   }
 }
 
@@ -23,3 +23,13 @@ export const postData = async ({ url, body }) => {
     return "unable to fetch data";
   }
 };
+
+export async function homepageFetch() {
+  try {
+    const response = await fetch(`${process.env.REACT_APP_API_ENDPOINT}/groups`);
+    const data = await response.json();
+    return data;
+  } catch (e) {
+    return `Unable to fetch homepage data: ${e}`;
+  }
+}
