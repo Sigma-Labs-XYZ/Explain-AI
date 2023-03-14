@@ -8,7 +8,7 @@ import data from "../HomePageDummyData.json";
 describe("Test to check spacing and colors on groups <HomePage />", () => {
   const { group } = data;
   beforeEach(() => {
-    cy.intercept("GET", "https://explainai-api.onrender.com/groups", {
+    cy.intercept("GET", "http://localhost:4000/groups", {
       statusCode: 200,
       body: {
         group,
