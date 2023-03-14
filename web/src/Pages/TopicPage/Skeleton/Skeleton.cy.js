@@ -7,7 +7,6 @@ import "../../../Styling/TopicCard/TopicCard.css";
 import "../../../Styling/TopicBreadcrumbs/TopicBreadcrumbs.css";
 import dimensions from "../../../Tests/dimensions";
 import AudienceContext from "../../../components/AudienceContext";
-import App from "../../../App";
 import dummyData from "../TopicCard/dummy_data.json";
 
 describe("<TopicPageLoading />", () => {
