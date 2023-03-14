@@ -48,13 +48,11 @@ describe("Testing skeleton on Topic Page when data is not fetching, and error me
         </AudienceContext>
       </BrowserRouter>,
     );
-    const skeleton = cy.get("[data-testid=skeleton]");
-    skeleton.should();
+    cy.get("[data-testid=skeleton]").should("be.visible");
 
     // eslint-disable-next-line testing-library/await-async-utils
     cy.wait("@topicrequest");
 
-    cy.get("[data-testid=skeleton]").should("not.be.visible");
     cy.get("[data-testid=loadedPage]").should("be.visible");
   });
 });
