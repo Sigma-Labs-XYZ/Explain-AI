@@ -1,5 +1,17 @@
-.appRouter {
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200&family=Tilt+Warp&display=swap");
+.inner {
   max-width: 1000px;
   margin: auto;
 }
-/*# sourceMappingURL=AppRouter.css.map */
+@media (max-width: 1000.5px) {
+  .inner {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+}
+@media (max-width: 475.5px) {
+  .inner {
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+} /*# sourceMappingURL=AppRouter.css.map */

@@ -11,13 +11,15 @@ export default function Header() {
   return (
     <div>
       <header>
-        <Link data-test-id="router-Link" to="/" title="Link to homepage">
-          <img src="./explainai-logo.png" alt="Explain AI" />
-        </Link>
-        <div>
-          <p className="likeIm">{labelText}</p>
-          <ButtonSelector />
-          <DropDown />
+        <div className="inner">
+          <Link data-test-id="router-Link" to="/" title="Link to homepage">
+            <img src="./explainai-logo.png" alt="Explain AI" />
+          </Link>
+          <div className="button-dropdown">
+            <p className="likeIm">{labelText}</p>
+            <ButtonSelector />
+            <DropDown />
+          </div>
         </div>
       </header>
     </div>

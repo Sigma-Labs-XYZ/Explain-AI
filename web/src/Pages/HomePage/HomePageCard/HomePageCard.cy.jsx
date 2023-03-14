@@ -18,7 +18,7 @@ describe("checking margins for HomePageCard at each screen<HomePageCard />", () 
       </AudienceContext>,
     );
     cy.get(".group-display-title").should("be.visible");
-    cy.get(".group-display-title").should("have.css", "margin", "112px 135px 0px 20px");
+    cy.get(".group-display-title").should("have.css", "margin", "112px 0px 0px");
   });
 
   it("checking margins for a super wide desktop screen", () => {
@@ -32,7 +32,7 @@ describe("checking margins for HomePageCard at each screen<HomePageCard />", () 
       </AudienceContext>,
     );
     cy.get(".group-display-title").should("be.visible");
-    cy.get(".group-display-title").should("have.css", "margin", "112px 180px 0px");
+    cy.get(".group-display-title").should("have.css", "margin", "112px 0px 0px");
   });
 
   it("checking margins for a phone screen", () => {

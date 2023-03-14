@@ -6,7 +6,7 @@ import "../Styling/AppRouter/AppRouter.css";
 
 export default function AppRouter() {
   return (
-    <div className="appRouter" data-test-id="appRouter">
+    <div className="inner">
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/:topic" element={<TopicPage />} />
