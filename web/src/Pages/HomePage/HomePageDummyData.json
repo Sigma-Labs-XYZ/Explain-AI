@@ -1,0 +1,895 @@
+{
+  "group": [
+    {
+      "name": "Science",
+      "description": "Subjects related to the natural world and scientific inquiry",
+      "items": [
+        {
+          "topic": {
+            "name": "Physical Science",
+            "slug": "physical-science",
+            "image": "http://www.vidyalai.com/blog/content/images/2020/11/ps-2.png",
+            "descriptions": [
+              {
+                "extra_short": "Physical science is the study of matter, energy, and their interactions."
+              },
+              {
+                "extra_short": "Physical science is the study of non-living things such as energy, matter, and their interactions."
+              },
+              {
+                "extra_short": "Physical science is the study of non-living things like energy, matter, motion, and forces."
+              },
+              {
+                "extra_short": "Physical Science is the study of matter, energy, and their interactions."
+              },
+              {
+                "extra_short": "Physical Science is the study of matter, energy, and their interactions with each other and the environment."
+              },
+              {
+                "extra_short": "Study of non-living systems, including physics, chemistry, and earth science."
+              },
+              {
+                "extra_short": "Physical Science is the study of matter and energy and how they interact with each other."
+              },
+              {
+                "extra_short": "Physical Science is the study of non-living things like matter, energy, and the laws of nature."
+              },
+              {
+                "extra_short": "The study of non-living things like energy, matter, and their interactions is called Physical Science."
+              }
+            ]
+          }
+        },
+        {
+          "topic": {
+            "name": "Life Science",
+            "slug": "life-science",
+            "image": "https://www.labproservices.com/media/wysiwyg/Life-Science-400x300.jpg",
+            "descriptions": [
+              {
+                "extra_short": "Life Science is the study of living things like plants, animals, and humans."
+              },
+              {
+                "extra_short": "Life Science is the study of living things, such as animals, plants, and humans."
+              },
+              {
+                "extra_short": "Life science is the study of living organisms, including biology, genetics, ecology, and zoology."
+              }
+            ]
+          }
+        },
+        {
+          "topic": {
+            "name": "Earth Science",
+            "slug": "earth-science",
+            "image": "https://images.theconversation.com/files/134532/original/image-20160817-3611-a3bkjg.jpg?ixlib=rb-1.1.0&q=45&auto=format&w=926&fit=clip",
+            "descriptions": [
+              {
+                "extra_short": "Study of Earth's natural systems, including geology, oceanography, meteorology, and astronomy."
+              },
+              {
+                "extra_short": "Earth Science is the study of the planet we live on, including rocks, water, weather, and more."
+              },
+              {
+                "extra_short": "Earth Science is the study of the planet we live on, including rocks, oceans, weather, and more."
+              }
+            ]
+          }
+        },
+        {
+          "topic": {
+            "name": "Maths",
+            "slug": "maths",
+            "image": "http://mrfinlaysclass.files.wordpress.com/2012/01/maths.jpg",
+            "descriptions": [
+              {
+                "extra_short": "Maths is using numbers, shapes, and patterns to solve problems and understand the world around us."
+              },
+              {
+                "extra_short": "Maths is the study of numbers, shapes, patterns and how they relate to each other."
+              },
+              {
+                "extra_short": "Maths is the study of numbers and quantities, shapes and patterns, and how they relate to each other."
+              }
+            ]
+          }
+        },
+        {
+          "topic": {
+            "name": "Computer Science",
+            "slug": "computer-science",
+            "image": "https://www.24x7assignmenthelp.com/wp-content/uploads/2017/03/24x7assignmenthelp.com-Ways-to-Study-Computer-Science.jpg",
+            "descriptions": [
+              {
+                "extra_short": "Computer Science is the study of computers and computing concepts, including programming, algorithms, and data structures."
+              },
+              {
+                "extra_short": "Computer Science is the study of computers and programming. It involves creating and using software and hardware."
+              },
+              {
+                "extra_short": "Computer Science is the study of computers and how to use them to solve problems."
+              },
+              {
+                "extra_short": "Computer science is the study of computers, programming, and how to use technology to solve problems."
+              },
+              {
+                "extra_short": "Computer science is the study of computers and how to use them to solve problems."
+              },
+              {
+                "extra_short": "Study of how computers work and how to program them to solve problems efficiently."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Social Studies",
+      "description": "Subjects related to the study of human society and relationships between individuals, groups, and institutions",
+      "items": [
+        {
+          "topic": {
+            "name": "History",
+            "slug": "history",
+            "image": "https://keystoneacademic-res.cloudinary.com/image/upload/f_auto,q_auto,c_fill,w_1920/element/14/147694_shutterstock_1220776030.jpg",
+            "descriptions": [
+              {
+                "extra_short": "History is the study of past events, people, and societies."
+              },
+              {
+                "extra_short": "History is the study of past events, particularly in human affairs."
+              },
+              {
+                "extra_short": "History is the story of the past - what people did, how they lived, and what happened."
+              }
+            ]
+          }
+        },
+        {
+          "topic": {
+            "name": "Geography",
+            "slug": "geography",
+            "image": "https://www.thoughtco.com/thmb/GqXa3zW1F0-ADXtc5IkbnCFdwdc=/4961x3508/filters:fill(auto,1)/world-in-geographic-projection-true-colour-satellite-image-99151124-58b9cc3e5f9b58af5ca7578d.jpg",
+            "descriptions": [
+              {
+                "extra_short": "Geography is the study of the Earth's surface, including its physical features and human inhabitants."
+              },
+              {
+                "extra_short": "Geography is the study of the Earth's surface and the way people interact with it."
+              },
+              {
+                "extra_short": "Geography is the study of the Earth's physical features, climate, and human populations and their activities."
+              }
+            ]
+          }
+        },
+        {
+          "topic": {
+            "name": "Civics",
+            "slug": "civics",
+            "image": "http://mediad.publicbroadcasting.net/p/nhpr/files/201805/Civics101Logo_V2.png",
+            "descriptions": [
+              {
+                "extra_short": "Civics is learning about how we govern ourselves and how to be good citizens."
+              },
+              {
+                "extra_short": "Civics is the study of government and citizenship, including rights and responsibilities of individuals in society."
+              },
+              {
+                "extra_short": "Civics is the study of how a government works, how laws are made, and citizens' rights and duties."
+              }
+            ]
+          }
+        },
+        {
+          "topic": {
+            "name": "Economics",
+            "slug": "economics",
+            "image": "https://cdn2.penguin.com.au/covers/original/9781409376415.jpg",
+            "descriptions": [
+              {
+                "extra_short": "Economics is the study of how people make choices about what to buy, sell, and produce."
+              },
+              {
+                "extra_short": "Economics is the study of how people make choices about using resources to satisfy their wants."
+              },
+              {
+                "extra_short": "Economics is the study of how people use resources to meet their wants and needs."
+              }
+            ]
+          }
+        },
+        {
+          "topic": {
+            "name": "Sociology",
+            "slug": "sociology",
+            "image": "https://cdn.leverageedu.com/blog/wp-content/uploads/2020/06/17164444/MA-Sociology-syllabus.png",
+            "descriptions": [
+              {
+                "extra_short": "Sociology is the study of human society and social behavior."
+              },
+              {
+                "extra_short": "Sociology is the study of human social relationships, institutions, and cultures in a scientific manner."
+              },
+              {
+                "extra_short": "Sociology is the study of human behavior and social interactions in groups and societies."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Language and Literature",
+      "description": "Subjects related to the use of language for communication and creative expression",
+      "items": [
+        {
+          "topic": {
+            "name": "Reading and Writing",
+            "slug": "reading-and-writing",
+            "image": "https://www.btsb.com/btsbcontent/uploads/2017/08/YN1U8572.jpg",
+            "descriptions": [
+              {
+                "extra_short": "Reading is looking at words and understanding their meaning. Writing is making words on paper."
+              },
+              {
+                "extra_short": "Reading is understanding written words, while writing is expressing ideas through written words."
+              },
+              {
+                "extra_short": "Reading is understanding written words. Writing is creating written words for others to read."
+              }
+            ]
+          }
+        },
+        {
+          "topic": {
+            "name": "Language Usage",
+            "slug": "language-usage",
+            "image": "http://perlhacks.com/wp-content/uploads/2014/07/graph.png",
+            "descriptions": [
+              {
+                "extra_short": "Language usage is how words and grammar are used to communicate meaning in speech or writing."
+              },
+              {
+                "extra_short": "Language usage refers to how language is used in different situations and contexts."
+              },
+              {
+                "extra_short": "Language usage is how we choose words and phrases to express ourselves effectively in communication."
+              }
+            ]
+          }
+        },
+        {
+          "topic": {
+            "name": "Literary Analysis",
+            "slug": "literary-analysis",
+            "image": "https://images.examples.com/wp-content/uploads/2017/05/Literary-Analysis-Sample2.jpg",
+            "descriptions": [
+              {
+                "extra_short": "Literary analysis is examining a piece of literature to understand its meaning and literary devices used."
+              },
+              {
+                "extra_short": "Looking closely at a story or poem to understand its meaning and how it works."
+              },
+              {
+                "extra_short": "Literary Analysis is examining and evaluating a piece of literature to understand its meaning and themes."
+              }
+            ]
+          }
+        },
+        {
+          "topic": {
+            "name": "Public Speaking",
+            "slug": "public-speaking",
+            "image": "https://blog.eonetwork.org/wp-content/uploads/2019/12/iStock-1060699320.jpg",
+            "descriptions": [
+              {
+                "extra_short": "Public speaking is the act of delivering a speech or presentation to a live audience."
+              },
+              {
+                "extra_short": "Talking in front of people to share information, persuade or entertain them."
+              },
+              {
+                "extra_short": "Talking in front of a group of people about a topic or idea."
+              }
+            ]
+          }
+        },
+        {
+          "topic": {
+            "name": "Media Literacy",
+            "slug": "media-literacy",
+            "image": "https://europeanjournalists.org/wp-content/uploads/2020/12/shutterstock_444779302-scaled.jpg",
+            "descriptions": [
+              {
+                "extra_short": "Media literacy is the ability to analyze, evaluate, and create media messages."
+              },
+              {
+                "extra_short": "Media Literacy is the ability to access, analyze, evaluate, and create media in various forms."
+              },
+              {
+                "extra_short": "Media literacy is understanding and using media in a smart and safe way."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Arts and Humanities",
+      "description": "Subjects related to the creative expression and interpretation of art and culture",
+      "items": [
+        {
+          "topic": {
+            "name": "Visual Arts",
+            "slug": "visual-arts",
+            "image": "http://www.piedmont.k12.ca.us/beach/wp/wp-content/uploads/2013/01/Art.jpg",
+            "descriptions": [
+              {
+                "extra_short": "Visual arts is creating art using visual media such as painting, drawing, sculpture, and photography."
+              },
+              {
+                "extra_short": "Visual arts are creative works that are primarily visual in nature, such as painting, drawing, and sculpture."
+              },
+              {
+                "extra_short": "Visual arts are creative activities that produce visual and/or tactile works of art, including painting, sculpture, and photography."
+              }
+            ]
+          }
+        },
+        {
+          "topic": {
+            "name": "Music",
+            "slug": "music",
+            "image": "https://www.liveabout.com/thmb/j7o7VNZ8mmJwha2M0FO6Sz9H46w=/1500x1500/filters:fill(auto,1)/pop-music-57bce3863df78c87634ea806.jpg",
+            "descriptions": [
+              {
+                "extra_short": "Music is sound organized in a meaningful way to create an emotional or aesthetic response."
+              },
+              {
+                "extra_short": "Music is sound organized in a way that is pleasing to the ear."
+              },
+              {
+                "extra_short": "Sound that makes you feel happy or sad, and can make you want to dance."
+              }
+            ]
+          }
+        },
+        {
+          "topic": {
+            "name": "Theater",
+            "slug": "theater",
+            "image": "http://engberganderson.com/wp-content/uploads/HP_Pabst_I_Stage-1536x1152.jpg",
+            "descriptions": [
+              {
+                "extra_short": "Theater is a place where people perform plays, stories, or musicals for others to watch."
+              },
+              {
+                "extra_short": "Theater is a form of art that involves live performances of actors on stage."
+              },
+              {
+                "extra_short": "Theater is a live performance art form where actors tell stories through dialogue, movement, and music."
+              }
+            ]
+          }
+        },
+        {
+          "topic": {
+            "name": "Film and Media",
+            "slug": "film-and-media",
+            "image": "https://thedepauw.com/wp-content/uploads/2023/03/jakob-owens-4modNup9AzI-unsplash-696x464.jpg",
+            "descriptions": [
+              {
+                "extra_short": "Film and media refer to movies, TV shows, videos, and other forms of visual communication."
+              },
+              {
+                "extra_short": "Film and media are forms of entertainment and communication that use visual and auditory elements."
+              },
+              {
+                "extra_short": "Film and media are forms of communication through visual and audio storytelling, often used for entertainment or information."
+              }
+            ]
+          }
+        },
+        {
+          "topic": {
+            "name": "Philosophy",
+            "slug": "philosophy",
+            "image": "https://thoughtcatalog.com/wp-content/uploads/2014/07/shutterstock_129179096.jpg?resize=768",
+            "descriptions": [
+              {
+                "extra_short": "Thinking about big questions and trying to understand the world around us."
+              },
+              {
+                "extra_short": "Philosophy is the study of knowledge, reality, existence, values, reason, mind, and language."
+              },
+              {
+                "extra_short": "Philosophy is the study of fundamental questions about existence, knowledge, values, reason, mind, and language."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Health and Fitness",
+      "description": "Subjects related to physical and mental health, nutrition, and fitness",
+      "items": [
+        {
+          "topic": {
+            "name": "Physical Health",
+            "slug": "physical-health",
+            "image": "https://4.bp.blogspot.com/-wNP5HrQ4kkM/WLLpm83qvzI/AAAAAAAAAJY/YxFLCSsszv4e03HauzgE5vg5n5XdXnACACEw/s1600/5%2BComponents%2Bof%2BPhysical%2BFitness%2B01.jpg",
+            "descriptions": [
+              {
+                "extra_short": "Physical health refers to the condition of your body and how well it functions."
+              },
+              {
+                "extra_short": "Physical health refers to the overall well-being of the body and its ability to function optimally."
+              },
+              {
+                "extra_short": "Physical health means taking care of your body by eating healthy, exercising, and getting enough rest."
+              }
+            ]
+          }
+        },
+        {
+          "topic": {
+            "name": "Mental health",
+            "slug": "mental-health",
+            "image": "https://careers-in-sport.co.uk/wp-content/uploads/2019/06/mental-health-.jpg",
+            "descriptions": [
+              {
+                "extra_short": "Mental health means feeling good in your mind and being able to handle your emotions."
+              },
+              {
+                "extra_short": "Mental health is the well-being of our emotional, psychological, and social state of mind."
+              },
+              {
+                "extra_short": "Mental health is how we feel, think, and act. It affects our overall well-being and happiness."
+              }
+            ]
+          }
+        },
+        {
+          "topic": {
+            "name": "Nutrition",
+            "slug": "nutrition",
+            "image": "https://www.parker.edu/wp-content/uploads/2019/06/iStock-876656666-nutrition.jpg",
+            "descriptions": [
+              {
+                "extra_short": "Nutrition is what we eat to keep our bodies healthy and strong."
+              },
+              {
+                "extra_short": "Nutrition is the study of the nutrients in food and how they affect the body."
+              },
+              {
+                "extra_short": "Nutrition is the food we eat that gives us energy and helps us grow and stay healthy."
+              }
+            ]
+          }
+        },
+        {
+          "topic": {
+            "name": "Safety",
+            "slug": "safety",
+            "image": "https://tss-safety.com/wp-content/uploads/2019/06/safet7.jpg",
+            "descriptions": [
+              {
+                "extra_short": "Safety means being protected from harm or danger."
+              },
+              {
+                "extra_short": "Safety means being free from harm or danger."
+              },
+              {
+                "extra_short": "Safety means being protected from harm or danger."
+              }
+            ]
+          }
+        },
+        {
+          "topic": {
+            "name": "Fitness",
+            "slug": "fitness",
+            "image": "https://www.lifestyleupdated.com/wp-content/uploads/2018/02/fitness-awareness.jpg",
+            "descriptions": [
+              {
+                "extra_short": "Fitness is being healthy and strong through regular exercise and a balanced diet."
+              },
+              {
+                "extra_short": "Fitness is being physically and mentally healthy through exercise, nutrition, and lifestyle habits."
+              },
+              {
+                "extra_short": "Fitness means being healthy and strong through exercise and healthy habits like eating well and sleeping enough."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Technology and Engineering",
+      "description": "Subjects related to the design, development, and application of technology and engineering",
+      "items": [
+        {
+          "topic": {
+            "name": "Electronics and Robotics",
+            "slug": "electronics-and-robotics",
+            "image": "http://ianjuby.org/wp-content/uploads/2016/09/AdobeStock_29864685.jpeg",
+            "descriptions": [
+              {
+                "extra_short": "Electronics deals with circuits and devices, while robotics involves the design and construction of robots."
+              },
+              {
+                "extra_short": "Electronics is about making gadgets work. Robotics is about making machines that move and think."
+              },
+              {
+                "extra_short": "Electronics is the study of circuits and devices that use electricity, while robotics is the study of robots and their programming."
+              }
+            ]
+          }
+        },
+        {
+          "topic": {
+            "name": "Mechanical Engineering",
+            "slug": "mechanical-engineering",
+            "image": "https://www.engr.colostate.edu/me/wp-content/uploads/2020/05/04053_01434-1-scaled.jpg",
+            "descriptions": [
+              {
+                "extra_short": "Design and development of mechanical systems, machines, and devices for various industries and applications."
+              },
+              {
+                "extra_short": "Mechanical Engineering is designing and creating machines and devices that use physical principles to operate."
+              },
+              {
+                "extra_short": "Mechanical engineering is designing and building machines and devices that make life easier and more efficient."
+              }
+            ]
+          }
+        },
+        {
+          "topic": {
+            "name": "Civil Engineering",
+            "slug": "civil-engineering",
+            "image": "https://tradeupmanitoba.com/wp-content/uploads/2018/08/CivilEngineeringTechnician_Banner.jpg",
+            "descriptions": [
+              {
+                "extra_short": "Civil engineering is a branch of engineering that designs and builds infrastructure like roads and buildings."
+              },
+              {
+                "extra_short": "Civil Engineering is building and designing roads, bridges, buildings, and other structures that people use."
+              },
+              {
+                "extra_short": "Design, construction, and maintenance of public infrastructure like roads, bridges, buildings, and water systems."
+              }
+            ]
+          }
+        },
+        {
+          "topic": {
+            "name": "Environmental Engineering",
+            "slug": "environmental-engineering",
+            "image": "https://www.internships.com/wp-content/uploads/2019/09/environmental-scientist.jpg",
+            "descriptions": [
+              {
+                "extra_short": "Protecting the environment through engineering solutions like pollution control and waste management."
+              },
+              {
+                "extra_short": "Environmental engineering is the application of engineering principles to protect and improve the environment."
+              },
+              {
+                "extra_short": "Environmental engineering is the study of how to protect and improve the environment using engineering principles."
+              }
+            ]
+          }
+        },
+        {
+          "topic": {
+            "name": "Sustainability",
+            "slug": "sustainability",
+            "image": "https://aspiringgentleman.com/wp-content/uploads/2020/09/Sustainable-Practices.jpg",
+            "descriptions": [
+              {
+                "extra_short": "Sustainability means using resources in a way that preserves them for future generations to use."
+              },
+              {
+                "extra_short": "Sustainability means using resources in a way that meets our needs without harming the environment for future generations."
+              },
+              {
+                "extra_short": "Sustainability means meeting the needs of the present without compromising the ability of future generations to meet their own needs."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Law and Justice",
+      "description": "Subjects related to the study of law and justice systems",
+      "items": [
+        {
+          "topic": {
+            "name": "Criminal Law",
+            "slug": "criminal-law",
+            "image": "https://theleaflet.in/wp-content/uploads/2018/12/Criminal-law.jpg",
+            "descriptions": [
+              {
+                "extra_short": "Criminal law is rules for what people can and cannot do, and the punishments if they break them."
+              },
+              {
+                "extra_short": "Laws that define crimes and establish punishments for those who commit them."
+              },
+              {
+                "extra_short": "Criminal law is a set of rules that define crimes and the punishments for committing them."
+              }
+            ]
+          }
+        },
+        {
+          "topic": {
+            "name": "Civil Law",
+            "slug": "civil-law",
+            "image": "https://rulehibernia.com/wp-content/uploads/2019/06/Civil-Law-750x430.jpg",
+            "descriptions": [
+              {
+                "extra_short": "Civil law is a legal system that deals with disputes between individuals or organizations."
+              },
+              {
+                "extra_short": "Civil law is a legal system that deals with disputes between individuals or organizations."
+              },
+              {
+                "extra_short": "Civil law deals with disputes between individuals or organizations, such as contracts, property, and personal injury."
+              }
+            ]
+          }
+        },
+        {
+          "topic": {
+            "name": "Constitutional Law",
+            "slug": "constitutional-law",
+            "image": "https://wdet.org/media/daguerre/2019/10/18/377d55c64ed504a46e3a.jpeg",
+            "descriptions": [
+              {
+                "extra_short": "Constitutional law is the rules about how the government works and what rights people have."
+              },
+              {
+                "extra_short": "Constitutional Law is the study of the fundamental principles and rules that govern a country's political system."
+              },
+              {
+                "extra_short": "Constitutional law is the set of rules and principles that govern the creation and interpretation of a country's constitution."
+              }
+            ]
+          }
+        },
+        {
+          "topic": {
+            "name": "International Law",
+            "slug": "international-law",
+            "image": "https://www.legalmetro.com/images/2020/12/17/international_law.jpeg",
+            "descriptions": [
+              {
+                "extra_short": "Rules countries agree to follow, to work together and solve problems peacefully."
+              },
+              {
+                "extra_short": "International law is a set of rules that countries agree to follow in their relations."
+              },
+              {
+                "extra_short": "Rules and principles that countries agree to follow in their interactions with each other."
+              }
+            ]
+          }
+        },
+        {
+          "topic": {
+            "name": "Environmental Law",
+            "slug": "environmental-law",
+            "image": "https://media.istockphoto.com/photos/environmental-law-picture-id486600359?k=6&m=486600359&s=612x612&w=0&h=5tt11brtkwgSLbbhQ7tFQvECh2eOehDBNOP_dpK5qqQ=",
+            "descriptions": [
+              {
+                "extra_short": "Environmental law is rules to protect nature and people from pollution and harm."
+              },
+              {
+                "extra_short": "Rules for protecting the natural world, including air, water, land, and wildlife."
+              },
+              {
+                "extra_short": "Environmental Law is a set of rules that protect the environment and regulate human activities that impact it."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Science and Technology in Society",
+      "description": "Subjects related to the study of the social and cultural dimensions of science and technology",
+      "items": [
+        {
+          "topic": {
+            "name": "Ethics and Values",
+            "slug": "ethics-and-values",
+            "image": "http://pediaa.com/wp-content/uploads/2016/05/Difference-Between-Ethics-and-Values-infographic.jpg",
+            "descriptions": [
+              {
+                "extra_short": "Ethics are rules for being good, and values are what we think is important in life."
+              },
+              {
+                "extra_short": "Ethics are rules for good behavior, and values are beliefs about what is important."
+              },
+              {
+                "extra_short": "Ethics are principles for right and wrong behavior. Values are beliefs about what is important."
+              }
+            ]
+          }
+        },
+        {
+          "topic": {
+            "name": "Social Impacts",
+            "slug": "social-impacts",
+            "image": "https://www.kellogg.northwestern.edu/-/media/images/focus/social-impact/socialimpact-hero-infographic-whitebkg-848x477.ashx?la=en",
+            "descriptions": [
+              {
+                "extra_short": "Social impacts are the effects that an action or event has on people and society."
+              },
+              {
+                "extra_short": "Social impacts refer to how something affects people and communities in terms of their well-being and quality of life."
+              },
+              {
+                "extra_short": "Social impacts refer to the effects that a specific action or event has on a community or society."
+              }
+            ]
+          }
+        },
+        {
+          "topic": {
+            "name": "History and Philosophy",
+            "slug": "history-and-philosophy",
+            "image": "https://senabooks.com/wp-content/uploads/2019/08/9781492549147-1.jpeg",
+            "descriptions": [
+              {
+                "extra_short": "History is learning about the past, and philosophy is studying ideas about life and the world."
+              },
+              {
+                "extra_short": "Study of past events and ideas about knowledge, existence, and values."
+              },
+              {
+                "extra_short": "History is about studying the past, philosophy is about thinking deeply about life and the world."
+              }
+            ]
+          }
+        },
+        {
+          "topic": {
+            "name": "Innovation and Creativity",
+            "slug": "innovation-and-creativity",
+            "image": "https://www.userresearchinstitute.com/wp-content/uploads/2017/04/creativity-solutions-inspiration-innovation-intelligence-ideas-vision-1.jpg",
+            "descriptions": [
+              {
+                "extra_short": "Innovation is making new things, creativity is using your imagination to come up with ideas."
+              },
+              {
+                "extra_short": "Innovation is creating something new, and creativity is thinking of new ideas to make something better."
+              },
+              {
+                "extra_short": "Innovation is creating something new, while creativity is the ability to come up with new ideas."
+              }
+            ]
+          }
+        },
+        {
+          "topic": {
+            "name": "Science Communication",
+            "slug": "science-communication",
+            "image": "https://geneticliteracyproject.org/wp-content/uploads/2017/12/Screen-Shot-2017-12-19-at-8.16.54-PM.png",
+            "descriptions": [
+              {
+                "extra_short": "Science Communication is explaining scientific concepts to people who may not have a scientific background."
+              },
+              {
+                "extra_short": "Explaining science to non-experts in a clear and understandable way through various forms of media."
+              },
+              {
+                "extra_short": "Science Communication is explaining science topics in a way that is easy for people to understand."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Global Studies",
+      "description": "Subjects related to the study of global issues and cultural diversity",
+      "items": [
+        {
+          "topic": {
+            "name": "Cultural Diversity",
+            "slug": "cultural-diversity",
+            "image": "http://emma.fashion/wp-content/uploads/2020/06/diversity.jpg",
+            "descriptions": [
+              {
+                "extra_short": "Cultural diversity means different cultures, traditions, and beliefs existing together in a community or society."
+              },
+              {
+                "extra_short": "Cultural diversity is the presence of multiple cultures and ethnicities within a society or organization."
+              },
+              {
+                "extra_short": "Cultural diversity means different people have different languages, beliefs, customs, and traditions."
+              }
+            ]
+          }
+        },
+        {
+          "topic": {
+            "name": "International Relations",
+            "slug": "international-relations",
+            "image": "https://www.strath.ac.uk/media/1newwebsite/departmentsubject/politics/researchpage/international-relations-1600x600.jpg",
+            "descriptions": [
+              {
+                "extra_short": "International Relations is how different countries interact and work together on a global level."
+              },
+              {
+                "extra_short": "International Relations is the study of relationships between countries and how they interact with each other."
+              },
+              {
+                "extra_short": "International Relations is how countries interact with each other on issues like trade, security, and diplomacy."
+              }
+            ]
+          }
+        },
+        {
+          "topic": {
+            "name": "Human Geography",
+            "slug": "human-geography",
+            "image": "https://edynamiclearning.com/wp-content/uploads/2019/04/human-geography_high-res_sm.jpg",
+            "descriptions": [
+              {
+                "extra_short": "Human geography is the study of people and their interactions with the environment and each other."
+              },
+              {
+                "extra_short": "Human Geography is the study of people and their interactions with the environment and each other."
+              },
+              {
+                "extra_short": "Study of how humans interact with their environment and how they create and maintain cultural landscapes."
+              }
+            ]
+          }
+        },
+        {
+          "topic": {
+            "name": "Global Issues",
+            "slug": "global-issues",
+            "image": "https://cdn.thinglink.me/api/image/720364622204370945/1240/10/scaletowidth",
+            "descriptions": [
+              {
+                "extra_short": "Global issues are problems that affect people and the planet on a large scale."
+              },
+              {
+                "extra_short": "Global issues are problems that affect the entire world and require international cooperation to solve."
+              },
+              {
+                "extra_short": "Global issues are problems that affect people all over the world, like climate change and poverty."
+              }
+            ]
+          }
+        },
+        {
+          "topic": {
+            "name": "Peace and Conflict Studies",
+            "slug": "peace-and-conflict-studies",
+            "image": "http://jewsdownunder.com/wp-content/uploads/peace-and-conflict-1-638.jpg",
+            "descriptions": [
+              {
+                "extra_short": "Learning about how to prevent violence and promote peace in local and global communities."
+              },
+              {
+                "extra_short": "Peace and Conflict Studies is learning to create peace and prevent violence in the world."
+              },
+              {
+                "extra_short": "It's a field of study that explores ways to prevent and resolve conflicts and promote peace."
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
