@@ -7,10 +7,11 @@ import ErrorMessage from "../../components/ErrorMessage";
 import RelationCard from "./RelationCard/RelationCard";
 import { ageContext } from "../../components/AudienceContext";
 import { audienceChangeOnSubjectEvent } from "../../utils/gaEvents";
+import Generating from "./Generating/Generating";
 
 export default function TopicPage() {
   const { topic } = useParams();
-  const [retrievedTopics, setRetrievedTopics] = useState();
+  const [topicData, setTopicData] = useState();
   const { audience } = useContext(ageContext);
   const MAIN_URL = `${process.env.REACT_APP_API_ENDPOINT}/topic/${topic}`;
   const [isLoading, setIsLoading] = useState(true);
@@ -18,19 +19,26 @@ export default function TopicPage() {
   const [isDevMode, setIsDevMode] = useState(false);
 
   useEffect(() => {
+    // eslint-disable-next-line consistent-return
     const doFetch = async () => {
       const fetchedData = await fetchData(MAIN_URL);
       // Descriptions were found
       if (fetchedData.isGenerated) {
-        setRetrievedTopics(fetchedData);
+        const currentTopicData = fetchedData?.topic?.[0];
+        setTopicData(currentTopicData);
+        // currentTopicData;
         return setIsLoading(false);
       }
       // Descriptions were not found, let's generate them
       if (process.env.NODE_ENV === "development") return setIsDevMode(true);
+      const data = fetchedData?.topic?.[0];
+      setTopicData(data);
       setIsGenerating(true);
       const GENERATE_URL = `${process.env.REACT_APP_API_ENDPOINT}/topic`;
       const generatedData = await postData({ url: GENERATE_URL, body: { name: topic } });
-      setRetrievedTopics(generatedData);
+      const currentTopicData = generatedData?.topic?.[0];
+
+      setTopicData(currentTopicData);
       setIsGenerating(false);
       return setIsLoading(false);
     };
@@ -47,9 +55,9 @@ export default function TopicPage() {
         AI generation is not enabled in local development mode
       </div>
     );
-  if (isGenerating) return <div style={{ textAlign: "center", marginTop: 200 }}>Generating...</div>;
+  if (isGenerating) return <Generating topic={topicData} />;
   if (isLoading) return <div>Loading...</div>;
-  const topicData = retrievedTopics?.topic?.[0];
+
   if (topicData?.descriptions.length) {
     return (
       <div className="mt-[80px] phone:mt-[70.5px]">
@@ -58,7 +66,7 @@ export default function TopicPage() {
           grandParent={topicData.parent.parent.grandparent.grandparent}
           current={topic}
         />
-        <TopicCard topic={retrievedTopics.topic[0]} />
+        <TopicCard topic={topicData} />
 
         <h2 className="text-left text-4xl ml-5 text-white font-extrabold mb-5 mt-28 superWideDesktop:ml-[14.5%]">
           Related
