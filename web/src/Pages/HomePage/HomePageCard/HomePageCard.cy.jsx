@@ -17,6 +17,7 @@ describe("checking margins for HomePageCard at each screen<HomePageCard />", () 
         </BrowserRouter>
       </AudienceContext>,
     );
+    cy.get(".group-display-title").should("be.visible");
     cy.get(".group-display-title").should("have.css", "margin", "112px 135px 0px 20px");
   });
 
@@ -30,6 +31,7 @@ describe("checking margins for HomePageCard at each screen<HomePageCard />", () 
         </BrowserRouter>
       </AudienceContext>,
     );
+    cy.get(".group-display-title").should("be.visible");
     cy.get(".group-display-title").should("have.css", "margin", "112px 180px 0px");
   });
 
@@ -43,6 +45,7 @@ describe("checking margins for HomePageCard at each screen<HomePageCard />", () 
         </BrowserRouter>
       </AudienceContext>,
     );
+    cy.get(".group-display-title").should("be.visible");
     cy.get(".group-display-title").should("have.css", "margin", "112px 0px 0px");
   });
 });
