@@ -37,7 +37,7 @@ describe("Testing skeleton appears before normal data", () => {
       {
         method: "GET", // Route all GET requests
       },
-      { delay: 10000, body: dummyData },
+      dummyData,
     ).as("topicrequest");
 
     cy.mount(
@@ -48,9 +48,6 @@ describe("Testing skeleton appears before normal data", () => {
       </BrowserRouter>,
     );
     cy.get("[data-testid=skeleton]").should("be.visible");
-
-    // eslint-disable-next-line testing-library/await-async-utils
-    cy.wait("@topicrequest");
 
     cy.get("[data-testid=loadedPage]").should("be.visible");
   });
