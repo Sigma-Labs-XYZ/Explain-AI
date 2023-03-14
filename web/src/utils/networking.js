@@ -26,7 +26,7 @@ export const postData = async ({ url, body }) => {
 
 export async function homepageFetch() {
   try {
-    const response = await fetch(`https://explainai-api.onrender.com/groups`);
+    const response = await fetch(`${process.env.REACT_APP_GROUPS_URL}`);
     const data = await response.json();
     return data;
   } catch (e) {

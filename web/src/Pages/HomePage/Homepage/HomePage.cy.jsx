@@ -6,16 +6,14 @@ import "../../../index.css";
 import data from "../HomePageDummyData.json";
 
 describe("Test to check spacing and colors on groups <HomePage />", () => {
-  Cypress.on("uncaught:exception", (err, runnable) => false);
-
   const { group } = data;
   beforeEach(() => {
     cy.intercept("GET", "https://explainai-api.onrender.com/groups", {
       statusCode: 200,
       body: {
-        group: group, //eslint-disable-line
+        group,
       },
-    }).as("fetchgroups");
+    }).as("fetchGroups");
   });
 
   it("Test to check the text color and margins for group containers", () => {
@@ -27,9 +25,8 @@ describe("Test to check spacing and colors on groups <HomePage />", () => {
       </AudienceContext>,
     );
 
-    cy.wait("@fetchgroups"); //eslint-disable-line
+    cy.wait("@fetchGroups"); //eslint-disable-line
     cy.contains("Science");
-    cy.wait(5000); //eslint-disable-line
 
     cy.get(".group-title").should("have.css", "color", "rgb(255, 255, 255)");
     cy.get(".group-description").should("have.css", "color", "rgb(131, 131, 131)");
