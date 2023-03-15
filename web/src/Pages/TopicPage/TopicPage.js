@@ -69,12 +69,11 @@ export default function TopicPage() {
     return (
       <div data-testid="loadedPage" className="mt-[70px]">
         <Breadcrumbs
-          parent={topicData.parent.parent}
-          grandParent={topicData.parent.parent.grandparent.grandparent}
+          parent={topicData?.parent?.parent}
+          grandParent={topicData?.parent?.parent?.grandparent?.grandparent}
           current={topic}
         />
         <TopicCard topic={topicData} />
-
         <h2 className="text-left ml-5 text-white mb-5 mt-16 superWideDesktop:ml-[14.5%]">
           Related
         </h2>
