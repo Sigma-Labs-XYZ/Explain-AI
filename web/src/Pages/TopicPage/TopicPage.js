@@ -28,7 +28,6 @@ export default function TopicPage() {
     const doFetch = async () => {
       const fetchedData = await fetchData(MAIN_URL);
       // Descriptions were found
-
       if (fetchedData?.isGenerated) {
         const currentTopicData = fetchedData.topic?.[0];
         setTopicData(currentTopicData);

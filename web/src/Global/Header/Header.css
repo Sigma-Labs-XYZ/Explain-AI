@@ -3,28 +3,42 @@ header {
   background-color: #000;
   height: 70px;
   width: 100%;
-  justify-content: space-between;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   position: fixed;
   top: 0;
   z-index: 100;
 }
+
 header .inner {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: space-between;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   height: 70px;
   max-width: 1000px;
   margin: auto;
 }
+
 header .inner a {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   height: 100%;
 }
+
 @media (max-width: 1000.5px) {
   header .inner a {
     margin-left: 10px;
   }
 }
+
 @media (max-width: 550.5px) {
   header .inner a {
     height: 70%;
@@ -32,24 +46,35 @@ header .inner a {
     margin-top: 10px;
   }
 }
+
 header .inner a img {
   display: block;
   overflow: visible;
   height: 60%;
 }
+
 header .inner a img:hover {
+  -webkit-transition: all 200ms ease-in-out;
   transition: all 200ms ease-in-out;
-  transform: scale(1.05);
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
 }
+
 header .inner .button-dropdown {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
+
 @media (max-width: 1000.5px) {
   header .inner .button-dropdown {
     margin-right: 10px;
   }
 }
+
 header .inner .button-dropdown .btn {
   border: none;
   margin-left: 1%;
@@ -64,15 +89,18 @@ header .inner .button-dropdown .btn {
   font-weight: bolder;
   font-family: "Tilt Warp", cursive;
 }
+
 header .inner .button-dropdown .btn.selected {
   background-color: #fff;
   color: #000;
 }
+
 @media (max-width: 475.5px) {
   header .inner .button-dropdown .btn {
     display: none;
   }
 }
+
 header .inner .button-dropdown .likeIm {
   color: #e3e3e3;
   margin-right: 10px;
@@ -81,11 +109,13 @@ header .inner .button-dropdown .likeIm {
   min-width: 70px;
   text-align: right;
 }
+
 @media (max-width: 330px) {
   header .inner .button-dropdown .likeIm {
     display: none;
   }
 }
+
 header .inner .button-dropdown .select-pg {
   width: 75px;
   height: 37px;
@@ -104,8 +134,10 @@ header .inner .button-dropdown .select-pg {
   background-position: right 1px top 50%, 0 0;
   background-size: 15px auto, 50%;
 }
+
 @media (min-width: 475.5px) {
   header .inner .button-dropdown .select-pg {
     display: none;
   }
-} /*# sourceMappingURL=Header.css.map */
+}
+/*# sourceMappingURL=Header.css.map */

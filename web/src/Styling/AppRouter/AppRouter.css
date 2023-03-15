@@ -3,15 +3,18 @@
   max-width: 1000px;
   margin: auto;
 }
+
 @media (max-width: 1000.5px) {
   .inner {
     margin-left: 10px;
     margin-right: 10px;
   }
 }
+
 @media (max-width: 475.5px) {
   .inner {
     margin-left: 0px;
     margin-right: 0px;
   }
-} /*# sourceMappingURL=AppRouter.css.map */
+}
+/*# sourceMappingURL=AppRouter.css.map */
