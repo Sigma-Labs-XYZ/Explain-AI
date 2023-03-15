@@ -7,7 +7,7 @@ import RelationCard from "./RelationCard";
 const name = "pedro-pascal";
 const slug = "Pedro Pascal";
 const description = "JavaScript is used to add interactivity to HTML pages";
-const image = `${process.env.PUBLIC_URL}pedro.png`;
+const image = `${process.env.PUBLIC_URL}pedro-pascal.png`;
 function loading() {
   /* eslint-disable no-console */
   console.log("is loading : )");
