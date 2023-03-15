@@ -113,7 +113,7 @@ describe("link elements", () => {
     expect(global.window.location.pathname).toBe(`/${slug}`);
     expect(link).toHaveAttribute("href", `/${slug}`);
     const img = within(link).getByRole("img");
-    expect(img).toHaveAttribute("src", `${name}.png`);
+    expect(img).toHaveAttribute("src", `${slug}.png`);
     const heading = within(link).getByRole("heading");
     expect(heading.textContent).toBe(name);
   });
