@@ -20,6 +20,7 @@ export default function HomePageCard({ group, audience }) {
         {group.items.map((item) => (
           <li key={item.topic.name}>
             <RelationCard
+              slug={item.topic.slug}
               name={item.topic.name}
               description={item.topic.descriptions[ageIndex].extra_short}
               image={item.topic.image}
