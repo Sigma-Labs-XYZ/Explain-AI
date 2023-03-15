@@ -31,13 +31,10 @@
     }
   }
   & .topic-card-img-btn {
-    justify-content: space-between;
-    margin-left: 32px;
-    margin-right: 85px;
     display: flex;
-    transform: translateY(75px);
 
     & button {
+      transform: translateY(50px);
       border: none;
       font-size: 15px;
       padding-left: 50px;
@@ -48,18 +45,15 @@
       background-color: #d1d1d1;
       &:hover {
         background-color: #dadada;
-        // transition: all 200ms ease-in-out;
-        // transform: scale(1.05);
       }
     }
     & .topic-card-img {
       display: flex;
       border-radius: 50%;
-      background-color: rgb(49, 38, 38);
+      // background-color: rgb(49, 38, 38);
       justify-content: center;
       align-items: center;
       overflow: hidden;
-      min-width: 240px;
       & img {
         height: 100%;
       }

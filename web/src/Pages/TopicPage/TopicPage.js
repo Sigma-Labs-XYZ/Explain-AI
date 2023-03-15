@@ -5,6 +5,7 @@ import Breadcrumbs from "./BreadCrumbs/Breadcrumbs";
 import TopicCard from "./TopicCard/TopicCard";
 import ErrorMessage from "../../components/ErrorMessage";
 import RelationCard from "./RelationCard/RelationCard";
+import TopicPageLoading from "./Skeleton/TopicPageLoading";
 import { ageContext } from "../../components/AudienceContext";
 import { audienceChangeOnSubjectEvent } from "../../utils/gaEvents";
 import Generating from "./Generating/Generating";
@@ -18,17 +19,23 @@ export default function TopicPage() {
   const [isGenerating, setIsGenerating] = useState(false);
   const [isDevMode, setIsDevMode] = useState(false);
 
+  function loading() {
+    setIsLoading(true);
+  }
+
   useEffect(() => {
     // eslint-disable-next-line consistent-return
     const doFetch = async () => {
       const fetchedData = await fetchData(MAIN_URL);
       // Descriptions were found
-      if (fetchedData.isGenerated) {
-        const currentTopicData = fetchedData?.topic?.[0];
+
+      if (fetchedData?.isGenerated) {
+        const currentTopicData = fetchedData.topic?.[0];
         setTopicData(currentTopicData);
         // currentTopicData;
         return setIsLoading(false);
       }
+
       // Descriptions were not found, let's generate them
       if (process.env.NODE_ENV === "development") return setIsDevMode(true);
       const data = fetchedData?.topic?.[0];
@@ -37,7 +44,6 @@ export default function TopicPage() {
       const GENERATE_URL = `${process.env.REACT_APP_API_ENDPOINT}/topic`;
       const generatedData = await postData({ url: GENERATE_URL, body: { name: topic } });
       const currentTopicData = generatedData?.topic?.[0];
-
       setTopicData(currentTopicData);
       setIsGenerating(false);
       return setIsLoading(false);
@@ -56,11 +62,10 @@ export default function TopicPage() {
       </div>
     );
   if (isGenerating) return <Generating topic={topicData} />;
-  if (isLoading) return <div>Loading...</div>;
-
+  if (isLoading) return <TopicPageLoading />;
   if (topicData?.descriptions.length) {
     return (
-      <div className="mt-[80px] phone:mt-[70.5px]">
+      <div data-testid="loadedPage" className="mt-[70px]">
         <Breadcrumbs
           parent={topicData.parent.parent}
           grandParent={topicData.parent.parent.grandparent.grandparent}
@@ -80,6 +85,8 @@ export default function TopicPage() {
                 description={rel.description}
                 image={rel.to.image}
                 parent={topic}
+                // eslint-disable-next-line react/jsx-no-bind
+                loading={loading}
               />
             ) : null,
           )}
