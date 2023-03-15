@@ -10,8 +10,8 @@ export default function Generating({ topic }) {
     <div className="generating" data-testid="generating">
       <img
         className="img"
-        src={topic.image || "/no-image.jpeg"}
-        alt={topic.name}
+        src={topic?.image || "/no-image.jpeg"}
+        alt={topic?.name}
         data-testid="generating"
       />
       <h1 className="title" data-testid="generating">

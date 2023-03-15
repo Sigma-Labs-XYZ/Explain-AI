@@ -12,7 +12,7 @@ import Generating from "./Generating/Generating";
 
 export default function TopicPage() {
   const { topic } = useParams();
-  const [topicData, setTopicData] = useState();
+  const [topicData, setTopicData] = useState({ name: topic, img: null });
   const { audience } = useContext(ageContext);
   const MAIN_URL = `${process.env.REACT_APP_API_ENDPOINT}/topic/${topic}`;
   const [isLoading, setIsLoading] = useState(true);
@@ -38,8 +38,8 @@ export default function TopicPage() {
 
       // Descriptions were not found, let's generate them
       if (process.env.NODE_ENV === "development") return setIsDevMode(true);
-      const data = fetchedData?.topic?.[0];
-      setTopicData(data);
+      //const data = fetchedData?.topic?.[0];
+      //setTopicData(data);
       setIsGenerating(true);
       const GENERATE_URL = `${process.env.REACT_APP_API_ENDPOINT}/topic`;
       const generatedData = await postData({ url: GENERATE_URL, body: { name: topic } });
