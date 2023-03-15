@@ -3,8 +3,8 @@
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   margin-top: 20px;
 }
 
@@ -12,17 +12,17 @@
   .topic-card-parent .topic-card-img-btn {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-            flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
     -webkit-box-pack: space-evenly;
-        -ms-flex-pack: space-evenly;
-            justify-content: space-evenly;
+    -ms-flex-pack: space-evenly;
+    justify-content: space-evenly;
   }
   .topic-card-parent .topic-card-img-btn .topic-card-img {
     width: 230px;
     height: 230px;
     -webkit-transform: translateY(55px);
-            transform: translateY(55px);
+    transform: translateY(55px);
     -webkit-transition: -webkit-transform 300ms ease-in;
     transition: -webkit-transform 300ms ease-in;
     transition: transform 300ms ease-in;
@@ -43,15 +43,15 @@
   .topic-card-parent .topic-card-img-btn {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-            flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
     -webkit-box-pack: space-evenly;
-        -ms-flex-pack: space-evenly;
-            justify-content: space-evenly;
+    -ms-flex-pack: space-evenly;
+    justify-content: space-evenly;
   }
   .topic-card-parent .topic-card-img-btn .topic-card-img {
     -webkit-transform: translateY(55px);
-            transform: translateY(55px);
+    transform: translateY(55px);
     width: 250px;
     height: 250px;
     -webkit-transition: -webkit-transform 300ms ease-out;
@@ -71,21 +71,21 @@
     display: flex;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
     -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
     -webkit-box-pack: space-evenly;
-        -ms-flex-pack: space-evenly;
-            justify-content: space-evenly;
+    -ms-flex-pack: space-evenly;
+    justify-content: space-evenly;
     justify-items: space-evenly;
   }
   .topic-card-parent .topic-card-img-btn .topic-card-img {
     width: 200px;
     height: 200px;
     -webkit-transform: translateY(75px);
-            transform: translateY(75px);
+    transform: translateY(75px);
   }
   .topic-card-parent .topic-card-img-btn button {
     margin-bottom: 10px;
@@ -109,8 +109,8 @@
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
   width: 100%;
 }
 
@@ -129,7 +129,7 @@
   display: flex;
   padding-left: 2rem;
   -ms-flex-item-align: space-between;
-      align-self: space-between;
+  align-self: space-between;
 }
 
 .topic-card-parent .topic-card-title h1 {
@@ -147,7 +147,7 @@
 
 .topic-card-parent .topic-card-img-btn button {
   -webkit-transform: translateY(50px);
-          transform: translateY(50px);
+  transform: translateY(50px);
   border: none;
   font-size: 15px;
   padding-left: 50px;
@@ -168,11 +168,11 @@
   display: flex;
   border-radius: 50%;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   overflow: hidden;
 }
 
