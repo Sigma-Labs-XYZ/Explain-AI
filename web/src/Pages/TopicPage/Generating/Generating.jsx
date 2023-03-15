@@ -1,3 +1,4 @@
+/* eslint-disable import/no-unresolved */
 import React from "react";
 // eslint-disable-next-line
 import Lottie from "lottie-react";

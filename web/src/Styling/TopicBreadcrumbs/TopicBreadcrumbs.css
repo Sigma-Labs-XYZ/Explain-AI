@@ -1,18 +1,16 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200&family=Tilt+Warp&display=swap");
-@media (max-width: 400px) {
+@media (max-width: 550.5px) {
   #desktop {
     display: none;
     margin-top: 30px;
   }
 }
-
-@media (min-width: 400px) {
+@media (min-width: 550.5px) {
   #desktop {
     display: block;
     margin-top: 30px;
   }
 }
-
 @media (min-width: 1001px) {
   #desktop {
     display: block;
@@ -21,18 +19,16 @@
   }
 }
 
-@media (max-width: 400px) {
+@media (max-width: 550.5px) {
   #mobile {
     display: block;
   }
 }
-
-@media (min-width: 400px) {
+@media (min-width: 550.5px) {
   #mobile {
     display: none;
   }
 }
-
 @media (min-width: 1001px) {
   #mobile {
     display: none;
@@ -53,5 +49,4 @@
 
 .mobile-grandParent-btn {
   @apply bg-backdrop pb-2 pt-2 text-left text-white capitalize w-screen;
-}
-/*# sourceMappingURL=TopicBreadcrumbs.css.map */
+} /*# sourceMappingURL=TopicBreadcrumbs.css.map */
