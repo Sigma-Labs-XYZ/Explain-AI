@@ -4,9 +4,10 @@ import { BrowserRouter } from "react-router-dom";
 import AudienceContext from "../../../components/AudienceContext";
 import RelationCard from "./RelationCard";
 
-const name = "pedro";
+const name = "Pedro Pascal";
+const slug = "pedro-pascal";
 const description = "JavaScript is used to add interactivity to HTML pages";
-const image = `${process.env.PUBLIC_URL}pedro.png`;
+const image = `${process.env.PUBLIC_URL}${slug}.png`;
 function loading() {
   /* eslint-disable no-console */
   console.log("is loading : )");
@@ -17,7 +18,13 @@ describe("Test if all elements of RelationCard are rendered", () => {
   test("Name of the topic rendered", () => {
     render(
       <AudienceContext>
-        <RelationCard name={name} description={description} image={image} loading={loading} />
+        <RelationCard
+          slug={slug}
+          name={name}
+          description={description}
+          image={image}
+          loading={loading}
+        />
       </AudienceContext>,
       {
         wrapper: BrowserRouter,
@@ -29,7 +36,13 @@ describe("Test if all elements of RelationCard are rendered", () => {
   test("Description of the topic rendered", () => {
     render(
       <AudienceContext>
-        <RelationCard name={name} description={description} image={image} loading={loading} />
+        <RelationCard
+          slug={slug}
+          name={name}
+          description={description}
+          image={image}
+          loading={loading}
+        />
       </AudienceContext>,
       {
         wrapper: BrowserRouter,
@@ -41,20 +54,32 @@ describe("Test if all elements of RelationCard are rendered", () => {
   test("Image of the topic rendered", () => {
     render(
       <AudienceContext>
-        <RelationCard name={name} description={description} image={image} loading={loading} />
+        <RelationCard
+          slug={slug}
+          name={name}
+          description={description}
+          image={image}
+          loading={loading}
+        />
       </AudienceContext>,
       {
         wrapper: BrowserRouter,
       },
     );
     const topicImg = screen.getByRole("img");
-    expect(topicImg).toHaveAttribute("src", `${name}.png`);
+    expect(topicImg).toHaveAttribute("src", `${slug}.png`);
     expect(topicImg).toHaveAttribute("alt", name);
   });
   test("Failure to find image resolves to default image", () => {
     render(
       <AudienceContext>
-        <RelationCard name={name} description={description} image={image} loading={loading} />
+        <RelationCard
+          slug={slug}
+          name={name}
+          description={description}
+          image={image}
+          loading={loading}
+        />
       </AudienceContext>,
       {
         wrapper: BrowserRouter,
@@ -70,7 +95,13 @@ describe("link elements", () => {
   test("elements loaded within the link tag so they are all clickable and correct link path", async () => {
     render(
       <AudienceContext>
-        <RelationCard name={name} description={description} image={image} loading={loading} />
+        <RelationCard
+          slug={slug}
+          name={name}
+          description={description}
+          image={image}
+          loading={loading}
+        />
       </AudienceContext>,
       {
         wrapper: BrowserRouter,
@@ -79,10 +110,10 @@ describe("link elements", () => {
     expect(global.window.location.pathname).toBe("/");
     const link = screen.getByRole("link");
     fireEvent.click(link);
-    expect(global.window.location.pathname).toBe(`/${name}`);
-    expect(link).toHaveAttribute("href", `/${name}`);
+    expect(global.window.location.pathname).toBe(`/${slug}`);
+    expect(link).toHaveAttribute("href", `/${slug}`);
     const img = within(link).getByRole("img");
-    expect(img).toHaveAttribute("src", `${name}.png`);
+    expect(img).toHaveAttribute("src", `${slug}.png`);
     const heading = within(link).getByRole("heading");
     expect(heading.textContent).toBe(name);
   });

@@ -84,7 +84,7 @@ const generate = async ({ name }) => {
   });
   queries.push({
     type: "related",
-    system: `Reply with a comma separated list. Show up to ${MAX_RELATED} items. Each item should be no more than 1-2 words in length.`,
+    system: `Reply with a comma separated list. Show up to ${MAX_RELATED} items. Each item should be no more than 1-2 words in length. It MUST be comma separated.`,
     query: `What are some popular topics similar to ${name}?`,
   });
 

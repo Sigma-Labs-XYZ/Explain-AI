@@ -66,8 +66,8 @@ export default function TopicPage() {
     return (
       <div data-testid="loadedPage" className="mt-[70px]">
         <Breadcrumbs
-          parent={topicData.parent.parent}
-          grandParent={topicData.parent.parent.grandparent.grandparent}
+          parent={topicData?.parent?.parent}
+          grandParent={topicData?.parent?.parent?.grandparent?.grandparent}
           current={topic}
         />
         <TopicCard topic={topicData} />
@@ -79,6 +79,7 @@ export default function TopicPage() {
           topicData.relationships.map((rel) =>
             rel.audience === audience ? (
               <RelationCard
+                slug={rel.to.slug}
                 key={rel.to.name}
                 name={rel.to.name}
                 description={rel.description}
