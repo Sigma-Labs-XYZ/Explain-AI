@@ -4,6 +4,7 @@
   "description": "My Project",
   "scripts": {
     "start": "docker-compose up --build --remove-orphans --force-recreate",
+    "start:db": "docker-compose up explainai-database-engine explainai-database-api",
     "start:reset": "sh database/database-reset.sh && docker-compose up"
   },
   "author": "Me",

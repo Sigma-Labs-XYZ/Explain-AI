@@ -3,6 +3,7 @@ import fetch from "node-fetch";
 import dotenv from "dotenv";
 import cors from "cors";
 import generate from "./generate/index.js";
+import slugify from "slug";
 
 dotenv.config();
 const app = express();
@@ -12,6 +13,11 @@ app.use(cors());
 const port = 4000;
 const DB_ENDPOINT = process.env.DB_ENDPOINT || "http://localhost:8080";
 const DB_SECRET = process.env.DB_SECRET || "admin_secret";
+
+const headers = {
+  "Content-Type": "application/json",
+  "X-Hasura-Admin-Secret": DB_SECRET,
+};
 
 const getTopic = async ({ slug }) => {
   try {
@@ -24,6 +30,7 @@ const getTopic = async ({ slug }) => {
     return { ...json, isGenerated };
   } catch (e) {
     console.log(e);
+    return "";
   }
 };
 
@@ -31,11 +38,6 @@ const saveToDB = async ({ data }) => {
   const endpoint = `${DB_ENDPOINT}/api/rest/topic`;
   const body = JSON.stringify(data);
   await fetch(endpoint, { method: "POST", headers, body });
-};
-
-const headers = {
-  "Content-Type": "application/json",
-  "X-Hasura-Admin-Secret": DB_SECRET,
 };
 
 app.get("/topics", async (_, res) => {
@@ -65,6 +67,18 @@ app.get("/topic/:slug", async (req, res) => {
 
 app.post("/topic", async (req, res) => {
   try {
+    // first check that the topic exists in the table (without a description)
+    // we call this a 'stub'
+    const topicInitial = await getTopic({ slug: slugify(req.body.name) });
+    if (!topicInitial)
+      return res
+        .status(404)
+        .send(
+          "Topic not found. You can only generate topics that are linked to existing topics."
+        );
+    if (topicInitial.isGenerated)
+      return res.status(500).send("Description already generated");
+    console.log("all good, lets generate");
     const { slug, data } = await generate({ name: req.body.name });
     await saveToDB({ data });
     const topic = await getTopic({ slug });
