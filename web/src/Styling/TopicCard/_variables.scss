@@ -45,6 +45,7 @@ $image-shrinkage: 0.75;
     .topic-card-img-btn {
       @include img-btn-screen-display;
       & .topic-card-img {
+        transform: translateY(55px);
         width: 250px;
         height: 250px;
         transition: transform 300ms ease-out;
@@ -53,20 +54,19 @@ $image-shrinkage: 0.75;
   }
   @media screen and (max-width: 700px) {
     .topic-card {
-      width: 100%;
+      width: 600px;
     }
     & .topic-card-img-btn {
       display: flex;
       @include img-btn-phone-display;
 
       & .topic-card-img {
-        margin-left: 45px;
         width: 200px;
         height: 200px;
+        transform: translateY(75px);
       }
 
       & button {
-        margin-left: 30px;
         margin-bottom: 10px;
       }
     }
