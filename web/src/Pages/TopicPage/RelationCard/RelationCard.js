@@ -4,10 +4,10 @@ import PropType from "prop-types";
 import { sendRelationEvent, sendClickEvent } from "../../../utils/gaEvents";
 import { replaceImage } from "../../../components/ErrorMessage";
 
-function RelationCard({ name, description, image, parent, loading }) {
+function RelationCard({ slug, name, description, image, parent, loading }) {
   return (
     <Link
-      to={`/${name.toLowerCase()}`}
+      to={`/${slug}`}
       title={`link to ${name.toLowerCase()}`}
       onClick={() => {
         loading();
