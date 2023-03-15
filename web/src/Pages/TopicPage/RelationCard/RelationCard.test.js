@@ -4,10 +4,10 @@ import { BrowserRouter } from "react-router-dom";
 import AudienceContext from "../../../components/AudienceContext";
 import RelationCard from "./RelationCard";
 
-const name = "pedro-pascal";
-const slug = "Pedro Pascal";
+const name = "Pedro Pascal";
+const slug = "pedro-pascal";
 const description = "JavaScript is used to add interactivity to HTML pages";
-const image = `${process.env.PUBLIC_URL}pedro-pascal.png`;
+const image = `${process.env.PUBLIC_URL}${slug}.png`;
 function loading() {
   /* eslint-disable no-console */
   console.log("is loading : )");
@@ -67,7 +67,7 @@ describe("Test if all elements of RelationCard are rendered", () => {
       },
     );
     const topicImg = screen.getByRole("img");
-    expect(topicImg).toHaveAttribute("src", `${name}.png`);
+    expect(topicImg).toHaveAttribute("src", `${slug}.png`);
     expect(topicImg).toHaveAttribute("alt", name);
   });
   test("Failure to find image resolves to default image", () => {
