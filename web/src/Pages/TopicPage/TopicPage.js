@@ -35,7 +35,7 @@ export default function TopicPage() {
       }
 
       // Descriptions were not found, let's generate them
-      // if (process.env.NODE_ENV === "development") return setIsDevMode(true);
+      if (process.env.NODE_ENV === "development") return setIsDevMode(true);
       const data = fetchedData?.topic?.[0];
       setTopicData(data);
       setIsGenerating(true);

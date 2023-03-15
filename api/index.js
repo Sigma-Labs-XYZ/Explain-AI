@@ -75,9 +75,12 @@ app.post("/topic", async (req, res) => {
         error:
           "Topic not found. You can only generate topics that are linked to existing topics.",
       });
+
+    // If this topic has already been generated, return an error
     if (topicInitial.isGenerated)
       return res.status(500).send({ error: "Description already generated" });
-    console.log("all good, lets generate");
+
+    // Otherwise, generate the topic
     const { slug, data } = await generate({ name: req.body.name });
     await saveToDB({ data });
     const topic = await getTopic({ slug });
