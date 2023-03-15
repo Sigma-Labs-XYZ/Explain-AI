@@ -5,6 +5,7 @@ import AudienceContext from "../../../components/AudienceContext";
 import RelationCard from "./RelationCard";
 
 const name = "pedro";
+const slug = "pedro";
 const description = "JavaScript is used to add interactivity to HTML pages";
 const image = `${process.env.PUBLIC_URL}pedro.png`;
 function loading() {
@@ -17,7 +18,13 @@ describe("Test if all elements of RelationCard are rendered", () => {
   test("Name of the topic rendered", () => {
     render(
       <AudienceContext>
-        <RelationCard name={name} description={description} image={image} loading={loading} />
+        <RelationCard
+          slug={slug}
+          name={name}
+          description={description}
+          image={image}
+          loading={loading}
+        />
       </AudienceContext>,
       {
         wrapper: BrowserRouter,
@@ -29,7 +36,13 @@ describe("Test if all elements of RelationCard are rendered", () => {
   test("Description of the topic rendered", () => {
     render(
       <AudienceContext>
-        <RelationCard name={name} description={description} image={image} loading={loading} />
+        <RelationCard
+          slug={slug}
+          name={name}
+          description={description}
+          image={image}
+          loading={loading}
+        />
       </AudienceContext>,
       {
         wrapper: BrowserRouter,
@@ -41,7 +54,13 @@ describe("Test if all elements of RelationCard are rendered", () => {
   test("Image of the topic rendered", () => {
     render(
       <AudienceContext>
-        <RelationCard name={name} description={description} image={image} loading={loading} />
+        <RelationCard
+          slug={slug}
+          name={name}
+          description={description}
+          image={image}
+          loading={loading}
+        />
       </AudienceContext>,
       {
         wrapper: BrowserRouter,
