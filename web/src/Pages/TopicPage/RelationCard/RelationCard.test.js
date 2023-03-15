@@ -73,7 +73,13 @@ describe("Test if all elements of RelationCard are rendered", () => {
   test("Failure to find image resolves to default image", () => {
     render(
       <AudienceContext>
-        <RelationCard name={name} description={description} image={image} loading={loading} />
+        <RelationCard
+          slug={slug}
+          name={name}
+          description={description}
+          image={image}
+          loading={loading}
+        />
       </AudienceContext>,
       {
         wrapper: BrowserRouter,
@@ -89,7 +95,13 @@ describe("link elements", () => {
   test("elements loaded within the link tag so they are all clickable and correct link path", async () => {
     render(
       <AudienceContext>
-        <RelationCard name={name} description={description} image={image} loading={loading} />
+        <RelationCard
+          slug={slug}
+          name={name}
+          description={description}
+          image={image}
+          loading={loading}
+        />
       </AudienceContext>,
       {
         wrapper: BrowserRouter,
@@ -98,8 +110,8 @@ describe("link elements", () => {
     expect(global.window.location.pathname).toBe("/");
     const link = screen.getByRole("link");
     fireEvent.click(link);
-    expect(global.window.location.pathname).toBe(`/${name}`);
-    expect(link).toHaveAttribute("href", `/${name}`);
+    expect(global.window.location.pathname).toBe(`/${slug}`);
+    expect(link).toHaveAttribute("href", `/${slug}`);
     const img = within(link).getByRole("img");
     expect(img).toHaveAttribute("src", `${name}.png`);
     const heading = within(link).getByRole("heading");
