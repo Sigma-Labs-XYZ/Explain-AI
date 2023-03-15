@@ -71,13 +71,12 @@ app.post("/topic", async (req, res) => {
     // we call this a 'stub'
     const topicInitial = await getTopic({ slug: slugify(req.body.name) });
     if (!topicInitial)
-      return res
-        .status(404)
-        .send(
-          "Topic not found. You can only generate topics that are linked to existing topics."
-        );
+      return res.status(404).send({
+        error:
+          "Topic not found. You can only generate topics that are linked to existing topics.",
+      });
     if (topicInitial.isGenerated)
-      return res.status(500).send("Description already generated");
+      return res.status(500).send({ error: "Description already generated" });
     console.log("all good, lets generate");
     const { slug, data } = await generate({ name: req.body.name });
     await saveToDB({ data });

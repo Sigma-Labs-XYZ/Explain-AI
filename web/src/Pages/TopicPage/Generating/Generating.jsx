@@ -6,6 +6,7 @@ import GeneratingAnimation from "./GeneratingAnimation.json";
 import "../../../Styling/Generating/generatingPage.css";
 
 export default function Generating({ topic }) {
+  if (!topic) return null;
   return (
     <div className="generating" data-testid="generating">
       <img
