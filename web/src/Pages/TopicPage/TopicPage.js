@@ -79,6 +79,7 @@ export default function TopicPage() {
           topicData.relationships.map((rel) =>
             rel.audience === audience ? (
               <RelationCard
+                slug={rel.to.slug}
                 key={rel.to.name}
                 name={rel.to.name}
                 description={rel.description}
