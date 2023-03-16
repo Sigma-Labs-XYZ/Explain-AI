@@ -8,6 +8,9 @@ dotenv.config();
 const app = express();
 app.use(express.json());
 app.use(cors());
+app.use(
+  require("prerender-node").set("prerenderToken", "ei9wgFEoLVlSh7Co5iI3")
+);
 
 const port = 4000;
 const DB_ENDPOINT = process.env.DB_ENDPOINT || "http://localhost:8080";
