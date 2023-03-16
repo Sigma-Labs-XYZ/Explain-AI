@@ -10,7 +10,7 @@ function RelationCard({ slug, name, description, image, parent, loading }) {
       to={`/${slug}`}
       title={`link to ${name.toLowerCase()}`}
       onClick={() => {
-        loading();
+        loading?.();
         sendRelationEvent(parent, name);
         sendClickEvent("RelationCard", name);
       }}

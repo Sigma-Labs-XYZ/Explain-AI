@@ -4,7 +4,7 @@ import Generating from "./Generating";
 import "../../../Styling/Generating/generatingPage.css";
 import dimensions from "../../../Tests/dimensions";
 
-const computing = "computing";
+const computing = { name: "computing" };
 
 describe("<Generating />", () => {
   it("renders", () => {
