@@ -4,11 +4,8 @@ import "react-loading-skeleton/dist/skeleton.css";
 
 export default function RelationCardLoading() {
   return (
-    <div
-      className="flex items-center ml-5 phone:mr-0 phone:ml-0 superWideDesktop:mr-[15%]"
-      data-test-id="link-div"
-    >
-      <div className="text-left bg-white border-transparent mb-3 p-3 pl-10 flex items-center w-full phone:ml-0 phone:pr-0 superWideDesktop:ml-[15%]">
+    <div className="flex items-center phone:mr-0 phone:ml-0" data-test-id="link-div">
+      <div className="text-left bg-white border-transparent mb-3 p-3 pl-10 flex items-center w-full phone:ml-0 phone:pr-0">
         <div className="pr-24 phone:mr-10 w-full">
           <p data-testid="skeleton">
             <Skeleton height={50} width={100} />

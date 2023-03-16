@@ -1,0 +1,10 @@
+{
+    "version": 3,
+    "mappings": "ACAA,OAAO,CAAC,iGAAI;ADEZ,AAAA,MAAM,CAAC;EACL,SAAS,EAAE,MAAM;EACjB,MAAM,EAAE,IAAI;CAWb;;AATC,MAAM,EAAE,SAAS,EAAE,QAAQ;EAJ7B,AAAA,MAAM,CAAC;IAKH,WAAW,EAAE,IAAI;IACjB,YAAY,EAAE,IAAI;GAOrB;;;AAJC,MAAM,EAAE,SAAS,EAAE,OAAO;EAT5B,AAAA,MAAM,CAAC;IAUH,WAAW,EAAE,GAAG;IAChB,YAAY,EAAE,GAAG;GAEpB",
+    "sources": [
+        "AppRouter.scss",
+        "../_variables.scss"
+    ],
+    "names": [],
+    "file": "AppRouter.css"
+}

@@ -9,9 +9,7 @@ export default function TopicPageLoading() {
       <BreadCrumbLoading />
       <TopicCardLoading />
 
-      <h2 className="text-left text-3xl ml-5 text-white font-bold mb-5 mt-16 superWideDesktop:ml-[15%]">
-        Related
-      </h2>
+      <h2 className="text-left text-3xl text-white font-bold mb-5 mt-16 ">Related</h2>
 
       <RelationCardLoading />
       <RelationCardLoading />

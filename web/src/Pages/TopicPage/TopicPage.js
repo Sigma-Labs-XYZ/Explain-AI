@@ -28,7 +28,6 @@ export default function TopicPage() {
     const doFetch = async () => {
       const fetchedData = await fetchData(MAIN_URL);
       // Descriptions were found
-
       if (fetchedData?.isGenerated) {
         const currentTopicData = fetchedData.topic?.[0];
         setTopicData(currentTopicData);
@@ -72,7 +71,8 @@ export default function TopicPage() {
           current={topic}
         />
         <TopicCard topic={topicData} />
-        <h2 className="text-left ml-5 text-white mb-5 mt-16 superWideDesktop:ml-[14.5%]">
+
+        <h2 className="text-left text-4xl phone:pl-3 text-white font-extrabold mb-5 mt-28 superWideDesktop:">
           Related
         </h2>
         {topicData.relationships &&

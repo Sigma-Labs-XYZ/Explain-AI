@@ -2,10 +2,16 @@
   margin-top: 130px;
   margin-left: auto;
   margin-right: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
   width: 800px;
 }
+
 .generating .img {
   margin-left: auto;
   margin-right: auto;
@@ -14,21 +20,29 @@
   @apply h-[400px];
   @apply w-[400px];
 }
+
 .generating .title {
+  -ms-flex-item-align: center;
+  -ms-grid-row-align: center;
   align-self: center;
   color: white;
   margin-bottom: 20px;
   font-size: 40px;
 }
+
 .generating .description {
   text-align: center;
+  -ms-flex-item-align: center;
+  -ms-grid-row-align: center;
   align-self: center;
   color: white;
   margin-bottom: 20px;
   font-size: 30px;
   @apply w-[600px];
 }
+
 .generating .lottie {
   margin: auto;
   width: 300px;
-} /*# sourceMappingURL=generatingPage.css.map */
+}
+/*# sourceMappingURL=generatingPage.css.map */

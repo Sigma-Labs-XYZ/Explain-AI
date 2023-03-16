@@ -1,0 +1,16 @@
+@import "../variables";
+
+.inner {
+  max-width: 1000px;
+  margin: auto;
+
+  @media (max-width: $desktop-width) {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+  @media (max-width: $phone-width) {
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+}

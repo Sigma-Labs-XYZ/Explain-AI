@@ -1,53 +1,81 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200&family=Tilt+Warp&display=swap");
 header {
-  display: flex;
-  align-items: center;
-  flex-direction: row;
   background-color: #000;
   height: 70px;
   width: 100%;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
   justify-content: space-between;
   position: fixed;
   top: 0;
   z-index: 100;
 }
-header a {
+
+header .inner {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  height: 100%;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  height: 70px;
+  max-width: 1000px;
+  margin: auto;
+}
+
+header .inner a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
-  margin-left: 30px;
+  height: 100%;
 }
-@media (min-width: 1000.5px) {
-  header a {
-    margin-left: 15%;
+
+@media (max-width: 1000.5px) {
+  header .inner a {
+    margin-left: 10px;
   }
 }
+
 @media (max-width: 550.5px) {
-  header a {
+  header .inner a {
     height: 70%;
+    margin-left: 2rem;
+    margin-top: 10px;
   }
 }
-header a img {
+
+header .inner a img {
   display: block;
   overflow: visible;
   height: 60%;
 }
-header a img:hover {
+
+header .inner a img:hover {
+  -webkit-transition: all 200ms ease-in-out;
   transition: all 200ms ease-in-out;
+  -webkit-transform: scale(1.05);
   transform: scale(1.05);
 }
-header div {
+
+header .inner .button-dropdown {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
-  flex-direction: row;
-  margin-right: 30px;
 }
-@media (min-width: 1000.5px) {
-  header div {
-    margin-right: 15%;
+
+@media (max-width: 1000.5px) {
+  header .inner .button-dropdown {
+    margin-right: 10px;
   }
 }
-header div .btn {
+
+header .inner .button-dropdown .btn {
   border: none;
   margin-left: 1%;
   width: 75px;
@@ -61,16 +89,19 @@ header div .btn {
   font-weight: bolder;
   font-family: "Tilt Warp", cursive;
 }
-header div .btn.selected {
+
+header .inner .button-dropdown .btn.selected {
   background-color: #fff;
   color: #000;
 }
-@media (max-width: 550.5px) {
-  header div .btn {
+
+@media (max-width: 475.5px) {
+  header .inner .button-dropdown .btn {
     display: none;
   }
 }
-header div .likeIm {
+
+header .inner .button-dropdown .likeIm {
   color: #e3e3e3;
   margin-right: 10px;
   font-size: 16px;
@@ -78,12 +109,14 @@ header div .likeIm {
   min-width: 70px;
   text-align: right;
 }
+
 @media (max-width: 330px) {
-  header div .likeIm {
+  header .inner .button-dropdown .likeIm {
     display: none;
   }
 }
-header div .select-pg {
+
+header .inner .button-dropdown .select-pg {
   width: 75px;
   height: 37px;
   border: none;
@@ -91,6 +124,7 @@ header div .select-pg {
   font-family: "Tilt Warp", cursive;
   font-size: 18px;
   position: relative;
+  margin-right: 10px;
   padding-right: 5px;
   -moz-appearance: none;
   -webkit-appearance: none;
@@ -100,8 +134,10 @@ header div .select-pg {
   background-position: right 1px top 50%, 0 0;
   background-size: 15px auto, 50%;
 }
-@media (min-width: 550.5px) {
-  header div .select-pg {
+
+@media (min-width: 475.5px) {
+  header .inner .button-dropdown .select-pg {
     display: none;
   }
-} /*# sourceMappingURL=Header.css.map */
+}
+/*# sourceMappingURL=Header.css.map */

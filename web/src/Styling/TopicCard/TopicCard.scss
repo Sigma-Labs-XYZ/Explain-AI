@@ -2,14 +2,15 @@
 
 .topic-card-parent {
   @include screen-size-change;
-  margin-top: 20px;
   display: flex;
   justify-content: center;
+  margin-top: 20px;
   & .topic-card {
     border: none !important;
     background-color: white;
     display: flex;
     flex-direction: column;
+    width: 100%;
     & .topic-card-description {
       padding-left: 2em;
       padding-right: 2em;

@@ -1,7 +1,6 @@
 @import "../../Styling/variables.scss";
 
 header {
-  @include flex-row;
   background-color: $black;
   height: 70px;
   width: 100%;
@@ -9,69 +8,78 @@ header {
   position: fixed;
   top: 0;
   z-index: 100;
-  a {
+
+  .inner {
     display: flex;
-    height: 100%;
-    align-items: center;
-    margin-left: 30px;
-    @media (min-width: $desktop-width) {
-      margin-left: 15%;
-    }
-    @media (max-width: $phone-width) {
-      height: 70%;
-    }
-    img {
-      display: block;
-      overflow: visible;
-      height: 60%;
-      &:hover {
-        transition: all 200ms ease-in-out;
-        transform: scale(1.05);
-      }
-    }
-  }
+    justify-content: space-between;
+    height: 70px;
+    max-width: 1000px;
+    margin: auto;
 
-  div {
-    @include flex-row;
-    margin-right: 30px;
-    @media (min-width: $desktop-width) {
-      margin-right: 15%;
+    a {
+      @include flex-row;
+      height: 100%;
+      @media (max-width: $desktop-width) {
+        margin-left: 10px;
+      }
+      @media (max-width: $tablet-width) {
+        height: 70%;
+        margin-left: 2rem;
+        margin-top: 10px;
+      }
+      img {
+        display: block;
+        overflow: visible;
+        height: 60%;
+        &:hover {
+          transition: all 200ms ease-in-out;
+          transform: scale(1.05);
+        }
+      }
     }
-    .btn {
-      border: none;
-      margin-left: 1%;
-      width: 75px;
-      height: 30px;
-      font-weight: bold;
-      font-family: $fontStyle;
-      font-size: 19px;
-      background-color: $bg-button-inactive;
-      border: none;
-      color: $btn-text-inactive;
-      font-weight: bolder;
-      font-family: $fontStyle;
 
-      &.selected {
-        background-color: $white;
-        color: $black;
+    .button-dropdown {
+      @include flex-row;
+      @media (max-width: $desktop-width) {
+        margin-right: 10px;
       }
-      @media (max-width: $phone-width) {
-        display: none;
+      .btn {
+        border: none;
+        margin-left: 1%;
+        width: 75px;
+        height: 30px;
+        font-weight: bold;
+        font-family: $fontStyle;
+        font-size: 19px;
+        background-color: $bg-button-inactive;
+        border: none;
+        color: $btn-text-inactive;
+        font-weight: bolder;
+        font-family: $fontStyle;
+
+        &.selected {
+          background-color: $white;
+          color: $black;
+        }
+        @media (max-width: $phone-width) {
+          display: none;
+        }
       }
-    }
-    .likeIm {
-      color: $offWhite;
-      margin-right: 10px;
-      font-size: 16px;
-      font-family: $fontStyle;
-      min-width: 70px;
-      text-align: right;
-      @media (max-width: $small-phone-width) {
-        display: none;
+      .likeIm {
+        color: $offWhite;
+        margin-right: 10px;
+
+        font-size: 16px;
+        font-family: $fontStyle;
+        min-width: 70px;
+        text-align: right;
+        @media (max-width: $small-phone-width) {
+          display: none;
+        }
       }
-    }
-    .select-pg {
-      @include select-style;
+      .select-pg {
+        @include select-style;
+      }
     }
   }
 }

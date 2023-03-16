@@ -16,13 +16,13 @@ function RelationCard({ slug, name, description, image, parent, loading }) {
       }}
     >
       <div
-        className="flex items-center ml-5 phone:mr-0 phone:ml-0 superWideDesktop:mr-[15%]"
+        className="flex items-center phone:mr-0 phone:ml-0"
         data-testid="link-div-rtl"
         data-test-id="link-div"
       >
-        <div className="text-left bg-white border-transparent mb-3 p-3 pl-10 flex items-center w-full phone:ml-0 phone:pr-0 superWideDesktop:ml-[15%]">
-          <div className="pr-24 ">
-            <h3 className="font-bold text-black mb-0 mt-4">{name}</h3>
+        <div className="text-left bg-white border-transparent mb-3 p-3 pl-10 flex items-center w-full phone:ml-0 phone:pr-0">
+          <div className="pr-24 phone:mr-10">
+            <h3 className="font-bold text-black mb-0">{name}</h3>
             <p className="mt-2">{description}</p>
           </div>
         </div>
