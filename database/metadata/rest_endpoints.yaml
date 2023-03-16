@@ -43,7 +43,7 @@
     - GET
   name: Topics
   url: topics
-- comment: "A list of all topics to build static pages"
+- comment: ""
   definition:
     query:
       collection_name: allowed-queries
