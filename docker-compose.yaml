@@ -26,6 +26,7 @@ services:
       HASURA_GRAPHQL_ADMIN_SECRET: admin_secret
       DATABASE_URL: postgres://postgres:postgrespassword@explainai-database-engine:5432/postgres
       HASURA_GRAPHQL_DATABASE_URL: postgres://postgres:postgrespassword@explainai-database-engine:5432/postgres
+      API_ENDPOINT: http://explainai-backend-api:4000
   explainai-backend-api:
     container_name: explainai-backend-api
     working_dir: /app
