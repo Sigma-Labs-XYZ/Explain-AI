@@ -17,24 +17,17 @@ export default function HomePageCard({ group, audience }) {
       </div>
       <br />
       <ul>
-        {group.items.map((item) => {
-          const hasBeenGenerated = item.topic.descriptions?.[ageIndex]?.extra_short;
-          return (
-            <li key={item.topic.name}>
-              <RelationCard
-                slug={item.topic.slug}
-                name={item.topic.name}
-                description={
-                  hasBeenGenerated
-                    ? item.topic.descriptions[ageIndex].extra_short
-                    : "Click to generate"
-                }
-                image={item.topic.image}
-                parent={group.name}
-              />
-            </li>
-          );
-        })}
+        {group.items.map((item) => (
+          <li key={item.topic.name}>
+            <RelationCard
+              slug={item.topic.slug}
+              name={item.topic.name}
+              description={item.topic.descriptions?.[ageIndex]?.extra_short || "Click to generate"}
+              image={item.topic.image}
+              parent={group.name}
+            />
+          </li>
+        ))}
       </ul>
     </div>
   );
