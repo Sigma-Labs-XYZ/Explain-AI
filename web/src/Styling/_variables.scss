@@ -6,20 +6,14 @@ $black: #000;
 $offWhite: #e3e3e3;
 $bg-button-inactive: #323232;
 $btn-text-inactive: #a5a4a4;
-$phone-width: 550.5px;
+$phone-width: 475.5px;
+$tablet-width: 550.5px;
 $small-phone-width: 330px;
 $desktop-width: 1000.5px;
 
 @mixin flex-row {
   display: flex;
   align-items: center;
-  flex-direction: row;
-}
-
-@mixin flex-colunm {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
 }
 
 @mixin select-style {
@@ -30,6 +24,7 @@ $desktop-width: 1000.5px;
   font-family: $fontStyle;
   font-size: 18px;
   position: relative;
+  margin-right: 10px;
   padding-right: 5px;
   -moz-appearance: none;
   -webkit-appearance: none;
@@ -46,10 +41,10 @@ $desktop-width: 1000.5px;
 
 $breakpoints: (
   "small": (
-    max-width: 550.5px,
+    max-width: 449px,
   ),
   "medium": (
-    min-width: 550.5px,
+    min-width: 450px,
   ),
   "large": (
     min-width: 1001px,

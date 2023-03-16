@@ -6,10 +6,13 @@
 .groups-container {
   margin-top: 50px;
 }
+
 .groups-container .group-description {
-  color: rgb(131, 131, 131);
+  color: #838383;
   display: inline;
 }
+
 .groups-container .group-title {
-  color: rgb(255, 255, 255);
-} /*# sourceMappingURL=Homepage.css.map */
+  color: white;
+}
+/*# sourceMappingURL=Homepage.css.map */

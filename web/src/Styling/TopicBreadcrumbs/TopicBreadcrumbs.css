@@ -1,34 +1,37 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200&family=Tilt+Warp&display=swap");
-@media (max-width: 550.5px) {
+@media (max-width: 449px) {
   #desktop {
     display: none;
     margin-top: 30px;
   }
 }
-@media (min-width: 550.5px) {
+
+@media (min-width: 450px) {
   #desktop {
     display: block;
     margin-top: 30px;
   }
 }
+
 @media (min-width: 1001px) {
   #desktop {
     display: block;
     margin-top: 30px;
-    margin-left: 14.6%;
   }
 }
 
-@media (max-width: 550.5px) {
+@media (max-width: 449px) {
   #mobile {
     display: block;
   }
 }
-@media (min-width: 550.5px) {
+
+@media (min-width: 450px) {
   #mobile {
     display: none;
   }
 }
+
 @media (min-width: 1001px) {
   #mobile {
     display: none;
@@ -36,17 +39,18 @@
 }
 
 .desktop {
-  @apply ml-7 w-screen bg-backdrop;
+  @apply w-screen bg-backdrop;
 }
 
 .desktop-container {
-  @apply w-screen bg-backdrop text-white capitalize p-0.5;
+  @apply w-screen bg-backdrop text-white capitalize;
 }
 
 .mobile-parent-btn {
-  @apply bg-backdrop2 pb-2 pt-2 text-left text-white capitalize w-screen;
+  @apply bg-backdrop2 pt-2 text-left text-white pb-2 pl-[2rem] capitalize w-screen;
 }
 
 .mobile-grandParent-btn {
-  @apply bg-backdrop pb-2 pt-2 text-left text-white capitalize w-screen;
-} /*# sourceMappingURL=TopicBreadcrumbs.css.map */
+  @apply bg-backdrop pt-2 text-left text-white pl-[2rem] capitalize w-screen;
+}
+/*# sourceMappingURL=TopicBreadcrumbs.css.map */

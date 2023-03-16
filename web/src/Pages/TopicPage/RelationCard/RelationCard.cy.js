@@ -12,7 +12,7 @@ describe("media queries for the card display for phone/desktop", () => {
         <RelationCard name="test" description="test" />
       </BrowserRouter>,
     );
-    cy.get('[data-test-id="link-div"]').should("have.css", "margin-left", "20px");
+    cy.get('[data-test-id="link-div"]').should("have.css", "margin", "0px");
   });
 
   it("there are no margins for phone", () => {

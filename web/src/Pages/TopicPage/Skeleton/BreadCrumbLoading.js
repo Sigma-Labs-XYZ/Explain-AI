@@ -25,7 +25,7 @@ function BreadcrumbLoading() {
       <div id="mobile" data-testid="mobile">
         <Link>
           <button type="button" className="mobile-parent-btn">
-            <span className="ml-7">
+            <span>
               Loading...
               {/* {"  > "} */}
             </span>
@@ -34,7 +34,7 @@ function BreadcrumbLoading() {
 
         <Link data-testid="mobile-parent">
           <button type="button" className="mobile-grandParent-btn">
-            <span className="ml-7">
+            <span>
               Loading...
               {/* {"  > "} */}
             </span>

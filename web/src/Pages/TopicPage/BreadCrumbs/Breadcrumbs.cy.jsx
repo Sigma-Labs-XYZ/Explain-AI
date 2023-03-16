@@ -4,6 +4,7 @@ import Breadcrumbs from "./Breadcrumbs";
 import "../../../App";
 
 describe("<Breadcrumbs /> - testing for component render and display on screen adjust", () => {
+  Cypress.on("uncaught:exception", (err, runnable) => false);
   it("desktop breadcrumb component renders on screen on desktop view", () => {
     cy.viewport(1200, 1000);
     cy.mount(

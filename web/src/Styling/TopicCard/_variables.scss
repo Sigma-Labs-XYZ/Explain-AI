@@ -18,7 +18,7 @@ $image-shrinkage: 0.75;
 @mixin screen-size-change {
   @media screen and (max-width: 1000px) and (min-width: 700px) {
     .topic-card {
-      width: $phone-screen-width;
+      // width: $phone-screen-width;
     }
     .topic-card-img-btn {
       @include img-btn-screen-display;
@@ -40,7 +40,7 @@ $image-shrinkage: 0.75;
   }
   @media screen and (min-width: 1000px) {
     .topic-card {
-      width: $wide-screen-width;
+      // width: $wide-screen-width;
     }
     .topic-card-img-btn {
       @include img-btn-screen-display;

@@ -10,7 +10,7 @@ export default function HomePageCard({ group, audience }) {
   }, [audience]);
   return (
     <div>
-      <div className="group-display-title mt-28 span-desc ml-5 phone:mr-0 phone:ml-0 superWideDesktop:mr-[15%] superWideDesktop:ml-[15%] desktop:mr-[15%]">
+      <div className="group-display-title mt-28 span-desc phone:pl-2">
         <h1 className="group-title">
           {group.name} <h1 className="group-description">{group.description}</h1>
         </h1>{" "}
@@ -20,6 +20,7 @@ export default function HomePageCard({ group, audience }) {
         {group.items.map((item) => (
           <li key={item.topic.name}>
             <RelationCard
+              slug={item.topic.slug}
               name={item.topic.name}
               description={item.topic.descriptions[ageIndex].extra_short}
               image={item.topic.image}
