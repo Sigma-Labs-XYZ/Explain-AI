@@ -68,32 +68,32 @@ export default function TopicPage() {
   if (isGenerating) return <Generating topic={topicData} />;
   if (isLoading) return <TopicPageLoading />;
   return (
-      <div data-testid="loadedPage" className="mt-[70px]">
-        <Breadcrumbs
-          parent={topicData?.parent?.parent}
-          grandParent={topicData?.parent?.parent?.grandparent?.grandparent}
-          current={topic}
-        />
-        <TopicCard topic={topicData} />
+    <div data-testid="loadedPage" className="mt-[70px]">
+      <Breadcrumbs
+        parent={topicData?.parent?.parent}
+        grandParent={topicData?.parent?.parent?.grandparent?.grandparent}
+        current={topic}
+      />
+      <TopicCard topic={topicData} />
 
-        <h2 className="text-left text-4xl phone:pl-3 text-white font-extrabold mb-5 mt-28 superWideDesktop:">
-          Related
-        </h2>
-        {topicData.relationships &&
-          topicData.relationships.map((rel) =>
-            rel.audience === audience ? (
-              <RelationCard
-                slug={rel.to.slug}
-                key={rel.to.name}
-                name={rel.to.name}
-                description={rel.description}
-                image={rel.to.image}
-                parent={topic}
-                // eslint-disable-next-line react/jsx-no-bind
-                loading={loading}
-              />
-            ) : null,
-          )}
-      </div>
+      <h2 className="text-left text-4xl phone:pl-3 text-white font-extrabold mb-5 mt-28 superWideDesktop:">
+        Related
+      </h2>
+      {topicData.relationships &&
+        topicData.relationships.map((rel) =>
+          rel.audience === audience ? (
+            <RelationCard
+              slug={rel.to.slug}
+              key={rel.to.name}
+              name={rel.to.name}
+              description={rel.description}
+              image={rel.to.image}
+              parent={topic}
+              // eslint-disable-next-line react/jsx-no-bind
+              loading={loading}
+            />
+          ) : null,
+        )}
+    </div>
   );
 }
