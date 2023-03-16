@@ -39,6 +39,15 @@ array_relationships:
         remote_table:
           name: group_memberships
           schema: public
+  - name: relatedFrom
+    using:
+      manual_configuration:
+        column_mapping:
+          slug: to_slug
+        insertion_order: null
+        remote_table:
+          name: relationship
+          schema: public
   - name: relationships
     using:
       manual_configuration:
@@ -60,20 +69,20 @@ event_triggers:
   - name: revalidate_topic
     definition:
       delete:
-        columns: '*'
+        columns: "*"
       enable_manual: false
       insert:
-        columns: '*'
+        columns: "*"
       update:
-        columns: '*'
+        columns: "*"
     retry_conf:
       interval_sec: 10
       num_retries: 0
       timeout_sec: 60
-    webhook: '{{API_ENDPOINT}}/api/revalidate'
+    webhook: "{{API_ENDPOINT}}/api/revalidate"
     request_transform:
       body:
         action: transform
-        template: '{{$body.event.data.new.slug}}'
+        template: "{{$body.event.data.new.slug}}"
       template_engine: Kriti
       version: 2
