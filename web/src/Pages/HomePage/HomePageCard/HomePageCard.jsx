@@ -22,7 +22,7 @@ export default function HomePageCard({ group, audience }) {
             <RelationCard
               slug={item.topic.slug}
               name={item.topic.name}
-              description={item.topic.descriptions[ageIndex].extra_short}
+              description={item.topic.descriptions?.[ageIndex]?.extra_short || "Click to generate"}
               image={item.topic.image}
               parent={group.name}
             />
